@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'Goffini';
+  title = 'V_1.0.0-0002_16.10.2022';
 }

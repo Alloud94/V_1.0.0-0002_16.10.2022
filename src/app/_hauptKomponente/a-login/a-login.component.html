@@ -1,1 +1,25 @@
-<p>a-login works!</p>
+<div class="login">
+    <div class="loginContent">
+        <div class="loginLogo">
+            <img [src]="logo" alt="Goffini Logo mit Schriftzug 'Goffini, Ordnung|Form|Funktion'.">
+        </div>
+        <div class="loginForm">
+            <form action="">
+                <div class="loginUserName">
+                    <img [src]="username" alt="">
+                    <input type="text" id="userName" value="BENUTZERNAME">
+                </div>
+                <div class="loginPasswort">
+                    <img [src]="passwort" alt="">
+                    <input type="text" id="pWord" value="PASSWORT">
+                </div>
+                <div class="loginSubInfos">
+                    <input type="checkbox" id="chbLogin" value="Angemeldet bleiben">
+                    <label for="chbLogin">Angemeldet bleiben</label>
+                    <a href="">Passwort vergessen</a>
+                </div>
+                <input type="submit" value="LOGIN">
+            </form>
+        </div>
+    </div>
+</div>
