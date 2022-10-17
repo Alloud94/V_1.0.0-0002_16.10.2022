@@ -1,0 +1,107 @@
+@import './src/sass/var'
+    
+.loginContent
+    height: 100vh
+    width: 100vw
+    display: flex
+    justify-content: center
+    align-items: center
+
+.loginLogo
+    position: fixed
+    top: 160px
+
+.loginLogo img
+    height: 300px
+
+.loginForm
+    position: fixed
+    bottom: 175px
+
+.loginUserName input, 
+.loginPasswort input
+    width: 487px
+    background-color: white
+    height: 55px
+    margin-top: 5px
+    color: $formFontColor
+
+.loginUserName, 
+.loginPasswort
+    height: 65px
+    border: 1px solid $borderColor
+    border-radius: 10px
+    background-color: white
+    margin-top: 10px
+    margin-bottom: 10px
+
+.loginUserName input, 
+.loginPasswort input
+    margin-left: 20px
+    margin-right: 20px
+
+.loginUserName input, 
+.loginPasswort input
+    &:focus
+        border: none
+        outline: none
+
+.loginUserName img, 
+.loginPasswort img
+    background-color: white
+
+.loginForm img
+    height: 50px
+    display: inline
+    vertical-align: top
+    margin-top: 7px
+
+.loginSubInfos
+    width: 575-48+40px
+    margin-bottom: 50px
+
+.chb
+    float: left
+
+.chb label
+    margin-left: 50px
+
+.chb input
+    position: absolute
+    opacity: 0
+    cursor: pointer
+    height: 0
+    width: 0
+
+.checkmark
+    position: absolute
+    top: 200px
+    left: 0
+    height: 40px
+    width: 40px
+    background-color: white
+    border: 1px solid $borderColor
+    border-radius: 10px
+
+.pwFehler
+    float: right
+
+.submitLogin
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100%
+
+.submitLogin input
+    width: 250px
+    height: 65px
+    background-color: $primaryColor
+    border: 1px solid $borderColor
+    border-radius: 10px
+
+.submitLogin label
+    background-color: $primaryColor
+    font-family: $fontRoboto
+    font-size: 30px
+
+

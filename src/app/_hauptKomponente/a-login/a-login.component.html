@@ -7,18 +7,26 @@
             <form action="">
                 <div class="loginUserName">
                     <img [src]="username" alt="">
-                    <input type="text" id="userName" value="BENUTZERNAME">
+                    <input type="text" id="userName" placeholder="BENUTZERNAME">
                 </div>
                 <div class="loginPasswort">
                     <img [src]="passwort" alt="">
-                    <input type="text" id="pWord" value="PASSWORT">
+                    <input type="text" id="pWord" placeholder="PASSWORT">
                 </div>
                 <div class="loginSubInfos">
-                    <input type="checkbox" id="chbLogin" value="Angemeldet bleiben">
-                    <label for="chbLogin">Angemeldet bleiben</label>
-                    <a href="">Passwort vergessen</a>
+                    <div class="chb">
+                        <label for="chbLogin">Angemeldet bleiben
+                            <input type="checkbox" id="chbLogin" value="Angemeldet bleiben">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="pwFehler">
+                        <a href="">Passwort vergessen</a>
+                    </div>
                 </div>
-                <input type="submit" value="LOGIN">
+                <div class="submitLogin">
+                    <input type="submit" value="LOGIN">
+                </div>
             </form>
         </div>
     </div>
