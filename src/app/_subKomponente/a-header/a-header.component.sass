@@ -24,6 +24,7 @@
 /* ### SearchBar ### */
 .searchBar
     width: 575px - 30px
+    height: 50px
     background-color: white
     border: 1px solid $borderColor
     border-radius: 20px
@@ -31,6 +32,9 @@
 .searchBar input
     background-color: white
     height: 50px
+    width: 470px
+    text-align: right
+    margin-left: 18px
     &:focus
         outline: none
 
@@ -41,13 +45,17 @@
     height: 30px
     float: right
     background-color: white
+    margin-right: 10px
+    margin-top: 10px
+    border-left: 1px solid $borderColor
+    padding-left: 5px
+    margin-left: 10px
 
 /* ### Profil ### */
 .profil
     position: fixed
     right: calc(calc(100vw - 1300px) / 2)
     margin-right: 20px
-
 
 .menuPunkt
     height: 64px
@@ -58,6 +66,7 @@
     justify-content: center
     align-items: center
     background-color: white
+    cursor: pointer
 
 .profil img
     float: right
@@ -68,11 +77,12 @@
     float: left
     font-family: $fontSegoe
     font-size: 15px
-    margin-right: 5px
+    margin-right: 10px
 
 /* ### Unterer Teil Header Text ### */
 .headerText
     height: 100px
+    width: 100vw
     display: flex
     justify-content: center
     align-items: center

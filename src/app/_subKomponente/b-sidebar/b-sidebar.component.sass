@@ -1,0 +1,46 @@
+@import './src/sass/var'
+    
+/* Globale Variablen zu den Höhen und Breiten der Menupunkten */
+$hoeheMenupunkt: calc(calc(100vh - 201px - 50px - 15px)/8)
+$hoeheMenubild: calc($hoeheMenupunkt *0.5)
+
+/* ### Gesamte Sub Komponente ### */
+.skSidebar
+    position: fixed
+    left: calc(calc(100vw - 1300px) / 2)
+    top: 201px
+    width: 115px
+    max-height: calc(100vh - 201px - 15px)
+    margin-left: 20px
+    margin-bottom: 15px
+    border-right: 1px solid $primaryColor
+
+/* ### Menu Punkte ### */
+.menuPunkt
+    display: block
+    margin-top: 5px
+    margin-bottom: 5px
+
+.menuPunkt a 
+    height: $hoeheMenupunkt
+    width: $hoeheMenupunkt
+    border: 1px solid $borderColor
+    border-radius: 20px
+    background-color: white
+    display: block
+
+.abstand
+    height: $hoeheMenupunkt
+    width: $hoeheMenupunkt
+
+.menuPunkt img
+    height: $hoeheMenubild
+    background-color: white
+    display: block
+    margin: calc(calc($hoeheMenupunkt - $hoeheMenubild) /2)
+
+.menuPunkt p
+    display: block
+    font-size: 11px
+    text-align: center
+    margin-top: -13px
