@@ -1,5 +1,6 @@
 @import './src/sass/var'
     
+/* ### Gesamte Seite ### */
 .loginContent
     height: 100vh
     width: 100vw
@@ -7,28 +8,34 @@
     justify-content: center
     align-items: center
 
+/* ### Logo ### */
 .loginLogo
     position: fixed
-    top: 160px
+    top: 120px
 
 .loginLogo img
     height: 300px
 
+/* ### Login Form ### */
 .loginForm
     position: fixed
-    bottom: 175px
+    bottom: 195px
+
+.loginUserName input::placeholder, 
+.loginPasswort input::placeholder
+    color: $formFontColor
 
 .loginUserName input, 
 .loginPasswort input
     width: 487px
     background-color: white
-    height: 55px
+    height: 35px
     margin-top: 5px
-    color: $formFontColor
+    color: black
 
 .loginUserName, 
 .loginPasswort
-    height: 65px
+    height: 45px
     border: 1px solid $borderColor
     border-radius: 10px
     background-color: white
@@ -37,8 +44,8 @@
 
 .loginUserName input, 
 .loginPasswort input
-    margin-left: 20px
-    margin-right: 20px
+    margin-left: 10px
+    margin-right: 10px
 
 .loginUserName input, 
 .loginPasswort input
@@ -51,22 +58,36 @@
     background-color: white
 
 .loginForm img
-    height: 50px
+    height: 30px
     display: inline
     vertical-align: top
-    margin-top: 7px
+    margin-top: 2.5px
+    margin-left: 2px
 
 .loginSubInfos
     width: 575-48+40px
     margin-bottom: 50px
 
+.trennLinie
+    border-right: 1px solid $borderColor
+    padding: 5px
+
+/* ### Eigene Checkbox ### */
 .chb
     float: left
+    margin-top: 10px
 
 .chb label
     margin-left: 50px
 
-.chb input
+.chbContainer
+    cursor: pointer
+    -webkit-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+
+.chbContainer input
     position: absolute
     opacity: 0
     cursor: pointer
@@ -74,18 +95,48 @@
     width: 0
 
 .checkmark
+    display: flex
+    justify-content: center
+    align-items: center
     position: absolute
-    top: 200px
+    top: 128px
     left: 0
-    height: 40px
-    width: 40px
+    height: 30px
+    width: 30px
     background-color: white
     border: 1px solid $borderColor
+    background-color: $backgroundColor
     border-radius: 10px
 
+.checkmark p
+    display: none
+    font-size: 20px
+    font-weight: 600
+    margin-bottom: 2px
+    margin-left: 1px
+
+.chbContainer input:checked ~ .checkmark p
+    display: block
+
+.checkmark:after 
+  content: ""
+  position: absolute
+  display: none
+
+.chbContainer input:checked ~ .checkmark:after 
+  display: block
+
+.chbContainer .checkmark:after
+    left: 9px
+    top: 5px
+    width: 5px
+    height: 10px
+
+/* ### Passwort vergessen ### */
 .pwFehler
     float: right
 
+/* ### Login Button ### */
 .submitLogin
     display: flex
     justify-content: center
@@ -98,8 +149,10 @@
     background-color: $primaryColor
     border: 1px solid $borderColor
     border-radius: 10px
+    cursor: pointer
+    margin-top: 10px
 
-.submitLogin label
+.submitLogin input
     background-color: $primaryColor
     font-family: $fontRoboto
     font-size: 30px

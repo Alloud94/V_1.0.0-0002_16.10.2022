@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./b-passwort.component.sass']
 })
 export class BPasswortComponent implements OnInit {
+  logo:string = 'assets/img/logo/Logo.png';
+  username:string = 'assets/img/icon/user.png';
 
   constructor() { }
 

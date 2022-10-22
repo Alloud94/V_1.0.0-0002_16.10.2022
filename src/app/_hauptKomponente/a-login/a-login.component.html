@@ -6,18 +6,18 @@
         <div class="loginForm">
             <form action="">
                 <div class="loginUserName">
-                    <img [src]="username" alt="">
+                    <img [src]="username" alt="" class="trennLinie">
                     <input type="text" id="userName" placeholder="BENUTZERNAME">
                 </div>
                 <div class="loginPasswort">
-                    <img [src]="passwort" alt="">
-                    <input type="text" id="pWord" placeholder="PASSWORT">
+                    <img [src]="passwort" alt="" class="trennLinie">
+                    <input type="password" id="pWord" placeholder="PASSWORT">
                 </div>
                 <div class="loginSubInfos">
                     <div class="chb">
-                        <label for="chbLogin">Angemeldet bleiben
+                        <label class="chbContainer" for="chbLogin">Angemeldet bleiben
                             <input type="checkbox" id="chbLogin" value="Angemeldet bleiben">
-                            <span class="checkmark"></span>
+                            <span class="checkmark"><p>&#10005;</p></span>
                         </label>
                     </div>
                     <div class="pwFehler">

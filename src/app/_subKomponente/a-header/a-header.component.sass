@@ -1,0 +1,81 @@
+@import './src/sass/var'
+    
+/* ### Gesamte Sub Komponente ### */
+.skHeader
+    margin: 0 auto
+
+/* ### Oberer Teil Header ### */
+.header
+    height: 100px
+    display: flex
+    justify-content: center
+    align-items: center
+    border-bottom: 1px solid $primaryColor
+
+/* ### Logo ### */
+.logo
+    position: fixed
+    left: calc(calc(100vw - 1300px) / 2)
+    margin-left: 20px
+
+.logo img
+    height: 74px
+
+/* ### SearchBar ### */
+.searchBar
+    width: 575px - 30px
+    background-color: white
+    border: 1px solid $borderColor
+    border-radius: 20px
+
+.searchBar input
+    background-color: white
+    height: 50px
+    &:focus
+        outline: none
+
+.searchBar input::placeholder
+    color: $formFontColor
+
+.searchBar img
+    height: 30px
+    float: right
+    background-color: white
+
+/* ### Profil ### */
+.profil
+    position: fixed
+    right: calc(calc(100vw - 1300px) / 2)
+    margin-right: 20px
+
+
+.menuPunkt
+    height: 64px
+    width: 64px
+    border: 1px solid $borderColor
+    border-radius: 20px
+    display: flex
+    justify-content: center
+    align-items: center
+    background-color: white
+
+.profil img
+    float: right
+    height: 42px
+    background-color: white
+
+.profilGruss
+    float: left
+    font-family: $fontSegoe
+    font-size: 15px
+    margin-right: 5px
+
+/* ### Unterer Teil Header Text ### */
+.headerText
+    height: 100px
+    display: flex
+    justify-content: center
+    align-items: center
+
+
+

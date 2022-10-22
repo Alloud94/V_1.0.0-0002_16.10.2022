@@ -1,0 +1,86 @@
+@import './src/sass/var'
+    
+/* ### Gesamte Seite ### */
+.loginContent
+    height: 100vh
+    width: 100vw
+    display: flex
+    justify-content: center
+    align-items: center
+
+/* ### Logo ### */
+.loginLogo
+    position: fixed
+    top: 120px
+
+.loginLogo img
+    height: 300px
+
+/* ### Login Form ### */
+.loginForm
+    position: fixed
+    bottom: 295px
+
+.loginUserName input::placeholder
+    color: $formFontColor
+
+.loginUserName input
+    width: 487px
+    background-color: white
+    height: 35px
+    margin-top: 5px
+    color: black
+
+.loginUserName
+    height: 45px
+    border: 1px solid $borderColor
+    border-radius: 10px
+    background-color: white
+    margin-top: 10px
+    margin-bottom: 10px
+
+.loginUserName input
+    margin-left: 10px
+    margin-right: 10px
+
+.loginUserName input
+    &:focus
+        border: none
+        outline: none
+
+.loginUserName img
+    background-color: white
+
+.loginForm img
+    height: 30px
+    display: inline
+    vertical-align: top
+    margin-top: 2.5px
+    margin-left: 2px
+
+.trennLinie
+    border-right: 1px solid $borderColor
+    padding: 5px
+
+/* ### Login Button ### */
+.submitLogin
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100%
+
+.submitLogin input
+    width: 350px
+    height: 65px
+    background-color: $primaryColor
+    border: 1px solid $borderColor
+    border-radius: 10px
+    cursor: pointer
+    margin-top: 10px
+
+.submitLogin input
+    background-color: $primaryColor
+    font-family: $fontRoboto
+    font-size: 25px
+
+
