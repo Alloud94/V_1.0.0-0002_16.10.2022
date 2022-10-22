@@ -1,0 +1,45 @@
+@import './src/sass/var'
+    
+/* ### Gesamte Seite ### */
+.forWindow
+    overflow: hidden
+    height: 100vh
+    width: 100vw
+    max-height: calc(100vh - 201px - 15px)
+
+.forOL, 
+.forOR, 
+.forUL, 
+.forUR
+    position: fixed
+    background-color: white
+    border: 1px solid $borderColor
+    border-radius: 20px
+    margin-top: 5px
+
+.forOL
+    top: 201px
+    left: calc(calc(calc(100vw - 1300px) / 2) + 115px)
+    height: calc(calc(100vh - 201px - 30px - 15px - 100px) /2)
+    width: calc(calc(1300px - 115px - 15px - 30px) /2)
+
+.forOR
+    top: 201px
+    right: calc(calc(100vw - 1300px) / 2)
+    height: calc(calc(100vh - 201px - 30px - 15px - 100px) /2)
+    width: calc(calc(1300px - 115px - 15px - 30px) /2)
+    margin-right: 20px
+    
+.forUL
+    height: calc(calc(100vh - 101px - 30px - 15px) /2)
+    width: calc(calc(1300px - 115px - 15px - 30px) /2)
+    top: calc(201px + 30px + 326px - 50px)
+    left: calc(calc(calc(100vw - 1300px) / 2) + 115px)
+
+.forUR
+    top: calc(201px + 30px + 326px - 50px)
+    height: calc(calc(100vh - 101px - 30px - 15px) /2)
+    width: calc(calc(1300px - 115px - 15px - 30px) /2)
+    right: calc(calc(100vw - 1300px) / 2)
+    margin-right: 20px
+
