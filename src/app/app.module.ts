@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,50 @@ import { JDerArtikelComponent } from './_hauptKomponente/j-der-artikel/j-der-art
 import { KUnternehmenComponent } from './_hauptKomponente/k-unternehmen/k-unternehmen.component';
 import { LEinstellungenComponent } from './_hauptKomponente/l-einstellungen/l-einstellungen.component';
 import { MProfilComponent } from './_hauptKomponente/m-profil/m-profil.component';
+import { NProjekteComponent } from './_hauptKomponente/n-projekte/n-projekte.component';
+
+const routes: Routes = [
+  {
+    path: '', component: CDashboardComponent
+  },
+  {
+    path: 'projekte', component: NProjekteComponent
+  },
+  {
+    path: 'auftrag', component: EAuftragComponent
+  },
+  {
+    path: 'angebot', component: FAngebotComponent
+  },
+  {
+    path: 'kunden', component: GKundenComponent
+  },
+  {
+    path: 'kunde', component: HKundeComponent
+  },
+  {
+    path: 'artikel', component: IArtikelComponent
+  },
+  {
+    path: 'der-artikel', component: JDerArtikelComponent
+  },
+  {
+    path: 'unternehmen', component: KUnternehmenComponent
+  },
+  {
+    path: 'profil', component: MProfilComponent
+  },
+  {
+    path: 'einstellungen', component: LEinstellungenComponent
+  },
+  {
+    path: 'login', component: ALoginComponent
+  },
+  {
+    path: 'passwort', component: BPasswortComponent
+  }
+
+];
 
 @NgModule({
   declarations: [
@@ -36,9 +81,11 @@ import { MProfilComponent } from './_hauptKomponente/m-profil/m-profil.component
     JDerArtikelComponent,
     KUnternehmenComponent,
     LEinstellungenComponent,
-    MProfilComponent
+    MProfilComponent,
+    NProjekteComponent
   ],
   imports: [
+    RouterModule.forRoot(routes),
     BrowserModule,
     AppRoutingModule
   ],

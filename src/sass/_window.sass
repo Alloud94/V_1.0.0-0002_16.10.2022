@@ -1,0 +1,149 @@
+/* Globale Variablen - Funktion zur Umwandlung von PX zu VW */
+@function get-vw($target) 
+  $vw-context: (1000*.01) * 1px
+  @return ($target/$vw-context) * 1vw
+
+$viewWidth: 100vw
+$gesamteBreite: null
+
+@if $viewWidth > get-vw(1300px)
+    $gesamteBreite: calc(100vw - 135px - 17px)
+
+@else if $viewWidth < get-vw(1300px)
+    $gesamteBreite: calc(1300px - 135px - 25px)
+
+$zweiTeiligeBreite: calc(calc(1300px - 115px - 15px - 30px - 15px) /2)
+$gesamteHoehe: calc(100vh - 201px - 22px)
+$zweiTeiligeHoeheOben: calc(calc(100vh - 201px - 30px - 15px - 100px) /2)
+$zweiTeiligeHoeheUnten: calc(calc(100vh - 101px - 30px - 15px) /2)
+$fixRechts: calc(calc(100vw - 1300px) / 2)
+$fixLinks: calc(calc(calc(100vw - 1300px) / 2) + 115px)
+
+/* Allgemeine Einstellungen */
+.oneWindow,
+.twoWindow,
+.fiveWindow,
+.forWindow
+    max-height: calc(100vh - 201px - 15px)
+
+/* ### Ein Teilig ### */
+.one
+    position: fixed
+    background-color: white
+    border: 1px solid $borderColor
+    border-radius: 20px
+    margin-top: 5px
+    top: 201px
+    height: $gesamteHoehe
+    width: $gesamteBreite
+    left: $fixLinks
+    margin-left: 20px
+    
+/* ### Zwei Teilig ### */
+.oben, 
+.unten 
+    position: fixed
+    background-color: white
+    border: 1px solid $borderColor
+    border-radius: 20px
+    margin-top: 5px
+
+.oben
+    top: 201px
+    height: $zweiTeiligeHoeheOben
+    width: $gesamteBreite
+    left: $fixLinks
+    margin-left: 20px
+
+.unten
+    bottom: 15px
+    height: $zweiTeiligeHoeheUnten
+    width: $gesamteBreite
+    left: $fixLinks
+    margin-left: 20px
+
+/* ### Vier Teilig ### */
+.forOL, 
+.forOR, 
+.forUL, 
+.forUR
+    position: fixed
+    background-color: white
+    border: 1px solid $borderColor
+    border-radius: 20px
+    margin-top: 5px
+
+.forOL
+    top: 201px
+    height: $zweiTeiligeHoeheOben
+    width: $zweiTeiligeBreite
+    left: $fixLinks
+    margin-left: 20px
+
+.forOR
+    top: 201px
+    height: $zweiTeiligeHoeheOben
+    width: $zweiTeiligeBreite
+    right: $fixRechts
+    margin-right: 20px
+    
+.forUL
+    bottom: 15px
+    height: $zweiTeiligeHoeheUnten
+    width: $zweiTeiligeBreite
+    left: $fixLinks
+    margin-left: 20px
+
+.forUR
+    bottom: 15px
+    height: $zweiTeiligeHoeheUnten
+    width: $zweiTeiligeBreite
+    right: $fixRechts
+    margin-right: 20px
+
+/* ### Fünf Teilig ### */
+.fiveOL, 
+.fiveOR, 
+.fiveML, 
+.fiveMR,
+.fiveUnten
+    position: fixed
+    background-color: white
+    border: 1px solid $borderColor
+    border-radius: 20px
+    margin-top: 5px
+
+.fiveOL
+    top: 201px
+    height: $zweiTeiligeHoeheOben
+    width: $zweiTeiligeBreite
+    left: $fixLinks
+    margin-left: 20px
+
+.fiveOR
+    top: 201px
+    height: $zweiTeiligeHoeheOben
+    width: $zweiTeiligeBreite
+    right: $fixRechts
+    margin-right: 20px
+    
+.fiveML
+    bottom: 15px
+    height: $zweiTeiligeHoeheUnten
+    width: $zweiTeiligeBreite
+    left: $fixLinks
+    margin-left: 20px
+
+.fiveMR
+    bottom: 15px
+    height: $zweiTeiligeHoeheUnten
+    width: $zweiTeiligeBreite
+    right: $fixRechts
+    margin-right: 20px
+
+.fiveUnten
+    bottom: 15px
+    height: auto
+    width: $gesamteBreite
+    right: $fixRechts
+    margin-right: 20px
