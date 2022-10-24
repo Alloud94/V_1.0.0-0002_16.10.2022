@@ -1,3 +1,86 @@
 @import './src/sass/var'
 @import './src/sass/window'
+
+/* ## Dashboard ## */
+
+/* ## Oben Links ## */
+.schnellzugriff a
+    display: block
+    text-decoration: none
+    color: black
+    font-size: 20px  
+    margin-top: 5px
+    margin-bottom: 5px  
+
+/* ## Oben Rechts ## */
+.infos
+    padding-top: 10px
+    display: inline-block
+
+.logo
+    float: right
+    display: inline-block
+    padding-right: 15px
+
+.logo img
+    height: 162px
+
+/* ## Unten Links ## */
+.fmTitle
+    font-size: 20px
+    padding-bottom: 10px
+    padding-top: 10px
+    padding-left: 40px
+
+.fmContent
+    padding-left: 40px
+
+.rowOne,
+.rowTwo
+    display: inline-block
+    width: 250px
+
+.fmAktuell,
+.fmOne,
+.fmTwo,
+.fmThree
+    border-bottom: 1px solid $formFontColor
     
+
+.fmOne,
+.fmThree
+    background: $tableColor
+
+/* ## Unten Rechts ## */
+.letzteVorgaenge
+    padding-left: 40px
+    padding-top: 10px
+    padding-right: 10px
+
+.letzteVorgaenge table
+    width: 100%
+    font-family: $fontRoboto
+    text-align: left
+    border-collapse: collapse
+
+.letzteVorgaenge td, 
+.letzteVorgaenge th
+    border-right: 1px solid $formFontColor
+    padding-left: 5px
+
+.letzteVorgaenge th
+    border-bottom: 1px solid $formFontColor
+    padding-bottom: 5px
+
+.letzteVorgaenge td
+    padding-top: 2px
+    padding-bottom: 2px
+
+.letzteVorgaenge tr:nth-child(even)
+        background-color: $tableColor
+
+.letzteVorgaenge td:nth-last-child(1),
+.letzteVorgaenge th:nth-last-child(1)
+    border-right: none
+
+

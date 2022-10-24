@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./c-dashboard.component.sass']
 })
 export class CDashboardComponent implements OnInit {
+  logoUnternehmen:string = 'assets/img/medien/TB_Logo.png';
 
   constructor() { }
 

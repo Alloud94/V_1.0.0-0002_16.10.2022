@@ -1,3 +1,5 @@
+@import './src/sass/var'
+    
 /* Globale Variablen - Funktion zur Umwandlung von PX zu VW */
 @function get-vw($target) 
   $vw-context: (1000*.01) * 1px
@@ -38,6 +40,7 @@ $fixLinks: calc(calc(calc(100vw - 1300px) / 2) + 115px)
     width: $gesamteBreite
     left: $fixLinks
     margin-left: 20px
+    overflow: scroll
     
 /* ### Zwei Teilig ### */
 .oben, 
@@ -47,6 +50,7 @@ $fixLinks: calc(calc(calc(100vw - 1300px) / 2) + 115px)
     border: 1px solid $borderColor
     border-radius: 20px
     margin-top: 5px
+    overflow: scroll
 
 .oben
     top: 201px
@@ -72,6 +76,7 @@ $fixLinks: calc(calc(calc(100vw - 1300px) / 2) + 115px)
     border: 1px solid $borderColor
     border-radius: 20px
     margin-top: 5px
+    overflow: scroll
 
 .forOL
     top: 201px
@@ -112,6 +117,7 @@ $fixLinks: calc(calc(calc(100vw - 1300px) / 2) + 115px)
     border: 1px solid $borderColor
     border-radius: 20px
     margin-top: 5px
+    overflow: scroll
 
 .fiveOL
     top: 201px
@@ -147,3 +153,102 @@ $fixLinks: calc(calc(calc(100vw - 1300px) / 2) + 115px)
     width: $gesamteBreite
     right: $fixRechts
     margin-right: 20px
+
+/* ## Einzelne Elemente global gestylet ## */
+
+/* Window Title und Content */
+.windowTitle
+    padding-left: 10px
+    
+.windowHeader, 
+.windowTitle
+    height: 30px
+    width: 100%
+    padding-top: 10px
+    
+.windowHeader p, 
+.windowTitle p
+    foont-family: $fontRoboto
+    font-size: 25px
+
+.windowHeader
+    display: flex
+    justify-content: center
+    align-items: center
+
+.windowContent
+    padding-left: 40px
+
+/* Window Searchbar */
+.searchBarSmall
+    width: 360px - 30px
+    height: 30px
+    background-color: white
+    border: 1px solid $borderColor
+    border-radius: 20px
+
+.searchBarSmall input
+    background-color: white
+    height: 30px
+    width: 270px
+    text-align: right
+    margin-left: 18px
+    &:focus
+        outline: none
+
+.searchBarSmall input::placeholder
+    color: $formFontColor
+
+.searchBarSmall img
+    height: 15px
+    float: right
+    background-color: white
+    margin-right: 10px
+    margin-top: 8px
+    border-left: 1px solid $borderColor
+    padding-left: 5px
+    margin-left: 10px
+
+/* Window Erfassen Button */
+.btnErfassen
+    cursor: pointer
+    width: 330px
+    height: 30px
+    border: 1px solid $borderColor
+    background-color: white
+    border-radius: 20px
+    text-decoration: none
+
+/* Tabellen */
+.windowTable
+    padding-left: 40px
+    padding-top: 10px
+    padding-right: 10px
+
+.windowTable table
+    width: 100%
+    font-family: $fontRoboto
+    text-align: left
+    border-collapse: collapse
+
+.windowTable td, 
+.windowTable th
+    border-right: 1px solid $formFontColor
+    padding-left: 5px
+
+.windowTable th
+    border-bottom: 1px solid $formFontColor
+    padding-bottom: 5px
+
+.windowTable td
+    padding-top: 2px
+    padding-bottom: 2px
+
+.windowTable tr:nth-child(even)
+    background-color: $tableColor
+
+.windowTable td:nth-last-child(1),
+.windowTable th:nth-last-child(1)
+    border-rigth: none
+
+
