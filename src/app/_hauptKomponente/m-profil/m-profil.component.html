@@ -2,5 +2,45 @@
 <app-b-sidebar></app-b-sidebar>
 <div class="oneWindow">
     <div class="one window">
+        <div class="windowTitle windowHeader">
+            <p>Thomas Brändle</p>
+            <a href="" class="metaIcon"><img [src]="meta" alt="">
+            </a>
+        </div>
+        <div class="windowContent">
+            <div class="split firstSplit">
+                <p class="unterTitel">Profil</p>
+                <div class="row">
+                    <p>Nummer:</p>
+                    <p>MA 101-001</p>
+                </div>
+                <div class="row">
+                    <p>Name:</p>
+                    <input type="text" id="name" value="Thomas Brändle">
+                </div>
+                <div class="row">
+                    <p>Telefon:</p>
+                    <input type="text" id="Telefon" value="+41 79 520 65 11">
+                </div>
+                <div class="row">
+                    <p>E-Mail:</p>
+                    <input type="text" id="E-Mail" value="thomas@thomas-braendle.com">
+                </div>
+            </div>
+            <div class="split secondSplit">
+                <p class="unterTitel">Passwort ändern</p>
+                <div class="row passwortForm">
+                    <input type="password" id="Passwort" placeholder="Aktuelles Passwort">
+                    <input type="password" id="Passwort" placeholder="Neues Passwort">
+                    <input type="password" id="Passwort" placeholder="Neues Passwort bestätigen">
+                    <input type="submit" id="submit" value="Neues Passwort speichern">
+                </div>
+            </div>
+            <div class="split thirdSplit">
+            </div>
+            <div class="speichern">
+                <p>Änderungen speichern</p>
+            </div>
+        </div>
     </div>
 </div>

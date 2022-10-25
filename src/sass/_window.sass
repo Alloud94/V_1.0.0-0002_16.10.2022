@@ -40,7 +40,8 @@ $fixLinks: calc(calc(calc(100vw - 1300px) / 2) + 115px)
     width: $gesamteBreite
     left: $fixLinks
     margin-left: 20px
-    overflow: scroll
+    overflow-y: scroll
+    overflow-x: hidden
     
 /* ### Zwei Teilig ### */
 .oben, 
@@ -50,7 +51,8 @@ $fixLinks: calc(calc(calc(100vw - 1300px) / 2) + 115px)
     border: 1px solid $borderColor
     border-radius: 20px
     margin-top: 5px
-    overflow: scroll
+    overflow-y: scroll
+    overflow-x: hidden
 
 .oben
     top: 201px
@@ -76,7 +78,8 @@ $fixLinks: calc(calc(calc(100vw - 1300px) / 2) + 115px)
     border: 1px solid $borderColor
     border-radius: 20px
     margin-top: 5px
-    overflow: scroll
+    overflow-y: scroll
+    overflow-x: hidden
 
 .forOL
     top: 201px
@@ -117,7 +120,8 @@ $fixLinks: calc(calc(calc(100vw - 1300px) / 2) + 115px)
     border: 1px solid $borderColor
     border-radius: 20px
     margin-top: 5px
-    overflow: scroll
+    overflow-y: scroll
+    overflow-x: hidden
 
 .fiveOL
     top: 201px
@@ -171,6 +175,10 @@ $fixLinks: calc(calc(calc(100vw - 1300px) / 2) + 115px)
     foont-family: $fontRoboto
     font-size: 25px
 
+.windowHeader p
+    position: absolute
+    left: 10px
+
 .windowHeader
     display: flex
     justify-content: center
@@ -179,13 +187,24 @@ $fixLinks: calc(calc(calc(100vw - 1300px) / 2) + 115px)
 .windowContent
     padding-left: 40px
 
+/* Window Meta Icon */
+.metaIvon 
+    position: absolute
+    right: 0
+
+.metaIcon img
+    height: 36px
+    position: absolute
+    right: 0
+    top: 10px
+
 /* Window Searchbar */
 .searchBarSmall
-    width: 360px - 30px
+    width: calc(360px - 30px)
     height: 30px
     background-color: white
     border: 1px solid $borderColor
-    border-radius: 20px
+    border-radius: 5px
 
 .searchBarSmall input
     background-color: white
@@ -210,20 +229,22 @@ $fixLinks: calc(calc(calc(100vw - 1300px) / 2) + 115px)
     margin-left: 10px
 
 /* Window Erfassen Button */
-.btnErfassen
+.btnErfassen button
+    position: absolute
+    top: 10px
+    right: 0px
     cursor: pointer
     width: 330px
     height: 30px
     border: 1px solid $borderColor
     background-color: white
-    border-radius: 20px
+    border-radius: 5px
     text-decoration: none
 
 /* Tabellen */
 .windowTable
     padding-left: 40px
     padding-top: 10px
-    padding-right: 10px
 
 .windowTable table
     width: 100%
@@ -239,6 +260,8 @@ $fixLinks: calc(calc(calc(100vw - 1300px) / 2) + 115px)
 .windowTable th
     border-bottom: 1px solid $formFontColor
     padding-bottom: 5px
+    font-size: 15px
+    font-weight: bold
 
 .windowTable td
     padding-top: 2px
@@ -249,6 +272,6 @@ $fixLinks: calc(calc(calc(100vw - 1300px) / 2) + 115px)
 
 .windowTable td:nth-last-child(1),
 .windowTable th:nth-last-child(1)
-    border-rigth: none
+    border-right: none
 
 

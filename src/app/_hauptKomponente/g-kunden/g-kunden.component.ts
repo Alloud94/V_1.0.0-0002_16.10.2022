@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./g-kunden.component.sass']
 })
 export class GKundenComponent implements OnInit {
+  search:string = 'assets/img/icon/search.png';
 
   constructor() { }
 

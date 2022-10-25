@@ -1,31 +1,31 @@
 <div class="skSidebar">
     <div class="hauptNavigation">
         <div class="homeNav menuPunkt">
-            <a href="">
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]={exact:true}>
                 <img [src]="home" alt="">
                 <p>Home</p>
             </a>
         </div>
         <div class="projektNav menuPunkt">
-            <a href="projekte">
+            <a routerLink="/projekte" routerLinkActive="active">
                 <img [src]="projekt" alt="">
                 <p>Projekte</p>
             </a>
         </div>
         <div class="kundenNav menuPunkt">
-            <a href="kunden">
+            <a routerLink="/kunden" routerLinkActive="active">
                 <img [src]="kunde" alt="">
                 <p>Kunden</p>
             </a>
         </div>
         <div class="artikelNav menuPunkt">
-            <a href="artikel">
+            <a routerLink="/artikel" routerLinkActive="active">
                 <img [src]="artikel" alt="">
                 <p>Artikel</p>
             </a>
         </div>
         <div class="unternehmenNav menuPunkt">
-            <a href="unternehmen">
+            <a routerLink="/unternehmen" routerLinkActive="active">
                 <img [src]="unternehmen" alt="">
                 <p>Unternehmen</p>
             </a>
@@ -33,13 +33,13 @@
         <div class="abstand menuPunkt">
         </div>
         <div class="einstellungenNav menuPunkt">
-            <a href="einstellungen">
+            <a routerLink="/einstellungen" routerLinkActive="active">
                 <img [src]="einstellungen" alt="">
                 <p>Einstellungen</p>
             </a>
         </div>
         <div class="logoutNav menuPunkt">
-            <a href="login">
+            <a routerLink="/login" routerLinkActive="active">
                 <img [src]="logout" alt="">
                 <p>Logout</p>
             </a>

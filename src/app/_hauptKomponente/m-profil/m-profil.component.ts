@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./m-profil.component.sass']
 })
 export class MProfilComponent implements OnInit {
+  meta:string = 'assets/img/icon/info.png';
+  metaActive:string = 'assets/img/icon/infoFarbig.png';
 
   constructor() { }
 

@@ -1,3 +1,81 @@
 @import './src/sass/var'
 @import './src/sass/window'
-    
+
+/* ## Unternehmensseite ## */
+
+/* Einteilung */
+.split
+    display: inline-block
+    width: 32%
+    margin-top: 10px
+    vertical-align: top
+
+.firstSplit,
+.secondSplit
+    margin-right: 10px
+
+.thirdSplit
+    margin-left: 10px
+
+.row p
+    display: inline-block
+    padding: 2px
+    vertical-align: top
+
+.firstSplit p:nth-child(1)
+    width: 30%
+
+.firstSplit p:nth-child(2)
+    width: 65%
+    background-color: $tableColor
+    border: 1px solid transparent
+    border-radius: 5px
+    margin-top: 5px
+    margin-bottom: 5px
+    padding-left: 5px
+   
+.firstSplit input
+    width: 65%
+    border: 1px solid $borderColor
+    border-radius: 5px
+    padding: 5px
+    margin-top: 5px
+    margin-bottom: 5px
+    &:focus
+        outline: none
+
+.secondSplit input
+    width: 100%
+    border: 1px solid $borderColor
+    border-radius: 5px
+    padding: 5px
+    margin-top: 5px
+    margin-bottom: 5px
+    &:focus
+        outline: none
+
+#submit
+    width: 360px
+    background-color: white
+    cursor: pointer
+
+.passwortForm
+    margin-top: -3px
+
+.unterTitel
+    font-size: 20px
+
+.speichern
+    width: 100%
+    text-align: center
+
+.speichern p
+    width: 33%
+    position: absolute
+    right: 0
+    bottom: 10px
+    border: 1px solid $borderColor
+    border-radius: 5px
+    padding-top: 5px
+    padding-bottom: 5px
+    cursor: pointer

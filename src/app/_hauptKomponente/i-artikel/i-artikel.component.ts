@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./i-artikel.component.sass']
 })
 export class IArtikelComponent implements OnInit {
+  search:string = 'assets/img/icon/search.png';
 
   constructor() { }
 
