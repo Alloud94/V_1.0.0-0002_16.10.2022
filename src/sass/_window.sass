@@ -26,7 +26,9 @@ $fixLinks: calc(calc(calc(100vw - 1300px) / 2) + 115px)
 .twoWindow,
 .fiveWindow,
 .forWindow
-    max-height: calc(100vh - 201px - 15px)
+    //max-height: calc(100vh - 201px - 15px)
+    height: auto
+    width: auto
 
 /* ### Ein Teilig ### */
 .one
@@ -152,8 +154,8 @@ $fixLinks: calc(calc(calc(100vw - 1300px) / 2) + 115px)
     margin-right: 20px
 
 .fiveUnten
-    bottom: 15px
-    height: auto
+    top: 90vh
+    height: 500px
     width: $gesamteBreite
     right: $fixRechts
     margin-right: 20px
@@ -245,6 +247,10 @@ $fixLinks: calc(calc(calc(100vw - 1300px) / 2) + 115px)
 .windowTable
     padding-left: 40px
     padding-top: 10px
+
+.windowTable a
+    width: 100%
+    display: block
 
 .windowTable table
     width: 100%

@@ -29,22 +29,22 @@ const routes: Routes = [
     path: 'projekte', component: NProjekteComponent
   },
   {
-    path: 'auftrag', component: EAuftragComponent
+    path: 'projekte/auftrag', component: EAuftragComponent
   },
   {
-    path: 'angebot', component: FAngebotComponent
+    path: 'projekte/angebot', component: FAngebotComponent
   },
   {
     path: 'kunden', component: GKundenComponent
   },
   {
-    path: 'kunde', component: HKundeComponent
+    path: 'kunden/kunde', component: HKundeComponent
   },
   {
     path: 'artikel', component: IArtikelComponent
   },
   {
-    path: 'der-artikel', component: JDerArtikelComponent
+    path: 'artikel/der-artikel', component: JDerArtikelComponent
   },
   {
     path: 'unternehmen', component: KUnternehmenComponent
