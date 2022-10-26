@@ -1,22 +1,79 @@
 <app-a-header></app-a-header>
 <app-b-sidebar></app-b-sidebar>
 <div class="fiveWindow">
-    <div class="scroll">
-        <div class="fiveOL window">
-
+    <div class="fiveOben window">
+        <div class="windowTitle windowHeader">
+            <p>Kopfdaten</p>
+            <a href="" class="metaIcon"><img [src]="meta" alt="">
+            </a>
         </div>
-        <div class="fiveOR window">
+        <div class="windowContent">
+            <div class="split firstSplit">
+                <div>
+                    <p class="kundenDaten">
+                        KU 40-001
+                        <br /> Thomas Brändle
+                        <br /> Herr Thomas Brändle
+                        <br /> Friedaustrasse 3
+                    </p>
+                    <div class="btnBearbeiten">
+                        <p>Kundendaten bearbeiten</p>
+                    </div>
+                </div>
+                <div>
+                    <p class="kundenDaten">
+                        Friedaustrasse 3
+                        <br /> 9608 Ganterschwil
+                        <br /> CH - Schweiz
+                    </p>
+                    <div class="btnBearbeiten">
+                        <p>Rechnungsadresse bearbeiten</p>
+                    </div>
+                </div>
+            </div>
+            <div class="split secondSplit">
+                <div class="btnBearbeiten">
+                    <div class="notizen">
+                        <textarea readonly="readonly">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimatasanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justoduo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                        </textarea>
+                    </div>
+                    <p>Notizen bearbeiten</p>
+                </div>
+            </div>
+            <div class="split thirdSplit">
+                <div class="btnBearbeiten">
+                    <p>Konditionen</p>
+                </div>
+                <div class="btnBearbeiten">
+                    <p>Belege</p>
+                </div>
+                <div class="btnBearbeiten">
+                    <p>Vorgang löschen</p>
+                </div>
+                <div class="btnBearbeiten">
+                    <p>Auftrag abschliessen</p>
+                </div>
+                <div class="dropDown">
+                    <select name="status" id="status">
+                        <option value="Offen">Offen</option>
+                        <option value="in Bearbeitung">In Bearbeitung</option>
+                        <option value="verrechnet">Verrechnet</option>
+                    </select>
+                </div>
+                <div class="btnBearbeiten">
+                    <p>Auftrag speichern</p>
+                </div>
 
+            </div>
         </div>
-        <div class="fiveML window">
+    </div>
+    <div class="fiveML window">
 
-        </div>
-        <div class="fiveMR window">
+    </div>
+    <div class="fiveMR window">
 
-        </div>
-        <div class="fiveUnten window">
-
-        </div>
+    </div>
+    <div class="fiveUnten window">
 
     </div>
 </div>

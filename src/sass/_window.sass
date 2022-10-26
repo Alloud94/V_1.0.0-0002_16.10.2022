@@ -112,12 +112,12 @@ $fixLinks: calc(calc(calc(100vw - 1300px) / 2) + 115px)
     margin-right: 20px
 
 /* ### Fünf Teilig ### */
-.fiveOL, 
-.fiveOR, 
+.fiveOben,
 .fiveML, 
 .fiveMR,
 .fiveUnten
-    position: fixed
+    z-index: -10
+    position: absolute
     background-color: white
     border: 1px solid $borderColor
     border-radius: 20px
@@ -125,10 +125,10 @@ $fixLinks: calc(calc(calc(100vw - 1300px) / 2) + 115px)
     overflow-y: scroll
     overflow-x: hidden
 
-.fiveOL
+.fiveOben
     top: 201px
     height: $zweiTeiligeHoeheOben
-    width: $zweiTeiligeBreite
+    width: $gesamteBreite
     left: $fixLinks
     margin-left: 20px
 
@@ -154,130 +154,30 @@ $fixLinks: calc(calc(calc(100vw - 1300px) / 2) + 115px)
     margin-right: 20px
 
 .fiveUnten
-    top: 90vh
-    height: 500px
+    top: 100vh
+    min-height: 500px
     width: $gesamteBreite
-    right: $fixRechts
+    left: $fixLinks
     margin-right: 20px
+    margin-bottom: 15px
+    margin-left: 20px
 
-/* ## Einzelne Elemente global gestylet ## */
-
-/* Window Title und Content */
-.windowTitle
-    padding-left: 10px
+/* ## Scrollbar ## */
+::-webkit-scrollbar 
+    width: 10px
+    height: 0px
     
-.windowHeader, 
-.windowTitle
-    height: 30px
-    width: 100%
-    padding-top: 10px
-    
-.windowHeader p, 
-.windowTitle p
-    foont-family: $fontRoboto
-    font-size: 25px
+::-webkit-scrollbar-track-piece:end 
+    background: transparent
+    margin-bottom: 30px
 
-.windowHeader p
-    position: absolute
-    left: 10px
+::-webkit-scrollbar-track-piece:start
+    background: transparent
+    margin-top: 30px
 
-.windowHeader
-    display: flex
-    justify-content: center
-    align-items: center
+::-webkit-scrollbar-thumb:hover 
+  background: $tableColor
 
-.windowContent
-    padding-left: 40px
-
-/* Window Meta Icon */
-.metaIvon 
-    position: absolute
-    right: 0
-
-.metaIcon img
-    height: 36px
-    position: absolute
-    right: 0
-    top: 10px
-
-/* Window Searchbar */
-.searchBarSmall
-    width: calc(360px - 30px)
-    height: 30px
-    background-color: white
-    border: 1px solid $borderColor
-    border-radius: 5px
-
-.searchBarSmall input
-    background-color: white
-    height: 30px
-    width: 270px
-    text-align: right
-    margin-left: 18px
-    &:focus
-        outline: none
-
-.searchBarSmall input::placeholder
-    color: $formFontColor
-
-.searchBarSmall img
-    height: 15px
-    float: right
-    background-color: white
-    margin-right: 10px
-    margin-top: 8px
-    border-left: 1px solid $borderColor
-    padding-left: 5px
-    margin-left: 10px
-
-/* Window Erfassen Button */
-.btnErfassen button
-    position: absolute
-    top: 10px
-    right: 0px
-    cursor: pointer
-    width: 330px
-    height: 30px
-    border: 1px solid $borderColor
-    background-color: white
-    border-radius: 5px
-    text-decoration: none
-
-/* Tabellen */
-.windowTable
-    padding-left: 40px
-    padding-top: 10px
-
-.windowTable a
-    width: 100%
-    display: block
-
-.windowTable table
-    width: 100%
-    font-family: $fontRoboto
-    text-align: left
-    border-collapse: collapse
-
-.windowTable td, 
-.windowTable th
-    border-right: 1px solid $formFontColor
-    padding-left: 5px
-
-.windowTable th
-    border-bottom: 1px solid $formFontColor
-    padding-bottom: 5px
-    font-size: 15px
-    font-weight: bold
-
-.windowTable td
-    padding-top: 2px
-    padding-bottom: 2px
-
-.windowTable tr:nth-child(even)
-    background-color: $tableColor
-
-.windowTable td:nth-last-child(1),
-.windowTable th:nth-last-child(1)
-    border-right: none
-
-
+::-webkit-scrollbar-track 
+    max-height: 50%
+    height: 50%

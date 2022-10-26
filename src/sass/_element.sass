@@ -1,0 +1,220 @@
+@import './src/sass/var'
+
+/* ## Einzelne Elemente global gestylet ## */
+
+/* Window Title und Content */
+.windowTitle
+    padding-left: 10px
+    
+.windowHeader, 
+.windowTitle
+    height: 30px
+    width: 100%
+    padding-top: 10px
+    
+.windowHeader p, 
+.windowTitle p
+    foont-family: $fontRoboto
+    font-size: 25px
+
+.windowHeader p
+    position: absolute
+    left: 10px
+
+.windowHeader
+    display: flex
+    justify-content: center
+    align-items: center
+
+.windowContent
+    padding-left: 40px
+
+/* Window Meta Icon */
+.metaIvon 
+    position: absolute
+    right: 0
+
+.metaIcon img
+    height: 36px
+    position: absolute
+    right: 0
+    top: 10px
+
+/* Window Searchbar */
+.searchBarSmall
+    width: calc(360px - 30px)
+    height: 30px
+    background-color: white
+    border: 1px solid $borderColor
+    border-radius: 5px
+
+.searchBarSmall input
+    background-color: white
+    height: 30px
+    width: 270px
+    text-align: right
+    margin-left: 18px
+    &:focus
+        outline: none
+
+.searchBarSmall input::placeholder
+    color: $formFontColor
+
+.searchBarSmall img
+    height: 15px
+    float: right
+    background-color: white
+    margin-right: 10px
+    margin-top: 8px
+    border-left: 1px solid $borderColor
+    padding-left: 5px
+    margin-left: 10px
+
+/* Window Erfassen Button */
+.btnErfassen button
+    position: absolute
+    top: 10px
+    right: 0px
+    cursor: pointer
+    width: 330px
+    height: 30px
+    border: 1px solid $borderColor
+    background-color: white
+    border-radius: 5px
+    text-decoration: none
+
+/* Window Tabelle */
+.windowTable
+    padding-left: 40px
+    padding-top: 10px
+
+.windowTable a
+    width: 100%
+    display: block
+
+.windowTable table
+    width: 100%
+    font-family: $fontRoboto
+    text-align: left
+    border-collapse: collapse
+
+.windowTable td, 
+.windowTable th
+    border-right: 1px solid $formFontColor
+    padding-left: 5px
+
+.windowTable th
+    border-bottom: 1px solid $formFontColor
+    padding-bottom: 5px
+    font-size: 15px
+    font-weight: bold
+
+.windowTable td
+    padding-top: 2px
+    padding-bottom: 2px
+
+.windowTable tr:nth-child(even)
+    background-color: $tableColor
+
+.windowTable td:nth-last-child(1),
+.windowTable th:nth-last-child(1)
+    border-right: none
+
+/* ## Positionen Tabelle ## */
+.positionTable
+    padding-left: 40px
+    padding-top: 10px
+
+.positionTable a
+    width: 100%
+    display: block
+
+.positionTable table
+    width: 100%
+    font-family: $fontRoboto
+    text-align: left
+    border-collapse: collapse
+
+.positionTable td, 
+.positionTable th
+    border-right: 1px solid $formFontColor
+    padding-left: 5px
+
+.positionTable th
+    border-bottom: 1px solid $formFontColor
+    padding-bottom: 5px
+    font-size: 15px
+    font-weight: bold
+
+.positionTable tr
+    border-bottom: 1px solid $formFontColor 
+
+.positionTable td
+    padding-top: 2px
+    padding-bottom: 2px
+
+.positionTable td:nth-last-child(1),
+.positionTable th:nth-last-child(1)
+    border-right: none
+
+/* Angebot und Auftrag Kopfdaten */
+.kundenDaten
+    background-color: $tableColor
+    border: 1px solid transparent
+    border-radius: 8px
+    margin-bottom: 5px
+
+.btnBearbeiten
+    height: 34px 
+
+.btnBearbeiten p
+    width: 100%
+    background-color: white
+    border: 1px solid $borderColor
+    border-radius: 5px
+    text-align: center
+    padding: 2px
+    margin-bottom: 5px
+    cursor: pointer
+
+.notizen textarea
+    height: 166px
+    width: 100%
+    border: 1px solid transparent
+    border-radius: 8px
+    font-family: $fontRoboto
+    text-align: justify
+    padding: 5px
+    background-color: $tableColor
+    overflow: hidden
+    resize: none
+    font-size: 15px
+    &:focus
+        outline: none
+
+/* DropDown */
+select
+    width: 102%
+    height: 34px
+    border: 1px solid $borderColor
+    border-radius: 5px
+    cursor: pointer
+    outline: none
+    margin-bottom: 10px
+    font-size: 15px
+    font-family: $fontRoboto
+    
+.speichern
+    width: 100%
+    text-align: center
+
+.speichern p
+    width: 33%
+    position: absolute
+    right: 0
+    bottom: 10px
+    border: 1px solid $borderColor
+    border-radius: 5px
+    padding-top: 5px
+    padding-bottom: 5px
+    cursor: pointer

@@ -2,9 +2,144 @@
 <app-b-sidebar></app-b-sidebar>
 <div class="twoWindow">
     <div class="oben window">
+        <div class="windowTitle windowHeader">
+            <p>Kopfdaten</p>
+            <a href="" class="metaIcon"><img [src]="meta" alt="">
+            </a>
+        </div>
+        <div class="windowContent">
+            <div class="split firstSplit">
+                <div>
+                    <p class="kundenDaten">
+                        KU 40-001
+                        <br /> Thomas Brändle
+                        <br /> Herr Thomas Brändle
+                        <br /> Friedaustrasse 3
+                    </p>
+                    <div class="btnBearbeiten">
+                        <p>Kundendaten bearbeiten</p>
+                    </div>
+                </div>
+                <div>
+                    <p class="kundenDaten">
+                        Friedaustrasse 3
+                        <br /> 9608 Ganterschwil
+                        <br /> CH - Schweiz
+                    </p>
+                    <div class="btnBearbeiten">
+                        <p>Rechnungsadresse bearbeiten</p>
+                    </div>
+                </div>
+            </div>
+            <div class="split secondSplit">
+                <div class="btnBearbeiten">
+                    <div class="notizen">
+                        <textarea readonly="readonly">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimatasanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justoduo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                        </textarea>
+                    </div>
+                    <p>Notizen bearbeiten</p>
+                </div>
+            </div>
+            <div class="split thirdSplit">
+                <div class="btnBearbeiten">
+                    <p>Konditionen</p>
+                </div>
+                <div class="btnBearbeiten">
+                    <p>Belege</p>
+                </div>
+                <div class="btnBearbeiten">
+                    <p>Vorgang löschen</p>
+                </div>
+                <div class="btnBearbeiten">
+                    <p>Angebot umwandeln</p>
+                </div>
+                <div class="dropDown">
+                    <select name="status" id="status">
+                        <option value="Offen">Offen</option>
+                        <option value="in Bearbeitung">In Bearbeitung</option>
+                        <option value="verrechnet">Verrechnet</option>
+                    </select>
+                </div>
+                <div class="btnBearbeiten">
+                    <p>Angebot speichern</p>
+                </div>
+
+            </div>
+        </div>
     </div>
 
     <div class="unten window">
+        <div class="windowTitle windowHeader">
+            <p>Positionen</p>
+        </div>
+        <div class="positionTable">
+            <table>
+                <tr>
+                    <th>Position</th>
+                    <th>Beschreibung</th>
+                    <th>Menge</th>
+                    <th>Einheit</th>
+                    <th>Einzelpreis</th>
+                    <th>Rabatt</th>
+                    <th>Endpreis</th>
+                </tr>
+                <tr>
+                    <td><a routerLink="/">001</a></td>
+                    <td><a routerLink="/">Landingpage<br /> Untertext 1 <br /> Untertext 2</a></td>
+                    <td><a routerLink="/">1</a></td>
+                    <td><a routerLink="/">Pauschal</a></td>
+                    <td><a routerLink="/">CHF 1500.10.-01</a></td>
+                    <td><a routerLink="/">0%</a></td>
+                    <td><a routerLink="/">CHF 1500.10.-</a></td>
+                </tr>
+                <tr>
+                    <td><a routerLink="/">001</a></td>
+                    <td><a routerLink="/">Landingpage<br /> Untertext 1 <br /> Untertext 2</a></td>
+                    <td><a routerLink="/">1</a></td>
+                    <td><a routerLink="/">Pauschal</a></td>
+                    <td><a routerLink="/">CHF 1500.10.-01</a></td>
+                    <td><a routerLink="/">0%</a></td>
+                    <td><a routerLink="/">CHF 1500.10.-</a></td>
+                </tr>
+                <tr>
+                    <td><a routerLink="/">001</a></td>
+                    <td><a routerLink="/">Landingpage<br /> Untertext 1 <br /> Untertext 2</a></td>
+                    <td><a routerLink="/">1</a></td>
+                    <td><a routerLink="/">Pauschal</a></td>
+                    <td><a routerLink="/">CHF 1500.10.-01</a></td>
+                    <td><a routerLink="/">0%</a></td>
+                    <td><a routerLink="/">CHF 1500.10.-</a></td>
+                </tr>
+                <tr>
+                    <td><a routerLink="/">001</a></td>
+                    <td><a routerLink="/">Landingpage<br /> Untertext 1 <br /> Untertext 2</a></td>
+                    <td><a routerLink="/">1</a></td>
+                    <td><a routerLink="/">Pauschal</a></td>
+                    <td><a routerLink="/">CHF 1500.10.-01</a></td>
+                    <td><a routerLink="/">0%</a></td>
+                    <td><a routerLink="/">CHF 1500.10.-</a></td>
+                </tr>
+                <tr>
+                    <td><a routerLink="/">001</a></td>
+                    <td><a routerLink="/">Landingpage<br /> Untertext 1 <br /> Untertext 2</a></td>
+                    <td><a routerLink="/">1</a></td>
+                    <td><a routerLink="/">Pauschal</a></td>
+                    <td><a routerLink="/">CHF 1500.10.-01</a></td>
+                    <td><a routerLink="/">0%</a></td>
+                    <td><a routerLink="/">CHF 1500.10.-</a></td>
+                </tr>
+                <tr>
+                    <td><a routerLink="/">001</a></td>
+                    <td><a routerLink="/">Landingpage<br /> Untertext 1 <br /> Untertext 2</a></td>
+                    <td><a routerLink="/">1</a></td>
+                    <td><a routerLink="/">Pauschal</a></td>
+                    <td><a routerLink="/">CHF 1500.10.-01</a></td>
+                    <td><a routerLink="/">0%</a></td>
+                    <td><a routerLink="/">CHF 1500.10.-</a></td>
+                </tr>
+            </table>
+        </div>
+
     </div>
 </div>
 

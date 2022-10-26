@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./f-angebot.component.sass']
 })
 export class FAngebotComponent implements OnInit {
-
+  meta:string = 'assets/img/icon/info.png';
+  metaActive:string = 'assets/img/icon/infoFarbig.png';
+  
   constructor() { }
 
   ngOnInit(): void {
