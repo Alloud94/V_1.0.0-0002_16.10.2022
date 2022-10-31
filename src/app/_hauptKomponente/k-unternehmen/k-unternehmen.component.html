@@ -4,7 +4,7 @@
     <div class="oben window">
         <div class="windowTitle windowHeader">
             <p>Unternehmensdaten</p>
-            <a href="" class="metaIcon"><img [src]="meta" alt="">
+            <a (click)="openMetaInformationen()" class="metaIcon"><img [src]="meta" alt="">
             </a>
         </div>
         <div class="windowContent">
@@ -36,13 +36,13 @@
             </div>
             <div class="split secondSplit">
                 <div class="btnUnternehmen">
-                    <p>Einstellungen</p>
+                    <p (click)="openEinstellungen()">Einstellungen</p>
                 </div>
                 <div class="btnUnternehmen">
-                    <p>Jahresabschluss</p>
+                    <p (click)="openJahresabschluss()">Jahresabschluss</p>
                 </div>
                 <div class="btnUnternehmen">
-                    <p>Statistiken</p>
+                    <p (click)="openStatistiken()">Statistiken</p>
                 </div>
             </div>
             <div class="split thirdSplit">
@@ -50,7 +50,7 @@
                     <img [src]="logoUnternehmen" alt="">
                 </div>
                 <div class="btnUnternehmen">
-                    <p>Logo ändern</p>
+                    <p (click)="openLogoEinstellungen()">Logo ändern</p>
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@
                 <a href="#"><img [src]="search" alt=""></a>
             </div>
             <div class="btnErfassen">
-                <button type="button" class="btnErfassen">Mitarbeiter Erfassen</button>
+                <button type="button" class="btnErfassen" (click)="openGenerateMitarbeiter()">Mitarbeiter Erfassen</button>
             </div>
         </div>
         <div class="windowTable">

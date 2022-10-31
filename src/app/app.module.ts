@@ -1,12 +1,23 @@
+// Standard Importe
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 
+// Erweiterte Importe
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// Routing und App Component Import
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+// Sub Komponenten Import
 import { AHeaderComponent } from './_subKomponente/a-header/a-header.component';
 import { BSidebarComponent } from './_subKomponente/b-sidebar/b-sidebar.component';
 import { CFooterComponent } from './_subKomponente/c-footer/c-footer.component';
+
+// Haupt Komponenten Import
 import { ALoginComponent } from './_hauptKomponente/a-login/a-login.component';
 import { BPasswortComponent } from './_hauptKomponente/b-passwort/b-passwort.component';
 import { CDashboardComponent } from './_hauptKomponente/c-dashboard/c-dashboard.component';
@@ -20,6 +31,32 @@ import { KUnternehmenComponent } from './_hauptKomponente/k-unternehmen/k-untern
 import { LEinstellungenComponent } from './_hauptKomponente/l-einstellungen/l-einstellungen.component';
 import { MProfilComponent } from './_hauptKomponente/m-profil/m-profil.component';
 import { NProjekteComponent } from './_hauptKomponente/n-projekte/n-projekte.component';
+
+// Popup Komponenten Import
+import { GenerateProjektComponent } from './_popupKomponente/generate-projekt/generate-projekt.component';
+import { GenerateKundeComponent } from './_popupKomponente/generate-kunde/generate-kunde.component';
+import { GenerateArtikelComponent } from './_popupKomponente/generate-artikel/generate-artikel.component';
+import { GenerateMitarbeiterComponent } from './_popupKomponente/generate-mitarbeiter/generate-mitarbeiter.component';
+import { MeilensteinComponent } from './_popupKomponente/meilenstein/meilenstein.component';
+import { BudgetComponent } from './_popupKomponente/budget/budget.component';
+import { StundenComponent } from './_popupKomponente/stunden/stunden.component';
+import { PositionComponent } from './_popupKomponente/position/position.component';
+import { TextpositionComponent } from './_popupKomponente/textposition/textposition.component';
+import { AnsprechpartnerComponent } from './_popupKomponente/ansprechpartner/ansprechpartner.component';
+import { KundendatenComponent } from './_popupKomponente/kundendaten/kundendaten.component';
+import { RechnungsadresseComponent } from './_popupKomponente/rechnungsadresse/rechnungsadresse.component';
+import { NotizenComponent } from './_popupKomponente/notizen/notizen.component';
+import { KonditionenComponent } from './_popupKomponente/konditionen/konditionen.component';
+import { BelegeComponent } from './_popupKomponente/belege/belege.component';
+import { MetainformationenComponent } from './_popupKomponente/metainformationen/metainformationen.component';
+import { JahresabschlussComponent } from './_popupKomponente/jahresabschluss/jahresabschluss.component';
+import { StatistikenComponent } from './_popupKomponente/statistiken/statistiken.component';
+import { LogoComponent } from './_popupKomponente/logo/logo.component';
+import { EinstellungenComponent } from './_popupKomponente/einstellungen/einstellungen.component';
+import { LoeschenComponent } from './_popupKomponente/loeschen/loeschen.component';
+import { AdminComponent } from './_popupKomponente/admin/admin.component';
+import { ZahlungskonditionenComponent } from './_popupKomponente/zahlungskonditionen/zahlungskonditionen.component';
+import { UmwandelnComponent } from './_popupKomponente/umwandeln/umwandeln.component';
 
 const routes: Routes = [
   {
@@ -82,14 +119,42 @@ const routes: Routes = [
     KUnternehmenComponent,
     LEinstellungenComponent,
     MProfilComponent,
-    NProjekteComponent
+    NProjekteComponent,
+    GenerateProjektComponent,
+    GenerateKundeComponent,
+    GenerateArtikelComponent,
+    GenerateMitarbeiterComponent,
+    MeilensteinComponent,
+    BudgetComponent,
+    StundenComponent,
+    PositionComponent,
+    TextpositionComponent,
+    AnsprechpartnerComponent,
+    KundendatenComponent,
+    RechnungsadresseComponent,
+    NotizenComponent,
+    KonditionenComponent,
+    BelegeComponent,
+    MetainformationenComponent,
+    JahresabschlussComponent,
+    StatistikenComponent,
+    LogoComponent,
+    EinstellungenComponent,
+    LoeschenComponent,
+    AdminComponent,
+    ZahlungskonditionenComponent,
+    UmwandelnComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule, 
+    MatButtonModule,
+    MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent], 
+  entryComponents: [GenerateProjektComponent]
 })
 export class AppModule { }

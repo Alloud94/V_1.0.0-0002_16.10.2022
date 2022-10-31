@@ -4,7 +4,7 @@
     <div class="oben window">
         <div class="windowTitle windowHeader">
             <p>Kopfdaten</p>
-            <a href="" class="metaIcon"><img [src]="meta" alt="">
+            <a (click)="openMetaInformationen()" class="metaIcon"><img [src]="meta" alt="">
             </a>
         </div>
         <div class="windowContent">
@@ -17,7 +17,7 @@
                         <br /> Friedaustrasse 3
                     </p>
                     <div class="btnBearbeiten">
-                        <p>Kundendaten bearbeiten</p>
+                        <p (click)="openKundendaten()">Kundendaten bearbeiten</p>
                     </div>
                 </div>
                 <div>
@@ -27,7 +27,7 @@
                         <br /> CH - Schweiz
                     </p>
                     <div class="btnBearbeiten">
-                        <p>Rechnungsadresse bearbeiten</p>
+                        <p (click)="openRechnungsadresse()">Rechnungsadresse bearbeiten</p>
                     </div>
                 </div>
             </div>
@@ -37,21 +37,21 @@
                         <textarea readonly="readonly">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimatasanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justoduo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
                         </textarea>
                     </div>
-                    <p>Notizen bearbeiten</p>
+                    <p (click)="openNotizen()">Notizen bearbeiten</p>
                 </div>
             </div>
             <div class="split thirdSplit">
                 <div class="btnBearbeiten">
-                    <p>Konditionen</p>
+                    <p (click)="openKonditionen()">Konditionen</p>
                 </div>
                 <div class="btnBearbeiten">
-                    <p>Belege</p>
+                    <p (click)="openBelege()">Belege</p>
                 </div>
                 <div class="btnBearbeiten">
-                    <p>Vorgang löschen</p>
+                    <p (click)="openLoeschen()">Vorgang löschen</p>
                 </div>
                 <div class="btnBearbeiten">
-                    <p>Angebot umwandeln</p>
+                    <p (click)="openUmwandeln()">Angebot umwandeln</p>
                 </div>
                 <div class="dropDown">
                     <select name="status" id="status">
@@ -158,7 +158,7 @@
             </table>
             <div class="split firstSplit">
                 <div class="btnPositionen">
-                    <p>Position erfassen</p>
+                    <p (click)="openPosition()">Position erfassen</p>
                 </div>
             </div>
             <div class="split secondSplit">
@@ -168,7 +168,7 @@
             </div>
             <div class="split thirdSplit">
                 <div class="btnPositionen">
-                    <p>Textposition erfassen</p>
+                    <p (click)="openTextposition()">Textposition erfassen</p>
                 </div>
             </div>
         </div>
