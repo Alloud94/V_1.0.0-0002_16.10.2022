@@ -1,24 +1,72 @@
+@import './src/sass/var'
+@import './src/sass/window'
+@import './src/sass/element'
+
 /* ## Generelle und Globale Styles für sämtliche Popup Dialoge ## */
+
+/* Header */
 .headerBezeichnung
     position: relative
-    top: 10px
-    left: 15px
+    top: 0px
+    left: 0px
+    width: 100%
 
 .headerBezeichnung p
     font-size: 25px
 
-.close
+.closeTab
     position: absolute
-    right: 10px
-    top: 0px
-    height: 30px
-    width: 30px
-    font-size: 50px
+    right: calc(calc( 100vw - 894px + 20px) /2)
+    top: calc( calc( 100vh - 510px + 20px) /2)
     border: 1px solid $borderColor
     border-radius: 5px
+    width: 30px
+    height: 30px
+
+.close p
+    font-size: 50px
+    cursor: pointer
+    text-transform: uppercase
+    padding-bottom: 20px
+
+.split
+    display: inline-block
+    width: calc( calc(894px - 90px) /3 )
+    margin-top: 10px
+    vertical-align: top
+
+.split p
+    display: inline-block
+    padding: 2px
+    vertical-align: top
+    width: 100%
+
+.notizen input
+    height: 500px
+
+.firstSplit
+    margin-right: 10px
+
+.secondSplit
+    margin-right: 10px
+    margin-left: 10px
+
+.thirdSplit
+    margin-left: 10px
+
+
+
+.dropDown select
+    text-align: center
+
+
+/* Content */
+.btnBearbeiten
+    width: calc( calc(894px - 90px) /3 )
     cursor: pointer
 
-.mat-dialog-container
-    padding: 15px !important
-    border-radius: 20px !important
-    border: 1px solid $borderColor !important
+/* Footer */
+.btnSpeichern
+    position: absolute
+    right: calc(calc( 100vw - 894px + 20px) /2)
+    bottom: calc( calc( 100vh - 510px + 20px) /2)
