@@ -2,3 +2,58 @@
 @import './src/sass/window'
 @import './src/sass/element'
 
+/* Spalten */ 
+.split
+    display: inline-block
+    width: calc(calc($gesamteBreite - 35px) /3.2)
+    margin-top: 10px
+    vertical-align: top
+
+.firstSplit
+    margin-right: 10px
+
+.secondSplit
+    margin-right: 10px
+    margin-left: 10px
+
+.thirdSplit
+    margin-left: 10px
+
+.firstSplit p:nth-child(1)
+    width: 30%
+
+.firstSplit p:nth-child(2)
+    width: 65%
+    background-color: $tableColor
+    border: 1px solid transparent
+    border-radius: 5px
+    margin-top: 5px
+    margin-bottom: 5px
+    padding-left: 5px
+
+.windowTable
+    width: 100% !important
+
+.split p
+    display: inline-block
+    padding: 2px
+    vertical-align: top
+    width: 100%
+
+.dropDown select
+    display: inline-block
+    text-align: left
+    width: 68.5%
+
+.row input
+    width: 65%
+    border: 1px solid $borderColor
+    border-radius: 5px
+    background-color: white
+    padding: 5px
+    margin-bottom: 5px
+    &:focus
+        outline: none
+
+
+    

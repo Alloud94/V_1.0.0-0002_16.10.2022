@@ -2,5 +2,66 @@
 <app-b-sidebar></app-b-sidebar>
 <div class="oneWindow">
     <div class="one window">
+        <div class="windowTitle windowHeader">
+            <p>Kopfdaten</p>
+            <a href="" class="metaIcon"><img [src]="meta" alt="">
+            </a>
+        </div>
+        <div class="windowContent">
+            <div class="split firstSplit">
+                <div class="row">
+                    <p>Artikelnummer:</p>
+                    <p>AR 61-001</p>
+                </div>
+                <div class="row">
+                    <p>Bezeichnung:</p>
+                    <input type="text" value="Google SEO">
+                </div>
+                <div class="row">
+                    <div class="dropDown">
+                        <p>Kategorie:</p>
+                        <select name="typ" id="arTyp">
+                            <option value="webentwicklung">Webentwicklung</option>
+                            <option value="videografie">Videografie</option>
+                            <option value="fotografie">Fotografie</option>
+                            <option value="anderes">Anderes</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dropDown">
+                        <p>Einheit:</p>
+                        <select name="typ" id="arEinheit">
+                            <option value="pauschal">Pauschal</option>
+                            <option value="stk">Stk.</option>
+                            <option value="regie">per Stunde</option>
+                            <option value="gemBeschrieb">Gemäss Beschrieb</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <p>Einzelpreis:</p>
+                    <input type="text" value="CHF 150.00.-">
+                </div>
+            </div>
+            <div class="split secondSplit">
+                <div class="btnBearbeiten">
+                    <div class="notizen">
+                        <textarea readonly="readonly">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimatasanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justoduo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                        </textarea>
+                    </div>
+                    <p>Notizen bearbeiten</p>
+                </div>
+            </div>
+            <div class="split thirdSplit">
+                <div class="btnBearbeiten">
+                    <p>Artikel löschen</p>
+                </div>
+                <div class="btnBearbeiten">
+                    <p>Artikel speichern</p>
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>

@@ -2,9 +2,186 @@
 <app-b-sidebar></app-b-sidebar>
 <div class="twoWindow">
     <div class="oben window">
+        <div class="windowTitle windowHeader">
+            <p>Kopfdaten</p>
+            <a href="" class="metaIcon"><img [src]="meta" alt="">
+            </a>
+        </div>
+        <div class="windowContent">
+            <div class="split firstSplit">
+                <div class="row">
+                    <p>Name:</p>
+                    <p>Thomas Brändle</p>
+                </div>
+                <div class="row">
+                    <p>Adresse:</p>
+                    <p>
+                        Friedaustrasse 3
+                        <br /> 9608 Ganterschwil
+                        <br /> CH - Schweiz
+                    </p>
+                </div>
+                <div class="row">
+                    <p>Telefon:</p>
+                    <p>+41 79 520 65 11</p>
+                </div>
+                <div class="row">
+                    <p>E-Mail:</p>
+                    <p>design@thomas-braendle.com</p>
+                </div>
+                <div class="row">
+                    <p>Website:</p>
+                    <p>www.thomas-braendle.com</p>
+                </div>
+            </div>
+            <div class="split secondSplit">
+                <div class="btnBearbeiten">
+                    <div class="notizen">
+                        <textarea readonly="readonly">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimatasanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justoduo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                        </textarea>
+                    </div>
+                    <p>Notizen bearbeiten</p>
+                </div>
+            </div>
+            <div class="split thirdSplit">
+                <div class="dropDown">
+                    <select name="typ" id="kdTyp">
+                        <option value="privatkunde">Privatkunde</option>
+                        <option value="geschaeftskunde">Geschäftskunde</option>
+                        <option value="verein">Verein</option>
+                        <option value="anderes">Anderes</option>
+                    </select>
+                </div>
+                <div class="btnBearbeiten">
+                    <p>Zahlungskonditionen</p>
+                </div>
+                <div class="btnBearbeiten">
+                    <p>Rechnungsadressen</p>
+                </div>
+                <div class="btnBearbeiten">
+                    <p>Ansprechpartner</p>
+                </div>
+                <div class="btnBearbeiten">
+                    <p>Vorgang löschen</p>
+                </div>
+                <div class="btnBearbeiten">
+                    <p>Auftrag speichern</p>
+                </div>
+
+            </div>
+        </div>
     </div>
 
     <div class="unten window">
+        <div class="windowTitle windowHeader">
+            <p>Vorgänge</p>
+        </div>
+
+        <div class="split firstSplit">
+            <div class="windowTable">
+                <table>
+                    <tr>
+                        <th>Angebotsnummer</th>
+                        <th>Status</th>
+                    </tr>
+                    <tr>
+                        <td><a routerLink="">AN 10-001</a></td>
+                        <td><a routerLink="">Offen</a></td>
+                    </tr>
+                    <tr>
+                        <td><a routerLink="">AN 10-001</a></td>
+                        <td><a routerLink="">Offen</a></td>
+                    </tr>
+                    <tr>
+                        <td><a routerLink="">AN 10-001</a></td>
+                        <td><a routerLink="">Offen</a></td>
+                    </tr>
+                    <tr>
+                        <td><a routerLink="">AN 10-001</a></td>
+                        <td><a routerLink="">Offen</a></td>
+                    </tr>
+                    <tr>
+                        <td><a routerLink="">AN 10-001</a></td>
+                        <td><a routerLink="">Offen</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="split secondSplit">
+            <div class="windowTable">
+                <table>
+                    <tr>
+                        <th>Auftragsnummer</th>
+                        <th>Status</th>
+                    </tr>
+                    <tr>
+                        <td><a routerLink="">AB 20-001</a></td>
+                        <td><a routerLink="">Offen</a></td>
+                    </tr>
+                    <tr>
+                        <td><a routerLink="">AB 20-001</a></td>
+                        <td><a routerLink="">Offen</a></td>
+                    </tr>
+                    <tr>
+                        <td><a routerLink="">AB 20-001</a></td>
+                        <td><a routerLink="">Offen</a></td>
+                    </tr>
+                    <tr>
+                        <td><a routerLink="">AB 20-001</a></td>
+                        <td><a routerLink="">Offen</a></td>
+                    </tr>
+                    <tr>
+                        <td><a routerLink="">AB 20-001</a></td>
+                        <td><a routerLink="">Offen</a></td>
+                    </tr>
+                    <tr>
+                        <td><a routerLink="">AB 20-001</a></td>
+                        <td><a routerLink="">Offen</a></td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+        <div class="split thirdSplit">
+            <div class="windowTable">
+                <table>
+                    <tr>
+                        <th>Rechnungsnummer</th>
+                        <th>Status</th>
+                    </tr>
+                    <tr>
+                        <td><a routerLink="">RE 60-001</a></td>
+                        <td><a routerLink="">Offen</a></td>
+                    </tr>
+                    <tr>
+                        <td><a routerLink="">RE 60-001</a></td>
+                        <td><a routerLink="">Offen</a></td>
+                    </tr>
+                    <tr>
+                        <td><a routerLink="">RE 60-001</a></td>
+                        <td><a routerLink="">Offen</a></td>
+                    </tr>
+                    <tr>
+                        <td><a routerLink="">RE 60-001</a></td>
+                        <td><a routerLink="">Offen</a></td>
+                    </tr>
+                    <tr>
+                        <td><a routerLink="">RE 60-001</a></td>
+                        <td><a routerLink="">Offen</a></td>
+                    </tr>
+                    <tr>
+                        <td><a routerLink="">RE 60-001</a></td>
+                        <td><a routerLink="">Offen</a></td>
+                    </tr>
+                    <tr>
+                        <td><a routerLink="">RE 60-001</a></td>
+                        <td><a routerLink="">Offen</a></td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+
     </div>
 </div>
 

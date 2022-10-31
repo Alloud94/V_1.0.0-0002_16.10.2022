@@ -120,10 +120,14 @@
 .windowTable th:nth-last-child(1)
     border-right: none
 
+.windowTable table:nth-last-child(1)
+    border-bottom: none
+
 /* ## Positionen Tabelle ## */
 .positionTable
     padding-left: 40px
     padding-top: 10px
+    margin-right: 10px
 
 .positionTable a
     width: 100%
@@ -157,6 +161,35 @@
 .positionTable th:nth-last-child(1)
     border-right: none
 
+.zwischenSpalte td
+    height: 15px
+
+.total td
+    border-right: none
+    height: 30px
+
+.endTotal
+    text-decoration-line: underline
+    text-decoration-style: double
+
+.btnPositionen
+    height: 34px 
+    display: inline-block
+    width: 100%
+    justify-content: space-around
+
+.btnPositionen p
+    background-color: white
+    border: 1px solid $borderColor
+    border-radius: 5px
+    text-align: center
+    padding: 2px
+    margin-bottom: 5px
+    cursor: pointer
+
+.windowContentPosition
+    width: 100%
+
 /* Angebot und Auftrag Kopfdaten */
 .kundenDaten
     background-color: $tableColor
@@ -179,7 +212,7 @@
 
 .notizen textarea
     height: 166px
-    width: 100%
+    width: 98%
     border: 1px solid transparent
     border-radius: 8px
     font-family: $fontRoboto
