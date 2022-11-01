@@ -70,7 +70,7 @@
 .btnErfassen button
     position: absolute
     top: 10px
-    right: 0px
+    right: 15px
     cursor: pointer
     width: 330px
     height: 30px
@@ -120,36 +120,45 @@
 .windowTable table:nth-last-child(1)
     border-bottom: none
 
-.windowTable thead
+.windowTable thead, 
+.positionTable thead
     &::after
         content: ''
         overflow-y: scroll
         visibility: hidden
 
-.windowTable tbody
+.windowTable tbody,
+.positionTable tbody
         display: block
         overflow-y: auto
         height: auto
         max-height: calc( $gesamteHoehe - 90px )
 
 .windowTable td, 
-.windowTable th
+.windowTable th, 
+.positionTable td,
+.positionTable th
         width: 100%
 
 
-.windowTable thead th 
+.windowTable thead th,
+.positionTable thead th
         display: block
 
 .windowTable thead tr,
-.windowTable tbody tr 
+.windowTable tbody tr,
+.positionTable thead tr,
+.positionTable tbody tr
         display: flex
 
 .windowTable tbody tr,
-.windowTable tbody td 
+.windowTable tbody td,
+.positionTable tbody tr,
+.positionTable tbody td
         flex: 1 auto
         word-wrap: break
 
-/* ## Positionen Tabelle ## */
+/* ## Positionen Tabelle (Angebot und Auftrag) ## */
 .positionTable
     padding-left: 40px
     padding-top: 10px
@@ -178,6 +187,9 @@
 
 .positionTable tr
     border-bottom: 1px solid $formFontColor 
+
+.positionTable tr:nth-last-child(1)
+    border-bottom: none
 
 .positionTable td
     padding-top: 2px
@@ -267,10 +279,11 @@ select
     width: 100%
     text-align: center
 
+/* BTN Speichern */ 
 .speichern p
     width: 33%
     position: absolute
-    right: 0
+    right: 15px
     bottom: 10px
     border: 1px solid $borderColor
     border-radius: 5px

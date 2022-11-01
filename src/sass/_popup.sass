@@ -4,6 +4,9 @@
 
 /* ## Generelle und Globale Styles für sämtliche Popup Dialoge ## */
 /* Header */
+.popupHeader
+    height: 40px
+
 .headerBezeichnung
     position: relative
     top: 0px
@@ -13,9 +16,9 @@
     font-size: 25px
 
 .closeTab
-    position: absolute
-    right: calc(calc( 100vw - 894px + 20px) /2)
-    top: calc( calc( 100vh - 500px) /2)
+    position: relative
+    top: -40px
+    right: -820px
 
 .close img
     height: 50px
@@ -60,14 +63,12 @@
     cursor: pointer
 
 .popupContent
+    min-height: calc(510px - 130px)
     margin-bottom: 40px
 
 /* Popup Window Table */
 .popupTable tbody
     max-height: 370px
-
-.popupTable thead tr
-    margin-right: 10px
 
 /* Popup Window Searchbar */
 .searchBarSmallPopup
@@ -103,9 +104,13 @@
     margin-left: 10px
 
 /* Footer */
+.popupFooter
+    width: 100%
+    height: 40px
+
 .btnSpeichern
-    position: absolute
+    position: relative
     width: calc( calc(894px - 130px) /3 )
-    right: calc(calc( 100vw - 894px + 50px) /2)
-    bottom: calc( calc( 100vh - 510px + 20px) /2)
+    right: -600px
+    bottom: 0px
 
