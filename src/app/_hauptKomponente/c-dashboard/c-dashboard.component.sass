@@ -28,32 +28,35 @@
     height: 162px
 
 /* ## Unten Links ## */
-.fmTitle p
+.fmTitle
     font-size: 15px
     padding-bottom: 10px
-    padding-top: 10px
+    margin-top: 10px
     font-weight: bold
 
-.rowOne,
-.rowTwo
-    display: inline-block
-    width: 250px
+.fmTable tbody
+    max-height: calc( $zweiTeiligeHoeheUnten - 50px )
 
-.fmAktuell,
-.fmOne,
-.fmTwo
-    border-bottom: 1px solid $formFontColor
-    
-.fmOne,
-.fmThree
-    background: $tableColor
-    margin-left: 40px
-    margin-right: 10px
+.fmTable td
+    border: none
 
-.fmAktuell,
-.fmTwo
-    margin-left: 40px
-    margin-right: 10px
+.fmTitle th
+    border: none
+    border-top: 1px solid $borderColor
+    padding-top: 5px
+
+.fmTable table:nth-child(1)
+    border-top: none
+
+   
+.fmTable tr:nth-child(even)
+    background-color: white
 
 /* ## Unten Rechts ## */
+.windowTable
+    margin-right: 15px
+
+.vorgaengeTable tbody
+    max-height: calc( $zweiTeiligeHoeheUnten - 75px )
+
 

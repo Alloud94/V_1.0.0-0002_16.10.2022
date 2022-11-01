@@ -9,6 +9,7 @@ import {MatDialogRef} from '@angular/material/dialog';
   styleUrls: ['./admin.component.sass']
 })
 export class AdminComponent implements OnInit {
+  close:string = 'assets/img/icon/close.png';
 
   constructor(public dialogRef: MatDialogRef<AdminComponent>) { }
 

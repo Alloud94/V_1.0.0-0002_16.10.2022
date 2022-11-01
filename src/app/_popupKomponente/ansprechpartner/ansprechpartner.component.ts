@@ -8,7 +8,8 @@ import {MatDialogRef} from '@angular/material/dialog';
   styleUrls: ['./ansprechpartner.component.sass']
 })
 export class AnsprechpartnerComponent implements OnInit {
-
+  close:string = 'assets/img/icon/close.png';
+  
   constructor(public dialogRef: MatDialogRef<AnsprechpartnerComponent>) { }
 
   ngOnInit(): void {

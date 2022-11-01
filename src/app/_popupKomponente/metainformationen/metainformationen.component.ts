@@ -8,6 +8,7 @@ import {MatDialogRef} from '@angular/material/dialog';
   styleUrls: ['./metainformationen.component.sass']
 })
 export class MetainformationenComponent implements OnInit {
+  close:string = 'assets/img/icon/close.png';
 
   constructor(public dialogRef: MatDialogRef<MetainformationenComponent>) { }
 

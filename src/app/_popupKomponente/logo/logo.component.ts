@@ -7,6 +7,7 @@ import {MatDialogRef} from '@angular/material/dialog';
   styleUrls: ['./logo.component.sass']
 })
 export class LogoComponent implements OnInit {
+  close:string = 'assets/img/icon/close.png';
 
   constructor(public dialogRef: MatDialogRef<LogoComponent>) { }
 

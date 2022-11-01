@@ -10,7 +10,8 @@ import {MatDialogRef} from '@angular/material/dialog';
 export class GenerateKundeComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<GenerateKundeComponent>) { }
-
+  close:string = 'assets/img/icon/close.png';
+  
   ngOnInit(): void {
   }
 

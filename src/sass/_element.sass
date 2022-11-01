@@ -30,14 +30,10 @@
     padding-left: 40px
 
 /* Window Meta Icon */
-.metaIvon 
-    position: absolute
-    right: 0
-
 .metaIcon img
     height: 36px
     position: absolute
-    right: 0
+    right: 15px
     top: 10px
 
 /* Window Searchbar */
@@ -87,6 +83,7 @@
 .windowTable
     padding-left: 40px
     padding-top: 10px
+    margin-right: 15px
 
 .windowTable a
     width: 100%
@@ -122,6 +119,35 @@
 
 .windowTable table:nth-last-child(1)
     border-bottom: none
+
+.windowTable thead
+    &::after
+        content: ''
+        overflow-y: scroll
+        visibility: hidden
+
+.windowTable tbody
+        display: block
+        overflow-y: auto
+        height: auto
+        max-height: calc( $gesamteHoehe - 90px )
+
+.windowTable td, 
+.windowTable th
+        width: 100%
+
+
+.windowTable thead th 
+        display: block
+
+.windowTable thead tr,
+.windowTable tbody tr 
+        display: flex
+
+.windowTable tbody tr,
+.windowTable tbody td 
+        flex: 1 auto
+        word-wrap: break
 
 /* ## Positionen Tabelle ## */
 .positionTable

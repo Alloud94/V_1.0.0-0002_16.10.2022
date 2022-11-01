@@ -7,7 +7,8 @@ import {MatDialogRef} from '@angular/material/dialog';
   styleUrls: ['./belege.component.sass']
 })
 export class BelegeComponent implements OnInit {
-
+  close:string = 'assets/img/icon/close.png';
+  
   constructor(public dialogRef: MatDialogRef<BelegeComponent>) { }
 
   ngOnInit(): void {

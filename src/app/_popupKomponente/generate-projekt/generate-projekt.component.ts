@@ -13,6 +13,7 @@ import {MatDialogRef} from '@angular/material/dialog';
   styleUrls: ['./generate-projekt.component.sass']
 })
 export class GenerateProjektComponent implements OnInit {
+  close:string = 'assets/img/icon/close.png';
 
   constructor(public matDialog: MatDialog, public dialogRef: MatDialogRef<GenerateProjektComponent>) { }
 

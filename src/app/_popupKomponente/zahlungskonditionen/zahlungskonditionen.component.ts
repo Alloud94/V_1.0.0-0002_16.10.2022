@@ -8,6 +8,7 @@ import {MatDialogRef} from '@angular/material/dialog';
   styleUrls: ['./zahlungskonditionen.component.sass']
 })
 export class ZahlungskonditionenComponent implements OnInit {
+  close:string = 'assets/img/icon/close.png';
 
   constructor(public dialogRef: MatDialogRef<ZahlungskonditionenComponent>) { }
 

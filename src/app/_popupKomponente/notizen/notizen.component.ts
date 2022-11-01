@@ -8,6 +8,7 @@ import {MatDialogRef} from '@angular/material/dialog';
   styleUrls: ['./notizen.component.sass']
 })
 export class NotizenComponent implements OnInit {
+  close:string = 'assets/img/icon/close.png';
 
   constructor(public dialogRef: MatDialogRef<NotizenComponent>) { }
 

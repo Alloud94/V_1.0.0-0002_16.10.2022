@@ -8,6 +8,7 @@ import {MatDialogRef} from '@angular/material/dialog';
   styleUrls: ['./meilenstein.component.sass']
 })
 export class MeilensteinComponent implements OnInit {
+  close:string = 'assets/img/icon/close.png';
 
   constructor(public dialogRef: MatDialogRef<MeilensteinComponent>) { }
 

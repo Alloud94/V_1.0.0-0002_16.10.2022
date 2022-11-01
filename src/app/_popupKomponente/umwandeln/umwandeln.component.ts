@@ -8,6 +8,7 @@ import {MatDialogRef} from '@angular/material/dialog';
   styleUrls: ['./umwandeln.component.sass']
 })
 export class UmwandelnComponent implements OnInit {
+  close:string = 'assets/img/icon/close.png';
 
   constructor(public dialogRef: MatDialogRef<UmwandelnComponent>) { }
 

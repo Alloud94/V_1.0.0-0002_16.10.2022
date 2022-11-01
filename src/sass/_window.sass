@@ -80,7 +80,7 @@ $fixLinks: calc(calc(calc(100vw - 1300px) / 2) + 115px)
     border: 1px solid $borderColor
     border-radius: 20px
     margin-top: 5px
-    overflow-y: scroll
+    overflow-y: hidden
     overflow-x: hidden
 
 .forOL
@@ -169,22 +169,3 @@ $fixLinks: calc(calc(calc(100vw - 1300px) / 2) + 115px)
     margin-bottom: 15px
     margin-left: 20px
 
-/* ## Scrollbar ## */
-::-webkit-scrollbar 
-    width: 10px
-    height: 0px
-    
-::-webkit-scrollbar-track-piece:end 
-    background: transparent
-    margin-bottom: 30px
-
-::-webkit-scrollbar-track-piece:start
-    background: transparent
-    margin-top: 30px
-
-::-webkit-scrollbar-thumb:hover 
-  background: $tableColor
-
-::-webkit-scrollbar-track 
-    max-height: 50%
-    height: 50%

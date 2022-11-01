@@ -8,7 +8,8 @@ import {MatDialogRef} from '@angular/material/dialog';
   styleUrls: ['./budget.component.sass']
 })
 export class BudgetComponent implements OnInit {
-
+  close:string = 'assets/img/icon/close.png';
+  
   constructor(public dialogRef: MatDialogRef<BudgetComponent>) { }
 
   ngOnInit(): void {

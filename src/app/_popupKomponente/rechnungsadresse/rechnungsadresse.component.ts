@@ -8,6 +8,7 @@ import {MatDialogRef} from '@angular/material/dialog';
   styleUrls: ['./rechnungsadresse.component.sass']
 })
 export class RechnungsadresseComponent implements OnInit {
+  close:string = 'assets/img/icon/close.png';
 
   constructor(public dialogRef: MatDialogRef<RechnungsadresseComponent>) { }
 

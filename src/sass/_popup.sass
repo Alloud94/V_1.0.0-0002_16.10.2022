@@ -3,13 +3,11 @@
 @import './src/sass/element'
 
 /* ## Generelle und Globale Styles für sämtliche Popup Dialoge ## */
-
 /* Header */
 .headerBezeichnung
     position: relative
     top: 0px
     left: 0px
-    width: 100%
 
 .headerBezeichnung p
     font-size: 25px
@@ -17,22 +15,17 @@
 .closeTab
     position: absolute
     right: calc(calc( 100vw - 894px + 20px) /2)
-    top: calc( calc( 100vh - 510px + 20px) /2)
-    border: 1px solid $borderColor
-    border-radius: 5px
-    width: 30px
-    height: 30px
+    top: calc( calc( 100vh - 500px) /2)
 
-.close p
-    font-size: 50px
+.close img
+    height: 50px
     cursor: pointer
-    text-transform: uppercase
-    padding-bottom: 20px
 
+/* Spalten */
 .split
     display: inline-block
-    width: calc( calc(894px - 90px) /3 )
-    margin-top: 10px
+    width: calc( calc(894px - 130px) /3 )
+    margin-top: 15px
     vertical-align: top
 
 .split p
@@ -45,28 +38,74 @@
     height: 500px
 
 .firstSplit
-    margin-right: 10px
+    margin-right: 20px
+    margin-left: 40px
 
-.secondSplit
-    margin-right: 10px
-    margin-left: 10px
-
+.secondSplit,
 .thirdSplit
+    margin-right: 10px
     margin-left: 10px
-
-
 
 .dropDown select
     text-align: center
 
+.contentReadonly
+    background-color: $tableColor
+    border: 1px solid transparent
+    border-radius: 8px
+    margin-bottom: 10px
 
 /* Content */
 .btnBearbeiten
-    width: calc( calc(894px - 90px) /3 )
     cursor: pointer
+
+.popupContent
+    margin-bottom: 40px
+
+/* Popup Window Table */
+.popupTable tbody
+    max-height: 370px
+
+.popupTable thead tr
+    margin-right: 10px
+
+/* Popup Window Searchbar */
+.searchBarSmallPopup
+    position: absolute
+    right: calc(calc( 100vw - 894px + 20px) /2)
+    top: calc( calc( 100vh - 900px) /2)
+    width: calc(360px - 30px)
+    height: 25px
+    background-color: white
+    border: 1px solid $borderColor
+    border-radius: 5px
+
+.searchBarSmallPopup input
+    background-color: white
+    height: 25px
+    width: 270px
+    text-align: right
+    margin-left: 18px
+    &:focus
+        outline: none
+
+.searchBarSmallPopup input::placeholder
+    color: $formFontColor
+
+.searchBarSmallPopup img
+    height: 12px
+    float: right
+    background-color: white
+    margin-right: 10px
+    margin-top: 5px
+    border-left: 1px solid $borderColor
+    padding-left: 5px
+    margin-left: 10px
 
 /* Footer */
 .btnSpeichern
     position: absolute
-    right: calc(calc( 100vw - 894px + 20px) /2)
+    width: calc( calc(894px - 130px) /3 )
+    right: calc(calc( 100vw - 894px + 50px) /2)
     bottom: calc( calc( 100vh - 510px + 20px) /2)
+

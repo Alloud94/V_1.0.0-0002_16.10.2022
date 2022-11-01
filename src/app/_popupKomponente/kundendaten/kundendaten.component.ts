@@ -8,6 +8,8 @@ import {MatDialogRef} from '@angular/material/dialog';
   styleUrls: ['./kundendaten.component.sass']
 })
 export class KundendatenComponent implements OnInit {
+  close:string = 'assets/img/icon/close.png';
+  search:string = 'assets/img/icon/search.png';
 
   constructor(public dialogRef: MatDialogRef<KundendatenComponent>) { }
 

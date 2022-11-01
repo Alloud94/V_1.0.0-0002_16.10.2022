@@ -8,7 +8,8 @@ import {MatDialogRef} from '@angular/material/dialog';
   styleUrls: ['./einstellungen.component.sass']
 })
 export class EinstellungenComponent implements OnInit {
-
+  close:string = 'assets/img/icon/close.png';
+  
   constructor(public dialogRef: MatDialogRef<EinstellungenComponent>) { }
 
   ngOnInit(): void {
