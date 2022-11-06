@@ -10,10 +10,16 @@
     <div class="popupContent">
         <div class="split firstSplit">
             <p class="contentReadonly">
-                KU 40-001<br /> Thomas Brändle<br /> Herr Thomas Brändle<br /> 9608 Ganterschwil
+                KU 40-001<br /> Thomas Brändle<br />9608 Ganterschwil
             </p>
             <div class="btnBearbeiten">
                 <p (click)="openKundendaten()">Kundendaten bearbeiten</p>
+            </div>
+            <p class="contentReadonly">
+                Herr Thomas Brändle
+            </p>
+            <div class="btnBearbeiten">
+                <p (click)="openAnsprechpartner()">Ansprechpartner bearbeiten</p>
             </div>
             <p class="contentReadonly">Thomas Brändle AG <br /> Friedaustrasse 3 <br /> 9608 Ganterschwil <br /> CH - Schweiz</p>
             <div class="btnBearbeiten">
@@ -44,19 +50,25 @@
             <div class="belegart">
                 <p>Belegart auswählen:</p>
                 <form action="" class="radioForm">
-                    <label for="radioAngebot">Angebot</label>
-                    <input type="radio" id="radioAngebot" name="belegArt" value="angebot" required>
-                    <label for="radioAuftrag">Auftrag</label>
-                    <input type="radio" id="radioAuftrag" name="belegArt" value="auftrag" required>
+                    <div>
+                        <label for="radioAngebot">Angebot</label>
+                        <input type="radio" id="radioAngebot" name="belegArt" value="angebot" checked required>
+                        <span class="radio"></span>
+                    </div>
+                    <div>
+                        <label for="radioAuftrag">Auftrag</label>
+                        <input type="radio" id="radioAuftrag" name="belegArt" value="auftrag" required>
+                        <span class="radio"></span>
+                    </div>
                 </form>
             </div>
         </div>
         <div class="split thirdSplit">
-            <div class="notizen">
+            <div class="notizen notizenHoch">
                 <textarea readonly="readonly">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimatasanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justoduo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
                 </textarea>
             </div>
-            <div class="btnBearbeiten">
+            <div class="btnBearbeiten btnNotizen">
                 <p (click)="openNotizen()">Notizen bearbeiten</p>
             </div>
         </div>

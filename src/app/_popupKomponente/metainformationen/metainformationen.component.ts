@@ -17,6 +17,7 @@ export class MetainformationenComponent implements OnInit {
 
   closeModal() {
     this.dialogRef.close();
+
   }
 
 }

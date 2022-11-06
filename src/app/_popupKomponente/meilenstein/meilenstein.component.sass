@@ -1,2 +1,80 @@
 @import './src/sass/var'
 @import './src/sass/popup'
+
+textarea
+    height: 140px
+
+.arbeitspakete
+    max-height: 320px
+    overflow: scroll
+    width: 100%
+
+.arbeitspakete input
+    width: 220px 
+
+/* ### Eigene Checkbox ### */
+.checkmark
+    float: right
+
+.chbContainer
+    cursor: pointer
+    -webkit-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+
+.chbContainer input
+    display: none
+
+.checkmark
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 25px
+    width: 25px
+    background-color: white
+    border: 1px solid $borderColor
+    background-color: white
+    border-radius: 8px
+
+.checkmark p, 
+.btnMeilenstein p
+    display: none
+    font-size: 20px
+    font-weight: 600
+    margin-bottom: 2px
+    margin-left: 4px
+
+.chbContainer input
+    &:checked ~ .checkmark p
+        display: block
+
+.checkmark
+    &:after 
+        content: ""
+        display: none
+
+.chbContainer input
+    &:checked ~ .checkmark
+        &:after 
+            display: block
+
+.chbContainer,
+.checkmark
+    &:after
+        left: 9px
+        top: 5px
+        width: 5px
+        height: 10px
+
+.btnMeilensteinHinzufuegen
+        width: 98%
+
+.btnMeilenstein
+        height: 25px
+        width: 25px
+        border: 1px solid $borderColor
+        border-radius: 8px
+        cursor: pointer
+        background-color: white
+        display: inline-block

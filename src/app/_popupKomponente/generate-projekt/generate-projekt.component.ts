@@ -4,6 +4,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { KundendatenComponent } from '../kundendaten/kundendaten.component';
 import { RechnungsadresseComponent } from '../rechnungsadresse/rechnungsadresse.component';
 import { NotizenComponent } from '../notizen/notizen.component';
+import { AnsprechpartnerComponent } from '../ansprechpartner/ansprechpartner.component';
 
 import {MatDialogRef} from '@angular/material/dialog';
 
@@ -49,6 +50,18 @@ export class GenerateProjektComponent implements OnInit {
 
     const modalDialog = this.matDialog.open(NotizenComponent, dialogConfig);
   }
+
+  openAnsprechpartner() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modaltwo-component";
+    dialogConfig.height = "510px";
+    dialogConfig.width = "894px";
+
+    const modalDialog = this.matDialog.open(AnsprechpartnerComponent, dialogConfig);
+  }
+
 
 
 

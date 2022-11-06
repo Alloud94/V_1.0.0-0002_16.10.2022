@@ -7,14 +7,13 @@ import { KonditionenComponent } from 'src/app/_popupKomponente/konditionen/kondi
 import { BelegeComponent } from 'src/app/_popupKomponente/belege/belege.component';
 import { LoeschenComponent } from 'src/app/_popupKomponente/loeschen/loeschen.component';
 import { NotizenComponent } from 'src/app/_popupKomponente/notizen/notizen.component';
-import { KundendatenComponent } from 'src/app/_popupKomponente/kundendaten/kundendaten.component';
 import { RechnungsadresseComponent } from 'src/app/_popupKomponente/rechnungsadresse/rechnungsadresse.component';
 import { PositionComponent } from 'src/app/_popupKomponente/position/position.component';
 import { TextpositionComponent } from 'src/app/_popupKomponente/textposition/textposition.component';
 import { BudgetComponent } from 'src/app/_popupKomponente/budget/budget.component';
 import { StundenComponent } from 'src/app/_popupKomponente/stunden/stunden.component';
 import { MeilensteinComponent } from 'src/app/_popupKomponente/meilenstein/meilenstein.component';
-
+import { ProjektKundendatenComponent } from 'src/app/_popupKomponente/projekt-kundendaten/projekt-kundendaten.component';
 
 @Component({
   selector: 'app-e-auftrag',
@@ -23,7 +22,6 @@ import { MeilensteinComponent } from 'src/app/_popupKomponente/meilenstein/meile
 })
 export class EAuftragComponent implements OnInit {
   meta:string = 'assets/img/icon/info.png';
-  metaActive:string = 'assets/img/icon/infoFarbig.png';
 
   // Konstruktor für die Popup-Dialoge
   constructor(public matDialog: MatDialog) { }
@@ -83,7 +81,7 @@ export class EAuftragComponent implements OnInit {
     const modalDialog = this.matDialog.open(NotizenComponent, dialogConfig);
   }
 
-  openKundendaten() {
+  openProjektKundendaten() {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;
@@ -91,7 +89,7 @@ export class EAuftragComponent implements OnInit {
     dialogConfig.height = "510px";
     dialogConfig.width = "894px";
 
-    const modalDialog = this.matDialog.open(KundendatenComponent, dialogConfig);
+    const modalDialog = this.matDialog.open(ProjektKundendatenComponent, dialogConfig);
   }
 
   openRechnungsadresse() {

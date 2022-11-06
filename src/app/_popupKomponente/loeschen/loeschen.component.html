@@ -8,16 +8,33 @@
         </div>
     </div>
     <div class="popupContent">
-        <div class="split firstSplit">
+        <div class="loginText">
+            <p>
+                Achtung! Sie sind dabei den aktuellen Vorgang zu löschen. Dieser Vorgang kann nicht mehr rückgängig gemacht werden. Für das Löschen eines Vorganges ist ein Admin-Login erforderlich. Falls Sie kein Admin-Login besitzen, wenden Sie sich bitte an Ihren Systemadministrator.
+            </p>
         </div>
-        <div class="split secondSplit">
-        </div>
-        <div class="split thirdSplit">
+        <div class="adminLogin">
+            <p>Bitte geben Sie ihr Adminstrator Login ein um den Vorgang endgültig zu löschen.</p>
+            <div class="loginForm">
+                <form action="">
+                    <div class="loginUserName">
+                        <img [src]="username" alt="" class="trennLinie">
+                        <input type="text" id="userName" placeholder="BENUTZERNAME">
+                    </div>
+                    <div class="loginPasswort">
+                        <img [src]="passwort" alt="" class="trennLinie">
+                        <input type="password" id="pWord" placeholder="PASSWORT">
+                    </div>
+                    <div class="submitLogin">
+                        <input type="submit" value="Vorgang endgültig löschen">
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
     <div class="popupFooter">
         <div class="btnBearbeiten btnSpeichern">
-            <p>Fortfahren</p>
+            <p>Abbrechen</p>
         </div>
     </div>
 </div>

@@ -57,6 +57,8 @@ import { LoeschenComponent } from './_popupKomponente/loeschen/loeschen.componen
 import { AdminComponent } from './_popupKomponente/admin/admin.component';
 import { ZahlungskonditionenComponent } from './_popupKomponente/zahlungskonditionen/zahlungskonditionen.component';
 import { UmwandelnComponent } from './_popupKomponente/umwandeln/umwandeln.component';
+import { ProjektKundendatenComponent } from './_popupKomponente/projekt-kundendaten/projekt-kundendaten.component';
+import { GruppenComponent } from './_popupKomponente/gruppen/gruppen.component';
 
 const routes: Routes = [
   {
@@ -143,7 +145,9 @@ const routes: Routes = [
     LoeschenComponent,
     AdminComponent,
     ZahlungskonditionenComponent,
-    UmwandelnComponent
+    UmwandelnComponent,
+    ProjektKundendatenComponent,
+    GruppenComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

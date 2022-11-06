@@ -9,6 +9,8 @@ import {MatDialogRef} from '@angular/material/dialog';
 })
 export class LoeschenComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
+  username:string = 'assets/img/icon/user.png';
+  passwort:string = 'assets/img/icon/vorhangschloss.png';
 
   constructor(public dialogRef: MatDialogRef<LoeschenComponent>) { }
 

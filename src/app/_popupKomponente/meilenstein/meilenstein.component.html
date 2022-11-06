@@ -9,10 +9,44 @@
     </div>
     <div class="popupContent">
         <div class="split firstSplit">
+            <p>Bezeichnung:</p>
+            <input type="text" placeholder="Bezeichnung">
+            <p>Termin:</p>
+            <input type="date">
+            <p>Status:</p>
+            <div class="dropDown">
+                <select name="status" id="status">
+                    <option value="offen">Offen</option>
+                    <option value="inBearbeitung">In Bearbeitung</option>
+                    <option value="zurueckgestellt">Zurückgestellt</option>
+                    <option value="abgeschlossen">Abgeschlossen</option>
+                    <option value="Entfernt">Entfernt</option>
+                </select>
+            </div>
         </div>
         <div class="split secondSplit">
+            <p>Notizen:</p>
+            <textarea name="notizen" id="notizen"></textarea>
+            <p>Beschrieb:</p>
+            <textarea name="msBeschrieb" id="msBeschrieb"></textarea>
         </div>
         <div class="split thirdSplit">
+            <p>Arbeitspakete:</p>
+            <div class="arbeitspakete">
+                <input type="text" class="readOnly" value="Arbeitspaket">
+                <label class="chbContainer" for="chbLogin">
+                    <input type="checkbox" id="chbLogin">
+                    <span class="checkmark"><p>&#10004;</p></span>
+                </label>
+                <input type="text" class="readOnly" value="Arbeitspaket">
+                <label class="chbContainer" for="chbLogin">
+                    <input type="checkbox" id="chbLogin">
+                    <span class="checkmark"><p>&#10004;</p></span>
+                </label>
+            </div>
+            <div class="btnBearbeiten btnMeilensteinHinzufuegen">
+                <p>+</p>
+            </div>
         </div>
     </div>
     <div class="popupFooter">
