@@ -1,2 +1,73 @@
 @import './src/sass/var'
 @import './src/sass/popup'
+
+.popupTableFirst a
+    width: 100%
+    display: block
+
+.popupTableFirst table
+    width: 100%
+    font-family: $fontRoboto
+    text-align: left
+    border-collapse: collapse
+
+.popupTableFirst td, 
+.popupTableFirst th
+    border-right: 1px solid $formFontColor
+    padding-left: 5px
+
+.popupTableFirst th
+    border-bottom: 1px solid $formFontColor
+    padding-bottom: 5px
+    font-size: 15px
+    font-weight: bold
+
+.popupTableFirst td
+    padding-top: 2px
+    padding-bottom: 2px
+
+.popupTableFirst tr:nth-child(even)
+    background-color: $tableColor
+
+.popupTableFirst td:nth-last-child(1),
+.popupTableFirst th:nth-last-child(1)
+    border-right: none
+
+.popupTableFirst table:nth-last-child(1)
+    border-bottom: none
+
+.popupTableFirst thead
+    &::after
+        content: ''
+        overflow-y: scroll
+        visibility: hidden
+
+.popupTableFirst tbody
+        display: block
+        overflow-y: auto
+        height: auto
+        max-height: calc( 510px - 185px )
+        margin-bottom: 10px
+
+.popupTableFirst td, 
+.popupTableFirst th
+    width: 100%
+
+
+.popupTableFirst thead th
+        display: block
+
+.popupTableFirst thead tr,
+.popupTableFirst tbody tr
+        display: flex
+
+.popupTableFirst tbody tr,
+.popupTableFirst tbody td
+        flex: 1 auto
+        word-wrap: break
+
+.btnSpeichern
+    bottom: 15px
+
+.btnBearbeiten
+    height: 0px
