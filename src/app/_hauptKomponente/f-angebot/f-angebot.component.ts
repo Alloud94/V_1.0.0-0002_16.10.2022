@@ -8,12 +8,11 @@ import { BelegeComponent } from 'src/app/_popupKomponente/belege/belege.componen
 import { LoeschenComponent } from 'src/app/_popupKomponente/loeschen/loeschen.component';
 import { NotizenComponent } from 'src/app/_popupKomponente/notizen/notizen.component';
 import { RechnungsadresseComponent } from 'src/app/_popupKomponente/rechnungsadresse/rechnungsadresse.component';
-import { AnsprechpartnerComponent } from 'src/app/_popupKomponente/ansprechpartner/ansprechpartner.component';
-import { ZahlungskonditionenComponent } from 'src/app/_popupKomponente/zahlungskonditionen/zahlungskonditionen.component';
 import { UmwandelnComponent } from 'src/app/_popupKomponente/umwandeln/umwandeln.component';
 import { PositionComponent } from 'src/app/_popupKomponente/position/position.component';
 import { TextpositionComponent } from 'src/app/_popupKomponente/textposition/textposition.component';
 import { ProjektKundendatenComponent } from 'src/app/_popupKomponente/projekt-kundendaten/projekt-kundendaten.component';
+import { KalkulationComponent } from 'src/app/_popupKomponente/kalkulation/kalkulation.component';
 
 @Component({
   selector: 'app-f-angebot',
@@ -36,6 +35,17 @@ export class FAngebotComponent implements OnInit {
     dialogConfig.width = "894px";
 
     const modalDialog = this.matDialog.open(MetainformationenComponent, dialogConfig);
+  }
+
+  openKalkulation() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component";
+    dialogConfig.height = "510px";
+    dialogConfig.width = "894px";
+
+    const modalDialog = this.matDialog.open(KalkulationComponent, dialogConfig);
   }
 
   openKonditionen() {

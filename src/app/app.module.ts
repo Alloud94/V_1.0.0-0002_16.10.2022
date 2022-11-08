@@ -59,6 +59,9 @@ import { ZahlungskonditionenComponent } from './_popupKomponente/zahlungskonditi
 import { UmwandelnComponent } from './_popupKomponente/umwandeln/umwandeln.component';
 import { ProjektKundendatenComponent } from './_popupKomponente/projekt-kundendaten/projekt-kundendaten.component';
 import { GruppenComponent } from './_popupKomponente/gruppen/gruppen.component';
+import { PositionArtikelComponent } from './_popupKomponente/position-artikel/position-artikel.component';
+import { KalkulationComponent } from './_popupKomponente/kalkulation/kalkulation.component';
+import { AuftragAbschliessenComponent } from './_popupKomponente/auftrag-abschliessen/auftrag-abschliessen.component';
 
 const routes: Routes = [
   {
@@ -147,7 +150,10 @@ const routes: Routes = [
     ZahlungskonditionenComponent,
     UmwandelnComponent,
     ProjektKundendatenComponent,
-    GruppenComponent
+    GruppenComponent,
+    PositionArtikelComponent,
+    KalkulationComponent,
+    AuftragAbschliessenComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

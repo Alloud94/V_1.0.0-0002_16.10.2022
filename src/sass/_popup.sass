@@ -36,7 +36,6 @@
 .split
     display: inline-block
     width: calc( calc(894px - 115px) /3 )
-    margin-top: 15px
     vertical-align: top
 
 .oneThird
@@ -48,7 +47,7 @@
     padding: 2px
     vertical-align: top
     width: 100%
-    margin-bottom: 10px
+    margin-bottom: 5px
 
 .notizen input
     height: 500px
@@ -72,7 +71,7 @@
     background-color: $tableColor
     border: 1px solid transparent
     border-radius: 5px
-    margin-bottom: 10px
+    margin-bottom: 5px
 
 /* Content */
 .btnBearbeiten
@@ -83,7 +82,6 @@
 
 .popupContent
     min-height: calc(510px - 110px)
-    margin-bottom: 20px
 
 .notizenBearbeiten
     height: calc(510px - 110px)
@@ -123,7 +121,7 @@ input
     overflow-wrap: break-word
 
 .notizenHoch textarea
-    height: calc( 510px - 200px )
+    height: 310px
     margin-bottom: 10px
     width: 96%
 
@@ -166,11 +164,15 @@ input
 
 
 /* Popup Window Table */
+.popupTable
+    margin-right: 0px
+
 .popupTable tbody
-    max-height: 370px
+    max-height: 360px
 
 .popupTableThird, 
-.popupTableOneThird
+.popupTableOneThird,
+.popupTableFull
     padding-left: 0px
     margin-right: 0px
     padding-top: 0px
@@ -178,8 +180,16 @@ input
 .popupTableThird tbody
     max-height: 350px
 
+.popupTableFull tbody
+    max-height: 380px
+
 .popupTableOneThird tbody
     max-height: 325px
+
+.fullWindow
+    height: 400px
+    width: 815px
+    margin-left: 40px
 
 /* Popup Window Searchbar */
 .searchBarSmallPopup
@@ -214,6 +224,24 @@ input
     padding-left: 5px
     margin-left: 10px
 
+/* Meta und Statistiken */
+.metaContent
+    margin-left: 40px
+    background-color: $tableColor
+    border-radius: 8px
+    padding: 10px
+    overflow: scroll
+    max-height: 380px
+    div
+        margin-left: 15px
+        display: flex
+
+.metaList p:nth-child(1)
+    width: 250px
+
+.statistikJahr
+    margin-bottom: 20px
+
 /* Footer */
 .popupFooter
     width: 100%
@@ -222,6 +250,6 @@ input
 .btnSpeichern
     position: relative
     width: calc( calc(894px - 130px) /3 )
+    bottom: -18px
     right: -600px
-    bottom: 15px
 

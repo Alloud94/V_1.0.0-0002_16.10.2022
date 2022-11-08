@@ -9,15 +9,52 @@
     </div>
     <div class="popupContent">
         <div class="split firstSplit">
+            <p>Artikelstamm:</p>
+            <div class="btnBearbeiten" (click)="openPositionArtikel()">
+                <p>Artikel suchen</p>
+            </div>
+            <p>Bezeichnung:</p>
+            <input type="text" readonly class="contentReadonly" value="Landingpage">
+            <p>Einheit:</p>
+            <input type="text" readonly class="contentReadonly" value="Stk.">
+            <p>Verkaufspreis 1:</p>
+            <input type="text" readonly class="contentReadonly" value="CHF 150.00.-">
+            <div class="btnBearbeiten">
+                <p>Artikel hinzufügen</p>
+            </div>
         </div>
         <div class="split secondSplit">
+            <p>Diversartikel:</p>
+            <input type="text" placeholder="Bezeichnung">
+            <p>Einheit:</p>
+            <select name="einheit" id="einheit">
+                <option value="stk">Stk.</option>
+                <option value="pauschal">Pauschal</option>
+            </select>
+            <p>Verkaufspreis 1:</p>
+            <input type="text" placeholder="VP 1">
+            <div class="btnBearbeiten">
+                <p>Artikel hinzufügen</p>
+            </div>
         </div>
         <div class="split thirdSplit">
+            <p>Rabatt:</p>
+            <input type="text" placeholder="Bezeichnung">
+            <p>Einheit:</p>
+            <select name="einheit" id="einheit">
+                <option value="stk">Stk.</option>
+                <option value="pauschal">Pauschal</option>
+            </select>
+            <p>Menge:</p>
+            <input type="text" placeholder="Menge">
+            <div class="btnBearbeiten">
+                <p>Rabatt hinzufügen</p>
+            </div>
         </div>
     </div>
     <div class="popupFooter">
-        <div class="btnBearbeiten btnSpeichern">
-            <p>Position erfassen</p>
+        <div (click)="closeModal()" class="btnBearbeiten btnSpeichern">
+            <p>Abbrechen</p>
         </div>
     </div>
 </div>

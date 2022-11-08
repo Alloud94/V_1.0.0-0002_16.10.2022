@@ -1,7 +1,7 @@
 <div class="popupWindow">
     <div class="popupHeader">
         <div class="headerBezeichnung">
-            <p>Logo</p>
+            <p>Unternehmenslogo ändern</p>
         </div>
         <div class="closeTab">
             <span (click)="closeModal()" class="close"><img [src]="close" alt=""></span>
@@ -9,6 +9,12 @@
     </div>
     <div class="popupContent">
         <div class="split firstSplit">
+            <div class="logoImg">
+                <img [src]="logoUnternehmen" alt="">
+            </div>
+            <div class="btnBearbeiten btnNotizen">
+                <p>Neues Logo hochladen</p>
+            </div>
         </div>
         <div class="split secondSplit">
         </div>

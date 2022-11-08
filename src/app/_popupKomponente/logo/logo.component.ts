@@ -8,6 +8,7 @@ import {MatDialogRef} from '@angular/material/dialog';
 })
 export class LogoComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
+  logoUnternehmen:string = 'assets/img/medien/TB_Logo.png';
 
   constructor(public dialogRef: MatDialogRef<LogoComponent>) { }
 

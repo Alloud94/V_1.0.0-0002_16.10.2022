@@ -8,7 +8,7 @@
         <div class="split firstSplit">
             <div class="row">
                 <p class="unterTitel">Darstellung</p>
-                <p class="name">Schriftart Überschriften</p>
+                <p class="name">Schriftart Überschriften:</p>
                 <select name="fontHeadline" id="">
                     <option value="test">Segoe Print</option>
                     <option value="test">Arial</option>
@@ -16,7 +16,7 @@
                     <option value="test">Test</option>
                     <option value="test">Test</option>
                 </select>
-                <p class="name">Schriftart Lauftext</p>
+                <p class="name">Schriftart Lauftext:</p>
                 <select name="fontText" id="">
                     <option value="test">Roboto</option>
                     <option value="test">Arial</option>
@@ -24,7 +24,7 @@
                     <option value="test">Test</option>
                     <option value="test">Test</option>
                 </select>
-                <p class="name">Ansicht Modus</p>
+                <p class="name">Ansicht Modus:</p>
                 <select name="viewMode" id="">
                     <option value="test">Original</option>
                     <option value="test">Dark</option>
@@ -34,6 +34,7 @@
         <div class="split secondSplit">
             <div class="row">
                 <p class="unterTitel">Gruppen und Kategorien</p>
+                <p>Zahlungskonditionen:</p>
                 <select name="zahlungsbedingungen" id="zahlungsbedingungen">
                     <option value="zb_01">10 Tage 3% Skonto, 30 Tage Netto</option>
                     <option value="zb_02">7 Tage 2% Skonto, 20 Tage Netto</option>
@@ -46,6 +47,7 @@
                 <div class="btnBearbeiten">
                     <p (click)="openGruppen()">Zahlungskonditionen bearbeiten</p>
                 </div>
+                <p>Zahlungsarten:</p>
                 <select name="zahlungsarten" id="zahlungsarten">
                     <option value="za_01">Rechnung</option>
                     <option value="za_02">Vorauskasse</option>
@@ -54,6 +56,7 @@
                 <div class="btnBearbeiten">
                     <p (click)="openGruppen()">Zahlungsarten bearbeiten</p>
                 </div>
+                <p>Artikelgruppen:</p>
                 <select name="artikelgruppen" id="artikelgruppen">
                     <option value="ag_01">Webentwicklung</option>
                     <option value="ag_02">Fotografie</option>
@@ -63,6 +66,7 @@
                 <div class="btnBearbeiten">
                     <p (click)="openGruppen()">Artikelgruppen bearbeiten</p>
                 </div>
+                <p>Kundengruppen:</p>
                 <select name="kundengruppen" id="kundengruppen">
                     <option value="kg_01">Privatperson</option>
                     <option value="kg_02">Geschäftspartner</option>
@@ -72,17 +76,15 @@
                 <div class="btnBearbeiten">
                     <p (click)="openGruppen()">Kundengruppen bearbeiten</p>
                 </div>
-                <select name="abteilungen" id="abteilungen">
-                    <option value="ab_01">Entwicklung</option>
-                    <option value="ab_02">Geschäftsleitung</option>
-                    <option value="ab_03">Sekretariat</option>
-                    <option value="ab_04">Lernende</option>
-                    <option value="ab_04">Anderes</option>
+                <p>Einheiten:</p>
+                <select name="einheit" id="einheit">
+                    <option value="eh_01">Stk.</option>
+                    <option value="eh_02">Pauschal</option>
+                    <option value="eh_03">Stunde</option>
                 </select>
                 <div class="btnBearbeiten">
-                    <p (click)="openGruppen()">Artikelgruppen bearbeiten</p>
+                    <p (click)="openGruppen()">Einheiten bearbeiten</p>
                 </div>
-
             </div>
         </div>
         <div class="split thirdSplit">

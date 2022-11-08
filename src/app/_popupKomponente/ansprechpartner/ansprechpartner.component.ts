@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import {MatDialogRef} from '@angular/material/dialog';
+import { NotizenComponent } from '../notizen/notizen.component';
 
 @Component({
   selector: 'app-ansprechpartner',
@@ -10,7 +11,18 @@ import {MatDialogRef} from '@angular/material/dialog';
 export class AnsprechpartnerComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
   
-  constructor(public dialogRef: MatDialogRef<AnsprechpartnerComponent>) { }
+  constructor(public matDialog: MatDialog, public dialogRef: MatDialogRef<AnsprechpartnerComponent>) { }
+
+  openNotizen() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modaltwo-component";
+    dialogConfig.height = "510px";
+    dialogConfig.width = "894px";
+
+    const modalDialog = this.matDialog.open(NotizenComponent, dialogConfig);
+  }
 
   ngOnInit(): void {
   }
