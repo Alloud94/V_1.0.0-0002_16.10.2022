@@ -15,6 +15,7 @@ import { StundenComponent } from 'src/app/_popupKomponente/stunden/stunden.compo
 import { MeilensteinComponent } from 'src/app/_popupKomponente/meilenstein/meilenstein.component';
 import { ProjektKundendatenComponent } from 'src/app/_popupKomponente/projekt-kundendaten/projekt-kundendaten.component';
 import { KalkulationComponent } from 'src/app/_popupKomponente/kalkulation/kalkulation.component';
+import { AuftragAbschliessenComponent } from 'src/app/_popupKomponente/auftrag-abschliessen/auftrag-abschliessen.component';
 
 @Component({
   selector: 'app-e-auftrag',
@@ -36,6 +37,17 @@ export class EAuftragComponent implements OnInit {
     dialogConfig.width = "894px";
 
     const modalDialog = this.matDialog.open(MetainformationenComponent, dialogConfig);
+  }
+
+  openAuftragAbschliessen() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component";
+    dialogConfig.height = "510px";
+    dialogConfig.width = "894px";
+
+    const modalDialog = this.matDialog.open(AuftragAbschliessenComponent, dialogConfig);
   }
 
   openKalkulation() {

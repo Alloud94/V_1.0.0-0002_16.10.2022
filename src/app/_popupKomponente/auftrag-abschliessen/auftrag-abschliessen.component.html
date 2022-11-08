@@ -1,1 +1,49 @@
-<p>auftrag-abschliessen works!</p>
+<div class="popupWindow">
+    <div class="popupHeader">
+        <div class="headerBezeichnung">
+            <p>Auftrag abschliessen</p>
+        </div>
+        <div class="closeTab">
+            <span (click)="closeModal()" class="close"><img [src]="close" alt=""></span>
+        </div>
+    </div>
+    <div class="popupContent">
+        <div class="text">
+            <p>Achtung! Sie sind dabei den aktuellen Vorgang abzuschliessen. Hierbei wird eine Rechnung erstellt und versendet. Danach ist eine Änderung im Auftrag nicht mehr möglich.
+            </p>
+        </div>
+        <div class="budgetContent">
+            <div class="list">
+                <p>Budget gemäss Positionenliste:</p>
+                <input type="text" readonly class="contentReadonly" value="CHF 3'500.15.-">
+            </div>
+            <div class="list">
+                <p>Kosten gemäss Stunden Mitarbeiter:</p>
+                <input type="text" readonly class="contentReadonly" value="CHF 2'010.00.-">
+            </div>
+            <div class="list">
+                <p>Kosten in Regie gemäss Meilensteine:</p>
+                <input type="text" readonly class="contentReadonly" value="CHF 150.00.-">
+            </div>
+            <div class="list">
+                <p>Ertrag:</p>
+                <input type="text" readonly class="contentReadonly" value="CHF 1'320.00.-">
+            </div>
+            <div class="list">
+                <p>Marge:</p>
+                <input type="text" readonly class="contentReadonly" value="40%">
+            </div>
+            <div class="abstand">
+            </div>
+            <div class="list">
+                <p>Rechnungsbetrag:</p>
+                <input type="text" readonly class="contentReadonly" value="CHF 3'650.15.-">
+            </div>
+        </div>
+    </div>
+    <div class="popupFooter">
+        <div class="btnBearbeiten btnSpeichern">
+            <p>Auftrag endgültig abschliessen</p>
+        </div>
+    </div>
+</div>

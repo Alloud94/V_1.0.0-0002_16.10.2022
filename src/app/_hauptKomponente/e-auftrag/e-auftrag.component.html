@@ -52,7 +52,7 @@
                     <p (click)="openLoeschen()">Vorgang löschen</p>
                 </div>
                 <div class="btnBearbeiten">
-                    <p>Auftrag abschliessen</p>
+                    <p (click)="openAuftragAbschliessen()">Auftrag abschliessen</p>
                 </div>
                 <div class="dropDown">
                     <select name="status" id="status">
@@ -69,50 +69,6 @@
         </div>
     </div>
     <div class="fiveML window">
-        <div class="kosten">
-            <div class="windowTitle windowHeader">
-                <p>Kosten</p>
-            </div>
-            <div class="btnErfassen">
-                <button type="button" class="btnErfassen" (click)="openBudget()">Kosten Erfassen</button>
-            </div>
-            <div class="kostenContent">
-                <div class="kostenBalken">
-                    <div class="balkenBudget">
-                        <p>CHF 3'500.15.-</p>
-                    </div>
-                    <div class="balkenRegie">
-                        <p>CHF 150.00.-</p>
-                    </div>
-                    <div class="balkenAusgaben">
-                        <p>CHF 2'010.00.-</p>
-                    </div>
-                    <div class="balkenErtrag">
-                        <p>CHF 1'320.00.-</p>
-                    </div>
-                    <div class="margeBeschrieb">
-                        <p>Marge:</p>
-                    </div>
-                </div>
-                <div class="kostenBeschrieb">
-                    <div class="beschrieb">
-                        <p>Budget</p>
-                    </div>
-                    <div class="beschrieb">
-                        <p>Regie</p>
-                    </div>
-                    <div class="beschrieb">
-                        <p>Ausgaben</p>
-                    </div>
-                    <div class="beschrieb">
-                        <p>Ertrag</p>
-                    </div>
-                    <div class="margeMenge">
-                        <p>43%</p>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="stunden">
             <div class="windowTitle windowHeader">
                 <p>Stunden</p>
@@ -147,6 +103,50 @@
                     </div>
                     <div class="totalMenge">
                         <p>120 Stunden</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="kosten">
+            <div class="windowTitle windowHeader">
+                <p>Kosten</p>
+            </div>
+            <!--<div class="btnErfassen">
+                <button type="button" class="btnErfassen" (click)="openBudget()">Kosten Erfassen</button>
+            </div>-->
+            <div class="kostenContent">
+                <div class="kostenBalken">
+                    <div class="balkenBudget">
+                        <p>CHF 3'500.15.-</p>
+                    </div>
+                    <div class="balkenRegie">
+                        <p>CHF 150.00.-</p>
+                    </div>
+                    <div class="balkenAusgaben">
+                        <p>CHF 2'010.00.-</p>
+                    </div>
+                    <div class="balkenErtrag">
+                        <p>CHF 1'320.00.-</p>
+                    </div>
+                    <div class="margeBeschrieb">
+                        <p>Marge:</p>
+                    </div>
+                </div>
+                <div class="kostenBeschrieb">
+                    <div class="beschrieb">
+                        <p>Budget</p>
+                    </div>
+                    <div class="beschrieb">
+                        <p>Regie</p>
+                    </div>
+                    <div class="beschrieb">
+                        <p>Ausgaben</p>
+                    </div>
+                    <div class="beschrieb">
+                        <p>Ertrag</p>
+                    </div>
+                    <div class="margeMenge">
+                        <p>43%</p>
                     </div>
                 </div>
             </div>

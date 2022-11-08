@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-auftrag-abschliessen',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./auftrag-abschliessen.component.sass']
 })
 export class AuftragAbschliessenComponent implements OnInit {
+  close:string = 'assets/img/icon/close.png';
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<AuftragAbschliessenComponent>) { }
 
   ngOnInit(): void {
+  }
+
+  closeModal() {
+    this.dialogRef.close();
   }
 
 }
