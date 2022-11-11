@@ -39,10 +39,6 @@
                         </select>
                     </div>
                 </div>
-                <div class="row">
-                    <p>Einzelpreis:</p>
-                    <input type="text" value="CHF 150.00.-">
-                </div>
             </div>
             <div class="split secondSplit">
                 <div class="btnBearbeiten">
@@ -54,6 +50,51 @@
                 </div>
             </div>
             <div class="split thirdSplit">
+                <div class="row">
+                    <p>EP Brutto CHF:</p>
+                    <input type="text" value="98.00">
+                </div>
+                <div class="row">
+                    <p>Rabatt 1 %:</p>
+                    <input type="text" value="15">
+                </div>
+                <div class="row">
+                    <p>Rabatt 2 %:</p>
+                    <input type="text" value="5">
+                </div>
+                <div class="row">
+                    <p>EP Netto CHF:</p>
+                    <input type="text" readonly class="contentReadonly" value="79.135">
+                </div>
+                <div class="row">
+                    <p>VP Brutto CHF:</p>
+                    <input type="text" value="97.45">
+                </div>
+                <div class="row">
+                    <p>Marge %:</p>
+                    <input type="text" value="15">
+                </div>
+                <div class="row">
+                    <p>VP Netto CHF:</p>
+                    <input type="text" value="91.00">
+                </div>
+                <div class="artikelKonditionen">
+                    <p>Artikel Konditionen:</p>
+                    <form action="" class="radioForm">
+                        <div>
+                            <label for="radioNetto">Nettoartikel</label>
+                            <input type="radio" id="radioNetto" name="artikelKonditionen" value="Nettoartikel" checked required>
+                            <span class="radio"></span>
+                        </div>
+                        <div>
+                            <label for="radioBrutto">Rabattfähiger</label>
+                            <input type="radio" id="radioBrutto" name="artikelKonditionen" value="Rabattfähiger Artikel" required>
+                            <span class="radio"></span>
+                        </div>
+                    </form>
+                </div>
+
+                <br>
                 <div class="btnBearbeiten">
                     <p (click)="openLoeschen()">Artikel löschen</p>
                 </div>

@@ -10,22 +10,28 @@
         <div class="windowContent">
             <div class="split firstSplit">
                 <div>
-                    <p class="kundenDaten">
-                        KU 40-001
-                        <br /> Thomas Brändle
-                        <br /> Herr Thomas Brändle
-                        <br /> Friedaustrasse 3
-                    </p>
+                    <div class="row">
+                        <p>Nummer:</p>
+                        <p>AN 10-001</p>
+                    </div>
+                    <div class="row">
+                        <p>Kunde:</p>
+                        <p>
+                            KU 40-001
+                            <br/> Thomas Brändle
+                            <br/> Friedaustrasse 3
+                            <br/> 9608 Ganterschwil
+                        </p>
+                    </div>
+                    <div class="row">
+                        <p>Partner:</p>
+                        <p>Herr Thomas Brändle</p>
+                    </div>
                     <div class="btnBearbeiten">
-                        <p (click)="openProjektKundendaten()">Kundendaten bearbeiten</p>
+                        <p (click)="openProjektKundendaten()">Ansprechpartner bearbeiten</p>
                     </div>
                 </div>
                 <div>
-                    <p class="kundenDaten">
-                        Friedaustrasse 3
-                        <br /> 9608 Ganterschwil
-                        <br /> CH - Schweiz
-                    </p>
                     <div class="btnBearbeiten">
                         <p (click)="openRechnungsadresse()">Rechnungsadresse bearbeiten</p>
                     </div>
