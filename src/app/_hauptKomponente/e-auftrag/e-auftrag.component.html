@@ -181,25 +181,6 @@
                         <td><a (click)="openMeilenstein()">01.03.2022</a></td>
                         <td><a (click)="openMeilenstein()">Abgeschlossen</a></td>
                     </tr>
-                    <tr>
-                        <td><a (click)="openMeilenstein()">01</a></td>
-                        <td><a (click)="openMeilenstein()">Konzept</a></td>
-                        <td><a (click)="openMeilenstein()">01.03.2022</a></td>
-                        <td><a (click)="openMeilenstein()">Abgeschlossen</a></td>
-                    </tr>
-                    <tr>
-                        <td><a (click)="openMeilenstein()">01</a></td>
-                        <td><a (click)="openMeilenstein()">Konzept</a></td>
-                        <td><a (click)="openMeilenstein()">01.03.2022</a></td>
-                        <td><a (click)="openMeilenstein()">Abgeschlossen</a></td>
-                    </tr>
-                    <tr>
-                        <td><a (click)="openMeilenstein()">01</a></td>
-                        <td><a (click)="openMeilenstein()">Konzept</a></td>
-                        <td><a (click)="openMeilenstein()">01.03.2022</a></td>
-                        <td><a (click)="openMeilenstein()">Abgeschlossen</a></td>
-                    </tr>
-
                 </tbody>
             </table>
         </div>
@@ -213,6 +194,8 @@
         </div>
         <div class="positionTable">
             <table>
+
+                <!-- Table Head (Statisch) -->
                 <tr>
                     <th>Position</th>
                     <th>Beschreibung</th>
@@ -222,69 +205,8 @@
                     <th>Rabatt</th>
                     <th>Endpreis</th>
                 </tr>
-                <tr>
-                    <td><a routerLink="/">001</a></td>
-                    <td><a routerLink="/">Landingpage<br /> Untertext 1 <br /> Untertext 2</a></td>
-                    <td><a routerLink="/">1</a></td>
-                    <td><a routerLink="/">Pauschal</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                    <td><a routerLink="/">0%</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                </tr>
-                <tr>
-                    <td><a routerLink="/">001</a></td>
-                    <td><a routerLink="/">Landingpage<br /> Untertext 1 <br /> Untertext 2</a></td>
-                    <td><a routerLink="/">1</a></td>
-                    <td><a routerLink="/">Pauschal</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                    <td><a routerLink="/">0%</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                </tr>
-                <tr>
-                    <td><a routerLink="/">001</a></td>
-                    <td><a routerLink="/">Landingpage<br /> Untertext 1 <br /> Untertext 2</a></td>
-                    <td><a routerLink="/">1</a></td>
-                    <td><a routerLink="/">Pauschal</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                    <td><a routerLink="/">0%</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                </tr>
-                <tr>
-                    <td><a routerLink="/">001</a></td>
-                    <td><a routerLink="/">Landingpage<br /> Untertext 1 <br /> Untertext 2</a></td>
-                    <td><a routerLink="/">1</a></td>
-                    <td><a routerLink="/">Pauschal</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                    <td><a routerLink="/">0%</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                </tr>
-                <tr>
-                    <td><a routerLink="/">001</a></td>
-                    <td><a routerLink="/">Landingpage<br /> Untertext 1 <br /> Untertext 2</a></td>
-                    <td><a routerLink="/">1</a></td>
-                    <td><a routerLink="/">Pauschal</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                    <td><a routerLink="/">0%</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                </tr>
-                <tr>
-                    <td><a routerLink="/">001</a></td>
-                    <td><a routerLink="/">Landingpage<br /> Untertext 1 <br /> Untertext 2</a></td>
-                    <td><a routerLink="/">1</a></td>
-                    <td><a routerLink="/">Pauschal</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                    <td><a routerLink="/">0%</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                </tr>
-                <tr>
-                    <td><a routerLink="/">001</a></td>
-                    <td><a routerLink="/">Landingpage<br /> Untertext 1 <br /> Untertext 2</a></td>
-                    <td><a routerLink="/">1</a></td>
-                    <td><a routerLink="/">Pauschal</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                    <td><a routerLink="/">0%</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                </tr>
+
+                <!-- Table Body (Dynamisch) -->
                 <tr>
                     <td><a routerLink="/">001</a></td>
                     <td><a routerLink="/">Landingpage<br /> Untertext 1 <br /> Untertext 2</a></td>
@@ -295,6 +217,7 @@
                     <td><a routerLink="/">CHF 1500.10.-</a></td>
                 </tr>
 
+                <!-- Table Ergebnis (Statisch) -->
                 <tr class="zwischenSpalte">
                     <td colspan="7"></td>
                 </tr>
@@ -314,6 +237,8 @@
                     <td class="endTotal">CHF 2'350.00.-</td>
                 </tr>
             </table>
+
+            <!-- Table Buttons (Statisch) -->
             <div class="split firstSplit">
                 <div class="btnPositionen">
                     <p (click)="openPosition()">Position erfassen</p>
