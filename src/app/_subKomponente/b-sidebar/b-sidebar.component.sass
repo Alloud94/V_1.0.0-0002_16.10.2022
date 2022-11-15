@@ -1,8 +1,14 @@
 @import './src/sass/var'
     
 /* Globale Variablen zu den Höhen und Breiten der Menupunkten */
-$hoeheMenupunkt: calc(calc(100vh - 201px - 50px - 15px)/8)
-$hoeheMenubild: calc($hoeheMenupunkt *0.5)
+$hoeheMenupunkt: calc(calc(100vh - 201px - 50px - 15px) /8)
+$hoeheMenupunkt9: calc(calc(100vh - 201px - 50px - 15px - 43px) /9)
+$hoeheMenupunkt10: calc(calc(100vh - 201px - 50px - 15px - 150px) /10)
+
+$hoeheMenubild: calc($hoeheMenupunkt * 0.5)
+$hoeheMenubild2: calc($hoeheMenupunkt9 * 0.5)
+$hoeheMenubild3: calc($hoeheMenupunkt10 * 0.5)
+
 
 /* ### Gesamte Sub Komponente ### */
 .skSidebar
@@ -28,9 +34,15 @@ $hoeheMenubild: calc($hoeheMenupunkt *0.5)
     background-color: white
     display: block
 
-.abstand
+.abstand,
+.abstand2,
+.abstand3
     height: $hoeheMenupunkt
     width: $hoeheMenupunkt
+
+.abstand2,
+.abstand3
+    display: none
 
 .menuPunkt img
     height: $hoeheMenubild
@@ -42,3 +54,38 @@ $hoeheMenubild: calc($hoeheMenupunkt *0.5)
     font-size: 11px
     text-align: center
     margin-top: -13px
+
+@media only screen and (max-height: 800px)
+    .menuPunkt p
+        display: none
+    .menuPunkt img
+        height: 30px
+    .menuPunkt a
+        height: 80%
+        width: 80%
+        border-radius: 12px
+        display: flex
+        justify-content: center
+        align-content: center
+    .abstand
+        display: none
+
+@media only screen and (min-height: 1120px)
+    .menuPunkt img
+        height: $hoeheMenubild2
+        margin: calc(calc($hoeheMenupunkt9 - $hoeheMenubild2) /2)
+    .menuPunkt a
+        height: $hoeheMenupunkt9
+        width: $hoeheMenupunkt9
+    .abstand2
+        display: block
+
+@media only screen and (min-height: 1280px)
+    .menuPunkt img
+        height: $hoeheMenubild3
+        margin: calc(calc($hoeheMenupunkt10 - $hoeheMenubild3) /2)
+    .menuPunkt a
+        height: $hoeheMenupunkt10
+        width: $hoeheMenupunkt10
+    .abstand3
+        display: block

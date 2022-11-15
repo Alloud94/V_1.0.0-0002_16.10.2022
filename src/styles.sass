@@ -35,6 +35,16 @@ body
     background-color: $backgroundColor
     height: 0 !important
 
+.bodyFehlermeldung
+    display: none
+    justify-content: center
+    align-content: center
+
+@media only screen and (max-width: 1279px)
+    .appRoot
+        display: none
+    .bodyFehlermeldung
+        display: flex
 
 h1
     font-family: $fontSegoe
@@ -58,7 +68,7 @@ a
 .mat-body-1, 
 .mat-typography 
 .mat-body, 
-.mat-typography 
+.mat-typography,
 .mat-body-1,
 .mat-typography
     z-index: -11

@@ -17,7 +17,7 @@ $gesamteBreite: null
 $zweiTeiligeBreite: calc(calc(1300px - 115px - 15px - 30px - 15px) /2)
 $gesamteHoehe: calc(100vh - 201px - 22px)
 $zweiTeiligeHoeheOben: calc(calc(100vh - 201px - 30px - 15px - 100px) /2)
-$zweiTeiligeHoeheUnten: calc(calc(100vh - 101px - 30px - 15px) /2)
+$zweiTeiligeHoeheUnten: calc(100vh - 201px - 285px - 30px)
 $fixRechts: calc(calc(100vw - 1300px) / 2)
 $fixLinks: calc(calc(calc(100vw - 1300px) / 2) + 115px)
 
@@ -58,13 +58,13 @@ $fixLinks: calc(calc(calc(100vw - 1300px) / 2) + 115px)
 
 .oben
     top: 201px
-    height: $zweiTeiligeHoeheOben
+    height: 285px
     width: $gesamteBreite
     left: $fixLinks
     margin-left: 20px
 
 .unten
-    bottom: 15px
+    top: calc( 100px + 100px + 285px + 15px  )
     height: $zweiTeiligeHoeheUnten
     width: $gesamteBreite
     left: $fixLinks
@@ -85,31 +85,44 @@ $fixLinks: calc(calc(calc(100vw - 1300px) / 2) + 115px)
 
 .forOL
     top: 201px
-    height: $zweiTeiligeHoeheOben
+    height: 285px
     width: $zweiTeiligeBreite
     left: $fixLinks
     margin-left: 20px
 
 .forOR
     top: 201px
-    height: $zweiTeiligeHoeheOben
+    height: 285px
     width: $zweiTeiligeBreite
     right: $fixRechts
     margin-right: 20px
+
+@media only screen and (max-height: 800px)
+    .forOR,
+    .forOL
+        height: 200px
+
+
     
 .forUL
-    bottom: 15px
+    top: calc( 100px + 100px + 285px + 15px  )
     height: $zweiTeiligeHoeheUnten
     width: $zweiTeiligeBreite
     left: $fixLinks
     margin-left: 20px
 
 .forUR
-    bottom: 15px
+    top: calc( 100px + 100px + 285px + 15px  )
     height: $zweiTeiligeHoeheUnten
     width: $zweiTeiligeBreite
     right: $fixRechts
     margin-right: 20px
+
+@media only screen and (max-height: 800px)
+    .forUL,
+    .forUR
+        top: calc( 100px + 100px + 200px + 15px  )
+        height: calc( $zweiTeiligeHoeheUnten + 85px )
 
 /* ### Fünf Teilig ### */
 .fiveMR
@@ -134,7 +147,7 @@ $fixLinks: calc(calc(calc(100vw - 1300px) / 2) + 115px)
 
 .fiveOben
     top: 201px
-    height: $zweiTeiligeHoeheOben
+    height: 285px
     width: $gesamteBreite
     left: $fixLinks
     margin-left: 20px
@@ -147,22 +160,21 @@ $fixLinks: calc(calc(calc(100vw - 1300px) / 2) + 115px)
     margin-right: 20px
     
 .fiveML
-    bottom: 15px
-    height: $zweiTeiligeHoeheUnten
+    top: calc( 100px + 100px + 285px + 15px  )
+    height: 380px
     width: $zweiTeiligeBreite
     left: $fixLinks
     margin-left: 20px
 
 .fiveMR
-    bottom: 15px
-    height: $zweiTeiligeHoeheUnten
+    top: calc( 100px + 100px + 285px + 15px  )
+    height: 380px
     width: $zweiTeiligeBreite
     right: $fixRechts
     margin-right: 20px
 
 .fiveUnten
-    top: 100vh
-    min-height: 500px
+    top: calc( 100px + 100px + 285px + 15px + 380px + 15px )
     width: $gesamteBreite
     left: $fixLinks
     margin-right: 20px

@@ -27,6 +27,10 @@
 .logo img
     height: 162px
 
+@media only screen and (max-height: 800px)
+    .logo img
+        height: 120px
+
 /* ## Unten Links ## */
 .fmTitle
     font-size: 15px
@@ -36,6 +40,10 @@
 
 .fmTable tbody
     max-height: calc( $zweiTeiligeHoeheUnten - 50px )
+
+@media only screen and (max-height: 800px)
+    .fmTable tbody
+        max-height: calc( $zweiTeiligeHoeheUnten - 50px + 80px )
 
 .fmTable td
     border: none
@@ -58,4 +66,7 @@
 .vorgaengeTable tbody
     max-height: calc( $zweiTeiligeHoeheUnten - 75px )
 
+@media only screen and (max-height: 800px)
+    .vorgaengeTable tbody
+        max-height: calc( $zweiTeiligeHoeheUnten - 75px + 80px )
 
