@@ -16,6 +16,7 @@ export class CDashboardComponent implements OnInit {
   // Konstruktor für die Popup-Dialoge
   constructor(public matDialog: MatDialog) { }
 
+  // Die verschiedenen Popup Dialoge öffnen
   openGenerateProject() {
     const dialogConfig = new MatDialogConfig();
 
@@ -48,7 +49,6 @@ export class CDashboardComponent implements OnInit {
 
     const modalDialog = this.matDialog.open(GenerateArtikelComponent, dialogConfig);
   }
-
 
   ngOnInit(): void {
   }
