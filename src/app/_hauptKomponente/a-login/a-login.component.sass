@@ -21,6 +21,28 @@
     position: fixed
     bottom: 195px
 
+@media only screen and (max-height: 900px)
+    .loginForm
+        bottom: 120px
+    .loginLogo img
+        height: 250px
+
+@media only screen and (max-height: 740px)
+    .loginLogo
+        top: 80px
+    .loginForm
+        bottom: 80px
+    .loginLogo img
+        height: 200px
+        
+@media only screen and (min-height: 1100px)
+    .loginForm
+        bottom: 260px
+    .loginLogo img
+        height: 360px
+    .loginLogo
+        top: 160px
+
 .loginUserName input::placeholder, 
 .loginPasswort input::placeholder
     color: $formFontColor
