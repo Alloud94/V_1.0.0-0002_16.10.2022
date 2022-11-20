@@ -2,6 +2,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // Erweiterte Importe
 import { MatButtonModule } from '@angular/material/button';
@@ -158,10 +160,12 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule, 
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent], 
