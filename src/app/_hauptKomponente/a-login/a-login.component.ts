@@ -15,7 +15,7 @@ export class ALoginComponent implements OnInit {
   passwort:string = 'assets/img/icon/vorhangschloss.png';
   userID: any;
 
-  constructor(private HttpClient: HttpClient,
+  constructor(private httpClient: HttpClient,
               private loginService: LoginService) { }
 
   ngOnInit(): void {
@@ -40,10 +40,15 @@ export class ALoginComponent implements OnInit {
     let formData = new FormData();
     formData.append('username', values.userName);
     formData.append('password', values.password);
-    formData.append('id', this.userID);
-    this.loginService.login(formData);
-    
-  }
-
+      this.loginService.login(formData).subscribe(res => {
+        if(res.result === 'success'){
+          console.log("Anmeldung erfolgreich");
+        }else{
+          console.log("Anmeldung fehlgeschlagen");
+        }
+        console.log("FAIL");
+      });
+      console.log("FAIL");
+    }
 
 }
