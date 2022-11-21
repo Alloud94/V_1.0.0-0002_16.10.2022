@@ -16,11 +16,7 @@
             <p>Status:</p>
             <div class="dropDown">
                 <select name="status" id="status">
-                    <option value="offen">Offen</option>
-                    <option value="inBearbeitung">In Bearbeitung</option>
-                    <option value="zurueckgestellt">Zurückgestellt</option>
-                    <option value="abgeschlossen">Abgeschlossen</option>
-                    <option value="Entfernt">Entfernt</option>
+                    <option *ngFor="let status of status">{{status.status}}</option>
                 </select>
             </div>
             <p>Abrechnung:</p>
@@ -45,24 +41,8 @@
         </div>
         <div class="split thirdSplit">
             <p>Arbeitspakete:</p>
-            <div class="arbeitspakete">
-                <input type="text" class="readOnly" value="Arbeitspaket">
-                <input type="text" class="readOnly" value="Arbeitspaket">
-                <input type="text" class="readOnly" value="Arbeitspaket">
-                <input type="text" class="readOnly" value="Arbeitspaket">
-                <input type="text" class="readOnly" value="Arbeitspaket">
-                <input type="text" class="readOnly" value="Arbeitspaket">
-                <input type="text" class="readOnly" value="Arbeitspaket">
-                <input type="text" class="readOnly" value="Arbeitspaket">
-                <input type="text" class="readOnly" value="Arbeitspaket">
-                <input type="text" class="readOnly" value="Arbeitspaket">
-                <input type="text" class="readOnly" value="Arbeitspaket">
-                <input type="text" class="readOnly" value="Arbeitspaket">
-                <input type="text" class="readOnly" value="Arbeitspaket">
-                <input type="text" class="readOnly" value="Arbeitspaket">
-                <input type="text" class="readOnly" value="Arbeitspaket">
-                <input type="text" class="readOnly" value="Arbeitspaket">
-
+            <div class="arbeitspakete" *ngFor="let arbeitspaket of arbeitspakete">
+                <input type="text" class="readOnly" value="{{arbeitspaket.arbeitspaket}}">
             </div>
             <div class="btnBearbeiten btnMeilensteinHinzufuegen">
                 <p>+</p>

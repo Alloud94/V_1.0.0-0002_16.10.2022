@@ -14,11 +14,11 @@
                 <p>Artikel suchen</p>
             </div>
             <p>Bezeichnung:</p>
-            <input type="text" readonly class="contentReadonly" value="Landingpage">
+            <input type="text" readonly class="contentReadonly" value="{{stammBezeichnung}}">
             <p>Einheit:</p>
-            <input type="text" readonly class="contentReadonly" value="Stk.">
+            <input type="text" readonly class="contentReadonly" value="{{stammEinheit}}.">
             <p>Verkaufspreis 1:</p>
-            <input type="text" readonly class="contentReadonly" value="CHF 150.00.-">
+            <input type="text" readonly class="contentReadonly" value="CHF {{stammVp}}.-">
             <div class="btnBearbeiten">
                 <p>Artikel hinzufügen</p>
             </div>
@@ -28,8 +28,7 @@
             <input type="text" placeholder="Bezeichnung">
             <p>Einheit:</p>
             <select name="einheit" id="einheit">
-                <option value="stk">Stk.</option>
-                <option value="pauschal">Pauschal</option>
+                <option value="stk" *ngFor="let einheit of einheiten">{{einheit.einheit}}</option>
             </select>
             <p>Verkaufspreis 1:</p>
             <input type="text" placeholder="VP 1">
@@ -42,9 +41,10 @@
             <input type="text" placeholder="Bezeichnung">
             <p>Einheit:</p>
             <select name="einheit" id="einheit">
-                <option value="stk">Stk.</option>
-                <option value="pauschal">Pauschal</option>
+                <option value="stk" *ngFor="let einheit of einheiten">{{einheit.einheit}}</option>
             </select>
+            <p>Höhe:</p>
+            <input type="text" placeholder="Höhe in %">
             <p>Menge:</p>
             <input type="text" placeholder="Menge">
             <div class="btnBearbeiten">

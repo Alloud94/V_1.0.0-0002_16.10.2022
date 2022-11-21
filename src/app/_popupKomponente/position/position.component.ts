@@ -12,6 +12,17 @@ import { PositionArtikelComponent } from '../position-artikel/position-artikel.c
 export class PositionComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
 
+  //Stammdaten Artikel Infos
+  stammBezeichnung = "Landingpage";
+  stammEinheit = "Pauschal";
+  stammVp = "150.00";
+
+  //Einheiten
+  einheiten = [
+    {einheit: 'Pauschal'},
+    {einheit: 'Stück'},
+  ]
+
   constructor(public dialogRef: MatDialogRef<PositionComponent>, public matDialog: MatDialog) { }
 
   openPositionArtikel() {

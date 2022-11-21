@@ -11,51 +11,10 @@
         <div class="split firstSplit">
             <p>Gruppe/Kategorie:</p>
             <div class="arbeitspakete">
-                <div class="list">
-                    <input type="text" value="Option">
-                    <input type="text" value="Wert">
+                <div class="list" *ngFor="let eintrag of eintraege">
+                    <input type="text" value="{{eintrag.option}}">
+                    <input type="text" value="{{eintrag.value}}">
                 </div>
-                <div class="list">
-                    <input type="text" value="Option">
-                    <input type="text" value="Wert">
-                </div>
-                <div class="list">
-                    <input type="text" value="Option">
-                    <input type="text" value="Wert">
-                </div>
-                <div class="list">
-                    <input type="text" value="Option">
-                    <input type="text" value="Wert">
-                </div>
-                <div class="list">
-                    <input type="text" value="Option">
-                    <input type="text" value="Wert">
-                </div>
-                <div class="list">
-                    <input type="text" value="Option">
-                    <input type="text" value="Wert">
-                </div>
-                <div class="list">
-                    <input type="text" value="Option">
-                    <input type="text" value="Wert">
-                </div>
-                <div class="list">
-                    <input type="text" value="Option">
-                    <input type="text" value="Wert">
-                </div>
-                <div class="list">
-                    <input type="text" value="Option">
-                    <input type="text" value="Wert">
-                </div>
-                <div class="list">
-                    <input type="text" value="Option">
-                    <input type="text" value="Wert">
-                </div>
-                <div class="list">
-                    <input type="text" value="Option">
-                    <input type="text" value="Wert">
-                </div>
-
             </div>
             <div class="btnBearbeiten btnMeilensteinHinzufuegen">
                 <p>+</p>

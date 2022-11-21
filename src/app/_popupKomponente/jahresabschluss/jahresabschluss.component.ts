@@ -10,6 +10,15 @@ import {MatDialogRef} from '@angular/material/dialog';
 export class JahresabschlussComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
 
+  //Abschluss Liste
+  abschluesse = [
+    {jahr: '2022', bezeichnung: 'Jahresabschluss', link: ''},
+    {jahr: '2022', bezeichnung: 'Jahresabschluss', link: ''},
+    {jahr: '2022', bezeichnung: 'Jahresabschluss', link: ''},
+    {jahr: '2022', bezeichnung: 'Jahresabschluss', link: ''},
+    {jahr: '2022', bezeichnung: 'Jahresabschluss', link: ''},
+  ]
+
   constructor(public dialogRef: MatDialogRef<JahresabschlussComponent>) { }
 
   ngOnInit(): void {
