@@ -11,31 +11,25 @@
             <div class="split firstSplit">
                 <div class="row">
                     <p>Artikelnummer:</p>
-                    <p>AR 61-001</p>
+                    <p>{{artikelNummer}}</p>
                 </div>
                 <div class="row">
                     <p>Bezeichnung:</p>
-                    <input type="text" value="Google SEO">
+                    <input type="text" value="{{artikelBezeichnung}}">
                 </div>
                 <div class="row">
                     <div class="dropDown">
                         <p>Kategorie:</p>
-                        <select name="typ" id="arTyp">
-                            <option value="webentwicklung">Webentwicklung</option>
-                            <option value="videografie">Videografie</option>
-                            <option value="fotografie">Fotografie</option>
-                            <option value="anderes">Anderes</option>
+                        <select name="artikelgruppen" id="artikelgruppen">
+                            <option *ngFor="let agGruppe of agGroup">{{agGruppe.agGruppe}}</option>
                         </select>
                     </div>
                 </div>
                 <div class="row">
                     <div class="dropDown">
                         <p>Einheit:</p>
-                        <select name="typ" id="arEinheit">
-                            <option value="pauschal">Pauschal</option>
-                            <option value="stk">Stk.</option>
-                            <option value="regie">per Stunde</option>
-                            <option value="gemBeschrieb">Gemäss Beschrieb</option>
+                        <select name="einheit" id="einheit">
+                            <option *ngFor="let ehGruppe of ehGroup">{{ehGruppe.ehGruppe}}</option>
                         </select>
                     </div>
                 </div>
@@ -43,8 +37,7 @@
             <div class="split secondSplit">
                 <div class="btnBearbeiten">
                     <div class="notizen">
-                        <textarea readonly="readonly">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimatasanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justoduo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                        </textarea>
+                        <textarea readonly="readonly">{{notizen}}</textarea>
                     </div>
                     <p (click)="openNotizen()">Notizen bearbeiten</p>
                 </div>
@@ -52,32 +45,34 @@
             <div class="split thirdSplit">
                 <div class="row">
                     <p>EP Brutto CHF:</p>
-                    <input type="text" value="98.00">
+                    <input type="text" value="{{epBrutto}}">
                 </div>
                 <div class="row">
                     <p>Rabatt 1 %:</p>
-                    <input type="text" value="15">
+                    <input type="text" value="{{rabatt1}}">
                 </div>
                 <div class="row">
                     <p>Rabatt 2 %:</p>
-                    <input type="text" value="5">
+                    <input type="text" value="{{rabatt2}}">
                 </div>
                 <div class="row">
                     <p>EP Netto CHF:</p>
-                    <input type="text" readonly class="contentReadonly" value="79.135">
+                    <input type="text" readonly class="contentReadonly" value="{{epNetto}}">
                 </div>
                 <div class="row">
                     <p>VP Brutto CHF:</p>
-                    <input type="text" value="97.45">
+                    <input type="text" value="{{vpBrutto}}">
                 </div>
                 <div class="row">
                     <p>Marge %:</p>
-                    <input type="text" value="15">
+                    <input type="text" value="{{akMarge}}">
                 </div>
                 <div class="row">
                     <p>VP Netto CHF:</p>
-                    <input type="text" value="91.00">
+                    <input type="text" readonly class="contentReadonly" value="{{vpNetto}}">
                 </div>
+
+
                 <div class="artikelKonditionen">
                     <p>Artikel Konditionen:</p>
                     <form action="" class="radioForm">

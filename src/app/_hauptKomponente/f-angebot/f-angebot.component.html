@@ -12,20 +12,20 @@
                 <div>
                     <div class="row">
                         <p>Nummer:</p>
-                        <p>AN 10-001</p>
+                        <p>{{vorgangsNummer}}</p>
                     </div>
                     <div class="row">
                         <p>Kunde:</p>
                         <p>
-                            KU 40-001
-                            <br/> Thomas Brändle
-                            <br/> Friedaustrasse 3
-                            <br/> 9608 Ganterschwil
+                            {{kundenNummer}}
+                            <br/> {{kundenBezeichnung}}
+                            <br/> {{kundenAnschrift}}
+                            <br/> {{kundenOrt}}
                         </p>
                     </div>
                     <div class="row">
                         <p>Partner:</p>
-                        <p>Herr Thomas Brändle</p>
+                        <p>{{kundenPartner}}</p>
                     </div>
                     <div class="btnBearbeiten">
                         <p (click)="openProjektKundendaten()">Ansprechpartner bearbeiten</p>
@@ -40,8 +40,7 @@
             <div class="split secondSplit">
                 <div class="btnBearbeiten">
                     <div class="notizen">
-                        <textarea readonly="readonly">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimatasanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justoduo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                        </textarea>
+                        <textarea readonly="readonly">{{notizen}}</textarea>
                     </div>
                     <p (click)="openNotizen()">Notizen bearbeiten</p>
                 </div>
@@ -61,9 +60,7 @@
                 </div>
                 <div class="dropDown">
                     <select name="status" id="status">
-                        <option value="Offen">Offen</option>
-                        <option value="in Bearbeitung">In Bearbeitung</option>
-                        <option value="verrechnet">Verrechnet</option>
+                        <option *ngFor="let status of status">{{status.status}}</option>
                     </select>
                 </div>
                 <div class="btnBearbeiten">
@@ -95,59 +92,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><a routerLink="/">001</a></td>
-                        <td><a routerLink="/">Landingpage<br /> Untertext 1 <br /> Untertext 2</a></td>
-                        <td><a routerLink="/">1</a></td>
-                        <td><a routerLink="/">Pauschal</a></td>
-                        <td><a routerLink="/">CHF 1500.10.-01</a></td>
-                        <td><a routerLink="/">0%</a></td>
-                        <td><a routerLink="/">CHF 1500.10.-</a></td>
-                    </tr>
-                    <tr>
-                        <td><a routerLink="/">001</a></td>
-                        <td><a routerLink="/">Landingpage<br /> Untertext 1 <br /> Untertext 2</a></td>
-                        <td><a routerLink="/">1</a></td>
-                        <td><a routerLink="/">Pauschal</a></td>
-                        <td><a routerLink="/">CHF 1500.10.-01</a></td>
-                        <td><a routerLink="/">0%</a></td>
-                        <td><a routerLink="/">CHF 1500.10.-</a></td>
-                    </tr>
-                    <tr>
-                        <td><a routerLink="/">001</a></td>
-                        <td><a routerLink="/">Landingpage<br /> Untertext 1 <br /> Untertext 2</a></td>
-                        <td><a routerLink="/">1</a></td>
-                        <td><a routerLink="/">Pauschal</a></td>
-                        <td><a routerLink="/">CHF 1500.10.-01</a></td>
-                        <td><a routerLink="/">0%</a></td>
-                        <td><a routerLink="/">CHF 1500.10.-</a></td>
-                    </tr>
-                    <tr>
-                        <td><a routerLink="/">001</a></td>
-                        <td><a routerLink="/">Landingpage<br /> Untertext 1 <br /> Untertext 2</a></td>
-                        <td><a routerLink="/">1</a></td>
-                        <td><a routerLink="/">Pauschal</a></td>
-                        <td><a routerLink="/">CHF 1500.10.-01</a></td>
-                        <td><a routerLink="/">0%</a></td>
-                        <td><a routerLink="/">CHF 1500.10.-</a></td>
-                    </tr>
-                    <tr>
-                        <td><a routerLink="/">001</a></td>
-                        <td><a routerLink="/">Landingpage<br /> Untertext 1 <br /> Untertext 2</a></td>
-                        <td><a routerLink="/">1</a></td>
-                        <td><a routerLink="/">Pauschal</a></td>
-                        <td><a routerLink="/">CHF 1500.10.-01</a></td>
-                        <td><a routerLink="/">0%</a></td>
-                        <td><a routerLink="/">CHF 1500.10.-</a></td>
-                    </tr>
-                    <tr>
-                        <td><a routerLink="/">001</a></td>
-                        <td><a routerLink="/">Landingpage<br /> Untertext 1 <br /> Untertext 2</a></td>
-                        <td><a routerLink="/">1</a></td>
-                        <td><a routerLink="/">Pauschal</a></td>
-                        <td><a routerLink="/">CHF 1500.10.-01</a></td>
-                        <td><a routerLink="/">0%</a></td>
-                        <td><a routerLink="/">CHF 1500.10.-</a></td>
+                    <tr *ngFor="let position of positionen">
+                        <td><a routerLink="/">{{position.nummer}}</a></td>
+                        <td><a routerLink="/">{{position.beschrieb}}<br /> {{position.untertext1}}<br />{{position.untertext2}}</a></td>
+                        <td><a routerLink="/">{{position.menge}}</a></td>
+                        <td><a routerLink="/">{{position.einheit}}</a></td>
+                        <td><a routerLink="/">{{position.ep}}.-</a></td>
+                        <td><a routerLink="/">{{position.rabatt}}%</a></td>
+                        <td><a routerLink="/">{{position.endpreis}}.-</a></td>
                     </tr>
                     <tr class="zwischenSpalte">
                         <td colspan="7"></td>
@@ -159,7 +111,7 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td>CHF 2'350.00.-</td>
+                        <td>CHF {{totalVorSteuer}}.-</td>
                     </tr>
                     <tr class="total">
                         <td></td>
@@ -168,7 +120,7 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td>CHF 0.00.-</td>
+                        <td>CHF {{steuer}}.-</td>
                     </tr>
                     <tr class="total">
                         <td></td>
@@ -177,7 +129,7 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td class="endTotal">CHF 2'350.00.-</td>
+                        <td class="endTotal">CHF {{totalNachSteuer}}.-</td>
                     </tr>
                 </tbody>
             </table>

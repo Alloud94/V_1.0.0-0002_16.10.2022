@@ -9,6 +9,22 @@ import {MatDialogRef} from '@angular/material/dialog';
 export class ProjektKundendatenComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
 
+  //Kundendaten
+  kundenName = "Thomas Brändle";
+  kundenAdresse = "Friedaustrasse 3";
+  kundenOrt = "9608 Ganterschwil";
+  kundenLand = "CH - Schweiz";
+
+  //Liste
+  ansprechpartner = [
+    {anrede: 'Herr', vorname: 'Thomas', nachname: 'Brändle', funktion: 'Geschäftführer'},
+    {anrede: 'Herr', vorname: 'Thomas', nachname: 'Brändle', funktion: 'Geschäftführer'},
+    {anrede: 'Herr', vorname: 'Thomas', nachname: 'Brändle', funktion: 'Geschäftführer'},
+    {anrede: 'Herr', vorname: 'Thomas', nachname: 'Brändle', funktion: 'Geschäftführer'},
+    {anrede: 'Herr', vorname: 'Thomas', nachname: 'Brändle', funktion: 'Geschäftführer'},
+    {anrede: 'Herr', vorname: 'Thomas', nachname: 'Brändle', funktion: 'Geschäftführer'},
+  ];
+
   constructor(public dialogRef: MatDialogRef<ProjektKundendatenComponent>) { }
 
   ngOnInit(): void {

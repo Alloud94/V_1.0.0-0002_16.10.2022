@@ -12,6 +12,12 @@ export class MProfilComponent implements OnInit {
   meta:string = 'assets/img/icon/info.png';
   metaActive:string = 'assets/img/icon/infoFarbig.png';
 
+  //Kopfdaten
+  profilNummer = "MA 101-001";
+  profilName = "Thomas Brändle";
+  telefon = "+41 79 520 65 11";
+  email = "thomas@thomas-braendle.com";
+
   // Konstruktor für die Popup-Dialoge
   constructor(public matDialog: MatDialog) { }
 

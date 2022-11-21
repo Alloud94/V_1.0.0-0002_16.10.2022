@@ -25,6 +25,57 @@ import { AuftragAbschliessenComponent } from 'src/app/_popupKomponente/auftrag-a
 export class EAuftragComponent implements OnInit {
   meta:string = 'assets/img/icon/info.png';
 
+  //Kopfdaten
+  vorgangsNummer = "AB 20-001";
+  kundenNummer = "KU 40-001";
+  kundenBezeichnung = "Thomas Brändle";
+  kundenAnschrift = "Friedaustrasse 3";
+  kundenOrt = "9608 Ganterschwil";
+  kundenPartner = "Herr Thomas Brändle";
+  notizen = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimatasanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justoduo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
+
+  //Status
+  status =  [
+    {status: 'Offen'},
+    {status: 'In Bearbeitung'},
+    {status: 'Abgeschlossen'}
+  ]
+
+  //Stunden
+  stunden = [
+    {mitarbeiter: 'Thomas Brändle', stunden: '22'},
+    {mitarbeiter: 'Thomas Brändle', stunden: '22'},
+    {mitarbeiter: 'Thomas Brändle', stunden: '22'},
+  ]
+
+  stundenTotal = "66";
+
+  //Budget
+   budget = "250.00";
+   regie = "150.00";
+   ausgabe = "200.00";
+   ertrag = "200.00.-";
+   marge = "20";
+
+  //Meilensteine
+  meilensteine = [
+    {nummer: '01', bezeichnung: 'Konzept', datum: '01.03.2022', status: 'Offen'},
+    {nummer: '01', bezeichnung: 'Konzept', datum: '01.03.2022', status: 'Offen'},
+    {nummer: '01', bezeichnung: 'Konzept', datum: '01.03.2022', status: 'Offen'},
+  ]
+
+  //Positionen
+  positionen = [
+    {nummer: '001', beschrieb: 'Landingpage', untertext1: 'Text', untertext2: 'Text', menge: '1', einheit: 'Pauschal', ep: '150.00', rabatt: '0', endpreis: '150.00'},
+    {nummer: '001', beschrieb: 'Landingpage', untertext1: 'Text', untertext2: 'Text', menge: '1', einheit: 'Pauschal', ep: '150.00', rabatt: '0', endpreis: '150.00'},
+    {nummer: '001', beschrieb: 'Landingpage', untertext1: 'Text', untertext2: 'Text', menge: '1', einheit: 'Pauschal', ep: '150.00', rabatt: '0', endpreis: '150.00'},
+    {nummer: '001', beschrieb: 'Landingpage', untertext1: 'Text', untertext2: 'Text', menge: '1', einheit: 'Pauschal', ep: '150.00', rabatt: '0', endpreis: '150.00'},
+  ]
+
+  totalVorSteuer = "150.00";
+  steuer = "0.00";
+  totalNachSteuer = "150.00";
+
   // Konstruktor für die Popup-Dialoge
   constructor(public matDialog: MatDialog) { }
 

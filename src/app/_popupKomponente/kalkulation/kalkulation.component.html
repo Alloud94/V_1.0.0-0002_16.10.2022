@@ -10,10 +10,10 @@
     <div class="popupContent">
         <div class="split firstSplit">
             <p>Gesamtkalkulation:</p>
-            <input type="text" readonly class="contentReadonly" value="EP:">
-            <input type="text" readonly class="contentReadonly" value="VP:">
-            <input type="text" readonly class="contentReadonly" value="Gewinn:">
-            <input type="text" readonly class="contentReadonly" value="Marge:">
+            <input type="text" readonly class="contentReadonly" value="EP: CHF {{ep}}.-">
+            <input type="text" readonly class="contentReadonly" value="VP: CHF {{vp}}.-">
+            <input type="text" readonly class="contentReadonly" value="Gewinn: CHF {{gewinn}}.-">
+            <input type="text" readonly class="contentReadonly" value="Marge: {{marge}}%">
         </div>
         <div class="split secondSplit">
             <p>Positionen:</p>
@@ -23,85 +23,9 @@
 
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><a href="">001</a></td>
-                            <td><a href="">Landingpage</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">001</a></td>
-                            <td><a href="">Landingpage</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">001</a></td>
-                            <td><a href="">Landingpage</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">001</a></td>
-                            <td><a href="">Landingpage</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">001</a></td>
-                            <td><a href="">Landingpage</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">001</a></td>
-                            <td><a href="">Landingpage</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">001</a></td>
-                            <td><a href="">Landingpage</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">001</a></td>
-                            <td><a href="">Landingpage</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">001</a></td>
-                            <td><a href="">Landingpage</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">001</a></td>
-                            <td><a href="">Landingpage</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">001</a></td>
-                            <td><a href="">Landingpage</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">001</a></td>
-                            <td><a href="">Landingpage</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">001</a></td>
-                            <td><a href="">Landingpage</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">001</a></td>
-                            <td><a href="">Landingpage</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">001</a></td>
-                            <td><a href="">Landingpage</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">001</a></td>
-                            <td><a href="">Landingpage</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">001</a></td>
-                            <td><a href="">Landingpage</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">001</a></td>
-                            <td><a href="">Landingpage</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">001</a></td>
-                            <td><a href="">Landingpage</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">001</a></td>
-                            <td><a href="">Landingpage</a></td>
+                        <tr *ngFor="let position of positionen">
+                            <td>{{position.nummer}}</td>
+                            <td>{{position.bezeichnung}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -114,39 +38,39 @@
             </div>
             <div class="row">
                 <p>EP Brutto CHF:</p>
-                <input type="text" value="98.00">
+                <input type="text" value="{{epBrutto}}">
             </div>
             <div class="row">
                 <p>Rabatt 1 %:</p>
-                <input type="text" value="15">
+                <input type="text" value="{{rabatt1}}">
             </div>
             <div class="row">
                 <p>Rabatt 2 %:</p>
-                <input type="text" value="5">
+                <input type="text" value="{{rabatt2}}">
             </div>
             <div class="row">
                 <p>EP Netto CHF:</p>
-                <input type="text" readonly class="contentReadonly" value="79.135">
+                <input type="text" readonly class="contentReadonly" value="{{epNetto}}">
             </div>
             <div class="row">
                 <p>VP Brutto CHF:</p>
-                <input type="text" value="97.45">
+                <input type="text" value="{{vpBrutto}}">
             </div>
             <div class="row">
                 <p>Kundenrabatt %:</p>
-                <input type="text" value="5">
+                <input type="text" value="{{kundenRabatt}}">
             </div>
             <div class="row">
                 <p>Spezialrabatt %:</p>
-                <input type="text" value="2">
+                <input type="text" value="{{spezialrabatt}}">
             </div>
             <div class="row">
                 <p>Marge %:</p>
-                <input type="text" value="15">
+                <input type="text" value="{{akMarge}}">
             </div>
             <div class="row">
                 <p>VP Netto CHF:</p>
-                <input type="text" readonly class="contentReadonly" value="91.00">
+                <input type="text" readonly class="contentReadonly" value="{{vpNetto}}">
             </div>
             <div class="btnBearbeiten">
                 <p>Position speichern</p>

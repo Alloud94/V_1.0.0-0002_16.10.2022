@@ -11,6 +11,13 @@ import { GenerateKundeComponent } from 'src/app/_popupKomponente/generate-kunde/
 export class GKundenComponent implements OnInit {
   search:string = 'assets/img/icon/search.png';
 
+  //Tabelle
+  kunden = [
+    {vorgangsNummer: "KU 40-001", kunde: "Thomas Brändle", ortschaft: "9608 Ganterschwil", adresse: "Friedaustrasse 3"},
+    {vorgangsNummer: "KU 40-001", kunde: "Thomas Brändle", ortschaft: "9608 Ganterschwil", adresse: "Friedaustrasse 3"},
+
+  ]
+
   // Konstruktor für die Popup-Dialoge
   constructor(public matDialog: MatDialog) { }
 

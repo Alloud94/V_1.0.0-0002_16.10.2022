@@ -19,6 +19,27 @@ export class KUnternehmenComponent implements OnInit {
   meta:string = 'assets/img/icon/info.png';
   metaActive:string = 'assets/img/icon/infoFarbig.png';
 
+  //Unternehmensinformationen
+  unternehmenName = "Thomas Brändle";
+  unternehmenAdresse = "Friedaustrasse 3";
+  unternehmenLand = "CH - Schweiz";
+  unternehmenOrt = "9608 Ganterschwil";
+  unternehmenTelefon = "+41 79 520 65 11";
+  unternehmenWebsite = "www.thomas-braendle.com";
+  unternehmenEmail = "design@thomas-braendle.com";
+  unternehmenSlogan = "Web Development, Fotografie & Videografie";
+  
+
+  //Mitarbeiter Tabelle
+  vorgangsNummer = "MA 100-001";
+  vorname = "Thomas";
+  nachname = "Brändle";
+  funktion = "Geschäftsführer";
+  abteilung = "Geschäftsleitung";
+  stellenprozent = "100%";
+  administrator = "Ja";
+
+
   // Konstruktor für die Popup-Dialoge
   constructor(public matDialog: MatDialog) { }
 

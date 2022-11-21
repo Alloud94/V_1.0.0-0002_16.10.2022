@@ -12,14 +12,11 @@
             <p>Artikelnummer:</p>
             <input class="contentReadonly" readonly type="text" value="KU 40-001">
             <p>Bezeichnung:</p>
-            <input type="text" value="Thomas Brändle">
+            <input type="text" placeholder="Artikel Bezeichnung">
             <p>Artikelgruppe:</p>
             <div class="dropDown">
-                <select name="artikelgruppe" id="artikelgruppe">
-                    <option value="ag01">Webentwicklung</option>
-                    <option value="ag02">Fotografie</option>
-                    <option value="ag03">Videografie</option>
-                    <option value="ag03">Anderes</option>
+                <select name="artikelgruppen" id="artikelgruppen">
+                    <option *ngFor="let agGruppe of agGroup">{{agGruppe.agGruppe}}</option>
                 </select>
             </div>
         </div>
@@ -27,10 +24,7 @@
             <p>Einheit:</p>
             <div class="dropDown">
                 <select name="einheit" id="einheit">
-                    <option value="ei01">Webentwicklung</option>
-                    <option value="ei02">Fotografie</option>
-                    <option value="ei03">Videografie</option>
-                    <option value="ei03">Anderes</option>
+                    <option *ngFor="let ehGruppe of ehGroup">{{ehGruppe.ehGruppe}}</option>
                 </select>
             </div>
             <div class="artikelKonditionen">
@@ -53,8 +47,7 @@
         <div class="split thirdSplit">
             <p>Notizen:</p>
             <div class="notizen notizenHoch">
-                <textarea readonly="readonly">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimatasanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justoduo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                </textarea>
+                <textarea readonly="readonly">{{notizen}}</textarea>
             </div>
             <div class="btnBearbeiten btnNotizen">
                 <p (click)="openNotizen()">Notizen bearbeiten</p>

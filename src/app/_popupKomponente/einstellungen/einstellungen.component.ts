@@ -13,7 +13,30 @@ import { GruppenComponent } from 'src/app/_popupKomponente/gruppen/gruppen.compo
 })
 export class EinstellungenComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
-  
+
+  //Kopfdaten
+  unternehmenName = "Thomas Brändle";
+  unternehmenAdresse = "Friedaustrasse 3";
+  unternehmenOrt = "9608 Ganterschwil";
+  unternehmenLand = "CH - Schweiz";
+  unternehmenRechtsform = "Einzelfirma";
+  unternehmenUID = "Keine";
+  unternehmenWebsite = "www.thomas-braendle.com";
+  unternehmenEmail = "design@thomas-braendle.com";
+  unternehmenTelefon = "+41 79 520 65 11";
+  unternehmenStartJahr = '01. Januar';
+  unternehmenMWST = "0";
+  notizen = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimatasanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justoduo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
+
+  //Abteilung
+  abGroup = [
+    {abGruppe: 'Geschäftsleitung', value: 0},
+    {abGruppe: 'Entwicklung', value: 0},
+    {abGruppe: 'Sekretariat', value: 0},
+    {abGruppe: 'Anderes', value: 0}
+  ]
+
+
   constructor(public matDialog: MatDialog, public dialogRef: MatDialogRef<EinstellungenComponent>) { }
 
   openGruppen() {

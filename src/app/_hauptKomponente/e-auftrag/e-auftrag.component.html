@@ -12,20 +12,20 @@
                 <div>
                     <div class="row">
                         <p>Nummer:</p>
-                        <p>AN 10-001</p>
+                        <p>{{vorgangsNummer}}</p>
                     </div>
                     <div class="row">
                         <p>Kunde:</p>
                         <p>
-                            KU 40-001
-                            <br/> Thomas Brändle
-                            <br/> Friedaustrasse 3
-                            <br/> 9608 Ganterschwil
+                            {{kundenNummer}}
+                            <br/> {{kundenBezeichnung}}
+                            <br/> {{kundenAnschrift}}
+                            <br/> {{kundenOrt}}
                         </p>
                     </div>
                     <div class="row">
                         <p>Partner:</p>
-                        <p>Herr Thomas Brändle</p>
+                        <p>{{kundenPartner}}</p>
                     </div>
                     <div class="btnBearbeiten">
                         <p (click)="openProjektKundendaten()">Ansprechpartner bearbeiten</p>
@@ -40,8 +40,7 @@
             <div class="split secondSplit">
                 <div class="btnBearbeiten">
                     <div class="notizen">
-                        <textarea readonly="readonly">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimatasanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justoduo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                        </textarea>
+                        <textarea readonly="readonly">{{notizen}}</textarea>
                     </div>
                     <p (click)="openNotizen()">Notizen bearbeiten</p>
                 </div>
@@ -61,9 +60,7 @@
                 </div>
                 <div class="dropDown">
                     <select name="status" id="status">
-                        <option value="Offen">Offen</option>
-                        <option value="in Bearbeitung">In Bearbeitung</option>
-                        <option value="verrechnet">Verrechnet</option>
+                        <option *ngFor="let status of status">{{status.status}}</option>
                     </select>
                 </div>
                 <div class="btnBearbeiten">
@@ -83,31 +80,19 @@
             </div>
             <div class="stundenContent">
                 <div class="stundenBalken">
-                    <div class="balkenMA">
-                        <p>Thomas Brändle</p>
-                    </div>
-                    <div class="balkenMA">
-                        <p>Thomas Brändle</p>
-                    </div>
-                    <div class="balkenMA">
-                        <p>Thomas Brändle</p>
+                    <div class="balkenMA" *ngFor="let stunde of stunden">
+                        <p>{{stunde.mitarbeiter}}</p>
                     </div>
                     <div class="totalBeschrieb">
                         <p>Total:</p>
                     </div>
                 </div>
                 <div class="kostenBeschrieb">
-                    <div class="beschrieb">
-                        <p>66 Stunden</p>
-                    </div>
-                    <div class="beschrieb">
-                        <p>66 Stunden</p>
-                    </div>
-                    <div class="beschrieb">
-                        <p>66 Stunden</p>
+                    <div class="beschrieb" *ngFor="let stunde of stunden">
+                        <p>{{stunde.stunden}} Stunden</p>
                     </div>
                     <div class="totalMenge">
-                        <p>120 Stunden</p>
+                        <p>{{stundenTotal}} Stunden</p>
                     </div>
                 </div>
             </div>
@@ -122,16 +107,16 @@
             <div class="kostenContent">
                 <div class="kostenBalken">
                     <div class="balkenBudget">
-                        <p>CHF 3'500.15.-</p>
+                        <p>CHF {{budget}}.-</p>
                     </div>
                     <div class="balkenRegie">
-                        <p>CHF 150.00.-</p>
+                        <p>CHF {{regie}}.-</p>
                     </div>
                     <div class="balkenAusgaben">
-                        <p>CHF 2'010.00.-</p>
+                        <p>CHF {{ausgabe}}.-</p>
                     </div>
                     <div class="balkenErtrag">
-                        <p>CHF 1'320.00.-</p>
+                        <p>CHF {{ertrag}}.-</p>
                     </div>
                     <div class="margeBeschrieb">
                         <p>Marge:</p>
@@ -151,7 +136,7 @@
                         <p>Ertrag</p>
                     </div>
                     <div class="margeMenge">
-                        <p>43%</p>
+                        <p>{{marge}}%</p>
                     </div>
                 </div>
             </div>
@@ -175,31 +160,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><a (click)="openMeilenstein()">01</a></td>
-                        <td><a (click)="openMeilenstein()">Konzept</a></td>
-                        <td><a (click)="openMeilenstein()">01.03.2022</a></td>
-                        <td><a (click)="openMeilenstein()">Abgeschlossen</a></td>
+                    <tr *ngFor="let meilenstein of meilensteine">
+                        <td><a (click)="openMeilenstein()">{{meilenstein.nummer}}</a></td>
+                        <td><a (click)="openMeilenstein()">{{meilenstein.bezeichnung}}</a></td>
+                        <td><a (click)="openMeilenstein()">{{meilenstein.datum}}</a></td>
+                        <td><a (click)="openMeilenstein()">{{meilenstein.status}}</a></td>
                     </tr>
-                    <tr>
-                        <td><a (click)="openMeilenstein()">01</a></td>
-                        <td><a (click)="openMeilenstein()">Konzept</a></td>
-                        <td><a (click)="openMeilenstein()">01.03.2022</a></td>
-                        <td><a (click)="openMeilenstein()">Abgeschlossen</a></td>
-                    </tr>
-                    <tr>
-                        <td><a (click)="openMeilenstein()">01</a></td>
-                        <td><a (click)="openMeilenstein()">Konzept</a></td>
-                        <td><a (click)="openMeilenstein()">01.03.2022</a></td>
-                        <td><a (click)="openMeilenstein()">Abgeschlossen</a></td>
-                    </tr>
-                    <tr>
-                        <td><a (click)="openMeilenstein()">01</a></td>
-                        <td><a (click)="openMeilenstein()">Konzept</a></td>
-                        <td><a (click)="openMeilenstein()">01.03.2022</a></td>
-                        <td><a (click)="openMeilenstein()">Abgeschlossen</a></td>
-                    </tr>
-
                 </tbody>
             </table>
         </div>
@@ -222,77 +188,14 @@
                     <th>Rabatt</th>
                     <th>Endpreis</th>
                 </tr>
-                <tr>
-                    <td><a routerLink="/">001</a></td>
-                    <td><a routerLink="/">Landingpage<br /> Untertext 1 <br /> Untertext 2</a></td>
-                    <td><a routerLink="/">1</a></td>
-                    <td><a routerLink="/">Pauschal</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                    <td><a routerLink="/">0%</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                </tr>
-                <tr>
-                    <td><a routerLink="/">001</a></td>
-                    <td><a routerLink="/">Landingpage<br /> Untertext 1 <br /> Untertext 2</a></td>
-                    <td><a routerLink="/">1</a></td>
-                    <td><a routerLink="/">Pauschal</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                    <td><a routerLink="/">0%</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                </tr>
-                <tr>
-                    <td><a routerLink="/">001</a></td>
-                    <td><a routerLink="/">Landingpage<br /> Untertext 1 <br /> Untertext 2</a></td>
-                    <td><a routerLink="/">1</a></td>
-                    <td><a routerLink="/">Pauschal</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                    <td><a routerLink="/">0%</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                </tr>
-                <tr>
-                    <td><a routerLink="/">001</a></td>
-                    <td><a routerLink="/">Landingpage<br /> Untertext 1 <br /> Untertext 2</a></td>
-                    <td><a routerLink="/">1</a></td>
-                    <td><a routerLink="/">Pauschal</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                    <td><a routerLink="/">0%</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                </tr>
-                <tr>
-                    <td><a routerLink="/">001</a></td>
-                    <td><a routerLink="/">Landingpage<br /> Untertext 1 <br /> Untertext 2</a></td>
-                    <td><a routerLink="/">1</a></td>
-                    <td><a routerLink="/">Pauschal</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                    <td><a routerLink="/">0%</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                </tr>
-                <tr>
-                    <td><a routerLink="/">001</a></td>
-                    <td><a routerLink="/">Landingpage<br /> Untertext 1 <br /> Untertext 2</a></td>
-                    <td><a routerLink="/">1</a></td>
-                    <td><a routerLink="/">Pauschal</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                    <td><a routerLink="/">0%</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                </tr>
-                <tr>
-                    <td><a routerLink="/">001</a></td>
-                    <td><a routerLink="/">Landingpage<br /> Untertext 1 <br /> Untertext 2</a></td>
-                    <td><a routerLink="/">1</a></td>
-                    <td><a routerLink="/">Pauschal</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                    <td><a routerLink="/">0%</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                </tr>
-                <tr>
-                    <td><a routerLink="/">001</a></td>
-                    <td><a routerLink="/">Landingpage<br /> Untertext 1 <br /> Untertext 2</a></td>
-                    <td><a routerLink="/">1</a></td>
-                    <td><a routerLink="/">Pauschal</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
-                    <td><a routerLink="/">0%</a></td>
-                    <td><a routerLink="/">CHF 1500.10.-</a></td>
+                <tr *ngFor="let position of positionen">
+                    <td><a routerLink="/">{{position.nummer}}</a></td>
+                    <td><a routerLink="/">{{position.beschrieb}}<br /> {{position.untertext1}}<br />{{position.untertext2}}</a></td>
+                    <td><a routerLink="/">{{position.menge}}</a></td>
+                    <td><a routerLink="/">{{position.einheit}}</a></td>
+                    <td><a routerLink="/">{{position.ep}}.-</a></td>
+                    <td><a routerLink="/">{{position.rabatt}}%</a></td>
+                    <td><a routerLink="/">{{position.endpreis}}.-</a></td>
                 </tr>
 
                 <tr class="zwischenSpalte">
@@ -301,17 +204,17 @@
                 <tr class="total">
                     <td></td>
                     <td colspan="5">Total vor Steuer</td>
-                    <td>CHF 2'350.00.-</td>
+                    <td>CHF {{totalVorSteuer}}.-</td>
                 </tr>
                 <tr class="total">
                     <td></td>
                     <td colspan="5">Steuer</td>
-                    <td>CHF 0.00.-</td>
+                    <td>CHF {{steuer}}.-</td>
                 </tr>
                 <tr class="total">
                     <td></td>
                     <td colspan="5">Total nach Steuer</td>
-                    <td class="endTotal">CHF 2'350.00.-</td>
+                    <td class="endTotal">CHF {{totalNachSteuer}}.-</td>
                 </tr>
             </table>
             <div class="split firstSplit">

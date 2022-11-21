@@ -11,20 +11,20 @@
         <div class="split firstSplit">
             <p>Kunde:</p>
             <p class="contentReadonly">
-                KU 40-001<br /> Thomas Brändle<br />9608 Ganterschwil
+                {{kundenNummer}}<br />{{kundenName}}<br />{{kundenOrt}}
             </p>
             <div class="btnBearbeiten">
                 <p (click)="openKundendaten()">Kundendaten bearbeiten</p>
             </div>
             <p>Ansprechpartner:</p>
             <p class="contentReadonly">
-                Herr Thomas Brändle
+                {{kundenPartner}}
             </p>
             <div class="btnBearbeiten">
                 <p (click)="openAnsprechpartner()">Ansprechpartner bearbeiten</p>
             </div>
             <p>Rechnungsadresse:</p>
-            <p class="contentReadonly">Thomas Brändle AG <br /> Friedaustrasse 3 <br /> 9608 Ganterschwil <br /> CH - Schweiz</p>
+            <p class="contentReadonly">{{raStrasse}}<br />{{raOrt}}<br />{{raLand}}</p>
             <div class="btnBearbeiten">
                 <p (click)="openRechnungsadresse()">Rechnungsadresse ändern</p>
             </div>
@@ -32,22 +32,14 @@
         <div class="split secondSplit">
             <p>Zahlungsart:</p>
             <div class="dropDown">
-                <select name="zahlungsart" id="zahlungsart">
-                    <option value="rechnung">Rechnung</option>
-                    <option value="vorauskasse">Vorauskasse</option>
-                    <option value="bar">Bar</option>
+                <select name="zahlungsarten" id="zahlungsarten">
+                    <option *ngFor="let zaGruppe of zaGroup">{{zaGruppe.zaGruppe}}</option>
                 </select>
             </div>
             <p>Zahlungsbedingungen:</p>
             <div class="dropDown">
                 <select name="zahlungsbedingungen" id="zahlungsbedingungen">
-                    <option value="10 Tage">10 Tage 3% Skonto, 30 Tage Netto</option>
-                    <option value="7 Tage">7 Tage 2% Skonto, 20 Tage Netto</option>
-                    <option value="30 Tage Netto">30 Tage Netto</option>
-                    <option value="14 Tage Netto">14 Tage Netto</option>
-                    <option value="vorauskasse">Vorauskasse</option>
-                    <option value="barzahlung">Barzahlung</option>
-                    <option value="teilzahlung">Teilzahlung</option>
+                    <option *ngFor="let zbGruppe of zbGroup">{{zbGruppe.zbGruppe}}</option>
                 </select>
             </div>
             <div class="belegart">
@@ -69,8 +61,7 @@
         <div class="split thirdSplit">
             <p>Notizen:</p>
             <div class="notizen notizenHoch">
-                <textarea readonly="readonly">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimatasanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justoduo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                </textarea>
+                <textarea readonly="readonly">{{notizen}}</textarea>
             </div>
             <div class="btnBearbeiten btnNotizen">
                 <p (click)="openNotizen()">Notizen bearbeiten</p>

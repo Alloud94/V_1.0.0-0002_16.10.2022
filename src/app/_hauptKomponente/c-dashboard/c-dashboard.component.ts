@@ -13,6 +13,34 @@ import { GenerateKundeComponent } from 'src/app/_popupKomponente/generate-kunde/
 export class CDashboardComponent implements OnInit {
   logoUnternehmen:string = 'assets/img/medien/TB_Logo.png';
 
+  //Unternehmensinformationen
+  unternehmenName = "Thomas Brändle";
+  unternehmenAdresse = "Friedaustrasse 3";
+  unternehmenOrt = "9608 Ganterschwil";
+  unternehmenTelefon = "+41 79 520 65 11";
+  unternehmenWebsite = "www.thomas-braendle.com";
+  unternehmenEmail = "design@thomas-braendle.com";
+  unternehmenSlogan = "Web Development, Fotografie & Videografie";
+
+  //Letzte Vorgänge
+  vorgaenge = [
+    {vorgangsArt: 'Auftrag', vorgangsBezeichnung: 'Thomas Brändle', vorgangsNummer: 'AB 20-001'},
+    {vorgangsArt: 'Auftrag', vorgangsBezeichnung: 'Thomas Brändle', vorgangsNummer: 'AB 20-001'},
+  ]
+
+  //Flüssige Mittel
+  fmJahre = [
+    {jahr: '2022', ertrag: "CHF 10'000.00.-", offeneRechnungen: "CHF 1'000.00.-", aufwand: "CHF 6'000.00.-"},
+    {jahr: '2022', ertrag: "CHF 10'000.00.-", offeneRechnungen: "CHF 1'000.00.-", aufwand: "CHF 6'000.00.-"},
+    {jahr: '2022', ertrag: "CHF 10'000.00.-", offeneRechnungen: "CHF 1'000.00.-", aufwand: "CHF 6'000.00.-"},
+    {jahr: '2022', ertrag: "CHF 10'000.00.-", offeneRechnungen: "CHF 1'000.00.-", aufwand: "CHF 6'000.00.-"},
+  ]
+
+  jahr = new Date().getFullYear();
+  ertrag = "CHF 10'000.00.-";
+  offeneRechnungen = "CHF 1'000.00.-";
+  aufwand = "CHF 6'000.00.-";
+
   // Konstruktor für die Popup-Dialoge
   constructor(public matDialog: MatDialog) { }
 

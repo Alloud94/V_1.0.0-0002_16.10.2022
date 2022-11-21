@@ -11,7 +11,7 @@
         <div class="split firstSplit">
             <p>Kunde:</p>
             <p class="contentReadonly">
-                Thomas Brändle<br />Friedaustrasse 3<br />9608 Ganterschwil<br />CH - Schweiz
+                {{kundenName}}<br />{{kundenAdresse}}<br />{{kundenOrt}}<br />{{kundenLand}}
             </p>
             <p>Neuer Ansprechpartner erstellen:</p>
             <div class="dropDown">
@@ -38,91 +38,10 @@
                     <thead>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><a href="">Herr Thomas Brändle</a></td>
-                            <td><a href="">Geschäftsführer</a></td>
+                        <tr *ngFor="let partner of ansprechpartner">
+                            <td>{{partner.anrede}} {{partner.vorname}} {{partner.nachname}}</td>
+                            <td>{{partner.funktion}}</td>
                         </tr>
-                        <tr>
-                            <td><a href="">Herr Thomas Brändle</a></td>
-                            <td><a href="">Geschäftsführer</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">Herr Thomas Brändle</a></td>
-                            <td><a href="">Geschäftsführer</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">Herr Thomas Brändle</a></td>
-                            <td><a href="">Geschäftsführer</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">Herr Thomas Brändle</a></td>
-                            <td><a href="">Geschäftsführer</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">Herr Thomas Brändle</a></td>
-                            <td><a href="">Geschäftsführer</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">Herr Thomas Brändle</a></td>
-                            <td><a href="">Geschäftsführer</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">Herr Thomas Brändle</a></td>
-                            <td><a href="">Geschäftsführer</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">Herr Thomas Brändle</a></td>
-                            <td><a href="">Geschäftsführer</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">Herr Thomas Brändle</a></td>
-                            <td><a href="">Geschäftsführer</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">Herr Thomas Brändle</a></td>
-                            <td><a href="">Geschäftsführer</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">Herr Thomas Brändle</a></td>
-                            <td><a href="">Geschäftsführer</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">Herr Thomas Brändle</a></td>
-                            <td><a href="">Geschäftsführer</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">Herr Thomas Brändle</a></td>
-                            <td><a href="">Geschäftsführer</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">Herr Thomas Brändle</a></td>
-                            <td><a href="">Geschäftsführer</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">Herr Thomas Brändle</a></td>
-                            <td><a href="">Geschäftsführer</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">Herr Thomas Brändle</a></td>
-                            <td><a href="">Geschäftsführer</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">Herr Thomas Brändle</a></td>
-                            <td><a href="">Geschäftsführer</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">Herr Thomas Brändle</a></td>
-                            <td><a href="">Geschäftsführer</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">Herr Thomas Brändle</a></td>
-                            <td><a href="">Geschäftsführer</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">Herr Thomas Brändle</a></td>
-                            <td><a href="">Geschäftsführer</a></td>
-                        </tr>
-
                     </tbody>
                 </table>
             </div>

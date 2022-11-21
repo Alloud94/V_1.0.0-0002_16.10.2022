@@ -11,6 +11,12 @@ import { GenerateProjektComponent } from 'src/app/_popupKomponente/generate-proj
 export class NProjekteComponent implements OnInit {
   search:string = 'assets/img/icon/search.png';
 
+  //Tabelle
+  projekte = [
+    {vorgangsNummer: "AB 20-001", kunde: "Thomas Brändle", datum: "19.07.2022", status: "Offen", vorgangsArt: "Auftrag"},
+    {vorgangsNummer: "AB 20-001", kunde: "Thomas Brändle", datum: "19.07.2022", status: "Offen", vorgangsArt: "Auftrag"},
+  ]
+
   // Konstruktor für die Popup-Dialoge
   constructor(public matDialog: MatDialog) { }
 

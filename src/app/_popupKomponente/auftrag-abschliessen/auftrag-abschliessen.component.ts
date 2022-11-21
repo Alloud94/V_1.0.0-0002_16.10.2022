@@ -9,6 +9,13 @@ import {MatDialogRef} from '@angular/material/dialog';
 export class AuftragAbschliessenComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
 
+  budget = "150.00";
+  stunden = "150.00";
+  regie = "50.00";
+  ertrag = "200.00";
+  marge = "20";
+  rechnungsbetrag = "450.00";
+
   constructor(public dialogRef: MatDialogRef<AuftragAbschliessenComponent>) { }
 
   ngOnInit(): void {

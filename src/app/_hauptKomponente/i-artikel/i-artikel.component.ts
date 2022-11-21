@@ -11,6 +11,12 @@ import { GenerateArtikelComponent } from 'src/app/_popupKomponente/generate-arti
 export class IArtikelComponent implements OnInit {
   search:string = 'assets/img/icon/search.png';
 
+  //Tabelle
+  artikel = [
+    {vorgangsNummer: "AR 60-001", bezeichnung: "Landingpage", gruppe: "60 - Webentwicklung", ep: "150.00.-", einheit: "Pauschal"},
+    {vorgangsNummer: "AR 60-001", bezeichnung: "Landingpage", gruppe: "60 - Webentwicklung", ep: "150.00.-", einheit: "Pauschal"},
+  ]
+
   // Konstruktor für die Popup-Dialoge
   constructor(public matDialog: MatDialog) { }
 

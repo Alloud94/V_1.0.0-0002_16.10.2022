@@ -11,6 +11,31 @@ import { NotizenComponent } from '../notizen/notizen.component';
 export class AnsprechpartnerComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
   
+  //Ansprechpartner (Kunde)
+  ansprechpartner = [
+    {anrede: 'Herr', vorname: 'Thomas', nachname: 'Brändle'},
+    {anrede: 'Herr', vorname: 'Thomas', nachname: 'Brändle'},
+    {anrede: 'Herr', vorname: 'Thomas', nachname: 'Brändle'},
+    {anrede: 'Herr', vorname: 'Thomas', nachname: 'Brändle'},
+    {anrede: 'Herr', vorname: 'Thomas', nachname: 'Brändle'},
+    {anrede: 'Herr', vorname: 'Thomas', nachname: 'Brändle'},
+    {anrede: 'Herr', vorname: 'Thomas', nachname: 'Brändle'},
+  ]
+
+  anrede = [
+    {anrede: 'Herr'},
+    {anrede: 'Frau'}
+  ]
+
+  vorname = "Thomas";
+  nachname = "Brändle";
+  email = "thomasbraendle94@gmail.com";
+  telefon = "+41 79 520 65 11";
+  mobile = "+41 79 520 65 11";
+  funktion = "Geschäftsführer";
+
+  notiz = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimatasanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justoduo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
+
   constructor(public matDialog: MatDialog, public dialogRef: MatDialogRef<AnsprechpartnerComponent>) { }
 
   openNotizen() {

@@ -14,6 +14,24 @@ import { NotizenComponent } from '../notizen/notizen.component';
 export class GenerateArtikelComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
   
+  //Artikelgruppen
+  agGroup = [
+    {agGruppe: 'Webentwicklung', value: 0},
+    {agGruppe: 'Fotografie', value: 0},
+    {agGruppe: 'Videografie', value: 0},
+    {agGruppe: 'Anderes', value: 0}
+  ]
+
+  //Einheiten
+  ehGroup = [
+    {ehGruppe: 'Stück', value: 0},
+    {ehGruppe: 'Pauschal', value: 0},
+    {ehGruppe: 'Stunde', value: 0},
+    {ehGruppe: 'Anderes', value: 0}
+  ]
+  
+  notizen = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimatasanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justoduo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
+
   constructor(public matDialog: MatDialog, public dialogRef: MatDialogRef<GenerateArtikelComponent>) { }
 
   openNotizen() {

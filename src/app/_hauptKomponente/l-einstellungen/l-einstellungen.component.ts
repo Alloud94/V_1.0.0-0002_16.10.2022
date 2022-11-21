@@ -10,6 +10,77 @@ import { GruppenComponent } from 'src/app/_popupKomponente/gruppen/gruppen.compo
 })
 export class LEinstellungenComponent implements OnInit {
 
+  //Darstellung
+  fHoptions = [
+    {fHoption: 'Segoe Print'},
+    {fHoption: 'Arial'},
+    {fHoption: 'Robot'},
+    {fHoption: 'Test 1'},
+  ];
+
+  lToptions = [
+    {lToption: 'Segoe Print'},
+    {lToption: 'Arial'},
+    {lToption: 'Robot'},
+    {lToption: 'Test 1'},
+  ]
+
+  modes = [
+    {mode: 'Original'},
+    {mode: 'Dark'}
+  ]
+
+  //Gruppen
+
+  //Zahlungsbedingungen
+  zbGroup = [
+    {zbGruppe: '10 Tage 3% Skonto, 30 Tage Netto', value: 0},
+    {zbGruppe: '7 Tage 2% Skonto, 20 Tage Netto', value: 0},
+    {zbGruppe: '30 Tage Netto', value: 0},
+    {zbGruppe: '14 Tage Netto', value: 0},
+    {zbGruppe: 'Vorauskasse', value: 0},
+    {zbGruppe: 'Barzahlung', value: 0},
+    {zbGruppe: 'Teilzahlung', value: 0}
+  ]
+
+  //Zahlungsarten
+  zaGroup = [
+    {zaGruppe : 'Rechnung', value: 0},
+    {zaGruppe : 'Vorauskasse', value: 0},
+    {zaGruppe : 'Barzahlung', value: 0}
+  ]
+
+  //Artikelgruppen
+  agGroup = [
+    {agGruppe: 'Webentwicklung', value: 0},
+    {agGruppe: 'Fotografie', value: 0},
+    {agGruppe: 'Videografie', value: 0},
+    {agGruppe: 'Anderes', value: 0}
+  ]
+  
+  //Kundengruppen
+  kgGroup = [
+    {kgGruppe: 'Privatperson', value: 0},
+    {kgGruppe: 'Geschäftspartner', value: 0},
+    {kgGruppe: 'Verein', value: 0},
+    {kgGruppe: 'Anderes', value: 0}
+  ]
+
+  //Einheiten
+  ehGroup = [
+    {ehGruppe: 'Stück', value: 0},
+    {ehGruppe: 'Pauschal', value: 0},
+    {ehGruppe: 'Stunde', value: 0},
+    {ehGruppe: 'Anderes', value: 0}
+  ]
+
+  //Softwareinfos
+  version = "V 1.0.0-0003";
+  versionDatum = "20.11.2022";
+  hersteller = "Goffini GmbH";
+  supportTel = "+41 79 520 65 11";
+  supportMail = "info@goffini.ch";
+
   constructor(public matDialog: MatDialog) { }
 
   openGruppen() {

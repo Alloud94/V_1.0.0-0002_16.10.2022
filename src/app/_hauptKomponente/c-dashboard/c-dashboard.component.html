@@ -21,19 +21,19 @@
     </div>
     <div class="forOR window">
         <div class="windowTitle">
-            <p>Thomas Brändle</p>
+            <p>{{unternehmenName}}</p>
         </div>
         <div class="windowContent">
             <div class="infos">
                 <p>
-                    Thomas Brändle
-                    <br /> Friedaustrasse 3
+                    {{unternehmenAdresse}}
+                    <br /> {{unternehmenOrt}}
                     <br />
-                    <br /> +41 71 79 520 65 11
-                    <br /> www.thomas-braendle.com
-                    <br /> design@thomas-braendle.com
+                    <br /> {{unternehmenTelefon}}
+                    <br /> {{unternehmenWebsite}}
+                    <br /> {{unternehmenEmail}}
                     <br />
-                    <br /> Web Development, Fotografie & Videografie
+                    <br /> {{unternehmenSlogan}}
                 </p>
             </div>
             <div class="logo">
@@ -48,67 +48,23 @@
         <div class="windowTable fmTable">
             <table>
                 <tbody>
-                    <tr class="fmTitle">
-                        <th colspan="2">2022</th>
-                    </tr>
-                    <tr class="fmContent">
-                        <td>
-                            <p>
-                                Ertrag<br /> Offene Rechnungen<br /> Aufwand
-                            </p>
-                        </td>
-                        <td>
-                            <p>
-                                CHF 10'000.00.-<br /> CHF 1'000.00.-<br /> CHF 6'000.00.-
-                            </p>
-                        </td>
-                    </tr>
-                    <tr class="fmTitle">
-                        <th colspan="2">2021</th>
-                    </tr>
-                    <tr class="fmContent">
-                        <td>
-                            <p>
-                                Ertrag<br /> Offene Rechnungen<br /> Aufwand
-                            </p>
-                        </td>
-                        <td>
-                            <p>
-                                CHF 10'000.00.-<br /> CHF 1'000.00.-<br /> CHF 6'000.00.-
-                            </p>
-                        </td>
-                    </tr>
-                    <tr class="fmTitle">
-                        <th colspan="2">2020</th>
-                    </tr>
-                    <tr class="fmContent">
-                        <td>
-                            <p>
-                                Ertrag<br /> Offene Rechnungen<br /> Aufwand
-                            </p>
-                        </td>
-                        <td>
-                            <p>
-                                CHF 10'000.00.-<br /> CHF 1'000.00.-<br /> CHF 6'000.00.-
-                            </p>
-                        </td>
-                    </tr>
-                    <tr class="fmTitle">
-                        <th colspan="2">2019</th>
-                    </tr>
-                    <tr class="fmContent">
-                        <td>
-                            <p>
-                                Ertrag<br /> Offene Rechnungen<br /> Aufwand
-                            </p>
-                        </td>
-                        <td>
-                            <p>
-                                CHF 10'000.00.-<br /> CHF 1'000.00.-<br /> CHF 6'000.00.-
-                            </p>
-                        </td>
-                    </tr>
-
+                    <div *ngFor="let fmJahr of fmJahre">
+                        <tr class="fmTitle">
+                            <th colspan="2">{{fmJahr.jahr}}</th>
+                        </tr>
+                        <tr class="fmContent">
+                            <td>
+                                <p>
+                                    Ertrag<br /> Offene Rechnungen<br /> Aufwand
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    {{fmJahr.ertrag}}<br /> {{fmJahr.offeneRechnungen}} <br /> {{fmJahr.aufwand}}
+                                </p>
+                            </td>
+                        </tr>
+                    </div>
                 </tbody>
             </table>
         </div>
@@ -127,107 +83,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Auftrag</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Thomas Brändle</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">AB 20-001</a></td>
+                    <tr *ngFor="let vorgang of vorgaenge">
+                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">{{vorgang.vorgangsArt}}</a></td>
+                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">{{vorgang.vorgangsBezeichnung}}</a></td>
+                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">{{vorgang.vorgangsNummer}}</a></td>
                     </tr>
-                    <tr>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Auftrag</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Thomas Brändle</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">AB 20-001</a></td>
-                    </tr>
-                    <tr>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Auftrag</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Thomas Brändle</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">AB 20-001</a></td>
-                    </tr>
-                    <tr>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Auftrag</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Thomas Brändle</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">AB 20-001</a></td>
-                    </tr>
-                    <tr>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Auftrag</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Thomas Brändle</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">AB 20-001</a></td>
-                    </tr>
-                    <tr>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Auftrag</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Thomas Brändle</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">AB 20-001</a></td>
-                    </tr>
-                    <tr>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Auftrag</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Thomas Brändle</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">AB 20-001</a></td>
-                    </tr>
-                    <tr>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Auftrag</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Thomas Brändle</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">AB 20-001</a></td>
-                    </tr>
-                    <tr>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Auftrag</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Thomas Brändle</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">AB 20-001</a></td>
-                    </tr>
-                    <tr>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Auftrag</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Thomas Brändle</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">AB 20-001</a></td>
-                    </tr>
-                    <tr>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Auftrag</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Thomas Brändle</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">AB 20-001</a></td>
-                    </tr>
-                    <tr>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Auftrag</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Thomas Brändle</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">AB 20-001</a></td>
-                    </tr>
-                    <tr>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Auftrag</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Thomas Brändle</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">AB 20-001</a></td>
-                    </tr>
-                    <tr>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Auftrag</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Thomas Brändle</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">AB 20-001</a></td>
-                    </tr>
-                    <tr>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Auftrag</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Thomas Brändle</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">AB 20-001</a></td>
-                    </tr>
-                    <tr>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Auftrag</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Thomas Brändle</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">AB 20-001</a></td>
-                    </tr>
-                    <tr>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Auftrag</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Thomas Brändle</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">AB 20-001</a></td>
-                    </tr>
-                    <tr>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Auftrag</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Thomas Brändle</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">AB 20-001</a></td>
-                    </tr>
-                    <tr>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Auftrag</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Thomas Brändle</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">AB 20-001</a></td>
-                    </tr>
-                    <tr>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Auftrag</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">Thomas Brändle</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">AB f-001</a></td>
-                    </tr>
-
                 </tbody>
             </table>
         </div>
