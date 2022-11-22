@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { environment } from 'src/environments/environment';
 import { LoginService } from 'src/app/_service/login.service';
+import { Login } from 'src/app/_interfaces/login';
 
 @Component({
   selector: 'app-a-login',
@@ -14,6 +14,7 @@ export class ALoginComponent implements OnInit {
   username:string = 'assets/img/icon/user.png';
   passwort:string = 'assets/img/icon/vorhangschloss.png';
   userID: any;
+  loginData: Login[] = [];
 
   constructor(private httpClient: HttpClient,
               private loginService: LoginService) { }
@@ -22,10 +23,6 @@ export class ALoginComponent implements OnInit {
     let userID = "";
   }
             
-
-  //Loginform
-  userName = "";
-  password = "";
 
   public loginForm: FormGroup = new FormGroup({
     username: new FormControl('', [
@@ -36,17 +33,15 @@ export class ALoginComponent implements OnInit {
     ], [])
   });
 
-  login(values: any) {
-    let formData = new FormData();
-    formData.append('username', values.userName);
-    formData.append('password', values.password);
-      this.loginService.login(formData).subscribe(res => {
+  login(loginData: Login) {
+    console.log(loginData);
+      this.loginService.login(loginData.username, loginData.password).subscribe(res => {
         if(res.result === 'success'){
           console.log("Anmeldung erfolgreich");
         }else{
           console.log("Anmeldung fehlgeschlagen");
         }
-        console.log("FAIL");
+        console.log("FAIL1");
       });
       console.log("FAIL");
     }
