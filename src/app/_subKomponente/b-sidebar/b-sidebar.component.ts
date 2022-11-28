@@ -19,4 +19,8 @@ export class BSidebarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  logoutUser(){
+    console.log("User wird ausgeloggt");
+  }
+
 }

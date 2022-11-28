@@ -15,9 +15,14 @@ export class LoginService {
   constructor(private httpClient: HttpClient) { }
 
   login(username: string, password: string): Observable<HttpResponse> {
-    const url = environment.API_EndPoint_Login + 'login.php';
+    const url = environment.API_EndPoint_Login + 'login.php?login=true&username=' + username + '&password=' + password;
     const loginData: Login = {username: username, password: password};
     return this.httpClient.post<HttpResponse>(url, loginData).pipe(map(data => data));
+  }
+
+  token(username:string): Observable<HttpResponse>{
+    const url = environment.API_EndPoint_Empty + 'profil/profil.php?quest=true&username=' + username;
+    return this.httpClient.post<HttpResponse>(url, username).pipe(map(data => data));
   }
 
 }

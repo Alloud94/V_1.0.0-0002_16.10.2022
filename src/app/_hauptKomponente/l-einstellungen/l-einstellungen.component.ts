@@ -1,7 +1,9 @@
+import { InteractivityChecker } from '@angular/cdk/a11y';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 import { GruppenComponent } from 'src/app/_popupKomponente/gruppen/gruppen.component';
+import { EinstellungenService } from 'src/app/_service/einstellungen.service';
 
 @Component({
   selector: 'app-l-einstellungen',
@@ -9,6 +11,21 @@ import { GruppenComponent } from 'src/app/_popupKomponente/gruppen/gruppen.compo
   styleUrls: ['./l-einstellungen.component.sass']
 })
 export class LEinstellungenComponent implements OnInit {
+
+  constructor(public matDialog: MatDialog, private einst: EinstellungenService) { }
+
+  artikelGruppen:any = [];
+
+  ngOnInit(): void {
+    this.einst.getResponse().subscribe(res =>{
+      this.artikelGruppen.push(res);
+    })
+  }
+
+  //Artikelgruppen
+  agGroup = [
+    {agGruppe: this.artikelGruppen.bezeichnung, value: 0}
+  ]
 
   //Darstellung
   fHoptions = [
@@ -49,14 +66,6 @@ export class LEinstellungenComponent implements OnInit {
     {zaGruppe : 'Vorauskasse', value: 0},
     {zaGruppe : 'Barzahlung', value: 0}
   ]
-
-  //Artikelgruppen
-  agGroup = [
-    {agGruppe: 'Webentwicklung', value: 0},
-    {agGruppe: 'Fotografie', value: 0},
-    {agGruppe: 'Videografie', value: 0},
-    {agGruppe: 'Anderes', value: 0}
-  ]
   
   //Kundengruppen
   kgGroup = [
@@ -81,8 +90,6 @@ export class LEinstellungenComponent implements OnInit {
   supportTel = "+41 79 520 65 11";
   supportMail = "info@goffini.ch";
 
-  constructor(public matDialog: MatDialog) { }
-
   openGruppen() {
     const dialogConfig = new MatDialogConfig();
 
@@ -92,10 +99,6 @@ export class LEinstellungenComponent implements OnInit {
     dialogConfig.width = "894px";
 
     const modalDialog = this.matDialog.open(GruppenComponent, dialogConfig);
-  }
-
-
-  ngOnInit(): void {
   }
 
 }

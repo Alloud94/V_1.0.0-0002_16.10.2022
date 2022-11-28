@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from 'src/app/_service/login.service';
 import { Login } from 'src/app/_interfaces/login';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-a-login',
@@ -16,11 +16,9 @@ export class ALoginComponent implements OnInit {
   userID: any;
   loginData: Login[] = [];
 
-  constructor(private httpClient: HttpClient,
-              private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit(): void {
-    let userID = "";
   }
             
 
@@ -34,16 +32,26 @@ export class ALoginComponent implements OnInit {
   });
 
   login(loginData: Login) {
-    console.log(loginData);
       this.loginService.login(loginData.username, loginData.password).subscribe(res => {
-        if(res.result === 'success'){
+        if(res.result == 'success'){
           console.log("Anmeldung erfolgreich");
-        }else{
+          this.token(loginData.username);
+          this.router.navigate(['']);
+        }else if(res.result == 'fail'){
           console.log("Anmeldung fehlgeschlagen");
+
         }
-        console.log("FAIL1");
       });
-      console.log("FAIL");
     }
+
+  token(username: string) {
+    return this.loginService.token(username).subscribe(res => {
+      if(res.result == "Token erstellt"){
+        console.log("Token wurde erstellt");
+      }else{
+        console.log("Token wurde nicht erstellt.");
+      }
+    });
+  }
 
 }
