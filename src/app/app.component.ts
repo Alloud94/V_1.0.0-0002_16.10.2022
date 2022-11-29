@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'V_1.0.0-0002_16.10.2022';
+  loading = false;
+
+  constructor(){}
+
+
 }

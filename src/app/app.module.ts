@@ -65,6 +65,7 @@ import { PositionArtikelComponent } from './_popupKomponente/position-artikel/po
 import { KalkulationComponent } from './_popupKomponente/kalkulation/kalkulation.component';
 import { AuftragAbschliessenComponent } from './_popupKomponente/auftrag-abschliessen/auftrag-abschliessen.component';
 import { AuthenticationGuard } from './_guard/authentication.guard';
+import { LoadingSpinnerComponent } from './_others/loading-spinner/loading-spinner.component';
 
 const routes: Routes = [
   {
@@ -178,7 +179,8 @@ const routes: Routes = [
     GruppenComponent,
     PositionArtikelComponent,
     KalkulationComponent,
-    AuftragAbschliessenComponent
+    AuftragAbschliessenComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

@@ -4,8 +4,10 @@ import { environment } from 'src/environments/environment';
 import {map} from "rxjs/operators";
 import {Observable} from "rxjs";
 import { HttpResponse } from '../_interfaces/http-response';
+import { Output, EventEmitter } from '@angular/core';
 
 import { Login } from '../_interfaces/login';
+import { LoadingService } from './loading.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +15,7 @@ import { Login } from '../_interfaces/login';
 export class LoginService {
 
   user = "";
+
 
   constructor(private httpClient: HttpClient) { }
 
@@ -37,6 +40,7 @@ export class LoginService {
     const url = environment.API_EndPoint_Empty + 'profil/profil.php?quest=deleteToken&username=' + username;
     return this.httpClient.post<HttpResponse>(url, username).pipe(map(data => data));
   }
+
 
 }
 
