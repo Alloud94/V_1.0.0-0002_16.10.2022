@@ -48,6 +48,7 @@ export class ALoginComponent implements OnInit {
     return this.loginService.token(username).subscribe(res => {
       if(res.result == "Token erstellt"){
         console.log("Token wurde erstellt");
+        localStorage.setItem('username', username);
       }else{
         console.log("Token wurde nicht erstellt.");
       }

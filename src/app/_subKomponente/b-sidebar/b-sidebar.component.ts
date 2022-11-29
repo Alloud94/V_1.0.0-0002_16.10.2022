@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/_service/login.service';
+import { Login } from 'src/app/_interfaces/login';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-b-sidebar',
@@ -13,14 +16,31 @@ export class BSidebarComponent implements OnInit {
   unternehmen:string = 'assets/img/icon/unternehmen.png';
   einstellungen:string = 'assets/img/icon/die-einstellungen.png';
   logout:string = 'assets/img/icon/logout.png';
-
-  constructor() { }
+  
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  logoutUser(){
-    console.log("User wird ausgeloggt");
+  user = localStorage.getItem('username');
+
+  logoutName(){
+    console.log(this.user);
+    this.logoutUser(JSON.stringify(this.user));
   }
+
+  logoutUser(username:string){
+    console.log(username);
+    return this.loginService.logoutUser(username).subscribe(res =>{
+      if(res.result == "success"){
+        localStorage.removeItem('username');
+        this.router.navigate(['login']);
+      }else{
+        console.log(("User konnte nicht abgemeldet werden."));
+      }
+    });
+  }
+
+
 
 }

@@ -12,16 +12,25 @@ import { Login } from '../_interfaces/login';
 })
 export class LoginService {
 
+  user = "";
+
   constructor(private httpClient: HttpClient) { }
 
   login(username: string, password: string): Observable<HttpResponse> {
     const url = environment.API_EndPoint_Login + 'login.php?login=true&username=' + username + '&password=' + password;
     const loginData: Login = {username: username, password: password};
+    this.user = username;
     return this.httpClient.post<HttpResponse>(url, loginData).pipe(map(data => data));
   }
 
   token(username:string): Observable<HttpResponse>{
-    const url = environment.API_EndPoint_Empty + 'profil/profil.php?quest=true&username=' + username;
+    const url = environment.API_EndPoint_Empty + 'profil/profil.php?quest=setToken&username=' + username;
+    return this.httpClient.post<HttpResponse>(url, username).pipe(map(data => data));
+  }
+
+  logoutUser(username:String){
+    console.log(username);
+    const url = environment.API_EndPoint_Empty + 'profil/profil.php?quest=deleteToken&username=' + username;
     return this.httpClient.post<HttpResponse>(url, username).pipe(map(data => data));
   }
 
