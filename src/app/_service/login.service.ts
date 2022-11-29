@@ -16,6 +16,10 @@ export class LoginService {
 
   constructor(private httpClient: HttpClient) { }
 
+  getToken() {
+    return !!localStorage.getItem('username');
+  }
+
   login(username: string, password: string): Observable<HttpResponse> {
     const url = environment.API_EndPoint_Login + 'login.php?login=true&username=' + username + '&password=' + password;
     const loginData: Login = {username: username, password: password};

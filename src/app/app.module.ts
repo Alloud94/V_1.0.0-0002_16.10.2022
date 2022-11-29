@@ -64,40 +64,63 @@ import { GruppenComponent } from './_popupKomponente/gruppen/gruppen.component';
 import { PositionArtikelComponent } from './_popupKomponente/position-artikel/position-artikel.component';
 import { KalkulationComponent } from './_popupKomponente/kalkulation/kalkulation.component';
 import { AuftragAbschliessenComponent } from './_popupKomponente/auftrag-abschliessen/auftrag-abschliessen.component';
+import { AuthenticationGuard } from './_guard/authentication.guard';
 
 const routes: Routes = [
   {
-    path: '', component: CDashboardComponent
+    path: '', 
+    component: CDashboardComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
-    path: 'projekte', component: NProjekteComponent
+    path: 'projekte', 
+    component: NProjekteComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
-    path: 'projekte/auftrag', component: EAuftragComponent
+    path: 'projekte/auftrag', 
+    component: EAuftragComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
-    path: 'projekte/angebot', component: FAngebotComponent
+    path: 'projekte/angebot', 
+    component: FAngebotComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
-    path: 'kunden', component: GKundenComponent
+    path: 'kunden', 
+    component: GKundenComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
-    path: 'kunden/kunde', component: HKundeComponent
+    path: 'kunden/kunde', 
+    component: HKundeComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
-    path: 'artikel', component: IArtikelComponent
+    path: 'artikel', 
+    component: IArtikelComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
-    path: 'artikel/der-artikel', component: JDerArtikelComponent
+    path: 'artikel/der-artikel', 
+    component: JDerArtikelComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
-    path: 'unternehmen', component: KUnternehmenComponent
+    path: 'unternehmen', 
+    component: KUnternehmenComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
-    path: 'profil', component: MProfilComponent
+    path: 'profil', 
+    component: MProfilComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
-    path: 'einstellungen', component: LEinstellungenComponent
+    path: 'einstellungen', 
+    component: LEinstellungenComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
     path: 'login', component: ALoginComponent
