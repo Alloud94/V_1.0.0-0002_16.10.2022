@@ -1,4 +1,5 @@
-<div class="login">
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+<div class="login" *ngIf="!isLoading">
     <div class="loginContent">
         <div class="loginLogo">
             <img [src]="logo" alt="Goffini Logo mit Schriftzug 'Goffini, Ordnung|Form|Funktion'.">

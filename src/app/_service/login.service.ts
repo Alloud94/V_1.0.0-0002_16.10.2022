@@ -14,19 +14,11 @@ import { LoadingService } from './loading.service';
 })
 export class LoginService {
 
-  user = "";
-
-
   constructor(private httpClient: HttpClient) { }
-
-  getToken() {
-    return !!localStorage.getItem('username');
-  }
 
   login(username: string, password: string): Observable<HttpResponse> {
     const url = environment.API_EndPoint_Login + 'login.php?login=true&username=' + username + '&password=' + password;
     const loginData: Login = {username: username, password: password};
-    this.user = username;
     return this.httpClient.post<HttpResponse>(url, loginData).pipe(map(data => data));
   }
 
@@ -41,7 +33,9 @@ export class LoginService {
     return this.httpClient.post<HttpResponse>(url, username).pipe(map(data => data));
   }
 
-
+  getToken() {
+    return !!localStorage.getItem('username');
+  }
 }
 
  

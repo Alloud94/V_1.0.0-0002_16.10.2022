@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from 'src/app/_service/login.service';
 import { Login } from 'src/app/_interfaces/login';
 import { Router } from '@angular/router';
+import { AutoLogOfServiceService } from 'src/app/_service/auto-log-of-service/auto-log-of-service.service';
 
 @Component({
   selector: 'app-a-login',
@@ -15,12 +16,15 @@ export class ALoginComponent implements OnInit {
   passwort:string = 'assets/img/icon/vorhangschloss.png';
   userID: any;
   loginData: Login[] = [];
+  isLoading = false;
 
-  constructor(private loginService: LoginService, private router: Router) { }
+  constructor(private loginService: LoginService, 
+              private router: Router, 
+              private logOfService: AutoLogOfServiceService) { }
 
   ngOnInit(): void {
+    localStorage.removeItem('username');
   }
-            
 
   public loginForm: FormGroup = new FormGroup({
     username: new FormControl('', [
@@ -32,16 +36,15 @@ export class ALoginComponent implements OnInit {
   });
 
   login(loginData: Login) {
-      this.loginService.login(loginData.username, loginData.password).subscribe(res => {
-        if(res.result == 'success'){
-          console.log("Anmeldung erfolgreich");
-          this.token(loginData.username);
-          this.router.navigate(['']);
-        }else if(res.result == 'fail'){
-          console.log("Anmeldung fehlgeschlagen");
-
-        }
-      });
+    this.isLoading = true;
+    this.loginService.login(loginData.username, loginData.password).subscribe(res => {
+      if(res.result == 'success'){
+        console.log("Anmeldung erfolgreich");
+        this.token(loginData.username);
+      }else if(res.result == 'fail'){
+        console.log("Anmeldung fehlgeschlagen");
+      }
+    });
     }
 
   token(username: string) {
@@ -49,8 +52,10 @@ export class ALoginComponent implements OnInit {
       if(res.result == "Token erstellt"){
         console.log("Token wurde erstellt");
         localStorage.setItem('username', username);
+        this.router.navigate(['']);
+        this.isLoading = false;
       }else{
-        console.log("Token wurde nicht erstellt.");
+      console.log("Token wurde nicht erstellt.");
       }
     });
   }

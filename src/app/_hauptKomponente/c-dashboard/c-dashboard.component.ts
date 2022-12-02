@@ -5,6 +5,8 @@ import { GenerateProjektComponent } from 'src/app/_popupKomponente/generate-proj
 import { GenerateArtikelComponent } from 'src/app/_popupKomponente/generate-artikel/generate-artikel.component';
 import { GenerateKundeComponent } from 'src/app/_popupKomponente/generate-kunde/generate-kunde.component';
 
+import { GetService } from 'src/app/_service/get/get.service';
+
 @Component({
   selector: 'app-c-dashboard',
   templateUrl: './c-dashboard.component.html',
@@ -12,9 +14,24 @@ import { GenerateKundeComponent } from 'src/app/_popupKomponente/generate-kunde/
 })
 export class CDashboardComponent implements OnInit {
   logoUnternehmen:string = 'assets/img/medien/TB_Logo.png';
+  unternehmenInfos:any = [
+    {bezeichnung: "Thomas Brändle"}
+  ];
+
+  constructor(public matDialog: MatDialog, private getService: GetService) { }
+
+  ngOnInit(): void {
+    this.getService.getUnternehmenInfos().subscribe(res =>{
+      this.unternehmenInfos = res;
+      console.log(this.unternehmenInfos);
+      console.log(this.unternehmenInfos.bezeichnung);
+      console.log(JSON.parse(this.unternehmenInfos.bezeichnung));
+    });
+   
+  }
 
   //Unternehmensinformationen
-  unternehmenName = "Thomas Brändle";
+  unternehmenName = this.unternehmenInfos.bezeichnung;
   unternehmenAdresse = "Friedaustrasse 3";
   unternehmenOrt = "9608 Ganterschwil";
   unternehmenTelefon = "+41 79 520 65 11";
@@ -40,9 +57,6 @@ export class CDashboardComponent implements OnInit {
   ertrag = "CHF 10'000.00.-";
   offeneRechnungen = "CHF 1'000.00.-";
   aufwand = "CHF 6'000.00.-";
-
-  // Konstruktor für die Popup-Dialoge
-  constructor(public matDialog: MatDialog) { }
 
   openGenerateProject() {
     const dialogConfig = new MatDialogConfig();
@@ -78,7 +92,5 @@ export class CDashboardComponent implements OnInit {
   }
 
 
-  ngOnInit(): void {
-  }
 
 }

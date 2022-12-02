@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 import { GruppenComponent } from 'src/app/_popupKomponente/gruppen/gruppen.component';
-import { EinstellungenService } from 'src/app/_service/einstellungen.service';
+import { GetService } from 'src/app/_service/get/get.service';
 
 @Component({
   selector: 'app-l-einstellungen',
@@ -12,14 +12,17 @@ import { EinstellungenService } from 'src/app/_service/einstellungen.service';
 })
 export class LEinstellungenComponent implements OnInit {
 
-  constructor(public matDialog: MatDialog, private einst: EinstellungenService) { }
+  constructor(public matDialog: MatDialog, private einst: GetService) { }
 
   artikelGruppen:any = [];
 
   ngOnInit(): void {
-    this.einst.getResponse().subscribe(res =>{
+    this.einst.getArtikelgruppen().subscribe(res =>{
+      console.log(res);
       this.artikelGruppen.push(res);
-    })
+      console.log(this.artikelGruppen);
+      console.log(this.artikelGruppen[1]);
+    });
   }
 
   //Artikelgruppen
