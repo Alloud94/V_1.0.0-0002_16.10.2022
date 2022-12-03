@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { LoginService } from 'src/app/_service/login.service';
+import { LoginService } from 'src/app/_service/login/login.service';
 import { Login } from 'src/app/_interfaces/login';
 import { Router } from '@angular/router';
-import { AutoLogOfServiceService } from 'src/app/_service/auto-log-of-service/auto-log-of-service.service';
+import { NotificationService } from 'src/app/_service/notification/notification.service';
 
 @Component({
   selector: 'app-a-login',
@@ -20,7 +20,7 @@ export class ALoginComponent implements OnInit {
 
   constructor(private loginService: LoginService, 
               private router: Router, 
-              private logOfService: AutoLogOfServiceService) { }
+              private notificationService: NotificationService) { }
 
   ngOnInit(): void {
     localStorage.removeItem('username');
@@ -40,9 +40,18 @@ export class ALoginComponent implements OnInit {
     this.loginService.login(loginData.username, loginData.password).subscribe(res => {
       if(res.result == 'success'){
         console.log("Anmeldung erfolgreich");
-        this.token(loginData.username);
+        if(this.token(loginData.username)){
+          this.notificationService.notificationSuccess("Login erfolgreich");
+        }else{
+          this.isLoading = false;
+          this.router.navigate(['login']); 
+          this.notificationService.notificationFail("Login fehlgeschlagen");
+        }
       }else if(res.result == 'fail'){
         console.log("Anmeldung fehlgeschlagen");
+        this.isLoading = false;
+        this.router.navigate(['login']); 
+        this.notificationService.notificationFail("Login fehlgeschlagen");
       }
     });
     }

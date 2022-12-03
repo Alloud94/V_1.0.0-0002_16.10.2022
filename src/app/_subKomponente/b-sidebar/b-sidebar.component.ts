@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from 'src/app/_service/login.service';
+import { LoginService } from 'src/app/_service/login/login.service';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/_service/notification/notification.service';
 
 @Component({
   selector: 'app-b-sidebar',
@@ -16,7 +17,9 @@ export class BSidebarComponent implements OnInit {
   einstellungen:string = 'assets/img/icon/die-einstellungen.png';
   logout:string = 'assets/img/icon/logout.png';
   
-  constructor(private loginService: LoginService, private router: Router) { }
+  constructor(private loginService: LoginService, 
+              private router: Router,
+              private notificationService: NotificationService) { }
 
   ngOnInit(): void {
   }
@@ -32,6 +35,7 @@ export class BSidebarComponent implements OnInit {
       if(res.result == "success"){
         localStorage.removeItem('username');
         localStorage.removeItem('lastAction');
+        this.notificationService.notificationSuccess("Logout erfolgreich");
         this.router.navigate(['login']);
       }else{
         console.log(("User konnte nicht abgemeldet werden."));

@@ -3,11 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import {map} from "rxjs/operators";
 import {Observable} from "rxjs";
-import { HttpResponse } from '../_interfaces/http-response';
+import { HttpResponse } from 'src/app/_interfaces/http-response';
 import { Output, EventEmitter } from '@angular/core';
 
-import { Login } from '../_interfaces/login';
-import { LoadingService } from './loading.service';
+import { Login } from 'src/app/_interfaces/login';
 
 @Injectable({
   providedIn: 'root'
