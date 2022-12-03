@@ -31,6 +31,7 @@ export class BSidebarComponent implements OnInit {
     return this.loginService.logoutUser(username).subscribe(res =>{
       if(res.result == "success"){
         localStorage.removeItem('username');
+        localStorage.removeItem('lastAction');
         this.router.navigate(['login']);
       }else{
         console.log(("User konnte nicht abgemeldet werden."));

@@ -4,13 +4,18 @@
             <img [src]="logo" alt="Goffini Logo mit Schriftzug 'Goffini, Ordnung|Form|Funktion'.">
         </div>
         <div class="loginForm">
-            <form action="">
+            <form [formGroup]="passwordForm" (submit)="password(passwordForm.value)">
                 <div class="loginUserName">
                     <img [src]="username" alt="" class="trennLinie">
-                    <input type="text" id="userName" placeholder="BENUTZERNAME">
+                    <input type="text" id="userName" placeholder="BENUTZERNAME" formControlName="username">
+                </div>
+                <div class="loginSubInfos">
+                    <div class="pwFehler">
+                        <a routerLink="/login">Zurück zum Login</a>
+                    </div>
                 </div>
                 <div class="submitLogin">
-                    <input type="submit" value="Passwort zurücksetzen">
+                    <input type="submit" value="Passwort zurücksetzen" [disabled]="!passwordForm.valid">
                 </div>
             </form>
         </div>
