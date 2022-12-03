@@ -4,8 +4,8 @@
             <a href="https://goffini.ch" target="_blank"><img [src]="logoKlein" alt="Goffini Logo mit Schriftzug 'Goffini, Ordnung|Form|Funktion'."></a>
         </div>
         <div class="searchBar">
-            <input type="text" id="searchBar" placeholder="SEARCH">
-            <a href="#"><img [src]="search" alt=""></a>
+            <input type="text" id="searchBar" placeholder="SEARCH" (keydown.enter)="search()">
+            <a (click)="search()"><img [src]="searchIcon" alt=""></a>
         </div>
         <div class="profil">
             <p class="profilGruss">Hi Thomas Brändle</p>

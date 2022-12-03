@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { NotificationService } from 'src/app/_service/notification/notification.service';
+
 import { GenerateArtikelComponent } from 'src/app/_popupKomponente/generate-artikel/generate-artikel.component';
 
 @Component({
@@ -9,7 +10,14 @@ import { GenerateArtikelComponent } from 'src/app/_popupKomponente/generate-arti
   styleUrls: ['./i-artikel.component.sass']
 })
 export class IArtikelComponent implements OnInit {
-  search:string = 'assets/img/icon/search.png';
+  searchIcon:string = 'assets/img/icon/search.png';
+
+  constructor(public matDialog: MatDialog,
+              private notificationService: NotificationService) { }
+
+  ngOnInit(): void {
+  }
+
 
   //Tabelle
   artikel = [
@@ -17,8 +25,11 @@ export class IArtikelComponent implements OnInit {
     {vorgangsNummer: "AR 60-001", bezeichnung: "Landingpage", gruppe: "60 - Webentwicklung", ep: "150.00.-", einheit: "Pauschal"},
   ]
 
-  // Konstruktor für die Popup-Dialoge
-  constructor(public matDialog: MatDialog) { }
+
+  search(){
+    this.notificationService.notificationInfoShort("Not Implementet yet.");
+  }
+
 
   openGenerateArtikel() {
     const dialogConfig = new MatDialogConfig();
@@ -32,7 +43,5 @@ export class IArtikelComponent implements OnInit {
   }
 
 
-  ngOnInit(): void {
-  }
 
 }

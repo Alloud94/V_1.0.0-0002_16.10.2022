@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { NotificationService } from 'src/app/_service/notification/notification.service';
+
 import { JahresabschlussComponent } from 'src/app/_popupKomponente/jahresabschluss/jahresabschluss.component';
 import { StatistikenComponent } from 'src/app/_popupKomponente/statistiken/statistiken.component';
 import { LogoComponent } from 'src/app/_popupKomponente/logo/logo.component';
@@ -14,10 +15,19 @@ import { GenerateMitarbeiterComponent } from 'src/app/_popupKomponente/generate-
   styleUrls: ['./k-unternehmen.component.sass']
 })
 export class KUnternehmenComponent implements OnInit {
-  search:string = 'assets/img/icon/search.png';
+  searchIcon:string = 'assets/img/icon/search.png';
   logoUnternehmen:string = 'assets/img/medien/TB_Logo.png';
   meta:string = 'assets/img/icon/info.png';
   metaActive:string = 'assets/img/icon/infoFarbig.png';
+
+  constructor(public matDialog: MatDialog,
+              private notificationService: NotificationService) { }
+
+  ngOnInit(): void {
+  }
+
+
+// ### Variablen ###
 
   //Unternehmensinformationen
   unternehmenName = "Thomas Brändle";
@@ -40,8 +50,15 @@ export class KUnternehmenComponent implements OnInit {
   administrator = "Ja";
 
 
-  // Konstruktor für die Popup-Dialoge
-  constructor(public matDialog: MatDialog) { }
+// ### Funktionen ###
+
+  search(){
+    this.notificationService.notificationInfoShort("Not Implementet yet.");
+  }
+
+
+
+// ### Popup Dialoge ###
 
   openJahresabschluss() {
     const dialogConfig = new MatDialogConfig();
@@ -110,7 +127,5 @@ export class KUnternehmenComponent implements OnInit {
   }
 
 
-  ngOnInit(): void {
-  }
 
 }

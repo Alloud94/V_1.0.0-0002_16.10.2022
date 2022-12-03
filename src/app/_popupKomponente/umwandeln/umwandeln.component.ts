@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
-
+import { NotificationService } from 'src/app/_service/notification/notification.service';
 
 @Component({
   selector: 'app-umwandeln',
@@ -10,7 +10,8 @@ import {MatDialogRef} from '@angular/material/dialog';
 export class UmwandelnComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
 
-  constructor(public dialogRef: MatDialogRef<UmwandelnComponent>) { }
+  constructor(public dialogRef: MatDialogRef<UmwandelnComponent>,
+              private notificationService: NotificationService) { }
 
   ngOnInit(): void {
   }
@@ -18,5 +19,13 @@ export class UmwandelnComponent implements OnInit {
   closeModal() {
     this.dialogRef.close();
   }
+
+// ### Funktionen ###
+
+  convert(){
+    this.notificationService.notificationInfoShort("Not Implementet yet.");
+  }
+
+
 
 }

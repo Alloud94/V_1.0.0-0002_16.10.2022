@@ -16,17 +16,17 @@
         <div class="adminLogin">
             <p>Bitte geben Sie ihr Adminstrator Login ein um den Vorgang endgültig zu löschen.</p>
             <div class="loginForm">
-                <form action="">
+                <form [formGroup]="loginForm" (submit)="delete(loginForm.value)">
                     <div class="loginUserName">
                         <img [src]="username" alt="" class="trennLinie">
-                        <input type="text" id="userName" placeholder="BENUTZERNAME">
+                        <input type="text" id="userName" placeholder="BENUTZERNAME" formControlName="username">
                     </div>
                     <div class="loginPasswort">
                         <img [src]="passwort" alt="" class="trennLinie">
-                        <input type="password" id="pWord" placeholder="PASSWORT">
+                        <input type="password" id="pWord" placeholder="PASSWORT" formControlName="password">
                     </div>
                     <div class="submitLogin">
-                        <input type="submit" value="Vorgang endgültig löschen">
+                        <input type="submit" value="Vorgang endgültig löschen" [disabled]="!loginForm.valid">
                     </div>
                 </form>
             </div>

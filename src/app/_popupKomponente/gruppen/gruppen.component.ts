@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
+import { NotificationService } from 'src/app/_service/notification/notification.service';
 
 @Component({
   selector: 'app-gruppen',
@@ -9,6 +10,14 @@ import {MatDialogRef} from '@angular/material/dialog';
 export class GruppenComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
 
+  constructor(public dialogRef: MatDialogRef<GruppenComponent>,
+              private notificationService: NotificationService) { }
+
+  ngOnInit(): void {
+  }
+
+
+// ### Variablen ###
   //Einträge
   eintraege = [
     {option: 'Eintrag', value: 0},
@@ -18,13 +27,17 @@ export class GruppenComponent implements OnInit {
     {option: 'Eintrag', value: 0},
   ]
 
-  constructor(public dialogRef: MatDialogRef<GruppenComponent>) { }
+// ### Funktionen ###
+
+save(){
+  this.notificationService.notificationInfoShort("Not Implementet yet.");
+}
+
+
 
   closeModal() {
     this.dialogRef.close();
   }
   
-  ngOnInit(): void {
-  }
 
 }

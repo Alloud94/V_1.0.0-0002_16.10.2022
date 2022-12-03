@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
+import { NotificationService } from 'src/app/_service/notification/notification.service';
 
 @Component({
   selector: 'app-belege',
@@ -19,10 +20,19 @@ export class BelegeComponent implements OnInit {
     {datum: '14.03.2022', art: 'Rechnung', belegID: '001'}
   ]
   
-  constructor(public dialogRef: MatDialogRef<BelegeComponent>) { }
+  constructor(public dialogRef: MatDialogRef<BelegeComponent>,
+              private notificationService: NotificationService) { }
 
   ngOnInit(): void {
   }
+
+  // ### Funktionen ###
+
+  sendDok(){
+    this.notificationService.notificationInfoShort("Not Implementet yet.");
+  }
+
+
 
   closeModal() {
     this.dialogRef.close();

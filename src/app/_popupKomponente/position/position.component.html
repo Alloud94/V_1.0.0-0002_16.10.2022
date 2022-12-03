@@ -20,7 +20,7 @@
             <p>Verkaufspreis 1:</p>
             <input type="text" readonly class="contentReadonly" value="CHF {{stammVp}}.-">
             <div class="btnBearbeiten">
-                <p>Artikel hinzufügen</p>
+                <p (click)="addArticle()">Artikel hinzufügen</p>
             </div>
         </div>
         <div class="split secondSplit">
@@ -33,7 +33,7 @@
             <p>Verkaufspreis 1:</p>
             <input type="text" placeholder="VP 1">
             <div class="btnBearbeiten">
-                <p>Artikel hinzufügen</p>
+                <p (click)="addDivArticle()">Artikel hinzufügen</p>
             </div>
         </div>
         <div class="split thirdSplit">
@@ -48,7 +48,7 @@
             <p>Menge:</p>
             <input type="text" placeholder="Menge">
             <div class="btnBearbeiten">
-                <p>Rabatt hinzufügen</p>
+                <p (click)="addDiscount()">Rabatt hinzufügen</p>
             </div>
         </div>
     </div>

@@ -26,7 +26,7 @@ export class BPasswortComponent implements OnInit {
   password(passwordData: password){
     console.log(passwordData.username);
     this.notificationService.notificationSuccess("Passwort wurde zurückgesetzt");
-    
+    this.notificationService.notificationInfoShort("Function not Implementet yet.");
   }
 
 }

@@ -60,8 +60,8 @@
         <div class="windowTitle windowHeader">
             <p>Mitarbeiter</p>
             <div class="searchBarSmall">
-                <input type="text" id="searchBarSmall" placeholder="SEARCH">
-                <a href="#"><img [src]="search" alt=""></a>
+                <input type="text" id="searchBarSmall" placeholder="SEARCH" (keydown.enter)="search()">
+                <a (click)="search()"><img [src]="searchIcon" alt=""></a>
             </div>
             <div class="btnErfassen">
                 <button type="button" class="btnErfassen" (click)="openGenerateMitarbeiter()">Mitarbeiter Erfassen</button>

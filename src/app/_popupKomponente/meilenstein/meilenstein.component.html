@@ -45,13 +45,13 @@
                 <input type="text" class="readOnly" value="{{arbeitspaket.arbeitspaket}}">
             </div>
             <div class="btnBearbeiten btnMeilensteinHinzufuegen">
-                <p>+</p>
+                <p (click)="addArbeitspaket()">+</p>
             </div>
         </div>
     </div>
     <div class="popupFooter">
         <div class="btnBearbeiten btnSpeichern">
-            <p>Änderungen speichern</p>
+            <p (click)="save()">Änderungen speichern</p>
         </div>
     </div>
 </div>

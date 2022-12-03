@@ -1,5 +1,6 @@
 import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
+import { NotificationService } from '../notification/notification.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,9 @@ export class AutoLogOfServiceService {
   // Log Of Details
   isLogin = false;
 
-  constructor(private router: Router, private ngZone: NgZone) { 
+  constructor(private router: Router, 
+              private ngZone: NgZone,
+              private notificationService: NotificationService) { 
     if(this.isUserLoggedIn()){
       this.isLogin = true;
     }
@@ -62,6 +65,7 @@ export class AutoLogOfServiceService {
         localStorage.removeItem('username');
         localStorage.removeItem('lastAction');
         console.log("Deine Session ist aufgrund zulanger inaktivität abgelaufen. Bitte logge dich neu ein.");
+        this.notificationService.notificationInfoStay("Sie wurden automatisch abgemeldet");
         this.router.navigate(['login']);
       }
     })

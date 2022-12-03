@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { NotificationService } from 'src/app/_service/notification/notification.service';
 
 import { NotizenComponent } from '../notizen/notizen.component';
 
@@ -12,6 +13,16 @@ import { NotizenComponent } from '../notizen/notizen.component';
 })
 export class GenerateMitarbeiterComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
+
+  constructor(public matDialog: MatDialog, 
+              public dialogRef: MatDialogRef<GenerateMitarbeiterComponent>,
+              private notificationService: NotificationService) { }
+
+  ngOnInit(): void {
+  }
+
+
+// ### Variablen ###
   
   //Abteilung
   abGroup = [
@@ -23,10 +34,14 @@ export class GenerateMitarbeiterComponent implements OnInit {
 
   notizen = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimatasanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justoduo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
 
-  constructor(public matDialog: MatDialog, public dialogRef: MatDialogRef<GenerateMitarbeiterComponent>) { }
+// ### Funktionen ###
 
-  ngOnInit(): void {
-  }
+generate(){
+  this.notificationService.notificationInfoShort("Not Implementet yet.");
+}
+
+
+// ### Popup Dialoge ###
 
   openNotizen() {
     const dialogConfig = new MatDialogConfig();

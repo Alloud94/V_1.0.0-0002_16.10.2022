@@ -73,13 +73,13 @@
                 <input type="text" readonly class="contentReadonly" value="{{vpNetto}}">
             </div>
             <div class="btnBearbeiten">
-                <p>Position speichern</p>
+                <p (click)="savePosition()">Position speichern</p>
             </div>
         </div>
     </div>
     <div class="popupFooter">
         <div class="btnBearbeiten btnSpeichern">
-            <p>Änderungen speichern</p>
+            <p (click)="save()">Änderungen speichern</p>
         </div>
     </div>
 </div>

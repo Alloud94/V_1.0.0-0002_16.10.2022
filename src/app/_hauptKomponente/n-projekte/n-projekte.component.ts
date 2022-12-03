@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { NotificationService } from 'src/app/_service/notification/notification.service';
+
 import { GenerateProjektComponent } from 'src/app/_popupKomponente/generate-projekt/generate-projekt.component';
 
 @Component({
@@ -9,16 +10,21 @@ import { GenerateProjektComponent } from 'src/app/_popupKomponente/generate-proj
   styleUrls: ['./n-projekte.component.sass']
 })
 export class NProjekteComponent implements OnInit {
-  search:string = 'assets/img/icon/search.png';
+  searchIcon:string = 'assets/img/icon/search.png';
+
+  // Konstruktor für die Popup-Dialoge
+  constructor(public matDialog: MatDialog,
+              private notificationService: NotificationService) { }
+
+  ngOnInit(): void {
+  }
+
 
   //Tabelle
   projekte = [
     {vorgangsNummer: "AB 20-001", kunde: "Thomas Brändle", datum: "19.07.2022", status: "Offen", vorgangsArt: "Auftrag"},
     {vorgangsNummer: "AB 20-001", kunde: "Thomas Brändle", datum: "19.07.2022", status: "Offen", vorgangsArt: "Auftrag"},
   ]
-
-  // Konstruktor für die Popup-Dialoge
-  constructor(public matDialog: MatDialog) { }
 
   openGenerateProject() {
     const dialogConfig = new MatDialogConfig();
@@ -31,8 +37,11 @@ export class NProjekteComponent implements OnInit {
     const modalDialog = this.matDialog.open(GenerateProjektComponent, dialogConfig);
   }
 
-
-  ngOnInit(): void {
+  search(){
+    this.notificationService.notificationInfoShort("Not Implementet yet.");
   }
+
+
+
 
 }

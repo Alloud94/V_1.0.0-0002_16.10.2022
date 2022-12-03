@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { NotificationService } from 'src/app/_service/notification/notification.service';
 
 import { MetainformationenComponent } from 'src/app/_popupKomponente/metainformationen/metainformationen.component';
 import { LoeschenComponent } from 'src/app/_popupKomponente/loeschen/loeschen.component';
@@ -20,6 +20,16 @@ import { AnsprechpartnerComponent } from 'src/app/_popupKomponente/ansprechpartn
 export class HKundeComponent implements OnInit {
   meta:string = 'assets/img/icon/info.png';
   metaActive:string = 'assets/img/icon/infoFarbig.png';
+
+  ngOnInit(): void {
+  }
+
+  // Konstruktor für die Popup-Dialoge
+  constructor(public matDialog: MatDialog,
+              private notificationService: NotificationService) { }
+
+
+// ### Variablen ###
 
   //Kundenangaben
   kundeNummer = "KU 40-001";
@@ -64,8 +74,14 @@ export class HKundeComponent implements OnInit {
     {vorgangsNummer: 'RE 60-001', status: 'Offen'},
   ]
 
-  // Konstruktor für die Popup-Dialoge
-  constructor(public matDialog: MatDialog) { }
+// ### Funktionen ###
+
+  save(){
+    this.notificationService.notificationInfoShort("Not Implementet yet.");
+  }
+  
+
+// ### Popup Dialoge ###
 
   openMetaInformationen() {
     const dialogConfig = new MatDialogConfig();
@@ -127,9 +143,4 @@ export class HKundeComponent implements OnInit {
 
     const modalDialog = this.matDialog.open(AnsprechpartnerComponent, dialogConfig);
   }
-
-
-  ngOnInit(): void {
-  }
-
 }

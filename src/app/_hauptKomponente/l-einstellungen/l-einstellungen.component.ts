@@ -1,6 +1,6 @@
-import { InteractivityChecker } from '@angular/cdk/a11y';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { NotificationService } from 'src/app/_service/notification/notification.service';
 
 import { GruppenComponent } from 'src/app/_popupKomponente/gruppen/gruppen.component';
 import { GetService } from 'src/app/_service/get/get.service';
@@ -12,7 +12,9 @@ import { GetService } from 'src/app/_service/get/get.service';
 })
 export class LEinstellungenComponent implements OnInit {
 
-  constructor(public matDialog: MatDialog, private einst: GetService) { }
+  constructor(public matDialog: MatDialog, 
+                    private einst: GetService,
+                    private notificationService: NotificationService) { }
 
   artikelGruppen:any = [];
 
@@ -24,6 +26,8 @@ export class LEinstellungenComponent implements OnInit {
       console.log(this.artikelGruppen[1]);
     });
   }
+
+  // ### Variablen ###
 
   //Artikelgruppen
   agGroup = [
@@ -50,8 +54,7 @@ export class LEinstellungenComponent implements OnInit {
     {mode: 'Dark'}
   ]
 
-  //Gruppen
-
+//Gruppen
   //Zahlungsbedingungen
   zbGroup = [
     {zbGruppe: '10 Tage 3% Skonto, 30 Tage Netto', value: 0},
@@ -92,6 +95,15 @@ export class LEinstellungenComponent implements OnInit {
   hersteller = "Goffini GmbH";
   supportTel = "+41 79 520 65 11";
   supportMail = "info@goffini.ch";
+
+  // ### Funktionen ###
+
+  save(){
+    this.notificationService.notificationInfoShort("Not Implementet yet.");
+  }
+
+
+  // ### Popup Dialoge ###
 
   openGruppen() {
     const dialogConfig = new MatDialogConfig();

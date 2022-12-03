@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { NotificationService } from 'src/app/_service/notification/notification.service';
 
 import { NotizenComponent } from '../notizen/notizen.component';
 import { GruppenComponent } from 'src/app/_popupKomponente/gruppen/gruppen.component';
@@ -14,6 +15,14 @@ import { GruppenComponent } from 'src/app/_popupKomponente/gruppen/gruppen.compo
 export class EinstellungenComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
 
+  ngOnInit(): void {
+  }
+
+  constructor(public matDialog: MatDialog, 
+              public dialogRef: MatDialogRef<EinstellungenComponent>,
+              private notificationService: NotificationService) { }
+
+// ### Variablen ###
   //Kopfdaten
   unternehmenName = "Thomas Brändle";
   unternehmenAdresse = "Friedaustrasse 3";
@@ -36,9 +45,14 @@ export class EinstellungenComponent implements OnInit {
     {abGruppe: 'Anderes', value: 0}
   ]
 
+// ### Funktionen ###
 
-  constructor(public matDialog: MatDialog, public dialogRef: MatDialogRef<EinstellungenComponent>) { }
+save(){
+  this.notificationService.notificationInfoShort("Not Implementet yet.");
+}
 
+
+// ### Popup Dialoge ###
   openGruppen() {
     const dialogConfig = new MatDialogConfig();
 
@@ -61,8 +75,6 @@ export class EinstellungenComponent implements OnInit {
     const modalDialog = this.matDialog.open(NotizenComponent, dialogConfig);
   }
 
-  ngOnInit(): void {
-  }
 
   closeModal() {
     this.dialogRef.close();

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
+import { NotificationService } from 'src/app/_service/notification/notification.service';
 
 @Component({
   selector: 'app-projekt-kundendaten',
@@ -8,6 +9,15 @@ import {MatDialogRef} from '@angular/material/dialog';
 })
 export class ProjektKundendatenComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
+
+  constructor(public dialogRef: MatDialogRef<ProjektKundendatenComponent>,
+              private notificationService: NotificationService) { }
+
+  ngOnInit(): void {
+  }
+
+
+// ### Variablen ###
 
   //Kundendaten
   kundenName = "Thomas Brändle";
@@ -25,10 +35,18 @@ export class ProjektKundendatenComponent implements OnInit {
     {anrede: 'Herr', vorname: 'Thomas', nachname: 'Brändle', funktion: 'Geschäftführer'},
   ];
 
-  constructor(public dialogRef: MatDialogRef<ProjektKundendatenComponent>) { }
 
-  ngOnInit(): void {
-  }
+// ### Funktionen ###
+
+save(){
+  this.notificationService.notificationInfoShort("Not Implementet yet.");
+}
+
+saveNewPartner(){
+  this.notificationService.notificationInfoShort("Not Implementet yet.");
+}
+
+
 
   closeModal() {
     this.dialogRef.close();

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { NotificationService } from 'src/app/_service/notification/notification.service';
 
 import { MetainformationenComponent } from 'src/app/_popupKomponente/metainformationen/metainformationen.component';
 import { KonditionenComponent } from 'src/app/_popupKomponente/konditionen/konditionen.component';
@@ -23,6 +23,15 @@ export class FAngebotComponent implements OnInit {
   meta:string = 'assets/img/icon/info.png';
   metaActive:string = 'assets/img/icon/infoFarbig.png';
 
+  ngOnInit(): void {
+  }
+
+
+  // Konstruktor für die Popup-Dialoge
+  constructor(public matDialog: MatDialog,
+              private notificationService: NotificationService) { }
+
+// ### Variablen ###
   //Kopfdaten
   vorgangsNummer = "AN 10-001";
   kundenNummer = "KU 40-001";
@@ -51,9 +60,16 @@ export class FAngebotComponent implements OnInit {
   steuer = "0.00";
   totalNachSteuer = "150.00";
 
-  
-  // Konstruktor für die Popup-Dialoge
-  constructor(public matDialog: MatDialog) { }
+// ### Funktionen ###
+  deletePosition(){
+    this.notificationService.notificationInfoShort("Not Implementet yet.");
+  }
+
+  save(){
+    this.notificationService.notificationInfoShort("Not Implementet yet.");
+  }
+
+// ### Popup Dialoge ###
 
   openMetaInformationen() {
     const dialogConfig = new MatDialogConfig();
@@ -175,10 +191,4 @@ export class FAngebotComponent implements OnInit {
 
     const modalDialog = this.matDialog.open(PositionComponent, dialogConfig);
   }
-
-
-
-  ngOnInit(): void {
-  }
-
 }

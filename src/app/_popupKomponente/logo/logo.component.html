@@ -13,7 +13,7 @@
                 <img [src]="logoUnternehmen" alt="">
             </div>
             <div class="btnBearbeiten btnNotizen">
-                <p>Neues Logo hochladen</p>
+                <p (click)="uploadLogo()">Neues Logo hochladen</p>
             </div>
         </div>
         <div class="split secondSplit">
@@ -23,7 +23,7 @@
     </div>
     <div class="popupFooter">
         <div class="btnBearbeiten btnSpeichern">
-            <p>Änderungen speichern</p>
+            <p (click)="save()">Änderungen speichern</p>
         </div>
     </div>
 </div>

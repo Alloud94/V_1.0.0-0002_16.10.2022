@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
+import { NotificationService } from 'src/app/_service/notification/notification.service';
 
 @Component({
   selector: 'app-auftrag-abschliessen',
@@ -9,6 +10,15 @@ import {MatDialogRef} from '@angular/material/dialog';
 export class AuftragAbschliessenComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
 
+  constructor(public dialogRef: MatDialogRef<AuftragAbschliessenComponent>,
+              private notificationService: NotificationService) { }
+
+  ngOnInit(): void {
+  }
+
+
+// ### Variablen ###
+
   budget = "150.00";
   stunden = "150.00";
   regie = "50.00";
@@ -16,10 +26,13 @@ export class AuftragAbschliessenComponent implements OnInit {
   marge = "20";
   rechnungsbetrag = "450.00";
 
-  constructor(public dialogRef: MatDialogRef<AuftragAbschliessenComponent>) { }
 
-  ngOnInit(): void {
-  }
+// ### Funktionen ###
+
+complete(){
+  this.notificationService.notificationInfoShort("Not Implementet yet.");
+}
+
 
   closeModal() {
     this.dialogRef.close();

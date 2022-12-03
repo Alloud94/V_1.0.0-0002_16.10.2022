@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
-
+import { NotificationService } from 'src/app/_service/notification/notification.service';
 
 @Component({
   selector: 'app-zahlungskonditionen',
@@ -10,6 +10,13 @@ import {MatDialogRef} from '@angular/material/dialog';
 export class ZahlungskonditionenComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
 
+  constructor(public dialogRef: MatDialogRef<ZahlungskonditionenComponent>,
+              private notificationService: NotificationService) { }
+
+  ngOnInit(): void {
+  }
+
+// ### Varaiblen ###
   //Zahlungsbedingungen
   zbGroup = [
     {zbGruppe: '10 Tage 3% Skonto, 30 Tage Netto', value: 0},
@@ -31,10 +38,14 @@ export class ZahlungskonditionenComponent implements OnInit {
   // Kundenrabatt
   kundenrabatt = "3";
   
-  constructor(public dialogRef: MatDialogRef<ZahlungskonditionenComponent>) { }
 
-  ngOnInit(): void {
-  }
+// ### Funktionen ###
+
+save(){
+  this.notificationService.notificationInfoShort("Not Implementet yet.");
+}
+
+
 
   closeModal() {
     this.dialogRef.close();

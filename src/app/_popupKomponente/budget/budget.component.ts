@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
+import { NotificationService } from 'src/app/_service/notification/notification.service';
 
 
 @Component({
@@ -10,7 +11,8 @@ import {MatDialogRef} from '@angular/material/dialog';
 export class BudgetComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
   
-  constructor(public dialogRef: MatDialogRef<BudgetComponent>) { }
+  constructor(public dialogRef: MatDialogRef<BudgetComponent>,
+              private notificationService: NotificationService) { }
 
   ngOnInit(): void {
   }
@@ -18,5 +20,14 @@ export class BudgetComponent implements OnInit {
   closeModal() {
     this.dialogRef.close();
   }
+
+
+// ### Funktionen ###
+
+  save(){
+    this.notificationService.notificationInfoShort("Not Implementet yet.");
+  }
+
+
 
 }

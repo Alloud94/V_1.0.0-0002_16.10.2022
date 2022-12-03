@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
+import { NotificationService } from 'src/app/_service/notification/notification.service';
 
 @Component({
   selector: 'app-kalkulation',
@@ -8,6 +9,15 @@ import {MatDialogRef} from '@angular/material/dialog';
 })
 export class KalkulationComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
+
+  constructor(public dialogRef: MatDialogRef<KalkulationComponent>,
+              private notificationService: NotificationService) { }
+
+  ngOnInit(): void {
+  }
+
+
+// ### Variablen ###
 
   //Gesamtkalkulation
   ep = "150.00";
@@ -34,10 +44,17 @@ export class KalkulationComponent implements OnInit {
   akMarge = "20";
   vpNetto = "21.60";
 
-  constructor(public dialogRef: MatDialogRef<KalkulationComponent>) { }
 
-  ngOnInit(): void {
-  }
+// ### Funktionen ###
+
+save(){
+  this.notificationService.notificationInfoShort("Not Implementet yet.");
+}
+
+savePosition(){
+  this.notificationService.notificationInfoShort("Not Implementet yet.");
+}
+
 
   closeModal() {
     this.dialogRef.close();

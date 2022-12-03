@@ -29,17 +29,17 @@
             </div>
             <div class="split secondSplit">
                 <p class="unterTitel">Passwort ändern</p>
-                <div class="row passwortForm">
+                <form class="row passwortForm" [formGroup]="changePasswordForm" (submit)="changePassword(changePasswordForm.value)">
                     <input type="password" id="Passwort" placeholder="Aktuelles Passwort">
                     <input type="password" id="Passwort" placeholder="Neues Passwort">
                     <input type="password" id="Passwort" placeholder="Neues Passwort bestätigen">
                     <input type="submit" id="submit" value="Neues Passwort speichern">
-                </div>
+                </form>
             </div>
             <div class="split thirdSplit">
             </div>
             <div class="speichern">
-                <p>Änderungen speichern</p>
+                <p (click)="save()">Änderungen speichern</p>
             </div>
         </div>
     </div>

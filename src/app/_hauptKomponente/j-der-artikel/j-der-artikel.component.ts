@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { NotificationService } from 'src/app/_service/notification/notification.service';
+
 import { LoeschenComponent } from 'src/app/_popupKomponente/loeschen/loeschen.component';
 import { NotizenComponent } from 'src/app/_popupKomponente/notizen/notizen.component';
 import { MetainformationenComponent } from 'src/app/_popupKomponente/metainformationen/metainformationen.component';
@@ -13,6 +14,14 @@ import { MetainformationenComponent } from 'src/app/_popupKomponente/metainforma
 export class JDerArtikelComponent implements OnInit {
   meta:string = 'assets/img/icon/info.png';
   metaActive:string = 'assets/img/icon/infoFarbig.png';
+
+  ngOnInit(): void {
+  }
+
+
+  // Konstruktor für die Popup-Dialoge
+  constructor(public matDialog: MatDialog,
+              private notificationService: NotificationService) { }
 
   //Kopfdaten
   artikelNummer = "AR 61-001";
@@ -44,8 +53,16 @@ export class JDerArtikelComponent implements OnInit {
     akMarge = "20";
     vpNetto = "21.60"; 
 
-  // Konstruktor für die Popup-Dialoge
-  constructor(public matDialog: MatDialog) { }
+
+
+  // ### Funktionen ###
+
+  save(){
+    this.notificationService.notificationInfoShort("Not Implementet yet.");
+  }
+
+
+  // ### Popup Dialoge ###
 
   openMetaInformationen() {
     const dialogConfig = new MatDialogConfig();
@@ -79,9 +96,4 @@ export class JDerArtikelComponent implements OnInit {
 
     const modalDialog = this.matDialog.open(NotizenComponent, dialogConfig);
   }
-
-
-  ngOnInit(): void {
-  }
-
 }

@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import {MatDialogRef} from '@angular/material/dialog';
+import { NotificationService } from 'src/app/_service/notification/notification.service';
+
 import { KundendatenComponent } from '../kundendaten/kundendaten.component';
 import { RechnungsadresseComponent } from '../rechnungsadresse/rechnungsadresse.component';
 import { NotizenComponent } from '../notizen/notizen.component';
 import { AnsprechpartnerComponent } from '../ansprechpartner/ansprechpartner.component';
 
-import {MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-generate-projekt',
@@ -16,6 +17,15 @@ import {MatDialogRef} from '@angular/material/dialog';
 export class GenerateProjektComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
 
+  constructor(public matDialog: MatDialog, 
+              public dialogRef: MatDialogRef<GenerateProjektComponent>,
+              private notificationService: NotificationService) { }
+
+  ngOnInit(): void {
+  }
+
+
+// ### Variablen ###
   //Kopfdaten
   kundenNummer = "KU 40-001";
   kundenName = "Thomas Brändle";
@@ -45,8 +55,15 @@ export class GenerateProjektComponent implements OnInit {
   ]
 
 
+// ### Funktionen ###
 
-  constructor(public matDialog: MatDialog, public dialogRef: MatDialogRef<GenerateProjektComponent>) { }
+  generate(){
+    this.notificationService.notificationInfoShort("Not Implementet yet.");
+  }
+
+
+
+// ### Popup Dialoge ###
 
   openKundendaten() {
     const dialogConfig = new MatDialogConfig();
@@ -90,12 +107,6 @@ export class GenerateProjektComponent implements OnInit {
     dialogConfig.width = "894px";
 
     const modalDialog = this.matDialog.open(AnsprechpartnerComponent, dialogConfig);
-  }
-
-
-
-
-  ngOnInit(): void {
   }
 
   closeModal() {

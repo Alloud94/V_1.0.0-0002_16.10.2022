@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { NotificationService } from 'src/app/_service/notification/notification.service';
+
 import { GenerateKundeComponent } from 'src/app/_popupKomponente/generate-kunde/generate-kunde.component';
 
 @Component({
@@ -9,7 +10,11 @@ import { GenerateKundeComponent } from 'src/app/_popupKomponente/generate-kunde/
   styleUrls: ['./g-kunden.component.sass']
 })
 export class GKundenComponent implements OnInit {
-  search:string = 'assets/img/icon/search.png';
+  searchIcon:string = 'assets/img/icon/search.png';
+
+  constructor(public matDialog: MatDialog,
+              private notificationService: NotificationService) { }
+
 
   //Tabelle
   kunden = [
@@ -18,8 +23,10 @@ export class GKundenComponent implements OnInit {
 
   ]
 
-  // Konstruktor für die Popup-Dialoge
-  constructor(public matDialog: MatDialog) { }
+  search(){
+    this.notificationService.notificationInfoShort("Not Implementet yet.");
+  }
+
 
   openGenerateKunde() {
     const dialogConfig = new MatDialogConfig();

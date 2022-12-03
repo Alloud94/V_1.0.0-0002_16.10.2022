@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import {MatDialogRef} from '@angular/material/dialog';
+import { NotificationService } from 'src/app/_service/notification/notification.service';
+
 import { NotizenComponent } from '../notizen/notizen.component';
 
 @Component({
@@ -10,7 +12,16 @@ import { NotizenComponent } from '../notizen/notizen.component';
 })
 export class AnsprechpartnerComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
+
+  constructor(public matDialog: MatDialog, 
+              public dialogRef: MatDialogRef<AnsprechpartnerComponent>,
+              private notificationService: NotificationService ) { }
   
+  ngOnInit(): void {
+  }
+
+// ### Variablen ###
+
   //Ansprechpartner (Kunde)
   ansprechpartner = [
     {anrede: 'Herr', vorname: 'Thomas', nachname: 'Brändle'},
@@ -36,7 +47,14 @@ export class AnsprechpartnerComponent implements OnInit {
 
   notiz = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimatasanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justoduo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
 
-  constructor(public matDialog: MatDialog, public dialogRef: MatDialogRef<AnsprechpartnerComponent>) { }
+// ### Funktionen ###
+
+save(){
+  this.notificationService.notificationInfoShort("Not Implementet yet.");
+}
+
+
+// ### Popup Dialoge ###
 
   openNotizen() {
     const dialogConfig = new MatDialogConfig();
@@ -47,9 +65,6 @@ export class AnsprechpartnerComponent implements OnInit {
     dialogConfig.width = "894px";
 
     const modalDialog = this.matDialog.open(NotizenComponent, dialogConfig);
-  }
-
-  ngOnInit(): void {
   }
 
   closeModal() {

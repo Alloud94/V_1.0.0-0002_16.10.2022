@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
-
+import { NotificationService } from 'src/app/_service/notification/notification.service';
 
 @Component({
   selector: 'app-rechnungsadresse',
@@ -9,6 +9,15 @@ import {MatDialogRef} from '@angular/material/dialog';
 })
 export class RechnungsadresseComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
+
+  constructor(public dialogRef: MatDialogRef<RechnungsadresseComponent>,
+              private notificationService: NotificationService) { }
+
+  ngOnInit(): void {
+  }
+
+
+// ### Variablen ###
 
   //Aktuelle Adresse
   aktStrasse = "Friedaustrasse 3";
@@ -32,10 +41,17 @@ export class RechnungsadresseComponent implements OnInit {
     {strasse: 'Friedaustrasse 3', ort: '9608 Ganterschwil', land: 'CH - Schweiz'},
   ]
 
-  constructor(public dialogRef: MatDialogRef<RechnungsadresseComponent>) { }
 
-  ngOnInit(): void {
+  // ### Funktionen ###
+
+  save(){
+    this.notificationService.notificationInfoShort("Not Implementet yet.");
   }
+
+  saveNewAdress(){
+    this.notificationService.notificationInfoShort("Not Implementet yet.");
+  }
+
 
   closeModal() {
     this.dialogRef.close();

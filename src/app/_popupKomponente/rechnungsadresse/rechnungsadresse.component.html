@@ -22,7 +22,7 @@
             <input type="text" placeholder="Ortschaft">
             <input type="text" placeholder="Land">
             <div class="btnBearbeiten">
-                <p>Neue Adresse speichern</p>
+                <p (click)="saveNewAdress()">Neue Adresse speichern</p>
             </div>
             <div class="btnBearbeiten">
                 <p>Ausgewählte Adresse löschen</p>
@@ -52,7 +52,7 @@
     </div>
     <div class="popupFooter">
         <div class="btnBearbeiten btnSpeichern">
-            <p>Änderungen speichern</p>
+            <p (click)="save()">Änderungen speichern</p>
         </div>
     </div>
 </div>
