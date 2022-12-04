@@ -4,6 +4,9 @@ import { NotificationService } from 'src/app/_service/notification/notification.
 
 import { GenerateArtikelComponent } from 'src/app/_popupKomponente/generate-artikel/generate-artikel.component';
 
+import { Artikel } from 'src/app/_interfaces/artikel';
+import { GetService } from 'src/app/_service/get/get.service';
+
 @Component({
   selector: 'app-i-artikel',
   templateUrl: './i-artikel.component.html',
@@ -11,19 +14,19 @@ import { GenerateArtikelComponent } from 'src/app/_popupKomponente/generate-arti
 })
 export class IArtikelComponent implements OnInit {
   searchIcon:string = 'assets/img/icon/search.png';
+  artikel?:Artikel[];
+
 
   constructor(public matDialog: MatDialog,
-              private notificationService: NotificationService) { }
+              private notificationService: NotificationService,
+              private getService: GetService) { }
 
   ngOnInit(): void {
+    this.getService.getArtikel().subscribe(res => {
+      this.artikel = res;
+      console.log(this.artikel);
+    })
   }
-
-
-  //Tabelle
-  artikel = [
-    {vorgangsNummer: "AR 60-001", bezeichnung: "Landingpage", gruppe: "60 - Webentwicklung", ep: "150.00.-", einheit: "Pauschal"},
-    {vorgangsNummer: "AR 60-001", bezeichnung: "Landingpage", gruppe: "60 - Webentwicklung", ep: "150.00.-", einheit: "Pauschal"},
-  ]
 
 
   search(){

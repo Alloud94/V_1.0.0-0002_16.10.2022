@@ -1,0 +1,21 @@
+export interface Kunde {
+    id: number,
+    vorgansArt: string,
+    bezeichnung: string, 
+    adresse: string,
+    ortschaft: string,
+    land: string,
+    telefon: string,
+    website: string,
+    email: string, 
+    kundenGruppenID: number,
+    kundenrabatt: number,
+    zahlungsArtenID: string,
+    zahlungsKonditionenID: string,
+    datumErfasst: Date,
+    userIDErfasst: number,
+    datumZuletztGespeichert?: string,
+    userIDZuletztGespeichert?: number,
+    status: string,
+    notizen: string
+}

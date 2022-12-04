@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { NotificationService } from 'src/app/_service/notification/notification.service';
+import { GetService } from 'src/app/_service/get/get.service';
+import { Kunde } from 'src/app/_interfaces/kunde';
 
 import { GenerateKundeComponent } from 'src/app/_popupKomponente/generate-kunde/generate-kunde.component';
 
@@ -11,17 +13,20 @@ import { GenerateKundeComponent } from 'src/app/_popupKomponente/generate-kunde/
 })
 export class GKundenComponent implements OnInit {
   searchIcon:string = 'assets/img/icon/search.png';
+  kunden?:Kunde[];
 
   constructor(public matDialog: MatDialog,
-              private notificationService: NotificationService) { }
+              private notificationService: NotificationService,
+              private getService: GetService) { }
 
 
-  //Tabelle
-  kunden = [
-    {vorgangsNummer: "KU 40-001", kunde: "Thomas Brändle", ortschaft: "9608 Ganterschwil", adresse: "Friedaustrasse 3"},
-    {vorgangsNummer: "KU 40-001", kunde: "Thomas Brändle", ortschaft: "9608 Ganterschwil", adresse: "Friedaustrasse 3"},
+  ngOnInit(): void {
+    this.getService.getKunden().subscribe(res => {
+      this.kunden = res;
+      console.log(this.kunden);
+    })
+  }
 
-  ]
 
   search(){
     this.notificationService.notificationInfoShort("Not Implementet yet.");
@@ -40,7 +45,6 @@ export class GKundenComponent implements OnInit {
   }
 
 
-  ngOnInit(): void {
-  }
 
+  
 }

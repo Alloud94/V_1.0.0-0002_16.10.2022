@@ -9,6 +9,10 @@ import { EinstellungenComponent } from 'src/app/_popupKomponente/einstellungen/e
 import { MetainformationenComponent } from 'src/app/_popupKomponente/metainformationen/metainformationen.component';
 import { GenerateMitarbeiterComponent } from 'src/app/_popupKomponente/generate-mitarbeiter/generate-mitarbeiter.component';
 
+import { GetService } from 'src/app/_service/get/get.service';
+import { UnternehmensInformationen } from 'src/app/_interfaces/unternehmenInfos';
+import { Mitarbeiter } from 'src/app/_interfaces/mitarbeiter';
+
 @Component({
   selector: 'app-k-unternehmen',
   templateUrl: './k-unternehmen.component.html',
@@ -19,35 +23,22 @@ export class KUnternehmenComponent implements OnInit {
   logoUnternehmen:string = 'assets/img/medien/TB_Logo.png';
   meta:string = 'assets/img/icon/info.png';
   metaActive:string = 'assets/img/icon/infoFarbig.png';
+  unternehmenInfos?:UnternehmensInformationen[];
+  mitarbeiter?:Mitarbeiter[];
 
   constructor(public matDialog: MatDialog,
-              private notificationService: NotificationService) { }
+              private notificationService: NotificationService,
+              private getService: GetService) { }
 
   ngOnInit(): void {
+    this.getService.getUnternehmenInfos().subscribe(res => {
+      this.unternehmenInfos = res;
+    })
+    this.getService.getMitarbeiter().subscribe(res => {
+      this.mitarbeiter = res;
+    })
+
   }
-
-
-// ### Variablen ###
-
-  //Unternehmensinformationen
-  unternehmenName = "Thomas Brändle";
-  unternehmenAdresse = "Friedaustrasse 3";
-  unternehmenLand = "CH - Schweiz";
-  unternehmenOrt = "9608 Ganterschwil";
-  unternehmenTelefon = "+41 79 520 65 11";
-  unternehmenWebsite = "www.thomas-braendle.com";
-  unternehmenEmail = "design@thomas-braendle.com";
-  unternehmenSlogan = "Web Development, Fotografie & Videografie";
-  
-
-  //Mitarbeiter Tabelle
-  vorgangsNummer = "MA 100-001";
-  vorname = "Thomas";
-  nachname = "Brändle";
-  funktion = "Geschäftsführer";
-  abteilung = "Geschäftsleitung";
-  stellenprozent = "100%";
-  administrator = "Ja";
 
 
 // ### Funktionen ###

@@ -6,38 +6,28 @@ import { GenerateArtikelComponent } from 'src/app/_popupKomponente/generate-arti
 import { GenerateKundeComponent } from 'src/app/_popupKomponente/generate-kunde/generate-kunde.component';
 
 import { GetService } from 'src/app/_service/get/get.service';
+import { UnternehmensInformationen } from 'src/app/_interfaces/unternehmenInfos';
 
 @Component({
   selector: 'app-c-dashboard',
   templateUrl: './c-dashboard.component.html',
   styleUrls: ['./c-dashboard.component.sass']
 })
+
 export class CDashboardComponent implements OnInit {
   logoUnternehmen:string = 'assets/img/medien/TB_Logo.png';
-  unternehmenInfos:any = [
-    {bezeichnung: "Thomas Brändle"}
-  ];
+  unternehmenInfos?:UnternehmensInformationen[];
 
-  constructor(public matDialog: MatDialog, private getService: GetService) { }
+  constructor(public matDialog: MatDialog, 
+              private getService: GetService) { }
 
   ngOnInit(): void {
-    this.getService.getUnternehmenInfos().subscribe(res =>{
+    this.getService.getUnternehmenInfos().subscribe(res => {
       this.unternehmenInfos = res;
-      console.log(this.unternehmenInfos);
-      console.log(this.unternehmenInfos.bezeichnung);
-      console.log(JSON.parse(this.unternehmenInfos.bezeichnung));
-    });
-   
+    })
+
   }
 
-  //Unternehmensinformationen
-  unternehmenName = this.unternehmenInfos.bezeichnung;
-  unternehmenAdresse = "Friedaustrasse 3";
-  unternehmenOrt = "9608 Ganterschwil";
-  unternehmenTelefon = "+41 79 520 65 11";
-  unternehmenWebsite = "www.thomas-braendle.com";
-  unternehmenEmail = "design@thomas-braendle.com";
-  unternehmenSlogan = "Web Development, Fotografie & Videografie";
 
   //Letzte Vorgänge
   vorgaenge = [

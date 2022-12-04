@@ -25,10 +25,10 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let artikel of artikel">
-                        <td><a routerLink="/artikel/der-artikel" routerLinkActive="active">{{artikel.vorgangsNummer}}</a></td>
+                        <td><a routerLink="/artikel/der-artikel" routerLinkActive="active">AR 6{{artikel.artikelGruppenID}}-{{artikel.id}}</a></td>
                         <td><a routerLink="/artikel/der-artikel" routerLinkActive="active">{{artikel.bezeichnung}}</a></td>
-                        <td><a routerLink="/artikel/der-artikel" routerLinkActive="active">{{artikel.gruppe}}</a></td>
-                        <td><a routerLink="/artikel/der-artikel" routerLinkActive="active">{{artikel.ep}}</a></td>
+                        <td><a routerLink="/artikel/der-artikel" routerLinkActive="active">{{artikel.artikelGruppenID}}</a></td>
+                        <td><a routerLink="/artikel/der-artikel" routerLinkActive="active">{{artikel.einstandPreis}}</a></td>
                         <td><a routerLink="/artikel/der-artikel" routerLinkActive="active">{{artikel.einheit}}</a></td>
                     </tr>
                 </tbody>

@@ -9,6 +9,9 @@ import { RechnungsadresseComponent } from 'src/app/_popupKomponente/rechnungsadr
 import { ZahlungskonditionenComponent } from 'src/app/_popupKomponente/zahlungskonditionen/zahlungskonditionen.component';
 import { AnsprechpartnerComponent } from 'src/app/_popupKomponente/ansprechpartner/ansprechpartner.component';
 
+import { GetService } from 'src/app/_service/get/get.service';
+import { Kunde } from 'src/app/_interfaces/kunde';
+
 
 
 
@@ -20,13 +23,22 @@ import { AnsprechpartnerComponent } from 'src/app/_popupKomponente/ansprechpartn
 export class HKundeComponent implements OnInit {
   meta:string = 'assets/img/icon/info.png';
   metaActive:string = 'assets/img/icon/infoFarbig.png';
-
-  ngOnInit(): void {
-  }
+  kunden?:Kunde[];
 
   // Konstruktor für die Popup-Dialoge
   constructor(public matDialog: MatDialog,
-              private notificationService: NotificationService) { }
+              private notificationService: NotificationService,
+              private getService: GetService) { }
+
+
+  ngOnInit(): void {
+    this.getService.getKunden().subscribe(res => {
+      this.kunden = res;
+      console.log(this.kunden);
+    })
+
+  }
+
 
 
 // ### Variablen ###

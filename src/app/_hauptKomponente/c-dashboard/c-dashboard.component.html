@@ -21,19 +21,19 @@
     </div>
     <div class="forOR window">
         <div class="windowTitle">
-            <p>{{unternehmenInfos.bezeichnung}}</p>
+            <p *ngFor="let info of unternehmenInfos">{{info.bezeichnung}}</p>
         </div>
         <div class="windowContent">
             <div class="infos">
-                <p>
-                    {{unternehmenAdresse}}
-                    <br /> {{unternehmenOrt}}
+                <p *ngFor="let info of unternehmenInfos">
+                    {{info.adresse}}
+                    <br /> {{info.ortschaft}}
                     <br />
-                    <br /> {{unternehmenTelefon}}
-                    <br /> {{unternehmenWebsite}}
-                    <br /> {{unternehmenEmail}}
+                    <br /> {{info.telefon}}
+                    <br /> {{info.website}}
+                    <br /> {{info.email}}
                     <br />
-                    <br /> {{unternehmenSlogan}}
+                    <br /> {{info.slogan}}
                 </p>
             </div>
             <div class="logo">

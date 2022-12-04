@@ -8,30 +8,30 @@
             </a>
         </div>
         <div class="windowContent">
-            <div class="split firstSplit">
+            <div class="split firstSplit" *ngFor="let info of unternehmenInfos">
                 <div class="row">
                     <p>Name:</p>
-                    <p>{{unternehmenName}}</p>
+                    <p>{{info.bezeichnung}}</p>
                 </div>
                 <div class="row">
                     <p>Adresse:</p>
                     <p>
-                        {{unternehmenAdresse}}
-                        <br /> {{unternehmenOrt}}
-                        <br /> {{unternehmenLand}}
+                        {{info.adresse}}
+                        <br /> {{info.ortschaft}}
+                        <br /> {{info.land}}
                     </p>
                 </div>
                 <div class="row">
                     <p>Telefon:</p>
-                    <p>{{unternehmenTelefon}}</p>
+                    <p>{{info.telefon}}</p>
                 </div>
                 <div class="row">
                     <p>E-Mail:</p>
-                    <p>{{unternehmenEmail}}</p>
+                    <p>{{info.email}}</p>
                 </div>
                 <div class="row">
                     <p>Website:</p>
-                    <p>{{unternehmenWebsite}}</p>
+                    <p>{{info.website}}</p>
                 </div>
             </div>
             <div class="split secondSplit">
@@ -81,14 +81,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>{{vorgangsNummer}}</td>
-                        <td>{{nachname}}</td>
-                        <td>{{vorname}}</td>
-                        <td>{{funktion}}</td>
-                        <td>{{abteilung}}</td>
-                        <td>{{stellenprozent}}</td>
-                        <td>{{administrator}}</td>
+                    <tr *ngFor="let mitarbeiter of mitarbeiter">
+                        <td>{{mitarbeiter.id}}</td>
+                        <td>{{mitarbeiter.nachname}}</td>
+                        <td>{{mitarbeiter.vorname}}</td>
+                        <td>{{mitarbeiter.funktion}}</td>
+                        <td>{{mitarbeiter.abteilungsGruppenID}}</td>
+                        <td>{{mitarbeiter.pensum}}</td>
+                        <td>{{mitarbeiter.adminrechte}}</td>
                     </tr>
                 </tbody>
             </table>

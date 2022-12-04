@@ -24,8 +24,8 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let kunde of kunden">
-                        <td><a routerLink="/kunden/kunde" routerLinkActive="active">{{kunde.vorgangsNummer}}</a></td>
-                        <td><a routerLink="/kunden/kunde" routerLinkActive="active">{{kunde.kunde}}</a></td>
+                        <td><a routerLink="/kunden/kunde" routerLinkActive="active">KU 40-{{kunde.id}}</a></td>
+                        <td><a routerLink="/kunden/kunde" routerLinkActive="active">{{kunde.bezeichnung}}</a></td>
                         <td><a routerLink="/kunden/kunde" routerLinkActive="active">{{kunde.ortschaft}}</a></td>
                         <td><a routerLink="/kunden/kunde" routerLinkActive="active">{{kunde.adresse}}</a></td>
                     </tr>

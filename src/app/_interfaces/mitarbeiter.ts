@@ -1,0 +1,23 @@
+export interface Mitarbeiter {
+    id: number,
+    vorgansArt: string,
+    vorname: string,
+    nachname: number,
+    adresse: number,
+    ortschaft: number,
+    land: number,
+    telefon: number,
+    email: number,
+    adminrechte: boolean,
+    pensum: number,
+    gehalt: number,
+    abteilungsGruppenID: number,
+    funktion: string, 
+    eintrittsDatum: Date,
+    datumErfasst: Date,
+    userIDErfasst: number,
+    datumZuletztGespeichert?: string,
+    userIDZuletztGespeichert?: number,
+    status: string,
+    notizen: string
+}

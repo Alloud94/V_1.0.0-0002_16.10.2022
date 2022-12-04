@@ -1,0 +1,20 @@
+export interface Artikel {
+    id: number,
+    vorgansArt: string,
+    bezeichnung: string,
+    artikelGruppenID: number,
+    einstandPreis: number,
+    rabatt1: number,
+    rabatt2: number,
+    epEffektiv: number,
+    vpBrutto: number,
+    vpNetto: number,
+    marge: number,
+    einheit: string,
+    datumErfasst: Date,
+    userIDErfasst: number,
+    datumZuletztGespeichert?: string,
+    userIDZuletztGespeichert?: number,
+    status: string,
+    notizen: string
+}
