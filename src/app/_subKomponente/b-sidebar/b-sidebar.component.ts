@@ -19,7 +19,8 @@ export class BSidebarComponent implements OnInit {
   
   constructor(private loginService: LoginService, 
               private router: Router,
-              private notificationService: NotificationService) { }
+              private notificationService: NotificationService){
+              }
 
   ngOnInit(): void {
   }

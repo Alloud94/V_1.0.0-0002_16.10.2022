@@ -1,10 +1,12 @@
 import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotificationService } from '../notification/notification.service';
+import { LoginService } from '../login/login.service';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AutoLogOfServiceService {
 
 
@@ -13,7 +15,8 @@ export class AutoLogOfServiceService {
 
   constructor(private router: Router, 
               private ngZone: NgZone,
-              private notificationService: NotificationService) { 
+              private notificationService: NotificationService,
+              private loginService: LoginService) { 
     if(this.isUserLoggedIn()){
       this.isLogin = true;
     }
@@ -62,14 +65,32 @@ export class AutoLogOfServiceService {
 
     this.ngZone.run(() => {
       if(isTimeout && this.isLogin){
-        localStorage.removeItem('username');
-        localStorage.removeItem('lastAction');
         console.log("Deine Session ist aufgrund zulanger inaktivität abgelaufen. Bitte logge dich neu ein.");
         this.notificationService.notificationInfoStay("Sie wurden automatisch abgemeldet");
-        this.router.navigate(['login']);
+        this.logoutName();
+    
       }
     })
   }
+
+  user = localStorage.getItem('username');
+
+  logoutName(){
+    this.logoutUser(JSON.stringify(this.user));
+  }
+
+  logoutUser(username:string){
+    return this.loginService.logoutUser(username).subscribe(res =>{
+      if(res.result == "success"){
+        localStorage.removeItem('username');
+        localStorage.removeItem('lastAction');
+        this.router.navigate(['login']);
+      }else{
+        console.log(("User konnte nicht abgemeldet werden."));
+      }
+    });
+  }
+
 
   //Checken ob User eingeloggt ist
   isUserLoggedIn(){

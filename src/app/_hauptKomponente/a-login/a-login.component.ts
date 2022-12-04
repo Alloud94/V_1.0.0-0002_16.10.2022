@@ -39,10 +39,11 @@ export class ALoginComponent implements OnInit {
     this.isLoading = true;
     this.loginService.login(loginData.username, loginData.password).subscribe(res => {
       if(res.result == 'success'){
-        console.log("Anmeldung erfolgreich");
         if(this.token(loginData.username)){
           this.notificationService.notificationSuccess("Login erfolgreich");
+          console.log("Anmeldung erfolgreich");
         }else{
+          console.log("Anmeldung fehlgeschlagen");
           this.isLoading = false;
           this.router.navigate(['login']); 
           this.notificationService.notificationFail("Login fehlgeschlagen");
@@ -65,7 +66,9 @@ export class ALoginComponent implements OnInit {
         this.isLoading = false;
       }else{
       console.log("Token wurde nicht erstellt.");
-      }
+      this.router.navigate(['login']); 
+      this.notificationService.notificationFail("Login fehlgeschlagen");
+    }
     });
   }
 
