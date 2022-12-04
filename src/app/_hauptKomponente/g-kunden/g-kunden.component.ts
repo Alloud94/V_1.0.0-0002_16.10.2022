@@ -14,6 +14,7 @@ import { GenerateKundeComponent } from 'src/app/_popupKomponente/generate-kunde/
 export class GKundenComponent implements OnInit {
   searchIcon:string = 'assets/img/icon/search.png';
   kunden?:Kunde[];
+  isLoading = true;
 
   constructor(public matDialog: MatDialog,
               private notificationService: NotificationService,
@@ -23,7 +24,7 @@ export class GKundenComponent implements OnInit {
   ngOnInit(): void {
     this.getService.getKunden().subscribe(res => {
       this.kunden = res;
-      console.log(this.kunden);
+      this.isLoading = false;
     })
   }
 

@@ -1,6 +1,7 @@
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
 <app-a-header></app-a-header>
 <app-b-sidebar></app-b-sidebar>
-<div class="twoWindow">
+<div class="twoWindow" *ngIf="!isLoading">
     <div class="oben window">
         <div class="windowTitle windowHeader">
             <p>Unternehmensdaten</p>
@@ -82,7 +83,7 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let mitarbeiter of mitarbeiter">
-                        <td>{{mitarbeiter.id}}</td>
+                        <td>MA 101-{{mitarbeiter.id}}</td>
                         <td>{{mitarbeiter.nachname}}</td>
                         <td>{{mitarbeiter.vorname}}</td>
                         <td>{{mitarbeiter.funktion}}</td>

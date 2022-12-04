@@ -15,7 +15,7 @@ import { GetService } from 'src/app/_service/get/get.service';
 export class IArtikelComponent implements OnInit {
   searchIcon:string = 'assets/img/icon/search.png';
   artikel?:Artikel[];
-
+  isLoading = true;
 
   constructor(public matDialog: MatDialog,
               private notificationService: NotificationService,
@@ -24,7 +24,7 @@ export class IArtikelComponent implements OnInit {
   ngOnInit(): void {
     this.getService.getArtikel().subscribe(res => {
       this.artikel = res;
-      console.log(this.artikel);
+      this.isLoading = false;
     })
   }
 

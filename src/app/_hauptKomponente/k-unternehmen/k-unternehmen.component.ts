@@ -25,6 +25,7 @@ export class KUnternehmenComponent implements OnInit {
   metaActive:string = 'assets/img/icon/infoFarbig.png';
   unternehmenInfos?:UnternehmensInformationen[];
   mitarbeiter?:Mitarbeiter[];
+  isLoading = true;
 
   constructor(public matDialog: MatDialog,
               private notificationService: NotificationService,
@@ -36,8 +37,8 @@ export class KUnternehmenComponent implements OnInit {
     })
     this.getService.getMitarbeiter().subscribe(res => {
       this.mitarbeiter = res;
+      this.isLoading = false;
     })
-
   }
 
 
