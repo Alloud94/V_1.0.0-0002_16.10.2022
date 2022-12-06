@@ -2,8 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { NotificationService } from 'src/app/_service/notification/notification.service';
 
+// Components
 import { GruppenComponent } from 'src/app/_popupKomponente/gruppen/gruppen.component';
+
+// Services
 import { GetService } from 'src/app/_service/get/get.service';
+
+// Interfaces
+import { Gruppen } from 'src/app/_interfaces/gruppen';
+import { Softwareinfos } from 'src/app/_interfaces/softwareInfos';
 
 @Component({
   selector: 'app-l-einstellungen',
@@ -11,90 +18,39 @@ import { GetService } from 'src/app/_service/get/get.service';
   styleUrls: ['./l-einstellungen.component.sass']
 })
 export class LEinstellungenComponent implements OnInit {
+  zahlungsArten?:Gruppen[];
+  zahlungsKondi?:Gruppen[];
+  artikelGruppen?:Gruppen[];
+  kundenGruppen?:Gruppen[];
+  einheiten?:Gruppen[];
+  software?:Softwareinfos[];
+  isLoading = true;
+
 
   constructor(public matDialog: MatDialog, 
-                    private einst: GetService,
-                    private notificationService: NotificationService) { }
+              private getService: GetService,
+              private notificationService: NotificationService) { }
 
-  artikelGruppen:any = [];
+  
 
   ngOnInit(): void {
-    this.einst.getArtikelgruppen().subscribe(res =>{
-      console.log(res);
-      this.artikelGruppen.push(res);
-      console.log(this.artikelGruppen);
-      console.log(this.artikelGruppen[1]);
-    });
+    this.loadValue();
   }
 
-  // ### Variablen ###
-
-  //Artikelgruppen
-  agGroup = [
-    {agGruppe: this.artikelGruppen.bezeichnung, value: 0}
-  ]
 
   //Darstellung
   fHoptions = [
     {fHoption: 'Segoe Print'},
-    {fHoption: 'Arial'},
-    {fHoption: 'Robot'},
-    {fHoption: 'Test 1'},
   ];
 
   lToptions = [
-    {lToption: 'Segoe Print'},
-    {lToption: 'Arial'},
     {lToption: 'Robot'},
-    {lToption: 'Test 1'},
   ]
 
   modes = [
     {mode: 'Original'},
-    {mode: 'Dark'}
   ]
 
-//Gruppen
-  //Zahlungsbedingungen
-  zbGroup = [
-    {zbGruppe: '10 Tage 3% Skonto, 30 Tage Netto', value: 0},
-    {zbGruppe: '7 Tage 2% Skonto, 20 Tage Netto', value: 0},
-    {zbGruppe: '30 Tage Netto', value: 0},
-    {zbGruppe: '14 Tage Netto', value: 0},
-    {zbGruppe: 'Vorauskasse', value: 0},
-    {zbGruppe: 'Barzahlung', value: 0},
-    {zbGruppe: 'Teilzahlung', value: 0}
-  ]
-
-  //Zahlungsarten
-  zaGroup = [
-    {zaGruppe : 'Rechnung', value: 0},
-    {zaGruppe : 'Vorauskasse', value: 0},
-    {zaGruppe : 'Barzahlung', value: 0}
-  ]
-  
-  //Kundengruppen
-  kgGroup = [
-    {kgGruppe: 'Privatperson', value: 0},
-    {kgGruppe: 'Geschäftspartner', value: 0},
-    {kgGruppe: 'Verein', value: 0},
-    {kgGruppe: 'Anderes', value: 0}
-  ]
-
-  //Einheiten
-  ehGroup = [
-    {ehGruppe: 'Stück', value: 0},
-    {ehGruppe: 'Pauschal', value: 0},
-    {ehGruppe: 'Stunde', value: 0},
-    {ehGruppe: 'Anderes', value: 0}
-  ]
-
-  //Softwareinfos
-  version = "V 1.0.0-0003";
-  versionDatum = "20.11.2022";
-  hersteller = "Goffini GmbH";
-  supportTel = "+41 79 520 65 11";
-  supportMail = "info@goffini.ch";
 
   // ### Funktionen ###
 
@@ -102,18 +58,50 @@ export class LEinstellungenComponent implements OnInit {
     this.notificationService.notificationInfoShort("Not Implementet yet.");
   }
 
+  // ### Lade bestehende Informationen ###
+  loadValue(){
+    this.getService.getZahlungsArten().subscribe(res => {
+      this.zahlungsArten = res;
+    });
+
+    this.getService.getZahlungsKonditionen().subscribe(res => {
+      this.zahlungsKondi = res;
+    });
+
+    this.getService.getKundenGruppen().subscribe(res => {
+      this.kundenGruppen = res;
+    });
+
+    this.getService.getArtikelgruppen().subscribe(res => {
+      this.artikelGruppen = res;
+    });
+
+    this.getService.getEinheiten().subscribe(res => {
+      this.einheiten = res;
+    });
+
+    this.getService.getSoftwareInfos().subscribe(res => {
+      this.software = res;
+      this.isLoading = false;
+    });
+
+  
+  }
+
 
   // ### Popup Dialoge ###
 
-  openGruppen() {
+  openGruppen(value: string) {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;
     dialogConfig.id = "modal-component";
     dialogConfig.height = "510px";
     dialogConfig.width = "894px";
+    dialogConfig.data = value;
 
     const modalDialog = this.matDialog.open(GruppenComponent, dialogConfig);
+
   }
 
 }

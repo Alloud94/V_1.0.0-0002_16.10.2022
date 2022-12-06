@@ -11,6 +11,9 @@ import { UnternehmensInformationen } from 'src/app/_interfaces/unternehmenInfos'
 import { Kunde } from 'src/app/_interfaces/kunde';
 import { Artikel } from 'src/app/_interfaces/artikel';
 import { Mitarbeiter } from 'src/app/_interfaces/mitarbeiter';
+import { Ansprechpartner } from 'src/app/_interfaces/ansprechpartner';
+import { RechnugsAdresse } from 'src/app/_interfaces/rechnungsAdresse';
+import { Softwareinfos } from 'src/app/_interfaces/softwareInfos';
 
 
 @Injectable({
@@ -19,13 +22,6 @@ import { Mitarbeiter } from 'src/app/_interfaces/mitarbeiter';
 export class GetService {
 
   constructor(private httpClient: HttpClient) { }
-
-/* #### EINSTELLUNGEN #### */
-
-  getArtikelgruppen(): Observable<Gruppen> {
-    const url = environment.API_EndPoint_Empty + 'get/einstellungen.php?quest=getArtikelgruppen';
-    return this.httpClient.get<Gruppen>(url).pipe(map(data => data));
-  }
 
 /* #### DASHBOARD #### */
 
@@ -54,6 +50,56 @@ getMitarbeiter(): Observable<Mitarbeiter[]>{
     const url = environment.API_EndPoint_Empty + 'get/vorgaenge.php?quest=getArtikel';
     return this.httpClient.get<Artikel[]>(url).pipe(map(data => data));
   }
+
+/* #### ANSPRECHPARTNER #### */
+
+getAnsprechpartner(): Observable<Ansprechpartner[]>{
+  const url = environment.API_EndPoint_Empty + 'get/infos.php?quest=getAnsprechpartner';
+  return this.httpClient.get<Ansprechpartner[]>(url).pipe(map(data => data));
+}
+
+/* #### ANSPRECHPARTNER #### */
+
+getRechnungsadresse(): Observable<RechnugsAdresse[]>{
+  const url = environment.API_EndPoint_Empty + 'get/infos.php?quest=getRechnungsadresse';
+  return this.httpClient.get<RechnugsAdresse[]>(url).pipe(map(data => data));
+}
+
+
+
+/* #### GRUPPEN #### */
+
+getZahlungsArten(): Observable<Gruppen[]> {
+  const url = environment.API_EndPoint_Empty + 'get/gruppen.php?quest=getZahlungsarten';
+  return this.httpClient.get<Gruppen[]>(url).pipe(map(data => data));
+}
+
+getZahlungsKonditionen(): Observable<Gruppen[]> {
+  const url = environment.API_EndPoint_Empty + 'get/gruppen.php?quest=getZahlungskonditionen';
+  return this.httpClient.get<Gruppen[]>(url).pipe(map(data => data));
+}
+
+getKundenGruppen(): Observable<Gruppen[]> {
+  const url = environment.API_EndPoint_Empty + 'get/gruppen.php?quest=getKundengruppen';
+  return this.httpClient.get<Gruppen[]>(url).pipe(map(data => data));
+}
+
+getArtikelgruppen(): Observable<Gruppen[]> {
+  const url = environment.API_EndPoint_Empty + 'get/gruppen.php?quest=getArtikelgruppen';
+  return this.httpClient.get<Gruppen[]>(url).pipe(map(data => data));
+}
+
+getEinheiten(): Observable<Gruppen[]> {
+  const url = environment.API_EndPoint_Empty + 'get/gruppen.php?quest=getEinheiten';
+  return this.httpClient.get<Gruppen[]>(url).pipe(map(data => data));
+}
+
+/* ### HERSTELLER INFORMATIONEN ### */
+
+getSoftwareInfos(): Observable<Softwareinfos[]> {
+  const url = environment.API_EndPoint_Empty + 'get/software.php?quest=getSoftwareInfos';
+  return this.httpClient.get<Softwareinfos[]>(url).pipe(map(data => data));
+}
 
 
 }

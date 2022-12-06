@@ -1,9 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import {MatDialogRef} from '@angular/material/dialog';
-import { NotificationService } from 'src/app/_service/notification/notification.service';
 
+// Services
+import { NotificationService } from 'src/app/_service/notification/notification.service';
+import { GetService } from 'src/app/_service/get/get.service';
+
+// Components
 import { NotizenComponent } from '../notizen/notizen.component';
+
+// Interfaces
+import { Ansprechpartner } from 'src/app/_interfaces/ansprechpartner';
 
 @Component({
   selector: 'app-ansprechpartner',
@@ -12,26 +19,22 @@ import { NotizenComponent } from '../notizen/notizen.component';
 })
 export class AnsprechpartnerComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
+  ansprechpartner?:Ansprechpartner[];
 
   constructor(public matDialog: MatDialog, 
               public dialogRef: MatDialogRef<AnsprechpartnerComponent>,
-              private notificationService: NotificationService ) { }
+              private notificationService: NotificationService,
+              private getService: GetService) { }
   
   ngOnInit(): void {
+    this.getService.getAnsprechpartner().subscribe(res => {
+      this.ansprechpartner = res;
+    })
+
   }
 
 // ### Variablen ###
 
-  //Ansprechpartner (Kunde)
-  ansprechpartner = [
-    {anrede: 'Herr', vorname: 'Thomas', nachname: 'Brändle'},
-    {anrede: 'Herr', vorname: 'Thomas', nachname: 'Brändle'},
-    {anrede: 'Herr', vorname: 'Thomas', nachname: 'Brändle'},
-    {anrede: 'Herr', vorname: 'Thomas', nachname: 'Brändle'},
-    {anrede: 'Herr', vorname: 'Thomas', nachname: 'Brändle'},
-    {anrede: 'Herr', vorname: 'Thomas', nachname: 'Brändle'},
-    {anrede: 'Herr', vorname: 'Thomas', nachname: 'Brändle'},
-  ]
 
   anrede = [
     {anrede: 'Herr'},
@@ -49,9 +52,13 @@ export class AnsprechpartnerComponent implements OnInit {
 
 // ### Funktionen ###
 
-save(){
-  this.notificationService.notificationInfoShort("Not Implementet yet.");
-}
+  addAnsprechpartner(){
+    this.notificationService.notificationInfoShort("Not Implementet yet.");
+  }
+
+  save(){
+    this.notificationService.notificationInfoShort("Not Implementet yet.");
+  }
 
 
 // ### Popup Dialoge ###
@@ -67,7 +74,7 @@ save(){
     const modalDialog = this.matDialog.open(NotizenComponent, dialogConfig);
   }
 
-  closeModal() {
+closeModal() {
     this.dialogRef.close();
   }
 

@@ -1,6 +1,7 @@
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
 <app-a-header></app-a-header>
 <app-b-sidebar></app-b-sidebar>
-<div class="forWindow">
+<div class="forWindow" *ngIf="!isLoading">
     <div class="forOL window">
         <div class="windowTitle">
             <p>Schnellzugriff</p>

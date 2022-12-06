@@ -1,24 +1,22 @@
-<div class="popupWindow">
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+<div class="popupWindow" *ngIf="!isLoading">
     <div class="popupHeader">
         <div class="headerBezeichnung">
-            <p>Gruppen bearbeiten</p>
+            <p>{{data}} bearbeiten</p>
         </div>
         <div class="closeTab">
             <span (click)="closeModal()" class="close"><img [src]="close" alt=""></span>
         </div>
     </div>
     <div class="popupContent">
-        <div class="split firstSplit">
-            <p>Gruppe/Kategorie:</p>
-            <div class="arbeitspakete">
-                <div class="list" *ngFor="let eintrag of eintraege">
-                    <input type="text" value="{{eintrag.option}}">
-                    <input type="text" value="{{eintrag.value}}">
-                </div>
+        <div class="arbeitspakete">
+            <div class="list" *ngFor="let eintrag of gruppe">
+                <input type="text" value="{{eintrag.bezeichnung}}">
+                <input type="text" value="{{eintrag.value}}">
             </div>
-            <div class="btnBearbeiten btnMeilensteinHinzufuegen">
-                <p>+</p>
-            </div>
+        </div>
+        <div class="btnBearbeiten btnMeilensteinHinzufuegen">
+            <p (click)="addEintrag()">+</p>
         </div>
     </div>
     <div class="popupFooter">

@@ -33,13 +33,13 @@
             <p>Zahlungsart:</p>
             <div class="dropDown">
                 <select name="zahlungsarten" id="zahlungsarten">
-                    <option *ngFor="let zaGruppe of zaGroup">{{zaGruppe.zaGruppe}}</option>
+                    <option *ngFor="let zaGruppe of zahlungsart">{{zaGruppe.bezeichnung}}</option>
                 </select>
             </div>
-            <p>Zahlungsbedingungen:</p>
+            <p>Zahlungskonditionen:</p>
             <div class="dropDown">
                 <select name="zahlungsbedingungen" id="zahlungsbedingungen">
-                    <option *ngFor="let zbGruppe of zbGroup">{{zbGruppe.zbGruppe}}</option>
+                    <option *ngFor="let zbGruppe of zahlungskondition">{{zbGruppe.bezeichnung}}</option>
                 </select>
             </div>
             <div class="belegart">

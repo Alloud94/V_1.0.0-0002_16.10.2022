@@ -1,6 +1,7 @@
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
 <app-a-header></app-a-header>
 <app-b-sidebar></app-b-sidebar>
-<div class="oneWindow">
+<div class="oneWindow" *ngIf="!isLoading">
     <div class="one window">
         <div class="windowTitle windowHeader">
             <p>Einstellungen</p>
@@ -26,55 +27,55 @@
             <div class="row">
                 <p class="unterTitel">Gruppen und Kategorien</p>
                 <p>Zahlungskonditionen:</p>
-                <select name="zahlungsbedingungen" id="zahlungsbedingungen">
-                    <option *ngFor="let zbGruppe of zbGroup">{{zbGruppe.zbGruppe}}</option>
+                <select name="zahlungsbedingungen" id="zahlungskonditionen">
+                    <option *ngFor="let zbGruppe of zahlungsKondi">{{zbGruppe.bezeichnung}}</option>
                 </select>
                 <div class="btnBearbeiten">
-                    <p (click)="openGruppen()">Zahlungskonditionen bearbeiten</p>
+                    <p (click)="openGruppen('Zahlungskonditionen')">Zahlungskonditionen bearbeiten</p>
                 </div>
                 <p>Zahlungsarten:</p>
                 <select name="zahlungsarten" id="zahlungsarten">
-                    <option *ngFor="let zaGruppe of zaGroup">{{zaGruppe.zaGruppe}}</option>
+                    <option *ngFor="let zaGruppe of zahlungsArten">{{zaGruppe.bezeichnung}}</option>
                 </select>
                 <div class="btnBearbeiten">
-                    <p (click)="openGruppen()">Zahlungsarten bearbeiten</p>
+                    <p (click)="openGruppen('Zahlungsarten')">Zahlungsarten bearbeiten</p>
                 </div>
                 <p>Artikelgruppen:</p>
                 <select name="artikelgruppen" id="artikelgruppen">
-                    <option *ngFor="let agGruppe of agGroup">{{agGruppe.agGruppe}}</option>
+                    <option *ngFor="let agGruppe of artikelGruppen">{{agGruppe.bezeichnung}}</option>
                 </select>
                 <div class="btnBearbeiten">
-                    <p (click)="openGruppen()">Artikelgruppen bearbeiten</p>
+                    <p (click)="openGruppen('Artikelgruppen')">Artikelgruppen bearbeiten</p>
                 </div>
                 <p>Kundengruppen:</p>
                 <select name="kundengruppen" id="kundengruppen">
-                    <option *ngFor="let kgGruppe of kgGroup">{{kgGruppe.kgGruppe}}</option>
+                    <option *ngFor="let kgGruppe of kundenGruppen">{{kgGruppe.bezeichnung}}</option>
                 </select>
                 <div class="btnBearbeiten">
-                    <p (click)="openGruppen()">Kundengruppen bearbeiten</p>
+                    <p (click)="openGruppen('Kundengruppen')">Kundengruppen bearbeiten</p>
                 </div>
                 <p>Einheiten:</p>
                 <select name="einheit" id="einheit">
-                    <option *ngFor="let ehGruppe of ehGroup">{{ehGruppe.ehGruppe}}</option>
+                    <option *ngFor="let ehGruppe of einheiten">{{ehGruppe.bezeichnung}}</option>
                 </select>
                 <div class="btnBearbeiten">
-                    <p (click)="openGruppen()">Einheiten bearbeiten</p>
+                    <p (click)="openGruppen('Einheit')">Einheiten bearbeiten</p>
                 </div>
             </div>
         </div>
         <div class="split thirdSplit">
-            <div class="row">
+            <div class="row" *ngFor="let info of software">
                 <p class="unterTitel">Softwareinfos</p>
                 <p class="name">Version:</p>
-                <p class="value">V 1.0.0-0002</p>
+                <p class="value">{{info.version}}</p>
                 <p class="name">Datum:</p>
-                <p class="value">16.10.2022</p>
+                <p class="value">{{info.datum}}</p>
                 <p class="name">Hersteller:</p>
-                <p class="value">Goffini GmbH</p>
+                <p class="value">{{info.hersteller}}</p>
                 <p class="name">Support:</p>
                 <p class="value">
-                    +41 79 520 65 11
-                    <br /> info@goffini.ch
+                    {{info.supportTel}}
+                    <br /> {{info.supportMail}}
                 </p>
             </div>
         </div>

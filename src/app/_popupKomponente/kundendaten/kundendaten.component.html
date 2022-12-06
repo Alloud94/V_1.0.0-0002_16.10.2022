@@ -3,8 +3,8 @@
         <div class="headerBezeichnung">
             <p>Kundendaten</p>
             <div class="searchBarSmallPopup">
-                <input type="text" id="searchBarSmallPopup" placeholder="SEARCH">
-                <a href="#"><img [src]="search" alt=""></a>
+                <input type="text" id="searchBarSmallPopup" placeholder="SEARCH" (keydown.enter)="search()">
+                <a (click)="search()"><img [src]="searchIcon" alt=""></a>
             </div>
 
         </div>
@@ -26,11 +26,11 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let kunde of kunden">
-                        <td>{{kunde.nummer}}</td>
-                        <td>{{kunde.name}}</td>
-                        <td>{{kunde.strasse}}</td>
-                        <td>{{kunde.ort}}</td>
-                        <td>{{kunde.gruppe}}</td>
+                        <td>KU 40-{{kunde.id}}</td>
+                        <td>{{kunde.bezeichnung}}</td>
+                        <td>{{kunde.adresse}}</td>
+                        <td>{{kunde.ortschaft}}</td>
+                        <td>{{kunde.kundenGruppenID}}</td>
                     </tr>
                 </tbody>
             </table>

@@ -17,6 +17,7 @@ import { UnternehmensInformationen } from 'src/app/_interfaces/unternehmenInfos'
 export class CDashboardComponent implements OnInit {
   logoUnternehmen:string = 'assets/img/medien/TB_Logo.png';
   unternehmenInfos?:UnternehmensInformationen[];
+  isLoading = true;
 
   constructor(public matDialog: MatDialog, 
               private getService: GetService) { }
@@ -24,6 +25,7 @@ export class CDashboardComponent implements OnInit {
   ngOnInit(): void {
     this.getService.getUnternehmenInfos().subscribe(res => {
       this.unternehmenInfos = res;
+      this.isLoading = false;
     })
 
   }

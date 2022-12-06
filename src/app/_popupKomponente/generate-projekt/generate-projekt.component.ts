@@ -1,12 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import {MatDialogRef} from '@angular/material/dialog';
-import { NotificationService } from 'src/app/_service/notification/notification.service';
 
+// Components
 import { KundendatenComponent } from '../kundendaten/kundendaten.component';
 import { RechnungsadresseComponent } from '../rechnungsadresse/rechnungsadresse.component';
 import { NotizenComponent } from '../notizen/notizen.component';
 import { AnsprechpartnerComponent } from '../ansprechpartner/ansprechpartner.component';
+
+// Interfaces
+import { Gruppen } from 'src/app/_interfaces/gruppen';
+import { Kunde } from 'src/app/_interfaces/kunde';
+
+// Services
+import { NotificationService } from 'src/app/_service/notification/notification.service';
+import { GenerateService } from 'src/app/_service/generate-service/generate.service';
+import { GetService } from 'src/app/_service/get/get.service';
 
 
 @Component({
@@ -16,47 +25,64 @@ import { AnsprechpartnerComponent } from '../ansprechpartner/ansprechpartner.com
 })
 export class GenerateProjektComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
+  zahlungsart?:Gruppen[];
+  zahlungskondition?:Gruppen[];
+  kunde?:Kunde[];
 
   constructor(public matDialog: MatDialog, 
               public dialogRef: MatDialogRef<GenerateProjektComponent>,
-              private notificationService: NotificationService) { }
+              private notificationService: NotificationService,
+              private generateService: GenerateService,
+              private getService: GetService) { }
 
   ngOnInit(): void {
+    this.loadValue();
   }
-
 
 // ### Variablen ###
   //Kopfdaten
-  kundenNummer = "KU 40-001";
-  kundenName = "Thomas Brändle";
-  kundenOrt = "9608 Ganterschwil";
-  kundenPartner = "Herr Thomas Brändle";
-  raStrasse = "Friedaustrasse 3";
-  raOrt = "9608 Ganterschwil";
-  raLand = "CH - Schweiz";
-  notizen = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimatasanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justoduo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
+  kundenNummer = "";
+  kundenName = "";
+  kundenOrt = "";
+  kundenPartner = "";
+  raStrasse = "";
+  raOrt = "";
+  raLand = "";
+  notizen = "";
   
   //Zahlungsbedingungen
   zbGroup = [
-    {zbGruppe: '10 Tage 3% Skonto, 30 Tage Netto', value: 0},
-    {zbGruppe: '7 Tage 2% Skonto, 20 Tage Netto', value: 0},
-    {zbGruppe: '30 Tage Netto', value: 0},
-    {zbGruppe: '14 Tage Netto', value: 0},
-    {zbGruppe: 'Vorauskasse', value: 0},
-    {zbGruppe: 'Barzahlung', value: 0},
-    {zbGruppe: 'Teilzahlung', value: 0}
+    {zbGruppe: '', value: 0},
+    {zbGruppe: '', value: 0},
+    {zbGruppe: '', value: 0},
+    {zbGruppe: '', value: 0},
+    {zbGruppe: '', value: 0},
+    {zbGruppe: '', value: 0},
+    {zbGruppe: '', value: 0}
   ]
 
   //Zahlungsarten
   zaGroup = [
-    {zaGruppe : 'Rechnung', value: 0},
-    {zaGruppe : 'Vorauskasse', value: 0},
-    {zaGruppe : 'Barzahlung', value: 0}
+    {zaGruppe : '', value: 0},
+    {zaGruppe : '', value: 0},
+    {zaGruppe : '', value: 0}
   ]
 
 
-// ### Funktionen ###
+// ### Lade bestehende Informationen ###
+  loadValue(){
+    this.getService.getZahlungsArten().subscribe(res => {
+      this.zahlungsart = res;
+    });
 
+    this.getService.getZahlungsKonditionen().subscribe(res => {
+      this.zahlungskondition = res;
+    });
+  
+  }
+
+
+// ### Funktionen ###
   generate(){
     this.notificationService.notificationInfoShort("Not Implementet yet.");
   }

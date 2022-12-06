@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
+
+// Services
 import { NotificationService } from 'src/app/_service/notification/notification.service';
+import { GetService } from 'src/app/_service/get/get.service';
+
+// Interfaces
+import { Ansprechpartner } from 'src/app/_interfaces/ansprechpartner';
 
 @Component({
   selector: 'app-projekt-kundendaten',
@@ -9,11 +15,14 @@ import { NotificationService } from 'src/app/_service/notification/notification.
 })
 export class ProjektKundendatenComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
+  ansprechpartner?:Ansprechpartner[];
 
   constructor(public dialogRef: MatDialogRef<ProjektKundendatenComponent>,
-              private notificationService: NotificationService) { }
+              private notificationService: NotificationService,
+              private getService: GetService) { }
 
   ngOnInit(): void {
+    this.loadValue();
   }
 
 
@@ -25,26 +34,21 @@ export class ProjektKundendatenComponent implements OnInit {
   kundenOrt = "9608 Ganterschwil";
   kundenLand = "CH - Schweiz";
 
-  //Liste
-  ansprechpartner = [
-    {anrede: 'Herr', vorname: 'Thomas', nachname: 'Brändle', funktion: 'Geschäftführer'},
-    {anrede: 'Herr', vorname: 'Thomas', nachname: 'Brändle', funktion: 'Geschäftführer'},
-    {anrede: 'Herr', vorname: 'Thomas', nachname: 'Brändle', funktion: 'Geschäftführer'},
-    {anrede: 'Herr', vorname: 'Thomas', nachname: 'Brändle', funktion: 'Geschäftführer'},
-    {anrede: 'Herr', vorname: 'Thomas', nachname: 'Brändle', funktion: 'Geschäftführer'},
-    {anrede: 'Herr', vorname: 'Thomas', nachname: 'Brändle', funktion: 'Geschäftführer'},
-  ];
 
 
 // ### Funktionen ###
 
-save(){
-  this.notificationService.notificationInfoShort("Not Implementet yet.");
-}
+  loadValue(){
+    
+  }
 
-saveNewPartner(){
-  this.notificationService.notificationInfoShort("Not Implementet yet.");
-}
+  save(){
+    this.notificationService.notificationInfoShort("Not Implementet yet.");
+  }
+
+  saveNewPartner(){
+    this.notificationService.notificationInfoShort("Not Implementet yet.");
+  }
 
 
 
