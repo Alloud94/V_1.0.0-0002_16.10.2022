@@ -1,4 +1,4 @@
-export interface RechnugsAdresse {
+export interface RechnungsAdresse {
     id: number,
     adresse: string,
     ortschaft: string, 

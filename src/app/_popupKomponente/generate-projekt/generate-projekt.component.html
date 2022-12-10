@@ -1,4 +1,5 @@
-<div class="popupWindow generateProject">
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+<div class="popupWindow generateProject" *ngIf="!isLoading">
     <div class="popupHeader">
         <div class="headerBezeichnung">
             <p>Projekt erfassen</p>
@@ -10,21 +11,21 @@
     <div class="popupContent">
         <div class="split firstSplit">
             <p>Kunde:</p>
-            <p class="contentReadonly">
-                {{kundenNummer}}<br />{{kundenName}}<br />{{kundenOrt}}
+            <p class="contentReadonly" *ngFor="let k of kunde">
+                KU 40-{{k.id}}<br />{{k.bezeichnung}}<br />{{k.ortschaft}}
             </p>
             <div class="btnBearbeiten">
                 <p (click)="openKundendaten()">Kundendaten bearbeiten</p>
             </div>
             <p>Ansprechpartner:</p>
-            <p class="contentReadonly">
-                {{kundenPartner}}
+            <p class="contentReadonly" *ngFor="let p of partner">
+                {{p.anrede}} {{p.name}}
             </p>
             <div class="btnBearbeiten">
                 <p (click)="openAnsprechpartner()">Ansprechpartner bearbeiten</p>
             </div>
             <p>Rechnungsadresse:</p>
-            <p class="contentReadonly">{{raStrasse}}<br />{{raOrt}}<br />{{raLand}}</p>
+            <p class="contentReadonly" *ngFor="let a of rechnungsAdresse">{{a.adresse}}<br />{{a.ortschaft}}<br />{{a.land}}</p>
             <div class="btnBearbeiten">
                 <p (click)="openRechnungsadresse()">Rechnungsadresse ändern</p>
             </div>
@@ -60,8 +61,8 @@
         </div>
         <div class="split thirdSplit">
             <p>Notizen:</p>
-            <div class="notizen notizenHoch">
-                <textarea readonly="readonly">{{notizen}}</textarea>
+            <div class="notizen notizenHoch" *ngFor="let notizen of notizen">
+                <textarea readonly="readonly">{{notizen.notizen}}</textarea>
             </div>
             <div class="btnBearbeiten btnNotizen">
                 <p (click)="openNotizen()">Notizen bearbeiten</p>

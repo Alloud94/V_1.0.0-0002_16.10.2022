@@ -1,16 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import {MatDialogRef} from '@angular/material/dialog';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { NgForm } from '@angular/forms';
 
 // Services
 import { NotificationService } from 'src/app/_service/notification/notification.service';
 import { GetService } from 'src/app/_service/get/get.service';
+import { GenerateService } from 'src/app/_service/generate-service/generate.service';
+import { PostService } from 'src/app/_service/post/post.service';
 
 // Components
 import { NotizenComponent } from '../notizen/notizen.component';
 
 // Interfaces
 import { Ansprechpartner } from 'src/app/_interfaces/ansprechpartner';
+import { Notizen } from 'src/app/_interfaces/notizen';
 
 @Component({
   selector: 'app-ansprechpartner',
@@ -20,50 +25,69 @@ import { Ansprechpartner } from 'src/app/_interfaces/ansprechpartner';
 export class AnsprechpartnerComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
   ansprechpartner?:Ansprechpartner[];
+  notizen?:Notizen;
+  partner?: Ansprechpartner[];
+  isLoading = true;
+  partnerid?:number;
 
   constructor(public matDialog: MatDialog, 
               public dialogRef: MatDialogRef<AnsprechpartnerComponent>,
               private notificationService: NotificationService,
-              private getService: GetService) { }
+              private getService: GetService,
+              @Inject(MAT_DIALOG_DATA) public data: number,
+              private generateService: GenerateService,
+              private postService: PostService
+              ) { }
   
   ngOnInit(): void {
-    this.getService.getAnsprechpartner().subscribe(res => {
+    this.getService.getAnsprechpartner(this.data).subscribe(res => {
       this.ansprechpartner = res;
-    })
-
+      this.isLoading = false;
+      this.editPartner(1);
+    });
   }
 
 // ### Variablen ###
-
-
   anrede = [
     {anrede: 'Herr'},
     {anrede: 'Frau'}
   ]
 
-  vorname = "Thomas";
-  nachname = "Brändle";
-  email = "thomasbraendle94@gmail.com";
-  telefon = "+41 79 520 65 11";
-  mobile = "+41 79 520 65 11";
-  funktion = "Geschäftsführer";
-
-  notiz = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimatasanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justoduo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
-
 // ### Funktionen ###
 
   addAnsprechpartner(){
-    this.notificationService.notificationInfoShort("Not Implementet yet.");
+    this.generateService.createPartner(this.data).subscribe( res => {
+      if(res.result !== 'fail'){
+        this.ngOnInit();
+      }else{
+        this.notificationService.notificationFail("Partner konnte nicht erstellt werden!");
+      }
+  });
   }
 
-  save(){
-    this.notificationService.notificationInfoShort("Not Implementet yet.");
+  savePartner(){
   }
 
+  saveNotizen(){
+  }
+
+  select(){
+    this.dialogRef.close(this.partnerid);
+  }
+
+  editPartner(id: number){
+    this.isLoading = true;
+    this.getService.getPartner(id).subscribe(res => {
+      this.partner = res;
+      this.partnerid = id;
+      this.isLoading = false;
+    });
+
+  }
 
 // ### Popup Dialoge ###
 
-  openNotizen() {
+openNotizen() {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;

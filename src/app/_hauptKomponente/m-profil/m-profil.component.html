@@ -1,6 +1,7 @@
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
 <app-a-header></app-a-header>
 <app-b-sidebar></app-b-sidebar>
-<div class="oneWindow">
+<div class="oneWindow" *ngIf="!isLoading">
     <div class="one window">
         <div class="windowTitle windowHeader">
             <p>Thomas Brändle</p>

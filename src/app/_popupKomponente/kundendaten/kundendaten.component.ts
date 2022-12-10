@@ -7,6 +7,7 @@ import { GetService } from 'src/app/_service/get/get.service';
 
 // Interfaces
 import { Kunde } from 'src/app/_interfaces/kunde';
+import { HttpResponse } from 'src/app/_interfaces/http-response';
 
 @Component({
   selector: 'app-kundendaten',
@@ -17,6 +18,8 @@ export class KundendatenComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
   searchIcon:string = 'assets/img/icon/search.png';
   kunden?:Kunde[];
+  kundenID?:number;
+  isLoading = true;
 
   constructor(public dialogRef: MatDialogRef<KundendatenComponent>,
               private notificationService: NotificationService,
@@ -25,15 +28,17 @@ export class KundendatenComponent implements OnInit {
   ngOnInit(): void {
     this.getService.getKunden().subscribe(res => {
       this.kunden = res;
-    })
+      this.isLoading = false;
+    });
 
   }
 
 
 // ### Funktionen ###
 
-  save(){
-    this.notificationService.notificationInfoShort("Not Implementet yet.");
+  select(id:number){
+    this.kundenID = id;  
+    this.dialogRef.close(id);
   }
 
   search(){
@@ -41,7 +46,7 @@ export class KundendatenComponent implements OnInit {
   }
 
   closeModal() {
-    this.dialogRef.close();
+    this.dialogRef.close(this.kundenID);
   }
 
 }

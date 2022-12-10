@@ -1,4 +1,5 @@
-<div class="popupWindow">
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+<div class="popupWindow" *ngIf="!isLoading">
     <div class="popupHeader">
         <div class="headerBezeichnung">
             <p>Kundendaten</p>
@@ -25,12 +26,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let kunde of kunden">
-                        <td>KU 40-{{kunde.id}}</td>
-                        <td>{{kunde.bezeichnung}}</td>
-                        <td>{{kunde.adresse}}</td>
-                        <td>{{kunde.ortschaft}}</td>
-                        <td>{{kunde.kundenGruppenID}}</td>
+                    <tr (click)="select(k.id)" *ngFor="let k of kunden">
+                        <td>KU 40-{{k.id}}</td>
+                        <td>{{k.bezeichnung}}</td>
+                        <td>{{k.adresse}}</td>
+                        <td>{{k.ortschaft}}</td>
+                        <td>{{k.kundenGruppenID}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -38,7 +39,7 @@
     </div>
     <div class="popupFooter">
         <div class="btnBearbeiten btnSpeichern">
-            <p (click)="save()">Änderungen speichern</p>
+            <p (click)="closeModal()">Abbrechen</p>
         </div>
     </div>
 </div>

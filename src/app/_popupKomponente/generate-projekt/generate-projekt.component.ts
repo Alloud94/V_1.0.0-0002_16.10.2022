@@ -11,6 +11,9 @@ import { AnsprechpartnerComponent } from '../ansprechpartner/ansprechpartner.com
 // Interfaces
 import { Gruppen } from 'src/app/_interfaces/gruppen';
 import { Kunde } from 'src/app/_interfaces/kunde';
+import { RechnungsAdresse } from 'src/app/_interfaces/rechnungsAdresse';
+import { Ansprechpartner } from 'src/app/_interfaces/ansprechpartner';
+import { Notizen } from 'src/app/_interfaces/notizen';
 
 // Services
 import { NotificationService } from 'src/app/_service/notification/notification.service';
@@ -28,6 +31,16 @@ export class GenerateProjektComponent implements OnInit {
   zahlungsart?:Gruppen[];
   zahlungskondition?:Gruppen[];
   kunde?:Kunde[];
+  rechnungsAdresse?:RechnungsAdresse[];
+  ansprechpartner?:Ansprechpartner[];
+  partner?:Ansprechpartner[];
+
+  // Variablen für das Projekt
+  kundenID?:number;
+  notizen?:Notizen[];
+
+
+  isLoading = true;
 
   constructor(public matDialog: MatDialog, 
               public dialogRef: MatDialogRef<GenerateProjektComponent>,
@@ -39,36 +52,7 @@ export class GenerateProjektComponent implements OnInit {
     this.loadValue();
   }
 
-// ### Variablen ###
-  //Kopfdaten
-  kundenNummer = "";
-  kundenName = "";
-  kundenOrt = "";
-  kundenPartner = "";
-  raStrasse = "";
-  raOrt = "";
-  raLand = "";
-  notizen = "";
   
-  //Zahlungsbedingungen
-  zbGroup = [
-    {zbGruppe: '', value: 0},
-    {zbGruppe: '', value: 0},
-    {zbGruppe: '', value: 0},
-    {zbGruppe: '', value: 0},
-    {zbGruppe: '', value: 0},
-    {zbGruppe: '', value: 0},
-    {zbGruppe: '', value: 0}
-  ]
-
-  //Zahlungsarten
-  zaGroup = [
-    {zaGruppe : '', value: 0},
-    {zaGruppe : '', value: 0},
-    {zaGruppe : '', value: 0}
-  ]
-
-
 // ### Lade bestehende Informationen ###
   loadValue(){
     this.getService.getZahlungsArten().subscribe(res => {
@@ -77,40 +61,84 @@ export class GenerateProjektComponent implements OnInit {
 
     this.getService.getZahlungsKonditionen().subscribe(res => {
       this.zahlungskondition = res;
+      this.isLoading = false;
     });
-  
   }
-
+  
 
 // ### Funktionen ###
   generate(){
     this.notificationService.notificationInfoShort("Not Implementet yet.");
   }
 
+  loadValueAll(id:number){
+    this.loadKunde(id);
+    this.loadAdresse(id);
+    this.loadPartner(id);
+  }
+
+  loadKunde(id:number){
+    this.isLoading = true;
+    this.kundenID = id; 
+
+    this.getService.getKunde(id).subscribe(res => {
+      this.kunde = res;
+      this.isLoading = false;
+    });
+
+  }
+
+  loadAdresse(id:number){
+    this.isLoading = true;
+
+    this.getService.getRechnungsadresse(id).subscribe(res => {
+      this.rechnungsAdresse = res;
+      this.isLoading = false;
+    });
+  }
+
+  loadPartner(id:number){
+    this.isLoading = true;
+
+    this.getService.getPartner(id).subscribe(res => {
+      this.partner = res;
+      this.isLoading = false;
+    });
+
+  }
 
 
 // ### Popup Dialoge ###
 
   openKundendaten() {
-    const dialogConfig = new MatDialogConfig();
+      const dialogConfig = new MatDialogConfig();
 
-    dialogConfig.disableClose = true;
-    dialogConfig.id = "modaltwo-component";
-    dialogConfig.height = "510px";
-    dialogConfig.width = "894px";
-
-    const modalDialog = this.matDialog.open(KundendatenComponent, dialogConfig);
+      dialogConfig.disableClose = true;
+      dialogConfig.id = "modaltwo-component";
+      dialogConfig.height = "510px";
+      dialogConfig.width = "894px";
+  
+      const modalDialog = this.matDialog.open(KundendatenComponent, dialogConfig);
+  
+      modalDialog.afterClosed().subscribe(
+        id => this.loadValueAll(id)
+      );  
   }
 
   openRechnungsadresse() {
-    const dialogConfig = new MatDialogConfig();
+    if(this.kundenID){
+      const dialogConfig = new MatDialogConfig();
 
-    dialogConfig.disableClose = true;
-    dialogConfig.id = "modaltwo-component";
-    dialogConfig.height = "510px";
-    dialogConfig.width = "894px";
+      dialogConfig.disableClose = true;
+      dialogConfig.id = "modaltwo-component";
+      dialogConfig.height = "510px";
+      dialogConfig.width = "894px";
 
-    const modalDialog = this.matDialog.open(RechnungsadresseComponent, dialogConfig);
+      const modalDialog = this.matDialog.open(RechnungsadresseComponent, dialogConfig);
+    }else if(!this.kundenID){
+      this.notificationService.notificationFail("Kunde nicht ausgewählt!");
+    }
+
   }
 
   openNotizen() {
@@ -125,14 +153,24 @@ export class GenerateProjektComponent implements OnInit {
   }
 
   openAnsprechpartner() {
-    const dialogConfig = new MatDialogConfig();
+    if(this.kundenID){
+      const dialogConfig = new MatDialogConfig();
 
-    dialogConfig.disableClose = true;
-    dialogConfig.id = "modaltwo-component";
-    dialogConfig.height = "510px";
-    dialogConfig.width = "894px";
+      dialogConfig.disableClose = true;
+      dialogConfig.id = "modaltwo-component";
+      dialogConfig.height = "510px";
+      dialogConfig.width = "894px";
+      dialogConfig.data = this.kundenID;
 
-    const modalDialog = this.matDialog.open(AnsprechpartnerComponent, dialogConfig);
+      const modalDialog = this.matDialog.open(AnsprechpartnerComponent, dialogConfig);
+
+      modalDialog.afterClosed().subscribe(
+        id => this.loadPartner(id)
+      );  
+
+    }else if(!this.kundenID){
+      this.notificationService.notificationFail("Kunde nicht ausgewählt!");
+    }
   }
 
   closeModal() {

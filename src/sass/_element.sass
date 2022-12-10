@@ -18,7 +18,7 @@
     font-size: 25px
 
 .windowHeader p
-    position: absolute
+    position: absolute 
     left: 10px
 
 .windowHeader
@@ -79,6 +79,11 @@
     border-radius: 5px
     text-decoration: none
 
+input[type=submit]
+    cursor: pointer
+    background-color: white
+    width: 103%
+
 /* Window Tabelle */
 .windowTable
     padding-left: 40px
@@ -88,6 +93,12 @@
 .windowTable a
     width: 100%
     display: block
+
+.windowTable tbody tr,
+.popupTable tbody tr
+    cursor: pointer
+    &:hover
+        background-color: rgba(31, 191, 184, 0.6) !important
 
 .windowTable table
     width: 100%

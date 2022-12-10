@@ -1,4 +1,5 @@
-<div class="popupWindow">
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+<div class="popupWindow" *ngIf="!isLoading">
     <div class="popupHeader">
         <div class="headerBezeichnung">
             <p>Rechnungsadresse</p>

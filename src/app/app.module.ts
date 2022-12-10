@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 // Erweiterte Importe
 import { MatButtonModule } from '@angular/material/button';
@@ -192,7 +193,8 @@ const routes: Routes = [
     MatButtonModule,
     MatDialogModule,
     ReactiveFormsModule,
-    SimpleNotificationsModule.forRoot()
+    SimpleNotificationsModule.forRoot(),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent], 

@@ -1,6 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+
+// Services
 import { NotificationService } from 'src/app/_service/notification/notification.service';
+
+// Interfaces
+import { RechnungsAdresse } from 'src/app/_interfaces/rechnungsAdresse';
 
 @Component({
   selector: 'app-rechnungsadresse',
@@ -9,11 +15,16 @@ import { NotificationService } from 'src/app/_service/notification/notification.
 })
 export class RechnungsadresseComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
+  rechnungsAdresse?:RechnungsAdresse;
+  isLoading = true;
 
   constructor(public dialogRef: MatDialogRef<RechnungsadresseComponent>,
-              private notificationService: NotificationService) { }
+              private notificationService: NotificationService,
+              @Inject(MAT_DIALOG_DATA) public data: string
+              ) { }
 
   ngOnInit(): void {
+    this.isLoading = false;
   }
 
 

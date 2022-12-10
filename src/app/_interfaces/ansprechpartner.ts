@@ -1,8 +1,7 @@
 export interface Ansprechpartner {
     id: number,
     anrede: string,
-    vorname: string,
-    nachname: string,
+    name: string,
     email: string,
     telefon: string,
     mobile: string,

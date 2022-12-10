@@ -25,11 +25,11 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let projekt of projekte">
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">{{projekt.vorgangsNummer}}</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">{{projekt.kunde}}</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">{{projekt.datum}}</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">{{projekt.status}}</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">{{projekt.vorgangsArt}}</a></td>
+                        <td>{{projekt.vorgangsNummer}}</td>
+                        <td>{{projekt.kunde}}</td>
+                        <td>{{projekt.datum}}</td>
+                        <td>{{projekt.status}}</td>
+                        <td>{{projekt.vorgangsArt}}</td>
                     </tr>
                 </tbody>
             </table>

@@ -1,4 +1,5 @@
-<div class="popupWindow">
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+<div class="popupWindow" *ngIf="!isLoading">
     <div class="popupHeader">
         <div class="headerBezeichnung">
             <p>Ansprechpartner</p>
@@ -13,45 +14,53 @@
             <div class="popupTableFirst popupTable">
                 <table>
                     <tbody>
-                        <tr *ngFor="let partner of ansprechpartner">
-                            <td>{{partner.anrede}} {{partner.vorname}} {{partner.nachname}}</td>
+                        <tr *ngFor="let p of ansprechpartner, let i = index" (click)="editPartner(p.id)">
+                            <td>{{p.anrede}} {{p.name}}</td>
                         </tr>
                     </tbody>
                 </table>
-            </div>
-            <div class="btnBearbeiten">
-                <p (click)="addAnsprechpartner()">+</p>
+                <div class="btnBearbeiten">
+                    <p (click)="addAnsprechpartner()">+</p>
+                </div>
+
             </div>
         </div>
-        <div class="split secondSplit">
-            <p>Anrede:</p>
-            <select name="anrede" id="anrede">
-                <option *ngFor="let anrede of anrede">{{anrede.anrede}}</option>
-            </select>
-            <p>Name:</p>
-            <input type="text" value="{{vorname}} {{nachname}}">
-            <p>E-Mail:</p>
-            <input type="text" value="{{email}}">
-            <p>Telefon:</p>
-            <input type="text" value="{{telefon}}">
-            <p>Mobile:</p>
-            <input type="text" value="{{mobile}}">
-            <p>Funktion:</p>
-            <input type="text" value="{{funktion}}">
+        <div class="split secondSplit" *ngFor="let p of partner">
+            <form action="http://localhost/Empty/update/kunde.php?quest=updatePartner&id={{p.id}}" method="post">
+                <p>Anrede:</p>
+                <select name="anrede" id="anrede">
+                    <option *ngFor="let anrede of anrede" formControlName="anrede">{{anrede.anrede}}</option>
+                </select>
+                <p>Name:</p>
+                <input type="text" id="name" name="name" value="{{p.name}}">
+                <p>E-Mail:</p>
+                <input type="text" id="mail" name="mail" value="{{p.email}}">
+                <p>Telefon:</p>
+                <input type="text" id="telefon" name="telefon" value="{{p.telefon}}">
+                <p>Mobile:</p>
+                <input type="text" id="mobile" name="mobile" value="{{p.mobile}}">
+                <p>Funktion:</p>
+                <input type="text" id="funktion" name="funktion" value="{{p.funktion}}">
+                <div class="btnBearbeiten btnMiddle">
+                    <input type="submit" value="Partner speichern">
+                </div>
+            </form>
         </div>
         <div class="split thirdSplit">
-            <p>Notizen:</p>
-            <div class="notizen notizenHoch">
-                <textarea readonly="readonly">{{notiz}}</textarea>
-            </div>
-            <div class="btnBearbeiten btnNotizen">
-                <p (click)="openNotizen()">Notizen bearbeiten</p>
-            </div>
+            <form>
+                <p>Notizen:</p>
+                <div class="notizen notizenHoch">
+                    <textarea *ngFor="let p of partner" #value>{{p.notizen}}</textarea>
+                </div>
+                <div class="btnBearbeiten btnNotizen">
+                    <input type="submit" value="Notizen speichern">
+                </div>
+            </form>
         </div>
     </div>
     <div class="popupFooter">
         <div class="btnBearbeiten btnSpeichern">
-            <p (click)="save()">Änderungen speichern</p>
+            <p (click)="select()">Ansprechpartner auswählen</p>
         </div>
     </div>
 </div>

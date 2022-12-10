@@ -2,9 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { NotificationService } from 'src/app/_service/notification/notification.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ChangePassword } from 'src/app/_interfaces/changePassword';
 
+// Interfaces
+import { ChangePassword } from 'src/app/_interfaces/changePassword';
+import { Profil } from 'src/app/_interfaces/profil';
+
+// Components
 import { MetainformationenComponent } from 'src/app/_popupKomponente/metainformationen/metainformationen.component';
+
+// Services
+import { GetService } from 'src/app/_service/get/get.service';
 
 @Component({
   selector: 'app-m-profil',
@@ -14,13 +21,16 @@ import { MetainformationenComponent } from 'src/app/_popupKomponente/metainforma
 export class MProfilComponent implements OnInit {
   meta:string = 'assets/img/icon/info.png';
   metaActive:string = 'assets/img/icon/infoFarbig.png';
+  isLoading = true;
 
   ngOnInit(): void {
+
   }
 
   // Konstruktor für die Popup-Dialoge
   constructor(public matDialog: MatDialog,
-              private notificationService: NotificationService) { }  
+              private notificationService: NotificationService,
+              private getService: GetService) { }  
 
 // ### Variablen ###
   //Kopfdaten
