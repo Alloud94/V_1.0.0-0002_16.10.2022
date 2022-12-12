@@ -1,4 +1,5 @@
-<div class="popupWindow">
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+<div class="popupWindow" *ngIf="!isLoading">
     <div class="popupHeader">
         <div class="headerBezeichnung">
             <p>Metainformationen</p>
@@ -8,38 +9,34 @@
         </div>
     </div>
     <div class="popupContent">
-        <div class="metaContent">
+        <div class="metaContent" *ngFor="let i of info">
             <div class="metaList">
                 <p>Vorgangsnummer</p>
-                <p>{{vorgangsNummer}}</p>
+                <p>{{i.vorgangsID}}</p>
             </div>
             <div class="metaList">
                 <p>Vorgangsart</p>
-                <p>{{vorgangsArt}}</p>
-            </div>
-            <div class="metaList">
-                <p>Vorgang</p>
-                <p>{{vorgang}}</p>
+                <p>{{i.vorgangsArt}}</p>
             </div>
             <div class="metaList">
                 <p>Status</p>
-                <p>{{status}}</p>
+                <p>{{i.status}}</p>
             </div>
             <div class="metaList">
                 <p>Datum erfasst</p>
-                <p>{{datumErfasst}}</p>
+                <p>{{i.datumErfasst}}</p>
             </div>
             <div class="metaList">
                 <p>User erfasst</p>
-                <p>{{userErfasst}}</p>
+                <p>{{i.userIDErfasst}}</p>
             </div>
             <div class="metaList">
                 <p>Datum zuletzt gespeichert</p>
-                <p>{{datumZuletztGespeichert}}</p>
+                <p>{{i.datumZuletztGespeichert}}</p>
             </div>
             <div class="metaList">
                 <p>User zuletzt gespeichert</p>
-                <p>{{userZuletztGespeichert}}</p>
+                <p>{{i.userIDZuletztGespeichert}}</p>
             </div>
         </div>
 

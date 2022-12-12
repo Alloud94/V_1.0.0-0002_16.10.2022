@@ -25,35 +25,50 @@
 
             </div>
         </div>
-        <div class="split secondSplit" *ngFor="let p of partner">
-            <form action="http://localhost/Empty/update/kunde.php?quest=updatePartner&id={{p.id}}" method="post">
-                <p>Anrede:</p>
-                <select name="anrede" id="anrede">
-                    <option *ngFor="let anrede of anrede" formControlName="anrede">{{anrede.anrede}}</option>
-                </select>
-                <p>Name:</p>
-                <input type="text" id="name" name="name" value="{{p.name}}">
-                <p>E-Mail:</p>
-                <input type="text" id="mail" name="mail" value="{{p.email}}">
-                <p>Telefon:</p>
-                <input type="text" id="telefon" name="telefon" value="{{p.telefon}}">
-                <p>Mobile:</p>
-                <input type="text" id="mobile" name="mobile" value="{{p.mobile}}">
-                <p>Funktion:</p>
-                <input type="text" id="funktion" name="funktion" value="{{p.funktion}}">
-                <div class="btnBearbeiten btnMiddle">
-                    <input type="submit" value="Partner speichern">
-                </div>
-            </form>
-        </div>
-        <div class="split thirdSplit">
-            <form>
-                <p>Notizen:</p>
-                <div class="notizen notizenHoch">
-                    <textarea *ngFor="let p of partner" #value>{{p.notizen}}</textarea>
-                </div>
-                <div class="btnBearbeiten btnNotizen">
-                    <input type="submit" value="Notizen speichern">
+        <div class="split oneThird">
+            <form [formGroup]="partnerForm" (submit)="savePartner()" class="oneThirdForm">
+                <div class="userData">
+                    <div class="split secondSplit">
+                        <div class="form-group">
+                            <p>Nummer:</p>
+                            <input type="text" class="contentReadonly" readonly id="id" name="id" formControlName="id">
+                        </div>
+                        <div class="form-group">
+                            <p>Anrede:</p>
+                            <select id="anrede">
+                                <option [ngValue]="null" disabled selected>Anrede</option>
+                                <option *ngFor="let a of anrede" name="anrede" [ngValue]="a">{{a.anrede}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <p>Name:</p>
+                            <input type="text" id="name" name="name" formControlName="name">
+                        </div>
+                        <div class="form-group">
+                            <p>E-Mail:</p>
+                            <input type="text" id="mail" name="mail" formControlName="mail">
+                        </div>
+                        <div class="form-group">
+                            <p>Telefon:</p>
+                            <input type="text" id="telefon" name="telefon" formControlName="telefon">
+                        </div>
+                        <div class="form-group">
+                            <p>Funktion:</p>
+                            <input type="text" id="funktion" name="funktion" formControlName="funktion">
+                        </div>
+                        <div class="btnBearbeiten btnMiddle">
+                            <p (click)="deletePartner()">Ansprechpartner löschen</p>
+                        </div>
+                    </div>
+                    <div class="split thirdSplit">
+                        <p>Notizen:</p>
+                        <div class="notizen notizenHoch">
+                            <textarea formControlName="notizen" name="notizen"></textarea>
+                        </div>
+                        <div class="btnBearbeiten btnNotizen">
+                            <input type="submit" value="Partner speichern">
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>

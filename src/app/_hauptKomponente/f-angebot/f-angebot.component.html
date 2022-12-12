@@ -1,6 +1,7 @@
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
 <app-a-header></app-a-header>
 <app-b-sidebar></app-b-sidebar>
-<div class="twoWindow">
+<div class="twoWindow" *ngIf="!isLoading">
     <div class="oben window">
         <div class="windowTitle windowHeader">
             <p>Kopfdaten</p>
@@ -10,25 +11,25 @@
         <div class="windowContent">
             <div class="split firstSplit">
                 <div>
-                    <div class="row">
+                    <div class="row" *ngFor="let p of projekt">
                         <p>Nummer:</p>
-                        <p>{{vorgangsNummer}}</p>
+                        <p>AN 10-{{p.vorgangsID}}</p>
                     </div>
-                    <div class="row">
+                    <div class="row" *ngFor="let k of kunde">
                         <p>Kunde:</p>
                         <p>
-                            {{kundenNummer}}
-                            <br/> {{kundenBezeichnung}}
-                            <br/> {{kundenAnschrift}}
-                            <br/> {{kundenOrt}}
+                            KU 40-{{k.id}}
+                            <br/> {{k.bezeichnung}}
+                            <br/> {{k.adresse}}
+                            <br/> {{k.ortschaft}}
                         </p>
                     </div>
-                    <div class="row">
+                    <div class="row" *ngFor="let p of partner">
                         <p>Partner:</p>
-                        <p>{{kundenPartner}}</p>
+                        <p>{{p.anrede}} {{p.name}}</p>
                     </div>
                     <div class="btnBearbeiten">
-                        <p (click)="openProjektKundendaten()">Ansprechpartner bearbeiten</p>
+                        <p (click)="openAnsprechpartner()">Ansprechpartner bearbeiten</p>
                     </div>
                 </div>
                 <div>
@@ -38,11 +39,11 @@
                 </div>
             </div>
             <div class="split secondSplit">
-                <div class="btnBearbeiten">
+                <div class="btnBearbeiten" *ngFor="let p of projekt">
                     <div class="notizen">
-                        <textarea readonly="readonly">{{notizen}}</textarea>
+                        <textarea readonly="readonly">{{p.notizen}}</textarea>
                     </div>
-                    <p (click)="openNotizen()">Notizen bearbeiten</p>
+                    <p (click)="openNotizen(p.id)">Notizen bearbeiten</p>
                 </div>
             </div>
             <div class="split thirdSplit">

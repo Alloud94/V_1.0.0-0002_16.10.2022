@@ -1,4 +1,5 @@
-<div class="popupWindow">
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+<div class="popupWindow" *ngIf="!isLoading">
     <div class="popupHeader">
         <div class="headerBezeichnung">
             <p>Notizen</p>
@@ -7,14 +8,16 @@
             <span (click)="closeModal()" class="close"><img [src]="close" alt=""></span>
         </div>
     </div>
-    <div class="popupContent">
-        <div class="notizenBearbeiten">
-            <textarea name="notizen" id="notizen">{{notizen}}</textarea>
+    <form [formGroup]="notizenForm" (submit)="save()">
+        <div class="popupContent">
+            <div class="notizenBearbeiten">
+                <textarea name="notizen" id="notizen" *ngFor="let n of notizen" formControlName="notizen">{{n.notizen}}</textarea>
+            </div>
         </div>
-    </div>
-    <div class="popupFooter">
-        <div class="btnBearbeiten btnSpeichern">
-            <p (click)="save()">Änderungen speichern</p>
+        <div class="popupFooter">
+            <div class="btnBearbeiten btnSpeichern">
+                <input type="submit" value="Änderungen speichern">
+            </div>
         </div>
-    </div>
+    </form>
 </div>

@@ -81,12 +81,12 @@ const routes: Routes = [
     canActivate: [AuthenticationGuard]
   },
   {
-    path: 'projekte/auftrag', 
+    path: 'projekte/auftrag/:id', 
     component: EAuftragComponent,
     canActivate: [AuthenticationGuard]
   },
   {
-    path: 'projekte/angebot', 
+    path: 'projekte/angebot/:id', 
     component: FAngebotComponent,
     canActivate: [AuthenticationGuard]
   },
@@ -96,7 +96,7 @@ const routes: Routes = [
     canActivate: [AuthenticationGuard]
   },
   {
-    path: 'kunden/kunde', 
+    path: 'kunden/kunde/:id', 
     component: HKundeComponent,
     canActivate: [AuthenticationGuard]
   },
@@ -106,7 +106,7 @@ const routes: Routes = [
     canActivate: [AuthenticationGuard]
   },
   {
-    path: 'artikel/der-artikel', 
+    path: 'artikel/der-artikel/:id', 
     component: JDerArtikelComponent,
     canActivate: [AuthenticationGuard]
   },

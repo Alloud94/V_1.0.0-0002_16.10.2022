@@ -1,8 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { NotificationService } from 'src/app/_service/notification/notification.service';
+import { Router } from '@angular/router';
 
+// Services
+import { NotificationService } from 'src/app/_service/notification/notification.service';
+import { GetService } from 'src/app/_service/get/get.service';
+
+// Components
 import { GenerateProjektComponent } from 'src/app/_popupKomponente/generate-projekt/generate-projekt.component';
+
+// Interfaces
+import { Projekt } from 'src/app/_interfaces/projekt';
 
 @Component({
   selector: 'app-n-projekte',
@@ -11,20 +19,33 @@ import { GenerateProjektComponent } from 'src/app/_popupKomponente/generate-proj
 })
 export class NProjekteComponent implements OnInit {
   searchIcon:string = 'assets/img/icon/search.png';
+  projekt?:Projekt[];
+  isLoading = true;
 
   // Konstruktor für die Popup-Dialoge
   constructor(public matDialog: MatDialog,
-              private notificationService: NotificationService) { }
+              private notificationService: NotificationService,
+              private getService: GetService,
+              private route: Router) { }
 
   ngOnInit(): void {
+    this.getService.getProjekte().subscribe(res => {
+      this.projekt = res;
+      this.isLoading = false;
+    });
   }
 
+  
+  openProject(id:number, art:string){
+    if(art == "Angebot"){
+      this.route.navigate(['/projekte/angebot/', id]);
+    }else if(art == "Auftrag"){
+      this.route.navigate(['/projekte/auftrag/', id]);
+    }else{
+      this.notificationService.notificationFail("Fehler");
+    }
+  }
 
-  //Tabelle
-  projekte = [
-    {vorgangsNummer: "AB 20-001", kunde: "Thomas Brändle", datum: "19.07.2022", status: "Offen", vorgangsArt: "Auftrag"},
-    {vorgangsNummer: "AB 20-001", kunde: "Thomas Brändle", datum: "19.07.2022", status: "Offen", vorgangsArt: "Auftrag"},
-  ]
 
   openGenerateProject() {
     const dialogConfig = new MatDialogConfig();

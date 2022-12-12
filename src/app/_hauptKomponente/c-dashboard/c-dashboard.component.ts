@@ -26,7 +26,7 @@ export class CDashboardComponent implements OnInit {
     this.getService.getUnternehmenInfos().subscribe(res => {
       this.unternehmenInfos = res;
       this.isLoading = false;
-    })
+    });
 
   }
 

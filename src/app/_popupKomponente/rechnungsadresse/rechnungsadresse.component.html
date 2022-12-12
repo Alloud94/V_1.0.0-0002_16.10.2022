@@ -10,23 +10,21 @@
     </div>
     <div class="popupContent">
         <div class="split firstSplit">
-            <p>Aktuelle Adresse:</p>
-            <p class="contentReadonly">
-                {{aktStrasse}}<br />{{aktOrt}}<br />{{aktLand}}
-            </p>
-            <p>Ausgewählte Adresse:</p>
-            <p class="contentReadonly">
-                {{ausStrasse}}<br />{{ausOrt}}<br />{{ausLand}}
-            </p>
-            <p>Neue Adresse:</p>
-            <input type="text" placeholder="Adresse">
-            <input type="text" placeholder="Ortschaft">
-            <input type="text" placeholder="Land">
-            <div class="btnBearbeiten">
-                <p (click)="saveNewAdress()">Neue Adresse speichern</p>
-            </div>
-            <div class="btnBearbeiten">
+            <p>Ausgewählte / Neue Adresse:</p>
+            <form [formGroup]="adressenForm" (submit)="saveAdress()">
+                <input type="text" readonly class="contentReadonly" name="id" formControlName="id">
+                <input type="text" placeholder="Adresse" name="adresse" formControlName="adresse">
+                <input type="text" placeholder="Ortschaft" name="ortschaft" formControlName="ortschaft">
+                <input type="text" placeholder="Land" name="land" formControlName="land">
+                <div class="btnBearbeiten">
+                    <input type="submit" value="Adresse speichern">
+                </div>
+            </form>
+            <div class="btnBearbeiten" (click)="deleteAdresse()">
                 <p>Ausgewählte Adresse löschen</p>
+            </div>
+            <div class="btnBearbeiten" (click)="newAdress()">
+                <p>Neue Adresse erstellen</p>
             </div>
         </div>
         <div class="split oneThird">
@@ -41,10 +39,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let adresse of adressen">
-                            <td>{{adresse.strasse}}</td>
-                            <td>{{adresse.ort}}</td>
-                            <td>{{adresse.land}}</td>
+                        <tr *ngFor="let a of rechnungsAdresse" (click)="selectAdress(a.id)">
+                            <td>{{a.adresse}}</td>
+                            <td>{{a.ortschaft}}</td>
+                            <td>{{a.land}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -53,7 +51,7 @@
     </div>
     <div class="popupFooter">
         <div class="btnBearbeiten btnSpeichern">
-            <p (click)="save()">Änderungen speichern</p>
+            <p (click)="select()">Adresse auswählen</p>
         </div>
     </div>
 </div>

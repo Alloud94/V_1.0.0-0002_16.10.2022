@@ -7,7 +7,6 @@ import { GetService } from 'src/app/_service/get/get.service';
 
 // Interfaces
 import { Kunde } from 'src/app/_interfaces/kunde';
-import { HttpResponse } from 'src/app/_interfaces/http-response';
 
 @Component({
   selector: 'app-kundendaten',
@@ -46,7 +45,7 @@ export class KundendatenComponent implements OnInit {
   }
 
   closeModal() {
-    this.dialogRef.close(this.kundenID);
+    this.dialogRef.close();
   }
 
 }

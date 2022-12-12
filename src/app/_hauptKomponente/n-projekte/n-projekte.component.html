@@ -1,6 +1,7 @@
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
 <app-a-header></app-a-header>
 <app-b-sidebar></app-b-sidebar>
-<div class="oneWindow">
+<div class="oneWindow" *ngIf="!isLoading">
     <div class="one window">
         <div class="windowTitle windowHeader">
             <p>Projekte</p>
@@ -24,12 +25,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let projekt of projekte">
-                        <td>{{projekt.vorgangsNummer}}</td>
-                        <td>{{projekt.kunde}}</td>
-                        <td>{{projekt.datum}}</td>
-                        <td>{{projekt.status}}</td>
-                        <td>{{projekt.vorgangsArt}}</td>
+                    <tr *ngFor="let p of projekt" (click)="openProject(p.id, p.vorgangsArt)">
+                        <td>{{p.vorgangsID}}</td>
+                        <td>{{p.kundenID}}</td>
+                        <td>{{p.datumErfasst}}</td>
+                        <td>{{p.status}}</td>
+                        <td>{{p.vorgangsArt}}</td>
                     </tr>
                 </tbody>
             </table>

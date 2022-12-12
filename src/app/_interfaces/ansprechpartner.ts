@@ -4,7 +4,6 @@ export interface Ansprechpartner {
     name: string,
     email: string,
     telefon: string,
-    mobile: string,
     funktion: string,
     notizen: string
 }

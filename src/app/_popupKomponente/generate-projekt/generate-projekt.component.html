@@ -9,69 +9,79 @@
         </div>
     </div>
     <div class="popupContent">
-        <div class="split firstSplit">
-            <p>Kunde:</p>
-            <p class="contentReadonly" *ngFor="let k of kunde">
-                KU 40-{{k.id}}<br />{{k.bezeichnung}}<br />{{k.ortschaft}}
-            </p>
-            <div class="btnBearbeiten">
-                <p (click)="openKundendaten()">Kundendaten bearbeiten</p>
+
+        <form [formGroup]="projectForm" (submit)="generate()">
+
+
+            <div class="split firstSplit">
+
+                <p>Kunde:</p>
+                <p class="contentReadonly" *ngFor="let k of kunde">
+                    KU 40-{{k.id}}<br />{{k.bezeichnung}}<br />{{k.ortschaft}}
+                </p>
+
+                <div class="btnBearbeiten">
+                    <p (click)="openKundendaten()">Kundendaten bearbeiten</p>
+                </div>
+
+                <p>Ansprechpartner:</p>
+                <p class="contentReadonly" *ngFor="let p of partner">
+                    {{p.anrede}} {{p.name}}
+                </p>
+
+                <div class="btnBearbeiten">
+                    <p (click)="openAnsprechpartner()">Ansprechpartner bearbeiten</p>
+                </div>
+
+                <p>Rechnungsadresse:</p>
+                <p class="contentReadonly" *ngFor="let a of rechnungsAdresse">{{a.adresse}}<br />{{a.ortschaft}}<br />{{a.land}}</p>
+                <div class="btnBearbeiten">
+                    <p (click)="openRechnungsadresse()">Rechnungsadresse ändern</p>
+                </div>
+
             </div>
-            <p>Ansprechpartner:</p>
-            <p class="contentReadonly" *ngFor="let p of partner">
-                {{p.anrede}} {{p.name}}
-            </p>
-            <div class="btnBearbeiten">
-                <p (click)="openAnsprechpartner()">Ansprechpartner bearbeiten</p>
+
+            <div class="split secondSplit">
+
+                <div class="dropDown">
+                    <p>Zahlungsart:</p>
+                    <select name="zahlungsart" id="zahlungsarten" formControlName="zahlungsartID">
+                        <option *ngFor="let z of zahlungsart" value="{{z.id}}">{{z.bezeichnung}}</option>
+                    </select>
+                </div>
+
+                <div class="dropDown">
+                    <p>Zahlungskonditionen:</p>
+                    <select name="zahlungsbedingungen" id="zahlungsbedingungen" formControlName="zahlungsKonditionenID">
+                        <option *ngFor="let z of zahlungskondition" value="{{z.id}}">{{z.bezeichnung}}</option>
+                    </select>
+                </div>
+
+                <div class="belegart dropDown">
+                    <p>Belegart auswählen:</p>
+                    <select name="belegart" id="belegart" formControlName="belegart">
+                        <option *ngFor="let b of belegart">{{b.bezeichnung}}</option>
+                    </select>
+                </div>
+
             </div>
-            <p>Rechnungsadresse:</p>
-            <p class="contentReadonly" *ngFor="let a of rechnungsAdresse">{{a.adresse}}<br />{{a.ortschaft}}<br />{{a.land}}</p>
-            <div class="btnBearbeiten">
-                <p (click)="openRechnungsadresse()">Rechnungsadresse ändern</p>
+
+            <div class="split thirdSplit">
+                <p>Notizen:</p>
+                <div class="notizen notizenHoch">
+                    <textarea name="notizen" formControlName="notizen"></textarea>
+                </div>
             </div>
-        </div>
-        <div class="split secondSplit">
-            <p>Zahlungsart:</p>
-            <div class="dropDown">
-                <select name="zahlungsarten" id="zahlungsarten">
-                    <option *ngFor="let zaGruppe of zahlungsart">{{zaGruppe.bezeichnung}}</option>
-                </select>
+
+            <div class=" popupFooter ">
+                <div class="btnBearbeiten btnSpeichern ">
+                    <input type="submit" value="Projekt erfassen">
+                </div>
             </div>
-            <p>Zahlungskonditionen:</p>
-            <div class="dropDown">
-                <select name="zahlungsbedingungen" id="zahlungsbedingungen">
-                    <option *ngFor="let zbGruppe of zahlungskondition">{{zbGruppe.bezeichnung}}</option>
-                </select>
-            </div>
-            <div class="belegart">
-                <p>Belegart auswählen:</p>
-                <form action="" class="radioForm">
-                    <div>
-                        <label for="radioAngebot">Angebot</label>
-                        <input type="radio" id="radioAngebot" name="belegArt" value="angebot" checked required>
-                        <span class="radio"></span>
-                    </div>
-                    <div>
-                        <label for="radioAuftrag">Auftrag</label>
-                        <input type="radio" id="radioAuftrag" name="belegArt" value="auftrag" required>
-                        <span class="radio"></span>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="split thirdSplit">
-            <p>Notizen:</p>
-            <div class="notizen notizenHoch" *ngFor="let notizen of notizen">
-                <textarea readonly="readonly">{{notizen.notizen}}</textarea>
-            </div>
-            <div class="btnBearbeiten btnNotizen">
-                <p (click)="openNotizen()">Notizen bearbeiten</p>
-            </div>
-        </div>
+
+        </form>
+
     </div>
-    <div class=" popupFooter ">
-        <div class="btnBearbeiten btnSpeichern ">
-            <p (click)="generate()">Projekt erfassen</p>
-        </div>
-    </div>
+
+
 </div>

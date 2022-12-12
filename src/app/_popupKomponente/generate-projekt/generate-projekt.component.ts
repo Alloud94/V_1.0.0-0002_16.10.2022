@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import {MatDialogRef} from '@angular/material/dialog';
+import { FormGroup, FormControl } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 
 // Components
 import { KundendatenComponent } from '../kundendaten/kundendaten.component';
@@ -19,6 +21,7 @@ import { Notizen } from 'src/app/_interfaces/notizen';
 import { NotificationService } from 'src/app/_service/notification/notification.service';
 import { GenerateService } from 'src/app/_service/generate-service/generate.service';
 import { GetService } from 'src/app/_service/get/get.service';
+import { Projekt } from 'src/app/_interfaces/projekt';
 
 
 @Component({
@@ -34,11 +37,18 @@ export class GenerateProjektComponent implements OnInit {
   rechnungsAdresse?:RechnungsAdresse[];
   ansprechpartner?:Ansprechpartner[];
   partner?:Ansprechpartner[];
+  belegart = [
+    {bezeichnung: 'Angebot'}, 
+    {bezeichnung: 'Auftrag'}];
 
   // Variablen für das Projekt
   kundenID?:number;
+  adressenID?:number;
+  partnerID?:number;
+  zahlungsartID?:number;
+  zahlungskonditionID?:number;
+  art?:string;
   notizen?:Notizen[];
-
 
   isLoading = true;
 
@@ -46,7 +56,17 @@ export class GenerateProjektComponent implements OnInit {
               public dialogRef: MatDialogRef<GenerateProjektComponent>,
               private notificationService: NotificationService,
               private generateService: GenerateService,
-              private getService: GetService) { }
+              private getService: GetService,
+              private route: Router) { }
+
+  public projectForm: FormGroup = new FormGroup({
+    'zahlungsartID': new FormControl(1),
+    'zahlungsKonditionenID': new FormControl(1),
+    'belegart': new FormControl('Angebot'),
+    'notizen': new FormControl(null)
+  });
+              
+          
 
   ngOnInit(): void {
     this.loadValue();
@@ -68,7 +88,50 @@ export class GenerateProjektComponent implements OnInit {
 
 // ### Funktionen ###
   generate(){
-    this.notificationService.notificationInfoShort("Not Implementet yet.");
+    if(this.kundenID != null || this.partnerID != null || this.adressenID != null){
+
+      if(this.projectForm.controls['belegart'].value == 'Angebot'){
+        this.notificationService.notificationSuccess("Angebot erfolgreich erstellt");
+        
+        let projekt: Projekt[] = [{
+          id:0,
+          vorgangsID:0,
+          vorgangsArt: "Angebot",
+          kundenID: Number(this.partnerID),
+          rechnungsadressenID: Number(this.adressenID),
+          ansprechpartnerID: Number(this.partnerID),
+          zahlungsArtenID: this.projectForm.controls['zahlungsartID'].value,
+          zahlungsKonditionenID: this.projectForm.controls['zahlungsKonditionenID'].value,
+          datumErfasst: Date(),
+          userIDErfasst: 0,
+          datumZuletztGespeichert: Date(),
+          userIDZuletztGespeichert: 0,
+          status: "offen",
+          notizen: this.projectForm.controls['notizen'].value
+        }];
+    
+
+        this.generateService.createAngebot(projekt[0]).subscribe(res =>{
+          let id = res.result;
+            this.route.navigate(['/projekte/angebot', id]);
+            this.dialogRef.close();
+          })
+
+      }else if (this.projectForm.controls['belegart'].value == 'Auftrag'){
+        this.notificationService.notificationSuccess("Auftrag erfolgreich erstellt");
+
+
+
+        this.dialogRef.close();
+
+      }else{
+        this.notificationService.notificationFail("Fehler");
+      }
+      console.log(this.kundenID + '-' + this.partnerID + '-' + this.adressenID);
+      console.log(this.projectForm);
+    }else{
+      this.notificationService.notificationFail("Bitte alle Angaben machen!");
+    }
   }
 
   loadValueAll(id:number){
@@ -90,6 +153,7 @@ export class GenerateProjektComponent implements OnInit {
 
   loadAdresse(id:number){
     this.isLoading = true;
+    this.adressenID = id;
 
     this.getService.getRechnungsadresse(id).subscribe(res => {
       this.rechnungsAdresse = res;
@@ -99,6 +163,7 @@ export class GenerateProjektComponent implements OnInit {
 
   loadPartner(id:number){
     this.isLoading = true;
+    this.partnerID = id;
 
     this.getService.getPartner(id).subscribe(res => {
       this.partner = res;
@@ -120,9 +185,12 @@ export class GenerateProjektComponent implements OnInit {
   
       const modalDialog = this.matDialog.open(KundendatenComponent, dialogConfig);
   
-      modalDialog.afterClosed().subscribe(
-        id => this.loadValueAll(id)
-      );  
+      modalDialog.afterClosed().subscribe(id => {
+        if(id!=null){
+          this.loadValueAll(id);
+          this.kundenID = id;
+        }
+      });  
   }
 
   openRechnungsadresse() {
@@ -133,8 +201,18 @@ export class GenerateProjektComponent implements OnInit {
       dialogConfig.id = "modaltwo-component";
       dialogConfig.height = "510px";
       dialogConfig.width = "894px";
+      dialogConfig.data = this.kundenID;
 
       const modalDialog = this.matDialog.open(RechnungsadresseComponent, dialogConfig);
+
+      modalDialog.afterClosed().subscribe( id => {
+        if(id!=null){
+          this.loadAdresse(id);
+          this.adressenID = id;
+        }
+      });  
+
+
     }else if(!this.kundenID){
       this.notificationService.notificationFail("Kunde nicht ausgewählt!");
     }
@@ -164,9 +242,12 @@ export class GenerateProjektComponent implements OnInit {
 
       const modalDialog = this.matDialog.open(AnsprechpartnerComponent, dialogConfig);
 
-      modalDialog.afterClosed().subscribe(
-        id => this.loadPartner(id)
-      );  
+      modalDialog.afterClosed().subscribe( id =>{
+        if(id!=null){
+          this.loadPartner(id);
+          this.partnerID = id;
+        }
+      });  
 
     }else if(!this.kundenID){
       this.notificationService.notificationFail("Kunde nicht ausgewählt!");

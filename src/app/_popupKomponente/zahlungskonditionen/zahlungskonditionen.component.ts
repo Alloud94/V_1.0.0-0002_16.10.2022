@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
+
+// Services
 import { NotificationService } from 'src/app/_service/notification/notification.service';
+
+// Interfaces
+import { ProjektKonditionen } from 'src/app/_interfaces/projektKonditionen';
 
 @Component({
   selector: 'app-zahlungskonditionen',
@@ -9,6 +14,8 @@ import { NotificationService } from 'src/app/_service/notification/notification.
 })
 export class ZahlungskonditionenComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
+  zahlungsart?:ProjektKonditionen[];
+  zahlungsKonditionen?:ProjektKonditionen[];
 
   constructor(public dialogRef: MatDialogRef<ZahlungskonditionenComponent>,
               private notificationService: NotificationService) { }
