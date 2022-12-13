@@ -27,6 +27,7 @@ import { Position } from 'src/app/_interfaces/position';
 import { ProjektKonditionen } from 'src/app/_interfaces/projektKonditionen';
 import { Beleg } from 'src/app/_interfaces/beleg';
 import { RechnungsAdresse } from 'src/app/_interfaces/rechnungsAdresse';
+import { Artikel } from 'src/app/_interfaces/artikel';
 
 @Component({
   selector: 'app-f-angebot',
@@ -36,22 +37,30 @@ import { RechnungsAdresse } from 'src/app/_interfaces/rechnungsAdresse';
 export class FAngebotComponent implements OnInit {
   meta:string = 'assets/img/icon/info.png';
   metaActive:string = 'assets/img/icon/infoFarbig.png';
-  vorgangsID:number=0;
+  projektID:number=0;
   projekt?:Projekt[];
   kunde?:Kunde[];
-  partner?:Ansprechpartner[];
-  position?:Position[];
   kundenID:number=0;
+  partner?:Ansprechpartner[];
   partnerID:number=0;
-  adresseID:number=0;
+  position?:Position[];
+  positionID:number=0;
   adresse?:RechnungsAdresse[];
+  adresseID:number=0;
   zahlungskonditionen?:ProjektKonditionen[];
   zahlungsart?:ProjektKonditionen[];
   zahlungskonditionenID:number=0;
   zahlungsartID:number=0;
+  artikelID:number=0;
+  artikel?:Artikel[];
   beleg?:Beleg[];
   isLoading = true;
 
+  status =  [
+    {status: 'Offen'},
+    {status: 'In Bearbeitung'},
+    {status: 'Abgeschlossen'}
+  ]
 
   constructor(public matDialog: MatDialog,
               private notificationService: NotificationService,
@@ -60,18 +69,20 @@ export class FAngebotComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.vorgangsID = this.route.snapshot.params['id'];
+    this.projektID = this.route.snapshot.params['id'];
     this.loadPositionen();
     this.loadKopfdaten();
   }
 
 
   loadPositionen(){
-
+    this.getService.getProjektPositionen(this.projektID).subscribe(res => {
+      this.position = res;
+    });
   }
 
   loadKopfdaten(){
-    this.getService.getAngebot(this.vorgangsID).subscribe(res => {
+    this.getService.getAngebot(this.projektID).subscribe(res => {
       
       this.projekt = res;
 
@@ -90,26 +101,18 @@ export class FAngebotComponent implements OnInit {
         this.partner = res;
         this.isLoading = false;
       });
-
     });
-
   }
 
-  
-  //Status
-  status =  [
-    {status: 'Offen'},
-    {status: 'In Bearbeitung'},
-    {status: 'Abgeschlossen'}
-  ]
+  loadPartner(id:number){
+    this.isLoading = true;
+    this.partnerID = id;
 
-  //Positionen
-  positionen = [
-    {nummer: '001', beschrieb: 'Landingpage', untertext1: 'Text', untertext2: 'Text', menge: '1', einheit: 'Pauschal', ep: '150.00', rabatt: '0', endpreis: '150.00'},
-    {nummer: '001', beschrieb: 'Landingpage', untertext1: 'Text', untertext2: 'Text', menge: '1', einheit: 'Pauschal', ep: '150.00', rabatt: '0', endpreis: '150.00'},
-    {nummer: '001', beschrieb: 'Landingpage', untertext1: 'Text', untertext2: 'Text', menge: '1', einheit: 'Pauschal', ep: '150.00', rabatt: '0', endpreis: '150.00'},
-    {nummer: '001', beschrieb: 'Landingpage', untertext1: 'Text', untertext2: 'Text', menge: '1', einheit: 'Pauschal', ep: '150.00', rabatt: '0', endpreis: '150.00'},
-  ]
+    this.getService.getPartner(id).subscribe(res => {
+      this.partner = res;
+      this.isLoading = false;
+    });
+  }
 
   totalVorSteuer = "150.00";
   steuer = "0.00";
@@ -133,7 +136,7 @@ export class FAngebotComponent implements OnInit {
     dialogConfig.id = "modal-component";
     dialogConfig.height = "510px";
     dialogConfig.width = "894px";
-    dialogConfig.data = this.vorgangsID;
+    dialogConfig.data = this.projektID;
 
     const modalDialog = this.matDialog.open(MetainformationenComponent, dialogConfig);
   }
@@ -217,6 +220,7 @@ export class FAngebotComponent implements OnInit {
       modalDialog.afterClosed().subscribe( id =>{
         if(id!=null){
           this.partnerID = id;
+          this.loadPartner(id);
         }
       });  
   }
@@ -229,13 +233,17 @@ export class FAngebotComponent implements OnInit {
       dialogConfig.id = "modaltwo-component";
       dialogConfig.height = "510px";
       dialogConfig.width = "894px";
-      dialogConfig.data = this.kundenID;
-
+      dialogConfig.data = [
+        {kd: this.kundenID},
+        {ad: this.adresseID}
+      ]
+      console.log(this.adresseID);
       const modalDialog = this.matDialog.open(RechnungsadresseComponent, dialogConfig);
 
       modalDialog.afterClosed().subscribe( id => {
         if(id!=null){
           this.adresseID = id;
+          console.log(id);
         }
       });  
 

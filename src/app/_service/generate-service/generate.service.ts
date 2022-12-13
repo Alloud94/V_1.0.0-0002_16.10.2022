@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 import { Ansprechpartner } from 'src/app/_interfaces/ansprechpartner';
 import { HttpResponse } from 'src/app/_interfaces/http-response';
 import { Projekt } from 'src/app/_interfaces/projekt';
+import { RechnungsAdresse } from 'src/app/_interfaces/rechnungsAdresse';
 
 @Injectable({
   providedIn: 'root'
@@ -29,11 +30,13 @@ createPartner(id:number): Observable<HttpResponse>{
   return this.httpClient.get<HttpResponse>(url).pipe(map(data => data));
 }
 
-createAdress(id:number): Observable<HttpResponse>{
+createAdress(id:number, value:RechnungsAdresse): Observable<HttpResponse>{
   let username = localStorage.getItem("username");
-  const url = environment.API_EndPoint_Empty + 'create/create.php?quest=createAdresse&userid='+username+'&id='+id;
+  const url = environment.API_EndPoint_Empty + 'create/create.php?quest=createAdresse&adresse='+value.adresse+'&ortschaft='+value.ortschaft+'&land='+value.land+'&userid='+username+'&id='+id;
   return this.httpClient.get<HttpResponse>(url).pipe(map(data => data));
 }
+
+//update/kunde.php?quest=updateAdresse&id='+value.id+'&adresse='+value.adresse+'&ortschaft='+value.ortschaft+'&land='+value.land+'&userID='+username;
 
 createAngebot(value:Projekt): Observable<HttpResponse>{
   let username = localStorage.getItem("username");
@@ -41,5 +44,10 @@ createAngebot(value:Projekt): Observable<HttpResponse>{
   return this.httpClient.get<HttpResponse>(url).pipe(map(data => data));
 }
 
+createAuftrag(value:Projekt): Observable<HttpResponse>{
+  let username = localStorage.getItem("username");
+  const url = environment.API_EndPoint_Empty + 'create/create.php?quest=createAuftrag&userid='+username+'&kundenID='+value.kundenID+'&adressenID='+value.rechnungsadressenID+'&partnerID='+value.ansprechpartnerID+'&zaID='+value.zahlungsArtenID+'&zkID='+value.zahlungsKonditionenID+'&notizen='+value.notizen;
+  return this.httpClient.get<HttpResponse>(url).pipe(map(data => data));
+}
 
 }

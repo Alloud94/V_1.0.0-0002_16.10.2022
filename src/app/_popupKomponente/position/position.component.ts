@@ -1,9 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { NotificationService } from 'src/app/_service/notification/notification.service';
 
+// Services
+import { NotificationService } from 'src/app/_service/notification/notification.service';
+import { GetService } from 'src/app/_service/get/get.service';
+
+// Components
 import { PositionArtikelComponent } from '../position-artikel/position-artikel.component';
+
+// Interfaces
+import { Position } from 'src/app/_interfaces/position';
 
 @Component({
   selector: 'app-position',
@@ -15,7 +22,8 @@ export class PositionComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<PositionComponent>, 
               public matDialog: MatDialog,
-              private notificationService: NotificationService) { }
+              private notificationService: NotificationService,
+              private getService: GetService) { }
 
   ngOnInit(): void {
   }

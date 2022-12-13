@@ -96,8 +96,10 @@ export class GenerateProjektComponent implements OnInit {
         let projekt: Projekt[] = [{
           id:0,
           vorgangsID:0,
+          vorgangszeichen:"",
           vorgangsArt: "Angebot",
           kundenID: Number(this.partnerID),
+          kundenName: "",
           rechnungsadressenID: Number(this.adressenID),
           ansprechpartnerID: Number(this.partnerID),
           zahlungsArtenID: this.projectForm.controls['zahlungsartID'].value,
@@ -115,20 +117,41 @@ export class GenerateProjektComponent implements OnInit {
           let id = res.result;
             this.route.navigate(['/projekte/angebot', id]);
             this.dialogRef.close();
-          })
+          });
 
       }else if (this.projectForm.controls['belegart'].value == 'Auftrag'){
         this.notificationService.notificationSuccess("Auftrag erfolgreich erstellt");
 
+        let projekt: Projekt[] = [{
+          id:0,
+          vorgangsID:0,
+          vorgangszeichen:"",
+          vorgangsArt: "Angebot",
+          kundenID: Number(this.partnerID),
+          kundenName: "",
+          rechnungsadressenID: Number(this.adressenID),
+          ansprechpartnerID: Number(this.partnerID),
+          zahlungsArtenID: this.projectForm.controls['zahlungsartID'].value,
+          zahlungsKonditionenID: this.projectForm.controls['zahlungsKonditionenID'].value,
+          datumErfasst: Date(),
+          userIDErfasst: 0,
+          datumZuletztGespeichert: Date(),
+          userIDZuletztGespeichert: 0,
+          status: "offen",
+          notizen: this.projectForm.controls['notizen'].value
+        }];
 
+        this.generateService.createAuftrag(projekt[0]).subscribe(res =>{
+          let id = res.result;
+            this.route.navigate(['/projekte/auftrag', id]);
+            this.dialogRef.close();
+          })
 
         this.dialogRef.close();
 
       }else{
         this.notificationService.notificationFail("Fehler");
       }
-      console.log(this.kundenID + '-' + this.partnerID + '-' + this.adressenID);
-      console.log(this.projectForm);
     }else{
       this.notificationService.notificationFail("Bitte alle Angaben machen!");
     }
@@ -169,7 +192,6 @@ export class GenerateProjektComponent implements OnInit {
       this.partner = res;
       this.isLoading = false;
     });
-
   }
 
 
@@ -201,7 +223,10 @@ export class GenerateProjektComponent implements OnInit {
       dialogConfig.id = "modaltwo-component";
       dialogConfig.height = "510px";
       dialogConfig.width = "894px";
-      dialogConfig.data = this.kundenID;
+      dialogConfig.data = [
+        {kd: this.kundenID},
+        {ad: this.adressenID}
+      ];
 
       const modalDialog = this.matDialog.open(RechnungsadresseComponent, dialogConfig);
 

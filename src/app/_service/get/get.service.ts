@@ -17,6 +17,7 @@ import { Softwareinfos } from 'src/app/_interfaces/softwareInfos';
 import { Projekt } from 'src/app/_interfaces/projekt';
 import { Notizen } from 'src/app/_interfaces/notizen';
 import { ProjektKonditionen } from 'src/app/_interfaces/projektKonditionen';
+import { Position } from 'src/app/_interfaces/position';
 
 
 @Injectable({
@@ -112,12 +113,34 @@ getKunde(id:number): Observable<Kunde[]>{
   return this.httpClient.get<Kunde[]>(url).pipe(map(data => data));
 }
 
-/* #### NOTIZEN EINZEL #### */
+/* #### PROJEKT NOTIZEN EINZEL #### */
 
-getNotizen(id:number): Observable<Notizen[]>{
-  const url = environment.API_EndPoint_Empty + 'get/infos.php?quest=getNotizen&id='+id;
+getProjektNotizen(id:number): Observable<Notizen[]>{
+  const url = environment.API_EndPoint_Empty + 'get/infos.php?quest=getProjektNotizen&id='+id;
   return this.httpClient.get<Notizen[]>(url).pipe(map(data => data));
 }
+
+/* #### KUNDEN NOTIZEN EINZEL #### */
+
+getKundenNotizen(id:number): Observable<Notizen[]>{
+  const url = environment.API_EndPoint_Empty + 'get/infos.php?quest=getKundenNotizen&id='+id;
+  return this.httpClient.get<Notizen[]>(url).pipe(map(data => data));
+}
+
+/* #### ARTIKEL NOTIZEN EINZEL #### */
+
+getArtikelNotizen(id:number): Observable<Notizen[]>{
+  const url = environment.API_EndPoint_Empty + 'get/infos.php?quest=getArtikelNotizen&id='+id;
+  return this.httpClient.get<Notizen[]>(url).pipe(map(data => data));
+}
+
+/* #### PROJEKT POSITIONEN #### */
+
+getProjektPositionen(id:number): Observable<Position[]>{
+  const url = environment.API_EndPoint_Empty + 'get/infos.php?quest=getProjektPositionen&id='+id;
+  return this.httpClient.get<Position[]>(url).pipe(map(data => data));
+}
+
 
 // ############################## //
 // ----- KLEINE ABFRAGEN ----- //

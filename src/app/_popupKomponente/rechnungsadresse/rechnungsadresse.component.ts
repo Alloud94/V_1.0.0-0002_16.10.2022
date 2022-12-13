@@ -11,6 +11,7 @@ import { GenerateService } from 'src/app/_service/generate-service/generate.serv
 
 // Interfaces
 import { RechnungsAdresse } from 'src/app/_interfaces/rechnungsAdresse';
+import { Gruppen } from 'src/app/_interfaces/gruppen';
 
 @Component({
   selector: 'app-rechnungsadresse',
@@ -21,23 +22,28 @@ export class RechnungsadresseComponent implements OnInit {
   close:string = 'assets/img/icon/close.png';
   rechnungsAdresse?:RechnungsAdresse[];
   adresse?:RechnungsAdresse[];
+  aktuelleAdresse?:RechnungsAdresse[];
   adressenId?:number;
   isLoading = true;
 
   constructor(public dialogRef: MatDialogRef<RechnungsadresseComponent>,
               private notificationService: NotificationService,
-              @Inject(MAT_DIALOG_DATA) public data: number,
+              @Inject(MAT_DIALOG_DATA) public data: any,
               private getService: GetService,
               private postService: PostService,
               private generateService: GenerateService
               ) { }
 
   ngOnInit(): void {
-    this.getService.getRechnungsadressen(this.data).subscribe(res => {
+    this.getService.getRechnungsadressen(this.data[0].kd).subscribe(res => {
       this.rechnungsAdresse = res;
-      this.isLoading = false;
-      console.log(this.data);
     });
+
+    this.getService.getRechnungsadresse(this.data[1].ad).subscribe(res => {
+      this.aktuelleAdresse = res;
+      this.isLoading = false;
+    });
+
 
   }
 
@@ -69,14 +75,26 @@ export class RechnungsadresseComponent implements OnInit {
   }
 
   newAdress(){
-    this.generateService.createAdress(this.data).subscribe( res => {
-      if(res.result !== 'fail'){
-        this.ngOnInit();
-        this.selectAdress(Number(res.result));
-      }else{
-        this.notificationService.notificationFail("Partner konnte nicht erstellt werden!");
-      }
-  });
+    let adresse: RechnungsAdresse[] = [{
+      id: this.adressenForm.controls['id'].value,
+      adresse: this.adressenForm.controls['adresse'].value,
+      ortschaft: this.adressenForm.controls['ortschaft'].value,
+      land: this.adressenForm.controls['land'].value
+    }];
+
+    if(adresse[0].id == null){
+      this.generateService.createAdress(this.data[0].kd, adresse[0]).subscribe( res => {
+        if(res.result !== 'fail'){
+          this.ngOnInit();
+          this.selectAdress(Number(res.result));
+        }else{
+          this.notificationService.notificationFail("Adresse konnte nicht erstellt werden!");
+        }
+      });
+    }else{
+      this.notificationService.notificationFail("Adresse existiert bereits!");
+    }
+    
   }
 
 
@@ -99,7 +117,11 @@ export class RechnungsadresseComponent implements OnInit {
   }
 
   select(){
-    this.dialogRef.close(this.adressenId);
+    if(this.adressenId != null){
+      this.dialogRef.close(this.adressenId);
+    }else{
+      this.notificationService.notificationFail("Bitte Adresse auswählen.")
+    }
   }
 
 

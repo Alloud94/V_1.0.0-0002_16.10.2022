@@ -42,7 +42,6 @@ export class KonditionenComponent implements OnInit {
 
     this.getService.getProjektZahlungsArt(this.data[0].za).subscribe(res => {
       this.projektZahlungsart = res;
-      console.log(this.projektZahlungsart[0].id);
       this.konditionenForm.setValue({
         'zahlungsarten': this.projektZahlungsart[0].id,
       });

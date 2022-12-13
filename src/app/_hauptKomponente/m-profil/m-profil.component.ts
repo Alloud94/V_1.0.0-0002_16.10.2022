@@ -24,7 +24,7 @@ export class MProfilComponent implements OnInit {
   isLoading = true;
 
   ngOnInit(): void {
-
+    this.isLoading = false;
   }
 
   // Konstruktor für die Popup-Dialoge

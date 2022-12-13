@@ -26,8 +26,8 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let p of projekt" (click)="openProject(p.id, p.vorgangsArt)">
-                        <td>{{p.vorgangsID}}</td>
-                        <td>{{p.kundenID}}</td>
+                        <td>{{p.vorgangszeichen}}{{p.vorgangsID}}</td>
+                        <td>{{p.kundenName}}</td>
                         <td>{{p.datumErfasst}}</td>
                         <td>{{p.status}}</td>
                         <td>{{p.vorgangsArt}}</td>

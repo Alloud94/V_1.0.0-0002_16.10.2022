@@ -93,14 +93,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let position of positionen">
-                        <td><a routerLink="/">{{position.nummer}}</a></td>
-                        <td><a routerLink="/">{{position.beschrieb}}<br /> {{position.untertext1}}<br />{{position.untertext2}}</a></td>
-                        <td><a routerLink="/">{{position.menge}}</a></td>
-                        <td><a routerLink="/">{{position.einheit}}</a></td>
-                        <td><a routerLink="/">{{position.ep}}.-</a></td>
-                        <td><a routerLink="/">{{position.rabatt}}%</a></td>
-                        <td><a routerLink="/">{{position.endpreis}}.-</a></td>
+                    <tr *ngFor="let p of position">
+                        <td><a routerLink="/">{{p.positionsNummer}}</a></td>
+                        <td><a routerLink="/">{{p.bezeichnung}}<br />{{p.untertext}}<br /></a></td>
+                        <td><a routerLink="/">{{p.menge}}</a></td>
+                        <td><a routerLink="/">{{p.einheitsID}}</a></td>
+                        <td><a routerLink="/">{{p.vPBrutto}}.-</a></td>
+                        <td><a routerLink="/">{{p.kundenRabatt}}%</a></td>
+                        <td><a routerLink="/">{{p.vPNetto}}.-</a></td>
                     </tr>
                     <tr class="zwischenSpalte">
                         <td colspan="7"></td>

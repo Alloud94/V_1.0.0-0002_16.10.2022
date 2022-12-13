@@ -33,7 +33,7 @@ export class NotizenComponent implements OnInit {
     });
             
   ngOnInit(): void {
-    this.getService.getNotizen(this.data).subscribe(res => {
+    this.getService.getProjektNotizen(this.data).subscribe(res => {
       this.notizen = res;
       this.isLoading = false;
       this.notizenForm.setValue({

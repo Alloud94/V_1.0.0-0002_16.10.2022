@@ -10,6 +10,10 @@
     </div>
     <div class="popupContent">
         <div class="split firstSplit">
+            <p>Aktuelle Adresse:</p>
+            <p *ngFor="let a of aktuelleAdresse" class="contentReadonly">
+                {{a.adresse}}<br />{{a.ortschaft}}<br />{{a.land}}<br />
+            </p>
             <p>Ausgewählte / Neue Adresse:</p>
             <form [formGroup]="adressenForm" (submit)="saveAdress()">
                 <input type="text" readonly class="contentReadonly" name="id" formControlName="id">
