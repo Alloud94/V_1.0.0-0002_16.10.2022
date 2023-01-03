@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+
+// Components
 import { GenerateProjektComponent } from 'src/app/_popupKomponente/generate-projekt/generate-projekt.component';
 import { GenerateArtikelComponent } from 'src/app/_popupKomponente/generate-artikel/generate-artikel.component';
 import { GenerateKundeComponent } from 'src/app/_popupKomponente/generate-kunde/generate-kunde.component';
 
+// Services
 import { GetService } from 'src/app/_service/get/get.service';
 import { UnternehmensInformationen } from 'src/app/_interfaces/unternehmenInfos';
+import { NotificationService } from 'src/app/_service/notification/notification.service';
 
 @Component({
   selector: 'app-c-dashboard',
@@ -20,7 +23,8 @@ export class CDashboardComponent implements OnInit {
   isLoading = true;
 
   constructor(public matDialog: MatDialog, 
-              private getService: GetService) { }
+              private getService: GetService,
+              private notificationService: NotificationService) { }
 
   ngOnInit(): void {
     this.getService.getUnternehmenInfos().subscribe(res => {
@@ -49,6 +53,10 @@ export class CDashboardComponent implements OnInit {
   ertrag = "CHF 10'000.00.-";
   offeneRechnungen = "CHF 1'000.00.-";
   aufwand = "CHF 6'000.00.-";
+
+  openProjekt(){
+    this.notificationService.notificationInfoShort("Not implemented yet.");
+  }
 
   openGenerateProject() {
     const dialogConfig = new MatDialogConfig();

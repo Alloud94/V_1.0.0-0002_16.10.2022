@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  API_EndPoint_Login: 'http://localhost:80/Accounts/',
-  API_EndPoint_Empty: 'http://localhost:80/Empty/'
+  API_EndPoint_Login: 'http://www.goffini.ch/PHP_API/Accounts/',
+  API_EndPoint_Empty: 'http://www.goffini.ch/PHP_API/Empty/'
 };
 
 /*

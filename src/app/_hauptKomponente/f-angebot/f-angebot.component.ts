@@ -86,6 +86,7 @@ export class FAngebotComponent implements OnInit {
       
       this.projekt = res;
 
+
       this.kundenID = Number(this.projekt[0].kundenID);
       this.partnerID = Number(this.projekt[0].ansprechpartnerID);
       this.adresseID = Number(this.projekt[0].rechnungsadressenID);
@@ -114,6 +115,8 @@ export class FAngebotComponent implements OnInit {
     });
   }
 
+  
+
   totalVorSteuer = "150.00";
   steuer = "0.00";
   totalNachSteuer = "150.00";
@@ -124,6 +127,10 @@ export class FAngebotComponent implements OnInit {
   }
 
   save(){
+    this.notificationService.notificationInfoShort("Not Implementet yet.");
+  }
+
+  selectPosition(){
     this.notificationService.notificationInfoShort("Not Implementet yet.");
   }
 

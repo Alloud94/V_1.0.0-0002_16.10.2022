@@ -14,7 +14,7 @@ export class ALoginComponent implements OnInit {
   logo:string = 'assets/img/logo/Logo.png';
   username:string = 'assets/img/icon/user.png';
   passwort:string = 'assets/img/icon/vorhangschloss.png';
-  userID: any;
+  userID: number = 0;
   loginData: Login[] = [];
   isLoading = false;
 
@@ -41,15 +41,16 @@ export class ALoginComponent implements OnInit {
       if(res.result == 'success'){
         if(this.token(loginData.username)){
           this.notificationService.notificationSuccess("Login erfolgreich");
-          console.log("Anmeldung erfolgreich");
+          this.userID = Number(res.value);
+          localStorage.setItem('userid', String(this.userID));
         }else{
-          console.log("Anmeldung fehlgeschlagen");
+          console.log("Token stimmt nicht überein.");
           this.isLoading = false;
           this.router.navigate(['login']); 
           this.notificationService.notificationFail("Login fehlgeschlagen");
         }
       }else if(res.result == 'fail'){
-        console.log("Anmeldung fehlgeschlagen");
+        console.log("User konnte nicht angemeldet werden.");
         this.isLoading = false;
         this.router.navigate(['login']); 
         this.notificationService.notificationFail("Login fehlgeschlagen");

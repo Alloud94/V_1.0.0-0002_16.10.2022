@@ -24,11 +24,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let kunde of kunden">
-                        <td><a routerLink="/kunden/kunde" routerLinkActive="active">KU 40-{{kunde.id}}</a></td>
-                        <td><a routerLink="/kunden/kunde" routerLinkActive="active">{{kunde.bezeichnung}}</a></td>
-                        <td><a routerLink="/kunden/kunde" routerLinkActive="active">{{kunde.ortschaft}}</a></td>
-                        <td><a routerLink="/kunden/kunde" routerLinkActive="active">{{kunde.adresse}}</a></td>
+                    <tr *ngFor="let k of kunden" (click)="openKunde(k.id)">
+                        <td>KU 40-{{k.id}}</td>
+                        <td>{{k.bezeichnung}}</td>
+                        <td>{{k.ortschaft}}</td>
+                        <td>{{k.adresse}}</td>
                     </tr>
                 </tbody>
             </table>

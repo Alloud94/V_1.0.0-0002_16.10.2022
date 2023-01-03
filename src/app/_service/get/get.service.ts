@@ -18,6 +18,7 @@ import { Projekt } from 'src/app/_interfaces/projekt';
 import { Notizen } from 'src/app/_interfaces/notizen';
 import { ProjektKonditionen } from 'src/app/_interfaces/projektKonditionen';
 import { Position } from 'src/app/_interfaces/position';
+import { Profil } from 'src/app/_interfaces/profil';
 
 
 @Injectable({
@@ -157,6 +158,10 @@ getProjektZahlungsArt(id:number): Observable<ProjektKonditionen[]> {
   return this.httpClient.get<ProjektKonditionen[]>(url).pipe(map(data => data));
 }
 
+getProfil(id: number): Observable<Profil[]>{
+  const url = environment.API_EndPoint_Empty + 'get/infos.php?quest=getProfil&id='+id;
+  return this.httpClient.get<Profil[]>(url).pipe(map(data => data));
+}
 
 
 // ############################## //

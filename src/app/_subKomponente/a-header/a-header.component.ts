@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+
+// Services
 import { NotificationService } from 'src/app/_service/notification/notification.service';
 
 @Component({
@@ -10,6 +12,7 @@ export class AHeaderComponent implements OnInit {
   logoKlein:string = 'assets/img/logo/LogoSchriftzug.png';
   profil:string = 'assets/img/icon/user.png';
   searchIcon:string = 'assets/img/icon/search.png';
+  userName = localStorage.getItem("username");
 
   constructor(private notificationService: NotificationService) { }
 

@@ -36,6 +36,7 @@ export class BSidebarComponent implements OnInit {
       if(res.result == "success"){
         localStorage.removeItem('username');
         localStorage.removeItem('lastAction');
+        localStorage.removeItem('userid');
         this.notificationService.notificationSuccess("Logout erfolgreich");
         this.router.navigate(['login']);
       }else{

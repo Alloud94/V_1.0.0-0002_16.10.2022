@@ -84,10 +84,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let vorgang of vorgaenge">
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">{{vorgang.vorgangsArt}}</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">{{vorgang.vorgangsBezeichnung}}</a></td>
-                        <td><a routerLink="/projekte/auftrag" routerLinkActive="active">{{vorgang.vorgangsNummer}}</a></td>
+                    <tr *ngFor="let vorgang of vorgaenge" (click)="openProjekt()">
+                        <td>{{vorgang.vorgangsArt}}</td>
+                        <td>{{vorgang.vorgangsBezeichnung}}</td>
+                        <td>{{vorgang.vorgangsNummer}}</td>
                     </tr>
                 </tbody>
             </table>

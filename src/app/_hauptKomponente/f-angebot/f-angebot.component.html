@@ -93,14 +93,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let p of position">
-                        <td><a routerLink="/">{{p.positionsNummer}}</a></td>
-                        <td><a routerLink="/">{{p.bezeichnung}}<br />{{p.untertext}}<br /></a></td>
-                        <td><a routerLink="/">{{p.menge}}</a></td>
-                        <td><a routerLink="/">{{p.einheitsID}}</a></td>
-                        <td><a routerLink="/">{{p.vPBrutto}}.-</a></td>
-                        <td><a routerLink="/">{{p.kundenRabatt}}%</a></td>
-                        <td><a routerLink="/">{{p.vPNetto}}.-</a></td>
+                    <tr *ngFor="let p of position" (click)="selectPosition()" class="focusBackground">
+                        <td>{{p.positionsNummer}}</td>
+                        <td>{{p.bezeichnung}}<br />{{p.untertext}}<br /></td>
+                        <td>{{p.menge}}</td>
+                        <td>{{p.einheitsID}}</td>
+                        <td>{{p.vPBrutto}}.-</td>
+                        <td>{{p.kundenRabatt}}%</td>
+                        <td>{{p.vPNetto}}.-</td>
                     </tr>
                     <tr class="zwischenSpalte">
                         <td colspan="7"></td>

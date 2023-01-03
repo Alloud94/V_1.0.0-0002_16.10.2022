@@ -25,12 +25,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let artikel of artikel">
-                        <td><a routerLink="/artikel/der-artikel" routerLinkActive="active">AR 6{{artikel.artikelGruppenID}}-{{artikel.id}}</a></td>
-                        <td><a routerLink="/artikel/der-artikel" routerLinkActive="active">{{artikel.bezeichnung}}</a></td>
-                        <td><a routerLink="/artikel/der-artikel" routerLinkActive="active">{{artikel.artikelGruppenID}}</a></td>
-                        <td><a routerLink="/artikel/der-artikel" routerLinkActive="active">{{artikel.einstandPreis}}</a></td>
-                        <td><a routerLink="/artikel/der-artikel" routerLinkActive="active">{{artikel.einheit}}</a></td>
+                    <tr *ngFor="let a of artikel" (click)="openArtikel(a.id)">
+                        <td>AR 6{{a.artikelGruppenID}}-{{a.id}}</td>
+                        <td>{{a.bezeichnung}}</td>
+                        <td>{{a.artikelGruppenID}}</td>
+                        <td>CHF {{a.einstandPreis}}.-</td>
+                        <td>{{a.einheit}}</td>
                     </tr>
                 </tbody>
             </table>

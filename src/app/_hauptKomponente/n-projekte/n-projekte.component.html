@@ -25,7 +25,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let p of projekt" (click)="openProject(p.id, p.vorgangsArt)">
+                    <tr *ngFor="let p of projekt" (click)="openProject(p.vorgangsID, p.vorgangsArt)">
                         <td>{{p.vorgangszeichen}}{{p.vorgangsID}}</td>
                         <td>{{p.kundenName}}</td>
                         <td>{{p.datumErfasst}}</td>

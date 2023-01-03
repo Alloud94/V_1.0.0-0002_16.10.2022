@@ -24,7 +24,7 @@ export class MProfilComponent implements OnInit {
   isLoading = true;
 
   ngOnInit(): void {
-    this.isLoading = false;
+    this.loadProfile();
   }
 
   // Konstruktor für die Popup-Dialoge
@@ -34,12 +34,21 @@ export class MProfilComponent implements OnInit {
 
 // ### Variablen ###
   //Kopfdaten
-  profilNummer = "MA 101-001";
-  profilName = "Thomas Brändle";
-  telefon = "+41 79 520 65 11";
-  email = "thomas@thomas-braendle.com";
+  profilNummer = "";
+  profilName = localStorage.getItem("username");
+  telefon = "";
+  email = "";
 
 // ### Funktionen ###
+
+  loadProfile(){
+    this.getService.getAngebot(Number(localStorage.getItem('userid'))).subscribe(res => {
+      this.profilNummer = String(localStorage.getItem('userid'));
+      this.telefon = "";
+      this.email = "";    
+      this.isLoading = false;
+    });
+  }
 
   save(){
     this.notificationService.notificationInfoShort("Not Implementet yet.");

@@ -4,7 +4,7 @@
 <div class="oneWindow" *ngIf="!isLoading">
     <div class="one window">
         <div class="windowTitle windowHeader">
-            <p>Thomas Brändle</p>
+            <p>{{profilName}}</p>
             <a (click)="openMetaInformationen()" class="metaIcon"><img [src]="meta" alt="">
             </a>
         </div>
@@ -13,7 +13,7 @@
                 <p class="unterTitel">Profil</p>
                 <div class="row">
                     <p>Nummer:</p>
-                    <p>{{profilNummer}}</p>
+                    <p>MA 101-{{profilNummer}}</p>
                 </div>
                 <div class="row">
                     <p>Name:</p>

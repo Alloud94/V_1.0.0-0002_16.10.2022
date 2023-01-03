@@ -8,7 +8,7 @@
             <a (click)="search()"><img [src]="searchIcon" alt=""></a>
         </div>
         <div class="profil">
-            <p class="profilGruss">Hi Thomas Brändle</p>
+            <p class="profilGruss">Hi {{userName}}</p>
             <div class="menuPunkt">
                 <a routerLink="/profil" routerLinkActive="active">
                     <img [src]="profil" alt="">
@@ -18,7 +18,7 @@
     </div>
     <div class="headerText">
         <div class="text">
-            <h1>Willkommen Thomas Brändle</h1>
+            <h1>Willkommen {{userName}}</h1>
         </div>
     </div>
 </div>
