@@ -137,9 +137,10 @@ const routes: Routes = [
     path: '404', 
     component: PageNotFoundComponent
   },
-  
-  { path: '**', pathMatch: 'full', 
-  component: PageNotFoundComponent },
+  { 
+    path: '**', pathMatch: 'full', 
+    component: PageNotFoundComponent 
+  }
 
 ];
 
