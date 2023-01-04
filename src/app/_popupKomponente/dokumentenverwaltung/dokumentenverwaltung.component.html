@@ -1,0 +1,37 @@
+<div class="popupWindow">
+    <div class="popupHeader">
+        <div class="headerBezeichnung">
+            <p>Dokumentenverwaltung</p>
+        </div>
+        <div class="closeTab">
+            <span (click)="closeModal()" class="close"><img [src]="close" alt=""></span>
+        </div>
+    </div>
+    <div class="popupContent">
+        <div class="split fullWindow">
+            <div class="windowTable popupTable popupTableFull">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nummer</th>
+                            <th>Bezeichnung</th>
+                            <th>Datum</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let d of dokumente" (click)="edit()">
+                            <td>{{d.id}}</td>
+                            <td>{{d.bezeichnung}}</td>
+                            <td>{{d.datum}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="popupFooter">
+        <div class="btnBearbeiten btnSpeichern">
+            <p (click)="save()">Änderungen speichern</p>
+        </div>
+    </div>
+</div>

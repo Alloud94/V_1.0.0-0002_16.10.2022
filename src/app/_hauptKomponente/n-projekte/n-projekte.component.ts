@@ -38,7 +38,7 @@ export class NProjekteComponent implements OnInit {
   
   openProject(id:number, art:string){
     if(art == "Angebot"){
-      this.route.navigate(['/projekte/angebot/', id]);
+      this.route.navigate(['/projekte/angebot', id]);
     }else if(art == "Auftrag"){
       this.route.navigate(['/projekte/auftrag/', id]);
     }else{

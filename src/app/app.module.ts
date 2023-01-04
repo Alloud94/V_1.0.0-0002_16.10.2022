@@ -68,6 +68,8 @@ import { KalkulationComponent } from './_popupKomponente/kalkulation/kalkulation
 import { AuftragAbschliessenComponent } from './_popupKomponente/auftrag-abschliessen/auftrag-abschliessen.component';
 import { AuthenticationGuard } from './_guard/authentication.guard';
 import { LoadingSpinnerComponent } from './_others/loading-spinner/loading-spinner.component';
+import { DokumentenverwaltungComponent } from './_popupKomponente/dokumentenverwaltung/dokumentenverwaltung.component';
+import { PageNotFoundComponent } from './_minorKomponente/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -130,7 +132,14 @@ const routes: Routes = [
   },
   {
     path: 'passwort', component: BPasswortComponent
-  }
+  },
+  {
+    path: '404', 
+    component: PageNotFoundComponent
+  },
+  
+  { path: '**', pathMatch: 'full', 
+  component: PageNotFoundComponent },
 
 ];
 
@@ -182,7 +191,9 @@ const routes: Routes = [
     PositionArtikelComponent,
     KalkulationComponent,
     AuftragAbschliessenComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    DokumentenverwaltungComponent,
+    PageNotFoundComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

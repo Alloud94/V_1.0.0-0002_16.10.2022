@@ -2,14 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { NotificationService } from 'src/app/_service/notification/notification.service';
 
+// Component
 import { JahresabschlussComponent } from 'src/app/_popupKomponente/jahresabschluss/jahresabschluss.component';
 import { StatistikenComponent } from 'src/app/_popupKomponente/statistiken/statistiken.component';
 import { LogoComponent } from 'src/app/_popupKomponente/logo/logo.component';
 import { EinstellungenComponent } from 'src/app/_popupKomponente/einstellungen/einstellungen.component';
 import { MetainformationenComponent } from 'src/app/_popupKomponente/metainformationen/metainformationen.component';
 import { GenerateMitarbeiterComponent } from 'src/app/_popupKomponente/generate-mitarbeiter/generate-mitarbeiter.component';
+import { DokumentenverwaltungComponent } from 'src/app/_popupKomponente/dokumentenverwaltung/dokumentenverwaltung.component';
 
+// Services
 import { GetService } from 'src/app/_service/get/get.service';
+
+// Interfaces
 import { UnternehmensInformationen } from 'src/app/_interfaces/unternehmenInfos';
 import { Mitarbeiter } from 'src/app/_interfaces/mitarbeiter';
 
@@ -73,6 +78,18 @@ export class KUnternehmenComponent implements OnInit {
 
     const modalDialog = this.matDialog.open(StatistikenComponent, dialogConfig);
   }
+
+  openDokumentenverwaltung() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component";
+    dialogConfig.height = "510px";
+    dialogConfig.width = "894px";
+
+    const modalDialog = this.matDialog.open(DokumentenverwaltungComponent, dialogConfig);
+  }
+
 
   openLogoEinstellungen() {
     const dialogConfig = new MatDialogConfig();

@@ -1,0 +1,20 @@
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+<div class="login" *ngIf="!isLoading">
+    <div class="loginContent">
+        <div class="loginLogo">
+            <img [src]="logo" alt="Goffini Logo mit Schriftzug 'Goffini, Ordnung|Form|Funktion'.">
+        </div>
+        <div class="content">
+            <div class="font">
+                <h1>404 Error - Page not found</h1>
+            </div>
+            <br/>
+            <br/>
+            <p>Es tut uns leid, aber die gewünschte Seite kann leider nicht gefunden werden. Hier geht es zurück:</p>
+            <div class="submitLogin">
+                <a routerLink="/" routerLinkActive="active">Dashboard</a>
+            </div>
+
+        </div>
+    </div>
+</div>

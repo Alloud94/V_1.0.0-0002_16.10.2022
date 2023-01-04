@@ -18,7 +18,8 @@
     </div>
     <div class="headerText">
         <div class="text">
-            <h1>Willkommen {{userName}}</h1>
+            <h1 *ngIf="!permaLink()">Willkommen {{userName}}</h1>
+            <h1 *ngIf="permaLink()">{{permalink}}</h1>
         </div>
     </div>
 </div>
